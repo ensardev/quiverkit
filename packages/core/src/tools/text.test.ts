@@ -43,10 +43,21 @@ describe('convertCase', () => {
     expect(convertCase('ID_VALUE', 'snake', 'tr')).toBe('id_value')
   })
 
-  it('follows the language for plain lower and upper case', () => {
+  it('follows the language for prose styles', () => {
     expect(convertCase('istanbul', 'upper', 'tr')).toBe('İSTANBUL')
     expect(convertCase('istanbul', 'upper', 'en')).toBe('ISTANBUL')
     expect(convertCase('IĞDIR', 'lower', 'tr')).toBe('ığdır')
+
+    // Title and sentence case are prose too: capitalising "istanbul" the
+    // Turkish way gives the dotted İ, and any other result is a misspelling.
+    expect(convertCase('istanbul', 'title', 'tr')).toBe('İstanbul')
+    expect(convertCase('istanbul', 'title', 'en')).toBe('Istanbul')
+    expect(convertCase('istanbul bir şehirdir', 'sentence', 'tr')).toBe('İstanbul bir şehirdir')
+  })
+
+  it('keeps identifier styles unaffected by the same locale', () => {
+    expect(convertCase('istanbul', 'pascal', 'tr')).toBe('Istanbul')
+    expect(convertCase('istanbul city', 'camel', 'tr')).toBe('istanbulCity')
   })
 
   it('returns empty output for input without letters or digits', () => {

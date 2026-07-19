@@ -54,17 +54,23 @@ export const CASE_STYLES = [
 export type CaseStyle = (typeof CASE_STYLES)[number]
 
 /**
- * Identifier styles use locale-independent casing on purpose: under Turkish
- * rules "ID" lowercases to "ıd", which no compiler accepts.
+ * Passing no locale gives the invariant rules, which is what identifiers need:
+ * under Turkish rules "ID" lowercases to "ıd" and "istanbul" capitalises to
+ * "İstanbul", neither of which any compiler accepts.
  */
-function capitalise(word: string): string {
-  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+function capitalise(word: string, locale?: string): string {
+  return word.charAt(0).toLocaleUpperCase(locale) + word.slice(1).toLocaleLowerCase(locale)
 }
 
 /**
- * `lower` and `upper` are the exception — they transform prose, not code, so
- * they follow the language. Turkish is the reason: "istanbul" must uppercase to
- * "İSTANBUL", not "ISTANBUL".
+ * The styles split into two families.
+ *
+ * Identifier styles — camel, pascal, snake, constant, kebab, dot — ignore the
+ * locale, because their output is code.
+ *
+ * Prose styles — title, sentence, lower, upper — follow it, because their
+ * output is text a human reads. In Turkish that is the difference between
+ * "İstanbul" and the misspelled "Istanbul".
  */
 export function convertCase(input: string, style: CaseStyle, locale?: string): string {
   if (style === 'lower') return input.toLocaleLowerCase(locale)
@@ -79,7 +85,7 @@ export function convertCase(input: string, style: CaseStyle, locale?: string): s
         .map((word, index) => (index === 0 ? word.toLowerCase() : capitalise(word)))
         .join('')
     case 'pascal':
-      return words.map(capitalise).join('')
+      return words.map((word) => capitalise(word)).join('')
     case 'snake':
       return words.map((word) => word.toLowerCase()).join('_')
     case 'constant':
@@ -89,9 +95,13 @@ export function convertCase(input: string, style: CaseStyle, locale?: string): s
     case 'dot':
       return words.map((word) => word.toLowerCase()).join('.')
     case 'title':
-      return words.map(capitalise).join(' ')
+      return words.map((word) => capitalise(word, locale)).join(' ')
     case 'sentence':
-      return words.map((word, index) => (index === 0 ? capitalise(word) : word.toLowerCase())).join(' ')
+      return words
+        .map((word, index) =>
+          index === 0 ? capitalise(word, locale) : word.toLocaleLowerCase(locale),
+        )
+        .join(' ')
   }
 }
 
