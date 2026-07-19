@@ -6,6 +6,7 @@ export type ToolCategory =
   | 'text'
   | 'converters'
   | 'design'
+  | 'network'
   | 'crypto'
   | 'generators'
   | 'dev'
@@ -121,10 +122,34 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./color/ColorTool')),
   },
   {
+    id: 'cidr',
+    category: 'network',
+    keywords: ['subnet', 'netmask', 'ip', 'ipv4', 'network', 'broadcast'],
+    Component: lazy(() => import('./cidr/CidrTool')),
+  },
+  {
     id: 'hash',
     category: 'crypto',
     keywords: ['sha', 'sha256', 'digest', 'checksum', 'hmac', 'md5'],
     Component: lazy(() => import('./hash/HashTool')),
+  },
+  {
+    id: 'checksum',
+    category: 'crypto',
+    keywords: ['file', 'verify', 'download', 'integrity', 'sha256'],
+    Component: lazy(() => import('./checksum/ChecksumTool')),
+  },
+  {
+    id: 'aes',
+    category: 'crypto',
+    keywords: ['encrypt', 'decrypt', 'gcm', 'cipher', 'password'],
+    Component: lazy(() => import('./aes/AesTool')),
+  },
+  {
+    id: 'keypair',
+    category: 'crypto',
+    keywords: ['rsa', 'ecdsa', 'ed25519', 'pem', 'public', 'private'],
+    Component: lazy(() => import('./keypair/KeypairTool')),
   },
   {
     id: 'uuid',
@@ -150,6 +175,12 @@ export const TOOLS: Tool[] = [
     keywords: ['version', 'semantic', 'range', 'caret', 'tilde', 'npm'],
     Component: lazy(() => import('./semver/SemverTool')),
   },
+  {
+    id: 'curl',
+    category: 'dev',
+    keywords: ['http', 'request', 'fetch', 'axios', 'python', 'go', 'convert'],
+    Component: lazy(() => import('./curl/CurlTool')),
+  },
 ]
 
 export const CATEGORY_ORDER: ToolCategory[] = [
@@ -158,6 +189,7 @@ export const CATEGORY_ORDER: ToolCategory[] = [
   'text',
   'converters',
   'design',
+  'network',
   'crypto',
   'generators',
   'dev',

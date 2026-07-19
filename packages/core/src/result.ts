@@ -22,6 +22,10 @@ export type ToolError =
   | 'error.invalidPermissions'
   | 'error.invalidVersion'
   | 'error.invalidRange'
+  | 'error.invalidCidr'
+  | 'error.invalidCurl'
+  | 'error.decryptFailed'
+  | 'error.keyGenerationFailed'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

@@ -40,6 +40,7 @@
     "text": "Metin",
     "converters": "Dönüştürücüler",
     "design": "Tasarım",
+    "network": "Ağ",
     "crypto": "Kriptografi",
     "generators": "Üreteçler",
     "dev": "Geliştirici"
@@ -59,7 +60,11 @@
     "invalidBase": "2 ile 36 arasında bir taban seç.",
     "invalidPermissions": "Üç ya da dört sekizlik basamak (755) veya dokuz sembol (rwxr-xr-x) kullan.",
     "invalidVersion": "Üç parçalı tam bir sürüm yaz, 1.2.3 gibi.",
-    "invalidRange": "Bu aralık okunamıyor."
+    "invalidRange": "Bu aralık okunamıyor.",
+    "invalidCidr": "Adres ve önek yaz, 192.168.1.0/24 gibi.",
+    "invalidCurl": "Bu, URL içeren bir curl komutuna benzemiyor.",
+    "decryptFailed": "Çözülemedi. Parola yanlış ya da mesaj değiştirilmiş.",
+    "keyGenerationFailed": "Tarayıcın bu tür bir anahtar üretemiyor."
   },
   "tools": {
     "base64": {
@@ -287,6 +292,70 @@
       "matches": "{{version}}, {{range}} aralığına uyuyor",
       "noMatch": "{{version}}, {{range}} aralığına uymuyor",
       "note": "^, ~, >, >=, <, <=, =, x joker karakterleri, VE için boşluk ve VEYA için || destekleniyor. Tire aralıkları kapsam dışı."
+    },
+    "cidr": {
+      "name": "Alt Ağ Hesaplayıcı",
+      "description": "Bir IPv4 bloğunun ağ, yayın ve host aralığını hesapla.",
+      "block": "Blok",
+      "netmask": "Ağ maskesi",
+      "wildcard": "Joker maske",
+      "network": "Ağ adresi",
+      "broadcast": "Yayın adresi",
+      "firstHost": "İlk host",
+      "lastHost": "Son host",
+      "total": "Toplam adres",
+      "usableHosts": "kullanılabilir host",
+      "private": "Özel aralık",
+      "check": "Bir adres içeride mi?",
+      "inside": "{{address}}, {{block}} içinde",
+      "outside": "{{address}}, {{block}} dışında",
+      "note": "/31 iki adres, /32 tek adres taşır; ikisi de büyük bloklardaki gibi ağ ve yayın adresi ayırmaz."
+    },
+    "aes": {
+      "name": "AES Şifreleme",
+      "description": "Metni bir parolayla şifrele ve çöz — tamamen tarayıcında.",
+      "encrypt": "Şifrele",
+      "decrypt": "Çöz",
+      "passphrase": "Parola",
+      "plaintext": "Düz metin",
+      "ciphertext": "Şifreli",
+      "working": "Anahtar türetiliyor…",
+      "note": "AES-GCM, parolandan 250.000 tur PBKDF2 ile uzatılmış bir anahtarla. GCM yalnızca şifrelemez, doğrular da: değiştirilmiş bir mesaj saçma bir çıktıya dönüşmek yerine çözülmeyi reddeder. Tuz ve IV şifreli metinle birlikte taşınır, ikisi de gizli değildir."
+    },
+    "keypair": {
+      "name": "Anahtar Çifti Üretici",
+      "description": "PEM biçiminde RSA, ECDSA veya Ed25519 anahtar çifti üret.",
+      "generate": "Üret",
+      "working": "Üretiliyor…",
+      "publicKey": "Açık anahtar",
+      "privateKey": "Özel anahtar",
+      "note": "Anahtarlar tarayıcının kendi kripto motorunda üretilir ve sayfadan çıkmaz. Yine de herhangi bir siteye yapıştırdığın anahtarı ele geçirilmiş say — üretim anahtarlarını kendi araçlarınla üret.",
+      "hint": {
+        "RSA-2048": "Güvenli varsayılan. Her yerde desteklenir, üretimi yeterince hızlı.",
+        "RSA-4096": "Daha güçlü, üretimi ve kullanımı gözle görülür şekilde yavaş.",
+        "ECDSA-P256": "Benzer güçte çok daha küçük anahtarlar. Modern tercih.",
+        "Ed25519": "Hızlı, küçük ve yanlış kullanması zor. Güncel tarayıcı gerektirir."
+      }
+    },
+    "checksum": {
+      "name": "Dosya Sağlama Toplamı",
+      "description": "İndirdiğin dosyayı yayınlanan hash'iyle karşılaştır — yüklemeden.",
+      "drop": "Dosyayı buraya bırak",
+      "dropHint": "ya da seçmek için tıkla",
+      "working": "Hash'leniyor…",
+      "digests": "Özetler",
+      "compare": "Yayınlanan hash ile karşılaştır",
+      "expected": "Beklenen hash'i yapıştır",
+      "match": "Dosya eşleşiyor.",
+      "noMatch": "Hiçbir özet bu hash ile eşleşmiyor.",
+      "note": "Dosya belleğe okunup orada hash'lenir. Hiçbir şey yüklenmez — bir yabancıya asla göndermeyeceğin bir dosyayı burada denetlemeyi makul kılan da bu."
+    },
+    "curl": {
+      "name": "cURL'den Koda",
+      "description": "Bir curl komutunu fetch, axios, Python veya Go'ya çevir.",
+      "command": "curl komutu",
+      "request": "Ne gönderiyor",
+      "note": "İsteği değiştirmeyen bayraklar — -L, -k, --compressed ve benzerleri — tahmin edilmek yerine yok sayılır."
     },
     "color": {
       "name": "Renk Dönüştürücü",

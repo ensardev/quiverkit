@@ -23,6 +23,14 @@ export async function hashText(
   return ok(toHex(digest))
 }
 
+/** Same digest for raw bytes — what a file checksum needs. */
+export async function hashBytes(
+  bytes: ArrayBuffer,
+  algorithm: HashAlgorithm,
+): Promise<Result<string>> {
+  return ok(toHex(await crypto.subtle.digest(algorithm, bytes)))
+}
+
 export async function hmac(
   message: string,
   secret: string,

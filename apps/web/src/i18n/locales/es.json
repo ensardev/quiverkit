@@ -40,6 +40,7 @@
     "text": "Texto",
     "converters": "Conversores",
     "design": "Diseño",
+    "network": "Red",
     "crypto": "Criptografía",
     "generators": "Generadores",
     "dev": "Desarrollo"
@@ -59,7 +60,11 @@
     "invalidBase": "Elige una base entre 2 y 36.",
     "invalidPermissions": "Usa tres o cuatro dígitos octales (755) o nueve símbolos (rwxr-xr-x).",
     "invalidVersion": "Escribe una versión completa de tres partes, como 1.2.3.",
-    "invalidRange": "No se puede leer este rango."
+    "invalidRange": "No se puede leer este rango.",
+    "invalidCidr": "Usa una dirección y un prefijo, como 192.168.1.0/24.",
+    "invalidCurl": "Esto no parece un comando curl con una URL.",
+    "decryptFailed": "No se pudo descifrar. La contraseña es incorrecta o el mensaje ha sido alterado.",
+    "keyGenerationFailed": "Tu navegador no puede generar este tipo de clave."
   },
   "tools": {
     "base64": {
@@ -287,6 +292,70 @@
       "matches": "{{version}} cumple {{range}}",
       "noMatch": "{{version}} no cumple {{range}}",
       "note": "Admite ^, ~, >, >=, <, <=, =, comodines x, espacios para Y y || para O. Los rangos con guion no están cubiertos."
+    },
+    "cidr": {
+      "name": "Calculadora de subredes",
+      "description": "Calcula la red, el broadcast y el rango de hosts de un bloque IPv4.",
+      "block": "Bloque",
+      "netmask": "Máscara de red",
+      "wildcard": "Máscara wildcard",
+      "network": "Dirección de red",
+      "broadcast": "Broadcast",
+      "firstHost": "Primer host",
+      "lastHost": "Último host",
+      "total": "Direcciones totales",
+      "usableHosts": "hosts utilizables",
+      "private": "Rango privado",
+      "check": "¿Está una dirección dentro?",
+      "inside": "{{address}} está dentro de {{block}}",
+      "outside": "{{address}} está fuera de {{block}}",
+      "note": "Un /31 tiene dos direcciones y un /32 solo una, y ninguno reserva dirección de red ni de broadcast como hacen los bloques mayores."
+    },
+    "aes": {
+      "name": "Cifrado AES",
+      "description": "Cifra y descifra texto con una contraseña, íntegramente en tu navegador.",
+      "encrypt": "Cifrar",
+      "decrypt": "Descifrar",
+      "passphrase": "Contraseña",
+      "plaintext": "Texto plano",
+      "ciphertext": "Cifrado",
+      "working": "Derivando la clave…",
+      "note": "AES-GCM con una clave estirada desde tu contraseña mediante 250.000 rondas de PBKDF2. GCM autentica además de cifrar, así que un mensaje alterado se niega a descifrarse en lugar de convertirse en basura. La sal y el IV viajan con el texto cifrado: ninguno es secreto."
+    },
+    "keypair": {
+      "name": "Generador de claves",
+      "description": "Genera un par de claves RSA, ECDSA o Ed25519 en formato PEM.",
+      "generate": "Generar",
+      "working": "Generando…",
+      "publicKey": "Clave pública",
+      "privateKey": "Clave privada",
+      "note": "Las claves las genera el motor criptográfico de tu navegador y no salen de la página. Aun así, una clave que pegas en cualquier web es una clave que deberías dar por comprometida: genera las de producción con tus propias herramientas.",
+      "hint": {
+        "RSA-2048": "La opción segura por defecto. Compatible en todas partes y rápida de generar.",
+        "RSA-4096": "Más fuerte, notablemente más lenta de generar y de usar.",
+        "ECDSA-P256": "Claves mucho más pequeñas con una fuerza comparable. La elección moderna habitual.",
+        "Ed25519": "Rápida, pequeña y difícil de usar mal. Requiere un navegador reciente."
+      }
+    },
+    "checksum": {
+      "name": "Suma de verificación",
+      "description": "Verifica un archivo descargado contra su hash publicado, sin subirlo.",
+      "drop": "Suelta un archivo aquí",
+      "dropHint": "o haz clic para elegir uno",
+      "working": "Calculando…",
+      "digests": "Resúmenes",
+      "compare": "Comparar con un hash publicado",
+      "expected": "Pega el hash esperado",
+      "match": "El archivo coincide.",
+      "noMatch": "Ningún resumen coincide con ese hash.",
+      "note": "El archivo se lee en memoria y se procesa allí mismo. No se sube nada, que es lo que hace razonable comprobar un archivo que nunca enviarías a un desconocido."
+    },
+    "curl": {
+      "name": "cURL a código",
+      "description": "Convierte un comando curl en fetch, axios, Python o Go.",
+      "command": "Comando curl",
+      "request": "Lo que envía",
+      "note": "Las banderas que no cambian la petición — -L, -k, --compressed y similares — se ignoran en lugar de adivinarse."
     },
     "color": {
       "name": "Conversor de color",

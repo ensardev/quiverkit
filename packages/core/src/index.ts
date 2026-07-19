@@ -25,6 +25,26 @@ export {
   type Rgb,
 } from './tools/color.js'
 
+export { decryptAes, encryptAes } from './tools/aes.js'
+
+export { contains, parseCidr, type CidrInfo } from './tools/cidr.js'
+
+export {
+  CODE_TARGETS,
+  generateCode,
+  parseCurl,
+  type CodeTarget,
+  type Header,
+  type HttpRequest,
+} from './tools/curl.js'
+
+export {
+  generateKeyPair,
+  KEY_ALGORITHMS,
+  type KeyAlgorithm,
+  type KeyPairPem,
+} from './tools/keypair.js'
+
 export {
   parseOctal,
   parseSymbolic,
@@ -64,7 +84,7 @@ export {
   type EscapeFlavour,
 } from './tools/escape.js'
 
-export { HASH_ALGORITHMS, hashText, hmac, type HashAlgorithm } from './tools/hash.js'
+export { HASH_ALGORITHMS, hashBytes, hashText, hmac, type HashAlgorithm } from './tools/hash.js'
 
 export {
   findInvisibles,
