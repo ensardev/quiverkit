@@ -10,11 +10,31 @@ const FIELDS = [
   { key: 'spread', min: -50, max: 50 },
 ] as const
 
+/**
+ * A black shadow is invisible against a dark surface, so the starting colour
+ * follows the theme. Dark interfaces really do use light shadows for the same
+ * reason — the light source has to contrast with what it falls on.
+ */
+function isDarkTheme(): boolean {
+  return document.documentElement.dataset.theme === 'dark'
+}
+
+function defaultShadow(): Shadow {
+  return {
+    offsetX: 0,
+    offsetY: 4,
+    blur: 12,
+    spread: -2,
+    color: isDarkTheme() ? '#ffffff40' : '#00000040',
+    inset: false,
+  }
+}
+
 export default function ShadowTool() {
   const { t } = useTranslation()
-  const [shadows, setShadows] = useState<Shadow[]>([
-    { offsetX: 0, offsetY: 4, blur: 12, spread: -2, color: '#00000040', inset: false },
-  ])
+  const [shadows, setShadows] = useState<Shadow[]>(() => [defaultShadow()])
+
+  const preset = (level: number) => elevation(level, isDarkTheme() ? '0 0% 100%' : '0 0% 0%')
 
   const css = useMemo(() => shadowToCss(shadows), [shadows])
 
@@ -30,13 +50,13 @@ export default function ShadowTool() {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Button onClick={() => setShadows(elevation(2))}>{t('tools.shadow.soft')}</Button>
-        <Button onClick={() => setShadows(elevation(4))}>{t('tools.shadow.deep')}</Button>
+        <Button onClick={() => setShadows(preset(2))}>{t('tools.shadow.soft')}</Button>
+        <Button onClick={() => setShadows(preset(4))}>{t('tools.shadow.deep')}</Button>
         <Button
           onClick={() =>
             setShadows((current) => [
               ...current,
-              { offsetX: 0, offsetY: 8, blur: 24, spread: -4, color: '#00000030', inset: false },
+              { ...defaultShadow(), offsetY: 8, blur: 24, spread: -4 },
             ])
           }
         >

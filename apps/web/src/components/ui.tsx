@@ -96,7 +96,9 @@ interface PanelProps {
 
 export function Panel({ label, action, children }: PanelProps) {
   return (
-    <section className="border-line bg-surface flex min-h-0 flex-col overflow-hidden rounded-xl border">
+    // `shrink-0` matters: inside a flex column, a stack of panels would
+    // otherwise share the available height and squeeze every one of them flat.
+    <section className="border-line bg-surface flex shrink-0 flex-col overflow-hidden rounded-xl border">
       <header className="border-line flex items-center justify-between border-b px-4 py-2">
         <h2 className="text-muted text-xs font-semibold tracking-wide uppercase">{label}</h2>
         {action}
@@ -191,7 +193,7 @@ export function ToolShell({ id, children }: { id: string; children: ReactNode })
   const { t } = useTranslation()
 
   return (
-    <article className="mx-auto flex h-full w-full max-w-5xl flex-col gap-6 p-6 lg:p-10">
+    <article className="mx-auto flex w-full max-w-5xl flex-col gap-6 p-6 lg:p-10">
       <header className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">{t(`tools.${id}.name`)}</h1>
         <p className="text-muted text-sm">{t(`tools.${id}.description`)}</p>

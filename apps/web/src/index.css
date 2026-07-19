@@ -90,4 +90,39 @@
   ::selection {
     @apply bg-accent-soft;
   }
+
+  /*
+   * The default scrollbar is a light-mode widget that most browsers leave alone
+   * in dark themes, so it sits on the page as a bright grey slab. These rules
+   * make it follow our own colours; the standard properties cover Firefox and
+   * the WebKit ones cover Chromium and Safari.
+   */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--border-strong);
+    border: 3px solid transparent;
+    background-clip: content-box;
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-muted);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
