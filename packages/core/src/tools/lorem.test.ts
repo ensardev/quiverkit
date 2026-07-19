@@ -7,9 +7,40 @@ describe('generateLorem', () => {
     expect(text.split(' ')).toHaveLength(12)
   })
 
-  it('opens with the traditional two words when asked', () => {
-    const text = generateLorem({ unit: 'words', count: 8, startWithLorem: true })
-    expect(text.startsWith('lorem ipsum')).toBe(true)
+  it('opens with the traditional passage in every unit', () => {
+    // The option used to apply to words only, so paragraphs quietly ignored it.
+    expect(generateLorem({ unit: 'words', count: 8, startWithLorem: true })).toMatch(
+      /^lorem ipsum dolor sit amet/,
+    )
+    expect(generateLorem({ unit: 'sentences', count: 2, startWithLorem: true })).toMatch(
+      /^Lorem ipsum dolor sit amet, consectetur adipiscing elit\./,
+    )
+    expect(generateLorem({ unit: 'paragraphs', count: 3, startWithLorem: true })).toMatch(
+      /^Lorem ipsum dolor sit amet, consectetur adipiscing elit\./,
+    )
+  })
+
+  it('leaves the opening out when it is not asked for', () => {
+    for (const unit of ['words', 'sentences', 'paragraphs'] as const) {
+      const text = generateLorem({ unit, count: 3, startWithLorem: false })
+      expect(text.toLowerCase().startsWith('lorem ipsum dolor')).toBe(false)
+    }
+  })
+
+  it('uses the opening once, not at the top of every paragraph', () => {
+    const paragraphs = generateLorem({ unit: 'paragraphs', count: 4, startWithLorem: true }).split(
+      '\n\n',
+    )
+
+    expect(paragraphs).toHaveLength(4)
+    for (const paragraph of paragraphs.slice(1)) {
+      expect(paragraph.startsWith('Lorem ipsum dolor')).toBe(false)
+    }
+  })
+
+  it('still respects the requested word count with the opening on', () => {
+    const text = generateLorem({ unit: 'words', count: 5, startWithLorem: true })
+    expect(text.split(' ')).toHaveLength(5)
   })
 
   it('produces the requested number of paragraphs', () => {

@@ -3,12 +3,14 @@ const WORDS =
     ' ',
   )
 
+/** The passage everyone recognises, kept word for word. */
+const OPENING = 'lorem ipsum dolor sit amet, consectetur adipiscing elit'
+
 export type LoremUnit = 'words' | 'sentences' | 'paragraphs'
 
 export interface LoremOptions {
   unit: LoremUnit
   count: number
-  /** The traditional opening, which readers recognise as placeholder text. */
   startWithLorem: boolean
 }
 
@@ -18,30 +20,46 @@ function pick(index: number): string {
   return WORDS[index % WORDS.length] as string
 }
 
+function capitalise(text: string): string {
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
 function sentence(seed: number, length: number): string {
   const words = Array.from({ length }, (_, index) => pick(seed + index * 7))
-  const text = words.join(' ')
+  return capitalise(words.join(' ')) + '.'
+}
 
-  return text.charAt(0).toUpperCase() + text.slice(1) + '.'
+/**
+ * Builds a run of sentences. The opening only ever belongs to the very first
+ * one — it is what makes the text recognisable as placeholder, and repeating it
+ * in every paragraph would look like a bug rather than a convention.
+ */
+function sentences(start: number, howMany: number, withOpening: boolean): string {
+  const parts = Array.from({ length: howMany }, (_, index) =>
+    sentence(start + index * 11, 8 + ((start + index) % 7)),
+  )
+
+  if (withOpening) parts[0] = capitalise(OPENING) + '.'
+
+  return parts.join(' ')
 }
 
 export function generateLorem(options: LoremOptions): string {
   const count = Math.max(1, Math.min(options.count, MAX_COUNT))
+  const opening = options.startWithLorem
 
   if (options.unit === 'words') {
+    const openingWords = OPENING.replace(',', '').split(' ')
     const words = Array.from({ length: count }, (_, index) => pick(index * 3))
-    if (options.startWithLorem) words.splice(0, Math.min(2, words.length), 'lorem', 'ipsum')
-    return words.join(' ')
+
+    if (opening) words.splice(0, Math.min(openingWords.length, words.length), ...openingWords)
+
+    return words.slice(0, count).join(' ')
   }
 
-  const sentences = (start: number, howMany: number) =>
-    Array.from({ length: howMany }, (_, index) =>
-      sentence(start + index * 11, 8 + ((start + index) % 7)),
-    ).join(' ')
+  if (options.unit === 'sentences') return sentences(0, count, opening)
 
-  if (options.unit === 'sentences') return sentences(0, count)
-
-  return Array.from({ length: count }, (_, index) => sentences(index * 23, 3 + (index % 3))).join(
-    '\n\n',
-  )
+  return Array.from({ length: count }, (_, index) =>
+    sentences(index * 23, 3 + (index % 3), opening && index === 0),
+  ).join('\n\n')
 }
