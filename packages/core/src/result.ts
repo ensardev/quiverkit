@@ -27,6 +27,12 @@ export type ToolError =
   | 'error.decryptFailed'
   | 'error.keyGenerationFailed'
   | 'error.unsupportedImage'
+  | 'error.invalidCron'
+  | 'error.invalidCsv'
+  | 'error.invalidHex'
+  | 'error.invalidXml'
+  | 'error.invalidPath'
+  | 'error.invalidSvg'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

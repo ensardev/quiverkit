@@ -255,6 +255,65 @@ export function toOklch({ r, g, b, a }: Rgb): Oklch {
   return { l: round(lightness, 4), c: round(chroma, 4), h: round(hue, 2), a }
 }
 
+function encodeGamma(channel: number): number {
+  const value = channel <= 0.0031308 ? channel * 12.92 : 1.055 * channel ** (1 / 2.4) - 0.055
+  return Math.round(clamp(value, 0, 1) * 255)
+}
+
+function toLinear({ l, c, h }: Oklch): [number, number, number] {
+  const radians = (h * Math.PI) / 180
+  const greenRed = c * Math.cos(radians)
+  const blueYellow = c * Math.sin(radians)
+
+  const long = (l + 0.3963377774 * greenRed + 0.2158037573 * blueYellow) ** 3
+  const medium = (l - 0.1055613458 * greenRed - 0.0638541728 * blueYellow) ** 3
+  const short = (l - 0.0894841775 * greenRed - 1.291485548 * blueYellow) ** 3
+
+  return [
+    4.0767416621 * long - 3.3077115913 * medium + 0.2309699292 * short,
+    -1.2684380046 * long + 2.6097574011 * medium - 0.3413193965 * short,
+    -0.0041960863 * long - 0.7034186147 * medium + 1.707614701 * short,
+  ]
+}
+
+/** The inverse of `toOklch`, which is what lets a palette be built in OKLCH. */
+export function oklchToRgb(colour: Oklch): Rgb {
+  const [red, green, blue] = toLinear(colour)
+
+  return {
+    r: encodeGamma(red),
+    g: encodeGamma(green),
+    b: encodeGamma(blue),
+    a: colour.a,
+  }
+}
+
+/**
+ * OKLCH can describe colours that no screen can show. Converting one anyway
+ * clamps each channel on its own, and clamping channels independently drags the
+ * hue with it — a light blue turns lilac. Callers that build ramps need to know
+ * before it happens.
+ */
+export function inSrgbGamut(colour: Oklch, tolerance = 1e-4): boolean {
+  return toLinear(colour).every((channel) => channel >= -tolerance && channel <= 1 + tolerance)
+}
+
+/** Lowers chroma until the colour fits, keeping lightness and hue untouched. */
+export function fitToGamut(colour: Oklch): Oklch {
+  if (inSrgbGamut(colour)) return colour
+
+  let low = 0
+  let high = colour.c
+
+  for (let step = 0; step < 24; step += 1) {
+    const middle = (low + high) / 2
+    if (inSrgbGamut({ ...colour, c: middle })) low = middle
+    else high = middle
+  }
+
+  return { ...colour, c: low }
+}
+
 export function relativeLuminance({ r, g, b }: Rgb): number {
   return 0.2126 * linearise(r) + 0.7152 * linearise(g) + 0.0722 * linearise(b)
 }

@@ -66,7 +66,13 @@
     "invalidCurl": "Esto no parece un comando curl con una URL.",
     "decryptFailed": "No se pudo descifrar. La contraseña es incorrecta o el mensaje ha sido alterado.",
     "keyGenerationFailed": "Tu navegador no puede generar este tipo de clave.",
-    "unsupportedImage": "Esta herramienta lee archivos JPEG. Otros formatos guardan los metadatos de otra forma."
+    "unsupportedImage": "Esta herramienta lee archivos JPEG. Otros formatos guardan los metadatos de otra forma.",
+    "invalidCron": "Una línea de cron tiene cinco campos, como 0 9 * * mon-fri.",
+    "invalidCsv": "Esta tabla no se puede leer. La entrada JSON debe ser un array de objetos.",
+    "invalidHex": "El hexadecimal necesita un número par de dígitos.",
+    "invalidXml": "Este marcado no se puede leer.",
+    "invalidPath": "Esta ruta no se puede leer.",
+    "invalidSvg": "Esto no contiene ningún elemento <svg>."
   },
   "tools": {
     "base64": {
@@ -360,6 +366,150 @@
       "clean": "No se encontraron metadatos. Este archivo se puede compartir tal cual.",
       "download": "Descargar sin metadatos",
       "note": "La limpieza elimina los segmentos de metadatos y copia los datos de imagen byte a byte, así que nada se recodifica y no se pierde calidad. El archivo nunca sale de tu navegador."
+    },
+    "cron": {
+      "name": "Expresión cron",
+      "description": "Lee una línea de crontab y comprueba cuándo se ejecuta de verdad.",
+      "fields": "Campos",
+      "nextRuns": "Próximas ejecuciones",
+      "every": "cada",
+      "never": "Esta expresión no coincide con ninguna fecha real.",
+      "note": "Cuando el día del mes y el día de la semana están ambos restringidos, cron se ejecuta con *cualquiera* de los dos, no con ambos. \"0 0 13 * fri\" significa cada día 13 y cada viernes, no el viernes 13.",
+      "field": {
+        "minutes": "Minuto",
+        "hours": "Hora",
+        "daysOfMonth": "Día del mes",
+        "months": "Mes",
+        "daysOfWeek": "Día de la semana"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "Convierte entre CSV y JSON, con campos entrecomillados incluidos.",
+      "hasHeader": "La primera fila es la cabecera",
+      "note": "La lectura se hace carácter a carácter en lugar de partiendo por el delimitador, así que un campo entrecomillado con una coma, un salto de línea o comillas dobles sobrevive intacto."
+    },
+    "jsonTypes": {
+      "name": "De JSON a tipos",
+      "description": "Convierte una respuesta de ejemplo en interfaces TypeScript o en un JSON Schema.",
+      "rootName": "Nombre raíz",
+      "note": "Con un array, una clave que solo aparece en algunos elementos se marca como opcional, que es lo que hace el resultado útil frente a una API real y no solo frente a tu ejemplo."
+    },
+    "timezone": {
+      "name": "Conversor de zonas horarias",
+      "description": "Mira un mismo instante en varias zonas horarias a la vez.",
+      "now": "Ahora",
+      "zones": "Zonas",
+      "add": "Añadir zona",
+      "note": "Los desfases salen de la propia base de datos de zonas del navegador, así que el horario de verano se calcula en lugar de suponerse."
+    },
+    "dateDiff": {
+      "name": "Diferencia de fechas",
+      "description": "Cuenta los días, los días laborables y la distancia de calendario entre dos fechas.",
+      "from": "Desde",
+      "to": "Hasta",
+      "days": "días",
+      "breakdown": "Distancia de calendario",
+      "parts": "{{years}}a {{months}}m {{days}}d",
+      "workingDays": "Días laborables",
+      "workingHint": "De lunes a viernes",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "weeks": "Semanas"
+    },
+    "reference": {
+      "name": "Referencia HTTP",
+      "description": "Consulta códigos de estado y tipos MIME.",
+      "statuses": "Códigos de estado",
+      "mimeTypes": "Tipos MIME",
+      "group": {
+        "informational": "info",
+        "success": "éxito",
+        "redirect": "redirección",
+        "clientError": "cliente",
+        "serverError": "servidor"
+      }
+    },
+    "hex": {
+      "name": "Visor hexadecimal",
+      "description": "Convierte texto a hexadecimal y de vuelta, o vuelca un archivo byte a byte.",
+      "encode": "Texto → Hex",
+      "decode": "Hex → Texto",
+      "dump": "Volcado de archivo",
+      "drop": "Suelta un archivo aquí",
+      "dropHint": "o haz clic para elegir uno",
+      "note": "La conversión pasa por UTF-8, así que el texto de cualquier alfabeto va y vuelve intacto. El volcado muestra las primeras 512 filas."
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "Texto de relleno en latín, inglés, turco, español o japonés.",
+      "unit": {
+        "words": "Palabras",
+        "sentences": "Frases",
+        "paragraphs": "Párrafos"
+      },
+      "note": "El relleno en latín junto a un diseño en turco o japonés esconde justo lo que una maqueta debería revelar: cómo llena el espacio la escritura real, dónde corta la línea y cuánto suben los renglones."
+    },
+    "cipher": {
+      "name": "Cifrados clásicos",
+      "description": "ROT13, César, Atbash, invertir y Morse.",
+      "encode": "Cifrar",
+      "decode": "Descifrar",
+      "shift": "Desplazamiento",
+      "note": "Esto son pasatiempos, no seguridad: todos se rompieron hace siglos. Están aquí porque los CTF, los acertijos y los ejercicios escolares siguen usándolos a diario."
+    },
+    "sql": {
+      "name": "Formateador SQL",
+      "description": "Reparte la consulta en líneas legibles o júntala en una sola.",
+      "format": "Formatear",
+      "minify": "Minificar",
+      "note": "Las cadenas y los comentarios se analizan aparte, así que una palabra clave que aparezca dentro de un literal nunca pasa a mayúsculas: eso cambiaría lo que hace la consulta."
+    },
+    "xml": {
+      "name": "Formateador XML / HTML",
+      "description": "Indenta el marcado o quítale de nuevo los espacios.",
+      "format": "Formatear",
+      "minify": "Minificar",
+      "note": "Un elemento cuyo único hijo es texto se queda en una línea, y las etiquetas HTML sin cierre como <br> no abren un nivel de indentación."
+    },
+    "jsonpath": {
+      "name": "Consulta JSONPath",
+      "description": "Extrae valores de un documento JSON con una expresión de ruta.",
+      "matches": "Coincidencias ({{count}})",
+      "paths": "De dónde vienen",
+      "note": "Admite $.clave, [0], [-1], [*], [1:3] y la forma recursiva ..clave. Las expresiones de filtro quedan fuera: ahí es donde la gramática se convierte en un lenguaje propio."
+    },
+    "svg": {
+      "name": "Optimizador SVG",
+      "description": "Reduce un SVG y expórtalo como data URI o como componente JSX.",
+      "optimise": "Optimizar",
+      "bytes": "bytes",
+      "note": "El data URI codifica solo los caracteres que romperían un url() de CSS, lo que lo deja mucho más corto que base64 y aun así legible."
+    },
+    "palette": {
+      "name": "Paleta de color",
+      "description": "Crea una escala tonal y armonías a partir de un solo color.",
+      "steps": "Escala",
+      "css": "Variables CSS",
+      "onWhite": "sobre blanco",
+      "onBlack": "sobre negro",
+      "harmony": {
+        "complementary": "Complementaria",
+        "analogous": "Análoga",
+        "triadic": "Triádica",
+        "tetradic": "Tetrádica"
+      },
+      "note": "Construida en OKLCH, donde pasos iguales de luminosidad se ven igual de distintos al ojo. El croma baja hasta que cada paso cabe en sRGB: recortar los canales en su lugar arrastraría el tono y volvería lila un azul claro."
+    },
+    "mock": {
+      "name": "Datos de prueba",
+      "description": "Genera datos de prueba realistas en JSON, de forma reproducible.",
+      "rows": "Filas",
+      "seed": "Semilla",
+      "reroll": "Nueva semilla",
+      "fields": "Campos",
+      "addField": "Añadir campo",
+      "note": "La misma semilla reconstruye siempre los mismos datos, así que un fixture se mantiene estable entre ejecuciones. Los nombres proceden de varias regiones, no de una sola."
     },
     "cidr": {
       "name": "Calculadora de subredes",

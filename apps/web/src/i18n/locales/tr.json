@@ -66,7 +66,13 @@
     "invalidCurl": "Bu, URL içeren bir curl komutuna benzemiyor.",
     "decryptFailed": "Çözülemedi. Parola yanlış ya da mesaj değiştirilmiş.",
     "keyGenerationFailed": "Tarayıcın bu tür bir anahtar üretemiyor.",
-    "unsupportedImage": "Bu araç JPEG dosyalarını okur. Diğer biçimler üst veriyi farklı saklar."
+    "unsupportedImage": "Bu araç JPEG dosyalarını okur. Diğer biçimler üst veriyi farklı saklar.",
+    "invalidCron": "Bir cron satırı beş alandan oluşur, 0 9 * * mon-fri gibi.",
+    "invalidCsv": "Bu okuyabileceğimiz bir tablo değil. JSON girdisi nesne dizisi olmalı.",
+    "invalidHex": "Hex çift sayıda basamak gerektirir.",
+    "invalidXml": "Bu işaretleme okunamıyor.",
+    "invalidPath": "Bu yol okunamıyor.",
+    "invalidSvg": "Bunun içinde <svg> öğesi yok."
   },
   "tools": {
     "base64": {
@@ -360,6 +366,150 @@
       "clean": "Üst veri bulunamadı. Bu dosya olduğu gibi paylaşılabilir.",
       "download": "Üst verisiz indir",
       "note": "Temizleme yalnızca üst veri bölümlerini kaldırır, görüntü verisini bayt bayt kopyalar — hiçbir şey yeniden kodlanmaz, kalite kaybı olmaz. Dosya tarayıcından hiç çıkmaz."
+    },
+    "cron": {
+      "name": "Cron İfadesi",
+      "description": "Bir crontab satırını oku, gerçekte ne zaman çalıştığını gör.",
+      "fields": "Alanlar",
+      "nextRuns": "Sonraki çalışmalar",
+      "every": "her",
+      "never": "Bu ifade gerçek bir tarihe hiç denk gelmiyor.",
+      "note": "Ayın günü ile haftanın günü aynı anda kısıtlıysa cron ikisinden *biri* tuttuğunda çalışır, ikisi birden değil. \"0 0 13 * fri\" her ayın 13'ü ve her cuma demektir, 13'üne denk gelen cuma değil.",
+      "field": {
+        "minutes": "Dakika",
+        "hours": "Saat",
+        "daysOfMonth": "Ayın günü",
+        "months": "Ay",
+        "daysOfWeek": "Haftanın günü"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "CSV ile JSON arasında dönüştür, tırnaklı alanlar dahil.",
+      "hasHeader": "İlk satır başlık",
+      "note": "Okuma, ayraçtan bölerek değil karakter karakter yapılır; böylece içinde virgül, satır sonu ya da çift tırnak barındıran alanlar bozulmadan kalır."
+    },
+    "jsonTypes": {
+      "name": "JSON'dan Tiplere",
+      "description": "Örnek bir cevabı TypeScript arayüzlerine ya da JSON Schema'ya çevir.",
+      "rootName": "Kök adı",
+      "note": "Dizi verdiğinde, yalnızca bazı elemanlarda bulunan bir anahtar isteğe bağlı işaretlenir — sonucu yalnızca örneğinde değil gerçek API'de de kullanılabilir kılan şey budur."
+    },
+    "timezone": {
+      "name": "Zaman Dilimi Dönüştürücü",
+      "description": "Tek bir anı birden çok zaman diliminde aynı anda gör.",
+      "now": "Şimdi",
+      "zones": "Dilimler",
+      "add": "Dilim ekle",
+      "note": "Farklar tarayıcının kendi zaman dilimi veri tabanından geliyor; yaz saati varsayılmıyor, gerçekten hesaplanıyor."
+    },
+    "dateDiff": {
+      "name": "Tarih Farkı",
+      "description": "İki tarih arasındaki gün, iş günü ve takvim farkını hesapla.",
+      "from": "Başlangıç",
+      "to": "Bitiş",
+      "days": "gün",
+      "breakdown": "Takvim farkı",
+      "parts": "{{years}}y {{months}}a {{days}}g",
+      "workingDays": "İş günü",
+      "workingHint": "Pazartesi–Cuma",
+      "hours": "Saat",
+      "minutes": "Dakika",
+      "weeks": "Hafta"
+    },
+    "reference": {
+      "name": "HTTP Sözlüğü",
+      "description": "Durum kodlarına ve MIME türlerine bak.",
+      "statuses": "Durum kodları",
+      "mimeTypes": "MIME türleri",
+      "group": {
+        "informational": "bilgi",
+        "success": "başarı",
+        "redirect": "yönlendirme",
+        "clientError": "istemci",
+        "serverError": "sunucu"
+      }
+    },
+    "hex": {
+      "name": "Hex Görüntüleyici",
+      "description": "Metni hex'e çevir, geri al, ya da bir dosyayı bayt bayt dök.",
+      "encode": "Metin → Hex",
+      "decode": "Hex → Metin",
+      "dump": "Dosya dökümü",
+      "drop": "Dosyayı buraya bırak",
+      "dropHint": "ya da seçmek için tıkla",
+      "note": "Dönüşüm UTF-8 üzerinden yapılır, böylece her alfabedeki metin bozulmadan gidip gelir. Döküm ilk 512 satırı gösterir."
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "Latince, İngilizce, Türkçe, İspanyolca veya Japonca yer tutucu metin.",
+      "unit": {
+        "words": "Kelime",
+        "sentences": "Cümle",
+        "paragraphs": "Paragraf"
+      },
+      "note": "Türkçe ya da Japonca bir tasarımın yanındaki Latince dolgu, taslağın göstermesi gereken şeyi gizler: gerçek yazının alanı nasıl doldurduğunu, nerede satır atladığını, satırların ne kadar yükseldiğini."
+    },
+    "cipher": {
+      "name": "Klasik Şifreler",
+      "description": "ROT13, Caesar, Atbash, ters çevirme ve Mors.",
+      "encode": "Şifrele",
+      "decode": "Çöz",
+      "shift": "Kaydırma",
+      "note": "Bunlar bulmaca, güvenlik değil — hepsi yüzyıllar önce kırıldı. Burada olmalarının sebebi CTF'lerin, bilmecelerin ve okul alıştırmalarının hâlâ bunları kullanması."
+    },
+    "sql": {
+      "name": "SQL Biçimlendirici",
+      "description": "Sorguyu okunabilir satırlara yay ya da tek satıra topla.",
+      "format": "Biçimlendir",
+      "minify": "Küçült",
+      "note": "Metin ve yorumlar ayrı ayrıştırılır; böylece bir metnin içinde geçen anahtar kelime asla büyütülmez — büyütmek sorgunun anlamını değiştirirdi."
+    },
+    "xml": {
+      "name": "XML / HTML Biçimlendirici",
+      "description": "İşaretlemeyi girintile ya da boşlukları geri temizle.",
+      "format": "Biçimlendir",
+      "minify": "Küçült",
+      "note": "Tek çocuğu metin olan öğe tek satırda kalır, <br> gibi kapanışsız HTML etiketleri de girinti seviyesi açmaz."
+    },
+    "jsonpath": {
+      "name": "JSONPath Sorgusu",
+      "description": "Bir JSON belgesinden yol ifadesiyle değer çek.",
+      "matches": "Eşleşme ({{count}})",
+      "paths": "Nereden geldiler",
+      "note": "$.anahtar, [0], [-1], [*], [1:3] ve özyinelemeli ..anahtar destekleniyor. Filtre ifadeleri kapsam dışı — dilbilgisinin başlı başına bir dile dönüştüğü yer orası."
+    },
+    "svg": {
+      "name": "SVG Optimize Edici",
+      "description": "SVG'yi sadeleştir, sonra data URI ya da JSX bileşeni olarak dışa aktar.",
+      "optimise": "Optimize et",
+      "bytes": "bayt",
+      "note": "Data URI yalnızca CSS url() ifadesini bozacak karakterleri yüzde kodlamasına çevirir; bu da sonucu base64'ten çok daha kısa ve hâlâ okunabilir tutar."
+    },
+    "palette": {
+      "name": "Renk Paleti",
+      "description": "Tek bir renkten ton ölçeği ve uyumlu renkler üret.",
+      "steps": "Ölçek",
+      "css": "CSS değişkenleri",
+      "onWhite": "beyazda",
+      "onBlack": "siyahta",
+      "harmony": {
+        "complementary": "Tamamlayıcı",
+        "analogous": "Komşu",
+        "triadic": "Üçlü",
+        "tetradic": "Dörtlü"
+      },
+      "note": "OKLCH ile kuruldu; orada parlaklıktaki eşit adımlar göze de eşit farklılıkta görünür. Doygunluk, her adım sRGB'ye sığana kadar düşürülür — bunun yerine kanalları kırpmak renk tonunu kaydırır ve açık maviyi leylak yapar."
+    },
+    "mock": {
+      "name": "Sahte Veri",
+      "description": "Gerçekçi test verisini JSON olarak, tekrar üretilebilir şekilde oluştur.",
+      "rows": "Satır",
+      "seed": "Tohum",
+      "reroll": "Yeni tohum",
+      "fields": "Alanlar",
+      "addField": "Alan ekle",
+      "note": "Aynı tohum her zaman aynı veriyi üretir, böylece bir test verisi çalıştırmalar arasında sabit kalır. İsimler tek bir bölgeden değil, birçok yerden seçiliyor."
     },
     "cidr": {
       "name": "Alt Ağ Hesaplayıcı",

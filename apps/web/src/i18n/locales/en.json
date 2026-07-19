@@ -66,7 +66,13 @@
     "invalidCurl": "This does not look like a curl command with a URL.",
     "decryptFailed": "Could not decrypt. The passphrase is wrong, or the message has been altered.",
     "keyGenerationFailed": "Your browser cannot generate this kind of key.",
-    "unsupportedImage": "This tool reads JPEG files. Other formats store metadata differently."
+    "unsupportedImage": "This tool reads JPEG files. Other formats store metadata differently.",
+    "invalidCron": "A cron line has five fields, like 0 9 * * mon-fri.",
+    "invalidCsv": "This is not a table we can read. JSON input must be an array of objects.",
+    "invalidHex": "Hex needs an even number of digits.",
+    "invalidXml": "This markup cannot be read.",
+    "invalidPath": "This path cannot be read.",
+    "invalidSvg": "This does not contain an <svg> element."
   },
   "tools": {
     "base64": {
@@ -360,6 +366,150 @@
       "clean": "No metadata found. This file is safe to share as it is.",
       "download": "Download without metadata",
       "note": "Stripping removes the metadata segments and copies the image data byte for byte, so nothing is re-encoded and no quality is lost. The file never leaves your browser."
+    },
+    "cron": {
+      "name": "Cron Expression",
+      "description": "Read a crontab line and see when it actually runs.",
+      "fields": "Fields",
+      "nextRuns": "Next runs",
+      "every": "every",
+      "never": "This expression never matches a real date.",
+      "note": "When both the day of month and the day of week are restricted, cron runs on either — not both. \"0 0 13 * fri\" means every 13th and every Friday, not Friday the 13th.",
+      "field": {
+        "minutes": "Minute",
+        "hours": "Hour",
+        "daysOfMonth": "Day of month",
+        "months": "Month",
+        "daysOfWeek": "Day of week"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "Convert between CSV and JSON, quoted fields and all.",
+      "hasHeader": "First row is a header",
+      "note": "Reading is done character by character rather than by splitting on the delimiter, so a quoted field containing a comma, a newline or a doubled quote survives intact."
+    },
+    "jsonTypes": {
+      "name": "JSON to Types",
+      "description": "Turn a sample response into TypeScript interfaces or a JSON Schema.",
+      "rootName": "Root name",
+      "note": "Given an array, a key that appears in only some elements is marked optional — which is what makes the result usable against a real API rather than only against your sample."
+    },
+    "timezone": {
+      "name": "Time Zone Converter",
+      "description": "See one moment across several time zones at once.",
+      "now": "Now",
+      "zones": "Zones",
+      "add": "Add a zone",
+      "note": "Offsets come from the browser's own time zone database, so daylight saving is handled rather than assumed."
+    },
+    "dateDiff": {
+      "name": "Date Difference",
+      "description": "Count the days, working days and calendar gap between two dates.",
+      "from": "From",
+      "to": "To",
+      "days": "days",
+      "breakdown": "Calendar gap",
+      "parts": "{{years}}y {{months}}m {{days}}d",
+      "workingDays": "Working days",
+      "workingHint": "Monday to Friday",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "weeks": "Weeks"
+    },
+    "reference": {
+      "name": "HTTP Reference",
+      "description": "Look up status codes and MIME types.",
+      "statuses": "Status codes",
+      "mimeTypes": "MIME types",
+      "group": {
+        "informational": "info",
+        "success": "success",
+        "redirect": "redirect",
+        "clientError": "client",
+        "serverError": "server"
+      }
+    },
+    "hex": {
+      "name": "Hex Viewer",
+      "description": "Convert text to hex and back, or dump a file byte by byte.",
+      "encode": "Text → Hex",
+      "decode": "Hex → Text",
+      "dump": "File dump",
+      "drop": "Drop a file here",
+      "dropHint": "or click to choose one",
+      "note": "Conversion goes through UTF-8, so text in any script round-trips correctly. The dump shows the first 512 rows."
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "Placeholder text in Latin, English, Turkish, Spanish or Japanese.",
+      "unit": {
+        "words": "Words",
+        "sentences": "Sentences",
+        "paragraphs": "Paragraphs"
+      },
+      "note": "Latin filler beside a Turkish or Japanese layout hides what a mock-up should reveal: how the real script fills the space, where it wraps, how tall the lines run."
+    },
+    "cipher": {
+      "name": "Classic Ciphers",
+      "description": "ROT13, Caesar, Atbash, reverse and Morse.",
+      "encode": "Encode",
+      "decode": "Decode",
+      "shift": "Shift",
+      "note": "These are puzzles, not security — every one of them was broken centuries ago. They are here because CTFs, riddles and school exercises still use them constantly."
+    },
+    "sql": {
+      "name": "SQL Formatter",
+      "description": "Lay a query out on readable lines, or collapse it onto one.",
+      "format": "Format",
+      "minify": "Minify",
+      "note": "Strings and comments are tokenised separately, so a keyword that happens to sit inside a literal is never uppercased — that would change what the query does."
+    },
+    "xml": {
+      "name": "XML / HTML Formatter",
+      "description": "Indent markup, or strip the whitespace back out.",
+      "format": "Format",
+      "minify": "Minify",
+      "note": "An element whose only child is text stays on one line, and void HTML tags such as <br> do not open an indent level."
+    },
+    "jsonpath": {
+      "name": "JSONPath Query",
+      "description": "Pull values out of a JSON document with a path expression.",
+      "matches": "Matches ({{count}})",
+      "paths": "Where they came from",
+      "note": "Supports $.key, [0], [-1], [*], [1:3] and the recursive ..key. Filter expressions are left out — that is where the grammar turns into a language of its own."
+    },
+    "svg": {
+      "name": "SVG Optimiser",
+      "description": "Strip an SVG down, then export it as a data URI or a JSX component.",
+      "optimise": "Optimise",
+      "bytes": "bytes",
+      "note": "The data URI percent-encodes only the characters that would break a CSS url(), which keeps it far shorter than base64 — and still readable."
+    },
+    "palette": {
+      "name": "Colour Palette",
+      "description": "Build a tonal scale and matching harmonies from one colour.",
+      "steps": "Scale",
+      "css": "CSS variables",
+      "onWhite": "on white",
+      "onBlack": "on black",
+      "harmony": {
+        "complementary": "Complementary",
+        "analogous": "Analogous",
+        "triadic": "Triadic",
+        "tetradic": "Tetradic"
+      },
+      "note": "Built in OKLCH, where equal steps in lightness look equally different to the eye. Chroma is lowered until each step fits inside sRGB — clamping the channels instead would drag the hue and turn a light blue lilac."
+    },
+    "mock": {
+      "name": "Mock Data",
+      "description": "Generate realistic test data as JSON, reproducibly.",
+      "rows": "Rows",
+      "seed": "Seed",
+      "reroll": "New seed",
+      "fields": "Fields",
+      "addField": "Add a field",
+      "note": "The same seed always rebuilds the same data, so a fixture stays stable between runs. Names are drawn from several regions rather than one."
     },
     "cidr": {
       "name": "Subnet Calculator",

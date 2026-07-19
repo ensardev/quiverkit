@@ -57,10 +57,34 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./escape/EscapeTool')),
   },
   {
+    id: 'hex',
+    category: 'encoding',
+    keywords: ['hexadecimal', 'dump', 'bytes', 'binary', 'viewer'],
+    Component: lazy(() => import('./hex/HexTool')),
+  },
+  {
     id: 'json',
     category: 'formatting',
     keywords: ['pretty', 'beautify', 'minify', 'format', 'validate'],
     Component: lazy(() => import('./json/JsonTool')),
+  },
+  {
+    id: 'jsonpath',
+    category: 'formatting',
+    keywords: ['query', 'jq', 'path', 'filter', 'extract'],
+    Component: lazy(() => import('./jsonpath/JsonPathTool')),
+  },
+  {
+    id: 'sql',
+    category: 'formatting',
+    keywords: ['query', 'beautify', 'pretty', 'database'],
+    Component: lazy(() => import('./sql/SqlTool')),
+  },
+  {
+    id: 'xml',
+    category: 'formatting',
+    keywords: ['html', 'markup', 'pretty', 'beautify', 'indent'],
+    Component: lazy(() => import('./xml/XmlTool')),
   },
   {
     id: 'case',
@@ -97,6 +121,30 @@ export const TOOLS: Tool[] = [
     category: 'text',
     keywords: ['count', 'characters', 'words', 'length', 'reading'],
     Component: lazy(() => import('./stats/StatsTool')),
+  },
+  {
+    id: 'cipher',
+    category: 'text',
+    keywords: ['rot13', 'caesar', 'atbash', 'morse', 'reverse', 'encode'],
+    Component: lazy(() => import('./cipher/CipherTool')),
+  },
+  {
+    id: 'csv',
+    category: 'converters',
+    keywords: ['spreadsheet', 'excel', 'tsv', 'table', 'json'],
+    Component: lazy(() => import('./csv/CsvTool')),
+  },
+  {
+    id: 'timezone',
+    category: 'converters',
+    keywords: ['time zone', 'utc', 'meeting', 'offset', 'world clock'],
+    Component: lazy(() => import('./timezone/TimezoneTool')),
+  },
+  {
+    id: 'dateDiff',
+    category: 'converters',
+    keywords: ['days between', 'duration', 'age', 'deadline', 'working days'],
+    Component: lazy(() => import('./dateDiff/DateDiffTool')),
   },
   {
     id: 'timestamp',
@@ -145,6 +193,18 @@ export const TOOLS: Tool[] = [
     category: 'design',
     keywords: ['cubic', 'easing', 'animation', 'transition', 'curve'],
     Component: lazy(() => import('./bezier/BezierTool')),
+  },
+  {
+    id: 'palette',
+    category: 'design',
+    keywords: ['scale', 'shades', 'tints', 'tailwind', 'harmony', 'oklch'],
+    Component: lazy(() => import('./palette/PaletteTool')),
+  },
+  {
+    id: 'svg',
+    category: 'design',
+    keywords: ['optimise', 'optimize', 'data uri', 'jsx', 'icon', 'minify'],
+    Component: lazy(() => import('./svg/SvgTool')),
   },
   {
     id: 'image',
@@ -199,6 +259,36 @@ export const TOOLS: Tool[] = [
     category: 'generators',
     keywords: ['passphrase', 'secret', 'random', 'entropy', 'strong'],
     Component: lazy(() => import('./password/PasswordTool')),
+  },
+  {
+    id: 'lorem',
+    category: 'generators',
+    keywords: ['placeholder', 'dummy', 'filler', 'ipsum', 'text'],
+    Component: lazy(() => import('./lorem/LoremTool')),
+  },
+  {
+    id: 'mock',
+    category: 'generators',
+    keywords: ['fake', 'test data', 'fixture', 'sample', 'seed'],
+    Component: lazy(() => import('./mock/MockTool')),
+  },
+  {
+    id: 'cron',
+    category: 'dev',
+    keywords: ['crontab', 'schedule', 'job', 'expression', 'next run'],
+    Component: lazy(() => import('./cron/CronTool')),
+  },
+  {
+    id: 'jsonTypes',
+    category: 'dev',
+    keywords: ['typescript', 'interface', 'types', 'schema', 'generate'],
+    Component: lazy(() => import('./jsonTypes/JsonTypesTool')),
+  },
+  {
+    id: 'reference',
+    category: 'dev',
+    keywords: ['http', 'status', 'mime', 'content type', 'codes', '404'],
+    Component: lazy(() => import('./reference/ReferenceTool')),
   },
   {
     id: 'chmod',
