@@ -1,0 +1,76 @@
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "Developer tools that never leave your browser"
+  },
+  "home": {
+    "heading": "Every tool you keep googling for",
+    "subheading": "Base64, JSON, UUIDs and more. Everything runs on your machine — no upload, no account, no tracking.",
+    "browse": "All tools"
+  },
+  "nav": {
+    "search": "Search tools",
+    "searchHint": "Press / to search",
+    "noResults": "Nothing matches “{{query}}”"
+  },
+  "common": {
+    "input": "Input",
+    "output": "Output",
+    "copy": "Copy",
+    "copied": "Copied",
+    "clear": "Clear",
+    "swap": "Swap",
+    "generate": "Generate",
+    "example": "Try an example"
+  },
+  "theme": {
+    "toggle": "Switch theme"
+  },
+  "language": {
+    "label": "Language"
+  },
+  "privacy": {
+    "badge": "Runs offline",
+    "note": "Nothing you type here is sent anywhere."
+  },
+  "category": {
+    "encoding": "Encoding",
+    "formatting": "Formatting",
+    "generators": "Generators"
+  },
+  "error": {
+    "emptyInput": "Type or paste something to get started.",
+    "invalidBase64": "This is not valid Base64.",
+    "invalidUtf8": "Decoded successfully, but the result is binary, not text.",
+    "invalidJson": "This is not valid JSON."
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "Encode and decode Base64, with URL-safe output and full Unicode support.",
+      "encode": "Encode",
+      "decode": "Decode",
+      "urlSafe": "URL-safe"
+    },
+    "json": {
+      "name": "JSON Formatter",
+      "description": "Format, minify and alphabetically sort JSON.",
+      "format": "Format",
+      "minify": "Minify",
+      "sort": "Sort keys",
+      "indent": "Indent"
+    },
+    "uuid": {
+      "name": "UUID Generator",
+      "description": "Generate UUID v4, time-ordered UUID v7 and Nano IDs.",
+      "amount": "How many",
+      "regenerate": "Regenerate",
+      "v4": "UUID v4",
+      "v4Hint": "Fully random. The safe default.",
+      "v7": "UUID v7",
+      "v7Hint": "Time-ordered, so it sorts by creation. Better as a database key.",
+      "nanoid": "Nano ID",
+      "nanoidHint": "Short and URL-friendly."
+    }
+  }
+}

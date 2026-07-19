@@ -1,0 +1,76 @@
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "Tarayıcından hiç çıkmayan geliştirici araçları"
+  },
+  "home": {
+    "heading": "Her seferinde arattığın araçlar",
+    "subheading": "Base64, JSON, UUID ve fazlası. Her şey senin makinende çalışır — yükleme yok, hesap yok, takip yok.",
+    "browse": "Tüm araçlar"
+  },
+  "nav": {
+    "search": "Araç ara",
+    "searchHint": "Aramak için / tuşuna bas",
+    "noResults": "“{{query}}” ile eşleşen bir şey yok"
+  },
+  "common": {
+    "input": "Girdi",
+    "output": "Çıktı",
+    "copy": "Kopyala",
+    "copied": "Kopyalandı",
+    "clear": "Temizle",
+    "swap": "Yer değiştir",
+    "generate": "Üret",
+    "example": "Örnek dene"
+  },
+  "theme": {
+    "toggle": "Temayı değiştir"
+  },
+  "language": {
+    "label": "Dil"
+  },
+  "privacy": {
+    "badge": "Çevrimdışı çalışır",
+    "note": "Buraya yazdığın hiçbir şey hiçbir yere gönderilmiyor."
+  },
+  "category": {
+    "encoding": "Kodlama",
+    "formatting": "Biçimlendirme",
+    "generators": "Üreteçler"
+  },
+  "error": {
+    "emptyInput": "Başlamak için bir şeyler yaz veya yapıştır.",
+    "invalidBase64": "Bu geçerli bir Base64 değil.",
+    "invalidUtf8": "Çözüldü, ama sonuç metin değil, ikili veri.",
+    "invalidJson": "Bu geçerli bir JSON değil."
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "Base64 kodla ve çöz. URL uyumlu çıktı ve tam Unicode desteği.",
+      "encode": "Kodla",
+      "decode": "Çöz",
+      "urlSafe": "URL uyumlu"
+    },
+    "json": {
+      "name": "JSON Biçimlendirici",
+      "description": "JSON'u biçimlendir, küçült ve alfabetik sırala.",
+      "format": "Biçimlendir",
+      "minify": "Küçült",
+      "sort": "Anahtarları sırala",
+      "indent": "Girinti"
+    },
+    "uuid": {
+      "name": "UUID Üretici",
+      "description": "UUID v4, zaman sıralı UUID v7 ve Nano ID üret.",
+      "amount": "Kaç tane",
+      "regenerate": "Yeniden üret",
+      "v4": "UUID v4",
+      "v4Hint": "Tamamen rastgele. Güvenli varsayılan.",
+      "v7": "UUID v7",
+      "v7Hint": "Zaman sıralı, oluşturma sırasına göre dizilir. Veritabanı anahtarı olarak daha iyi.",
+      "nanoid": "Nano ID",
+      "nanoidHint": "Kısa ve URL dostu."
+    }
+  }
+}

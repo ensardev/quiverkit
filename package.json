@@ -1,0 +1,21 @@
+{
+  "name": "quiverkit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Every developer tool, in your browser. Nothing leaves your machine.",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace @quiverkit/web",
+    "build": "npm run build --workspace @quiverkit/web",
+    "preview": "npm run preview --workspace @quiverkit/web",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

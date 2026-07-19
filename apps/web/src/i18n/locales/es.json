@@ -1,0 +1,76 @@
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "Herramientas de desarrollo que nunca salen de tu navegador"
+  },
+  "home": {
+    "heading": "Las herramientas que siempre acabas buscando",
+    "subheading": "Base64, JSON, UUID y más. Todo se ejecuta en tu equipo: sin subidas, sin cuentas, sin rastreo.",
+    "browse": "Todas las herramientas"
+  },
+  "nav": {
+    "search": "Buscar herramientas",
+    "searchHint": "Pulsa / para buscar",
+    "noResults": "Nada coincide con «{{query}}»"
+  },
+  "common": {
+    "input": "Entrada",
+    "output": "Salida",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "clear": "Limpiar",
+    "swap": "Intercambiar",
+    "generate": "Generar",
+    "example": "Probar un ejemplo"
+  },
+  "theme": {
+    "toggle": "Cambiar tema"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "privacy": {
+    "badge": "Funciona sin conexión",
+    "note": "Nada de lo que escribes aquí se envía a ningún sitio."
+  },
+  "category": {
+    "encoding": "Codificación",
+    "formatting": "Formato",
+    "generators": "Generadores"
+  },
+  "error": {
+    "emptyInput": "Escribe o pega algo para empezar.",
+    "invalidBase64": "Esto no es Base64 válido.",
+    "invalidUtf8": "Se descodificó correctamente, pero el resultado es binario, no texto.",
+    "invalidJson": "Esto no es JSON válido."
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "Codifica y descodifica Base64, con salida segura para URL y soporte Unicode completo.",
+      "encode": "Codificar",
+      "decode": "Descodificar",
+      "urlSafe": "Seguro para URL"
+    },
+    "json": {
+      "name": "Formateador JSON",
+      "description": "Formatea, minifica y ordena JSON alfabéticamente.",
+      "format": "Formatear",
+      "minify": "Minificar",
+      "sort": "Ordenar claves",
+      "indent": "Sangría"
+    },
+    "uuid": {
+      "name": "Generador de UUID",
+      "description": "Genera UUID v4, UUID v7 ordenados por tiempo y Nano IDs.",
+      "amount": "Cuántos",
+      "regenerate": "Regenerar",
+      "v4": "UUID v4",
+      "v4Hint": "Completamente aleatorio. La opción segura por defecto.",
+      "v7": "UUID v7",
+      "v7Hint": "Ordenado por tiempo, se ordena por fecha de creación. Mejor como clave de base de datos.",
+      "nanoid": "Nano ID",
+      "nanoidHint": "Corto y apto para URLs."
+    }
+  }
+}

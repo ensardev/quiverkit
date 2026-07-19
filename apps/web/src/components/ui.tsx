@@ -1,0 +1,147 @@
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { useTranslation } from 'react-i18next'
+
+interface ButtonProps {
+  children: ReactNode
+  onClick?: () => void
+  variant?: 'primary' | 'ghost'
+  title?: string
+}
+
+export function Button({ children, onClick, variant = 'ghost', title }: ButtonProps) {
+  const styles =
+    variant === 'primary'
+      ? 'bg-accent text-white hover:bg-accent-hover dark:text-black'
+      : 'border border-line text-ink hover:bg-hover'
+
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      title={title}
+      className={`cursor-pointer rounded-lg px-3 py-1.5 text-sm font-medium transition-colors ${styles}`}
+    >
+      {children}
+    </button>
+  )
+}
+
+interface SegmentedControlProps<T extends string> {
+  options: readonly { value: T; label: string }[]
+  value: T
+  onChange: (value: T) => void
+}
+
+export function SegmentedControl<T extends string>({
+  options,
+  value,
+  onChange,
+}: SegmentedControlProps<T>) {
+  return (
+    <div className="border-line bg-sunken inline-flex rounded-lg border p-0.5">
+      {options.map((option) => (
+        <button
+          key={option.value}
+          type="button"
+          onClick={() => onChange(option.value)}
+          aria-pressed={option.value === value}
+          className={`cursor-pointer rounded-md px-3 py-1 text-sm font-medium transition-colors ${
+            option.value === value
+              ? 'bg-surface text-ink shadow-sm'
+              : 'text-muted hover:text-ink'
+          }`}
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+export function CopyButton({ value }: { value: string }) {
+  const { t } = useTranslation()
+  const [copied, setCopied] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
+
+  // Without this cleanup the timeout would fire after the tool unmounts and
+  // React would warn about setting state on a gone component.
+  useEffect(() => () => clearTimeout(timer.current), [])
+
+  async function copy() {
+    if (!value) return
+    await navigator.clipboard.writeText(value)
+    setCopied(true)
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setCopied(false), 1600)
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      disabled={!value}
+      className="text-muted hover:text-ink cursor-pointer text-xs font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {copied ? t('common.copied') : t('common.copy')}
+    </button>
+  )
+}
+
+interface PanelProps {
+  label: string
+  action?: ReactNode
+  children: ReactNode
+}
+
+export function Panel({ label, action, children }: PanelProps) {
+  return (
+    <section className="border-line bg-surface flex min-h-0 flex-col overflow-hidden rounded-xl border">
+      <header className="border-line flex items-center justify-between border-b px-4 py-2">
+        <h2 className="text-muted text-xs font-semibold tracking-wide uppercase">{label}</h2>
+        {action}
+      </header>
+      {children}
+    </section>
+  )
+}
+
+interface CodeAreaProps {
+  value: string
+  onChange?: (value: string) => void
+  placeholder?: string
+  readOnly?: boolean
+}
+
+export function CodeArea({ value, onChange, placeholder, readOnly }: CodeAreaProps) {
+  return (
+    <textarea
+      value={value}
+      onChange={(event) => onChange?.(event.target.value)}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      spellCheck={false}
+      className="text-ink placeholder:text-muted/60 min-h-64 flex-1 resize-none px-4 py-3 font-mono text-sm leading-relaxed focus:outline-none"
+    />
+  )
+}
+
+export function ErrorNote({ children }: { children: ReactNode }) {
+  return (
+    <p className="bg-danger-soft text-danger border-line border-t px-4 py-2 text-sm">{children}</p>
+  )
+}
+
+/** Every tool page shares this header, sourced from `tools.<id>.*`. */
+export function ToolShell({ id, children }: { id: string; children: ReactNode }) {
+  const { t } = useTranslation()
+
+  return (
+    <article className="mx-auto flex h-full w-full max-w-5xl flex-col gap-6 p-6 lg:p-10">
+      <header className="space-y-1">
+        <h1 className="text-2xl font-semibold tracking-tight">{t(`tools.${id}.name`)}</h1>
+        <p className="text-muted text-sm">{t(`tools.${id}.description`)}</p>
+      </header>
+      {children}
+    </article>
+  )
+}
