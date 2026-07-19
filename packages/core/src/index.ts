@@ -25,7 +25,81 @@ export {
   type Rgb,
 } from './tools/color.js'
 
+export {
+  parseOctal,
+  parseSymbolic,
+  ROLES,
+  toCommand,
+  toOctal,
+  toSymbolic,
+  type PermissionSet,
+  type Permissions,
+  type Role,
+} from './tools/chmod.js'
+
+export {
+  BINARY_UNITS,
+  DECIMAL_UNITS,
+  fromBytes,
+  humanBytes,
+  toBytes,
+  type BinaryUnit,
+  type DecimalUnit,
+  type SizeUnit,
+  type SizeView,
+} from './tools/dataSize.js'
+
+export {
+  diffLines,
+  type DiffLine,
+  type DiffOperation,
+  type DiffOptions,
+  type DiffSummary,
+} from './tools/diff.js'
+
+export {
+  ESCAPE_FLAVOURS,
+  escapeText,
+  unescapeText,
+  type EscapeFlavour,
+} from './tools/escape.js'
+
 export { HASH_ALGORITHMS, hashText, hmac, type HashAlgorithm } from './tools/hash.js'
+
+export {
+  findInvisibles,
+  stripInvisibles,
+  type CleanOptions,
+  type InvisibleCharacter,
+  type InvisibleKind,
+} from './tools/invisible.js'
+
+export {
+  COMMON_BASES,
+  convertBase,
+  formatInBase,
+  MAX_BASE,
+  MIN_BASE,
+  parseInBase,
+  toCommonBases,
+  type BaseView,
+} from './tools/numberBase.js'
+
+export {
+  highlightMatches,
+  testRegex,
+  type RegexGroup,
+  type RegexHighlight,
+  type RegexMatch,
+} from './tools/regex.js'
+
+export {
+  compareSemver,
+  parseSemver,
+  satisfies,
+  sortVersions,
+  type SemVer,
+} from './tools/semver.js'
 
 export {
   generatePassword,

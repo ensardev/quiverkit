@@ -41,7 +41,8 @@
     "converters": "Conversores",
     "design": "Diseño",
     "crypto": "Criptografía",
-    "generators": "Generadores"
+    "generators": "Generadores",
+    "dev": "Desarrollo"
   },
   "error": {
     "emptyInput": "Escribe o pega algo para empezar.",
@@ -52,7 +53,13 @@
     "invalidUrlEncoding": "Esto no es una codificación porcentual válida.",
     "invalidTimestamp": "Esto no es una fecha ni una marca de tiempo Unix.",
     "noCharacterSet": "Elige al menos un conjunto de caracteres.",
-    "invalidColor": "No reconocemos este color. Prueba #3b82f6, rgb(59 130 246) o hsl(217 91% 60%)."
+    "invalidColor": "No reconocemos este color. Prueba #3b82f6, rgb(59 130 246) o hsl(217 91% 60%).",
+    "invalidRegex": "Este patrón no compila.",
+    "invalidNumber": "Este número no pertenece a la base elegida.",
+    "invalidBase": "Elige una base entre 2 y 36.",
+    "invalidPermissions": "Usa tres o cuatro dígitos octales (755) o nueve símbolos (rwxr-xr-x).",
+    "invalidVersion": "Escribe una versión completa de tres partes, como 1.2.3.",
+    "invalidRange": "No se puede leer este rango."
   },
   "tools": {
     "base64": {
@@ -167,6 +174,119 @@
       "digests": "Resúmenes",
       "hmacDigests": "Resúmenes HMAC",
       "md5Note": "MD5 falta a propósito. Los navegadores se niegan a implementarlo porque está roto, y añadir el nuestro solo fomentaría su uso."
+    },
+    "escape": {
+      "name": "Escapar y desescapar",
+      "description": "Escapa texto para JSON, HTML, SQL, la shell o una expresión regular.",
+      "escape": "Escapar",
+      "unescape": "Desescapar",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "Shell",
+        "regex": "Regex"
+      },
+      "hint": {
+        "json": "Produce el interior de una cadena JSON, sin las comillas que la rodean.",
+        "html": "Convierte en entidades los cinco caracteres que rompen el marcado.",
+        "sql": "Duplica la comilla simple, la forma que acepta todo dialecto SQL. Escapar no sustituye a las consultas parametrizadas.",
+        "shell": "Envuelve el texto en comillas simples para que nada se expanda. Seguro como un único argumento.",
+        "regex": "Escapa los metacaracteres para que el texto coincida consigo mismo literalmente."
+      }
+    },
+    "regex": {
+      "name": "Probador de regex",
+      "description": "Prueba una expresión regular sobre un texto y examina cada coincidencia y grupo.",
+      "subject": "Texto de prueba",
+      "matches": "Coincidencias",
+      "groups": "Detalle de coincidencias",
+      "flag": {
+        "ignoreCase": "Ignorar mayúsculas",
+        "multiline": "Multilínea",
+        "dotAll": "El punto incluye salto de línea",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "Comparador de texto",
+      "description": "Compara dos bloques de texto línea por línea.",
+      "original": "Original",
+      "changed": "Modificado",
+      "result": "Diferencia",
+      "ignoreCase": "Ignorar mayúsculas",
+      "ignoreWhitespace": "Ignorar espacios"
+    },
+    "invisible": {
+      "name": "Caracteres invisibles",
+      "description": "Encuentra caracteres de ancho cero, parecidos y de control escondidos en el texto.",
+      "placeholder": "Pega aquí el texto que no funciona…",
+      "clean": "No se encontraron caracteres invisibles.",
+      "found": "Se encontraron {{count}} caracteres invisibles.",
+      "characters": "Qué hay dentro",
+      "normalise": "Convertir espacios exóticos en normales",
+      "cleaned": "Texto limpio",
+      "note": "Estos caracteres sobreviven a un copiar y pegar sin que nadie los vea, y están detrás de todo un género de errores: una clave de configuración que no coincide, una contraseña rechazada, un regex que falla en silencio.",
+      "kind": {
+        "zeroWidth": "ancho cero",
+        "space": "espacio",
+        "control": "control",
+        "bidi": "dirección",
+        "lineEnding": "fin de línea"
+      }
+    },
+    "numberBase": {
+      "name": "Conversor de bases",
+      "description": "Convierte entre binario, octal, decimal, hexadecimal y cualquier base hasta 36.",
+      "base": "base {{base}}",
+      "custom": "Cualquier base",
+      "note": "La conversión usa enteros de precisión arbitraria, así que los hashes y las máscaras de bits por encima de 2^53 se mantienen exactos en lugar de redondearse en silencio."
+    },
+    "dataSize": {
+      "name": "Conversor de tamaños",
+      "description": "Convierte entre bytes, kB y KiB, y comprueba dónde discrepan.",
+      "bytes": "bytes",
+      "decimal": "Decimal (÷1000)",
+      "binary": "Binario (÷1024)",
+      "note": "El 1 TB de un fabricante son 10^12 bytes, mientras que el sistema operativo divide entre 1024 y muestra 931 GiB. El mismo disco, otra aritmética."
+    },
+    "chmod": {
+      "name": "Calculadora chmod",
+      "description": "Traduce permisos de Unix entre 755 y rwxr-xr-x.",
+      "octal": "Octal",
+      "symbolic": "Simbólico",
+      "permissions": "Permisos",
+      "role": "Quién",
+      "command": "Resultado",
+      "note": "Cuando un bit especial está activo sobre algo que no se puede ejecutar, la letra pasa a mayúscula: 4644 se muestra como rwSr--r--.",
+      "action": {
+        "read": "Lectura",
+        "write": "Escritura",
+        "execute": "Ejecución"
+      },
+      "who": {
+        "owner": "Propietario",
+        "group": "Grupo",
+        "others": "Otros"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "Versión semántica",
+      "description": "Compara versiones y compruébalas contra un rango como ^1.2.0.",
+      "first": "Primera versión",
+      "second": "Segunda versión",
+      "parts": "Partes de {{version}}",
+      "prereleaseHint": "va por debajo de la versión final",
+      "buildHint": "se ignora al comparar",
+      "range": "Comprobación de rango",
+      "matches": "{{version}} cumple {{range}}",
+      "noMatch": "{{version}} no cumple {{range}}",
+      "note": "Admite ^, ~, >, >=, <, <=, =, comodines x, espacios para Y y || para O. Los rangos con guion no están cubiertos."
     },
     "color": {
       "name": "Conversor de color",

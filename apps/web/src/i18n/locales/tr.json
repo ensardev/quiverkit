@@ -41,7 +41,8 @@
     "converters": "Dönüştürücüler",
     "design": "Tasarım",
     "crypto": "Kriptografi",
-    "generators": "Üreteçler"
+    "generators": "Üreteçler",
+    "dev": "Geliştirici"
   },
   "error": {
     "emptyInput": "Başlamak için bir şeyler yaz veya yapıştır.",
@@ -52,7 +53,13 @@
     "invalidUrlEncoding": "Bu geçerli bir yüzde kodlaması değil.",
     "invalidTimestamp": "Bu bir tarih ya da Unix zaman damgası değil.",
     "noCharacterSet": "En az bir karakter kümesi seç.",
-    "invalidColor": "Bu rengi tanıyamadık. #3b82f6, rgb(59 130 246) veya hsl(217 91% 60%) dene."
+    "invalidColor": "Bu rengi tanıyamadık. #3b82f6, rgb(59 130 246) veya hsl(217 91% 60%) dene.",
+    "invalidRegex": "Bu desen derlenemiyor.",
+    "invalidNumber": "Bu sayı seçilen tabana ait değil.",
+    "invalidBase": "2 ile 36 arasında bir taban seç.",
+    "invalidPermissions": "Üç ya da dört sekizlik basamak (755) veya dokuz sembol (rwxr-xr-x) kullan.",
+    "invalidVersion": "Üç parçalı tam bir sürüm yaz, 1.2.3 gibi.",
+    "invalidRange": "Bu aralık okunamıyor."
   },
   "tools": {
     "base64": {
@@ -167,6 +174,119 @@
       "digests": "Özetler",
       "hmacDigests": "HMAC özetleri",
       "md5Note": "MD5 bilerek yok. Tarayıcılar kırılmış olduğu için onu uygulamayı reddediyor, kendimiz eklersek de kullanımını teşvik etmiş oluruz."
+    },
+    "escape": {
+      "name": "Kaçış Karakteri Ekle/Çıkar",
+      "description": "Metni JSON, HTML, SQL, kabuk veya düzenli ifade için kaçır.",
+      "escape": "Kaçır",
+      "unescape": "Geri al",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "Kabuk",
+        "regex": "Regex"
+      },
+      "hint": {
+        "json": "Bir JSON metninin içini üretir, çevresindeki tırnaklar olmadan.",
+        "html": "İşaretlemeyi bozan beş karakteri varlıklara çevirir.",
+        "sql": "Tek tırnağı ikiye katlar — her SQL lehçesinin kabul ettiği biçim. Kaçırmak, parametreli sorgunun yerini tutmaz.",
+        "shell": "Metni tek tırnak içine alır, hiçbir şey genişlemez. Tek argüman olarak yapıştırmak güvenlidir.",
+        "regex": "Özel karakterleri kaçırır, böylece metin kendisiyle birebir eşleşir."
+      }
+    },
+    "regex": {
+      "name": "Regex Test Edici",
+      "description": "Düzenli ifadeyi metinde dene, her eşleşmeyi ve grubu incele.",
+      "subject": "Test metni",
+      "matches": "Eşleşmeler",
+      "groups": "Eşleşme ayrıntıları",
+      "flag": {
+        "ignoreCase": "Büyük/küçük harf duyarsız",
+        "multiline": "Çok satırlı",
+        "dotAll": "Nokta satır sonunu da eşler",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "Metin Karşılaştırma",
+      "description": "İki metni satır satır karşılaştır.",
+      "original": "Özgün",
+      "changed": "Değişmiş",
+      "result": "Fark",
+      "ignoreCase": "Büyük/küçük harfi yok say",
+      "ignoreWhitespace": "Boşlukları yok say"
+    },
+    "invisible": {
+      "name": "Görünmez Karakterler",
+      "description": "Metinde gizlenen sıfır genişlikli, benzer görünen ve kontrol karakterlerini bul.",
+      "placeholder": "Bir türlü çalışmayan metni buraya yapıştır…",
+      "clean": "Görünmez karakter bulunamadı.",
+      "found": "{{count}} görünmez karakter bulundu.",
+      "characters": "İçinde ne var",
+      "normalise": "Sıra dışı boşlukları normale çevir",
+      "cleaned": "Temizlenmiş metin",
+      "note": "Bu karakterler kopyala-yapıştırda fark edilmeden taşınır ve koca bir hata türünün arkasındadır: eşleşmeyen bir ayar anahtarı, kabul edilmeyen bir parola, sessizce çalışmayan bir regex.",
+      "kind": {
+        "zeroWidth": "sıfır genişlik",
+        "space": "boşluk",
+        "control": "kontrol",
+        "bidi": "yön",
+        "lineEnding": "satır sonu"
+      }
+    },
+    "numberBase": {
+      "name": "Sayı Tabanı Dönüştürücü",
+      "description": "İkilik, sekizlik, onluk, onaltılık ve 36'ya kadar herhangi bir taban arasında dönüştür.",
+      "base": "taban {{base}}",
+      "custom": "Herhangi bir taban",
+      "note": "Dönüşüm keyfi hassasiyetli tam sayılarla yapılır; böylece 2^53 üstündeki hash'ler ve bit maskeleri sessizce yuvarlanmak yerine tam kalır."
+    },
+    "dataSize": {
+      "name": "Veri Boyutu Dönüştürücü",
+      "description": "Bayt, kB ve KiB arasında dönüştür, ikisinin nerede ayrıldığını gör.",
+      "bytes": "bayt",
+      "decimal": "Onluk (÷1000)",
+      "binary": "İkilik (÷1024)",
+      "note": "Disk üreticisinin 1 TB'ı 10^12 bayttır; işletim sistemi ise 1024'e böler ve 931 GiB gösterir. Aynı disk, farklı aritmetik."
+    },
+    "chmod": {
+      "name": "chmod Hesaplayıcı",
+      "description": "Unix izinlerini 755 ile rwxr-xr-x arasında çevir.",
+      "octal": "Sekizlik",
+      "symbolic": "Sembolik",
+      "permissions": "İzinler",
+      "role": "Kim",
+      "command": "Sonuç",
+      "note": "Çalıştırılamayan bir şeyde özel bit ayarlıysa harf büyür: 4644, rwSr--r-- olarak görünür.",
+      "action": {
+        "read": "Okuma",
+        "write": "Yazma",
+        "execute": "Çalıştırma"
+      },
+      "who": {
+        "owner": "Sahip",
+        "group": "Grup",
+        "others": "Diğerleri"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "Anlamsal Sürüm",
+      "description": "Sürümleri karşılaştır, ^1.2.0 gibi bir aralığa uyup uymadığını denetle.",
+      "first": "Birinci sürüm",
+      "second": "İkinci sürüm",
+      "parts": "{{version}} parçaları",
+      "prereleaseHint": "sürümün altında yer alır",
+      "buildHint": "karşılaştırmada yok sayılır",
+      "range": "Aralık denetimi",
+      "matches": "{{version}}, {{range}} aralığına uyuyor",
+      "noMatch": "{{version}}, {{range}} aralığına uymuyor",
+      "note": "^, ~, >, >=, <, <=, =, x joker karakterleri, VE için boşluk ve VEYA için || destekleniyor. Tire aralıkları kapsam dışı."
     },
     "color": {
       "name": "Renk Dönüştürücü",

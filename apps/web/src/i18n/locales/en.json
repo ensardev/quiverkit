@@ -41,7 +41,8 @@
     "converters": "Converters",
     "design": "Design",
     "crypto": "Cryptography",
-    "generators": "Generators"
+    "generators": "Generators",
+    "dev": "Developer"
   },
   "error": {
     "emptyInput": "Type or paste something to get started.",
@@ -52,7 +53,13 @@
     "invalidUrlEncoding": "This is not valid percent-encoding.",
     "invalidTimestamp": "This is not a date or a Unix timestamp.",
     "noCharacterSet": "Pick at least one set of characters.",
-    "invalidColor": "This is not a colour we recognise. Try #3b82f6, rgb(59 130 246) or hsl(217 91% 60%)."
+    "invalidColor": "This is not a colour we recognise. Try #3b82f6, rgb(59 130 246) or hsl(217 91% 60%).",
+    "invalidRegex": "This pattern will not compile.",
+    "invalidNumber": "This number does not belong to the chosen base.",
+    "invalidBase": "Pick a base between 2 and 36.",
+    "invalidPermissions": "Use three or four octal digits (755) or nine symbols (rwxr-xr-x).",
+    "invalidVersion": "Use a full version with three parts, like 1.2.3.",
+    "invalidRange": "This range cannot be read."
   },
   "tools": {
     "base64": {
@@ -167,6 +174,119 @@
       "digests": "Digests",
       "hmacDigests": "HMAC digests",
       "md5Note": "MD5 is missing on purpose. Browsers refuse to implement it because it is broken, and adding our own would only encourage its use."
+    },
+    "escape": {
+      "name": "Escape & Unescape",
+      "description": "Escape text for JSON, HTML, SQL, the shell or a regular expression.",
+      "escape": "Escape",
+      "unescape": "Unescape",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "Shell",
+        "regex": "Regex"
+      },
+      "hint": {
+        "json": "Produces the inside of a JSON string, without the surrounding quotes.",
+        "html": "Turns the five characters that break markup into entities.",
+        "sql": "Doubles the single quote — the form every SQL dialect agrees on. Escaping is not a substitute for parameterised queries.",
+        "shell": "Wraps the text in single quotes so nothing expands. Safe to paste as one argument.",
+        "regex": "Escapes the metacharacters so the text matches itself literally."
+      }
+    },
+    "regex": {
+      "name": "Regex Tester",
+      "description": "Test a regular expression against text and inspect every match and group.",
+      "subject": "Test string",
+      "matches": "Matches",
+      "groups": "Match details",
+      "flag": {
+        "ignoreCase": "Ignore case",
+        "multiline": "Multiline",
+        "dotAll": "Dot matches newline",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "Text Diff",
+      "description": "Compare two blocks of text line by line.",
+      "original": "Original",
+      "changed": "Changed",
+      "result": "Difference",
+      "ignoreCase": "Ignore case",
+      "ignoreWhitespace": "Ignore whitespace"
+    },
+    "invisible": {
+      "name": "Invisible Characters",
+      "description": "Find zero-width, look-alike and control characters hiding in text.",
+      "placeholder": "Paste the text that will not behave…",
+      "clean": "No invisible characters found.",
+      "found": "Found {{count}} invisible character(s).",
+      "characters": "What is in there",
+      "normalise": "Turn exotic spaces into ordinary ones",
+      "cleaned": "Cleaned text",
+      "note": "These characters survive a copy-paste unnoticed and are behind a whole genre of bug: a config key that will not match, a password that is rejected, a regex that silently fails.",
+      "kind": {
+        "zeroWidth": "zero width",
+        "space": "space",
+        "control": "control",
+        "bidi": "direction",
+        "lineEnding": "line ending"
+      }
+    },
+    "numberBase": {
+      "name": "Number Base Converter",
+      "description": "Convert between binary, octal, decimal, hexadecimal and any base up to 36.",
+      "base": "base {{base}}",
+      "custom": "Any base",
+      "note": "Conversion runs on arbitrary-precision integers, so hashes and bit masks past 2^53 stay exact instead of quietly rounding."
+    },
+    "dataSize": {
+      "name": "Data Size Converter",
+      "description": "Convert between bytes, kB and KiB, and see where the two disagree.",
+      "bytes": "bytes",
+      "decimal": "Decimal (÷1000)",
+      "binary": "Binary (÷1024)",
+      "note": "A drive maker's 1 TB is 10^12 bytes, while the operating system divides by 1024 and reports 931 GiB. Same drive, different arithmetic."
+    },
+    "chmod": {
+      "name": "chmod Calculator",
+      "description": "Translate Unix permissions between 755 and rwxr-xr-x.",
+      "octal": "Octal",
+      "symbolic": "Symbolic",
+      "permissions": "Permissions",
+      "role": "Who",
+      "command": "Result",
+      "note": "When a special bit is set on something that cannot be executed, the letter turns capital: 4644 shows as rwSr--r--.",
+      "action": {
+        "read": "Read",
+        "write": "Write",
+        "execute": "Execute"
+      },
+      "who": {
+        "owner": "Owner",
+        "group": "Group",
+        "others": "Others"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "Semantic Version",
+      "description": "Compare versions and check them against a range like ^1.2.0.",
+      "first": "First version",
+      "second": "Second version",
+      "parts": "Parts of {{version}}",
+      "prereleaseHint": "ranks below the release",
+      "buildHint": "ignored when comparing",
+      "range": "Range check",
+      "matches": "{{version}} satisfies {{range}}",
+      "noMatch": "{{version}} does not satisfy {{range}}",
+      "note": "Supports ^, ~, >, >=, <, <=, =, x wildcards, spaces for AND and || for OR. Hyphen ranges are not covered."
     },
     "color": {
       "name": "Colour Converter",

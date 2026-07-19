@@ -16,6 +16,12 @@ export type ToolError =
   | 'error.invalidTimestamp'
   | 'error.noCharacterSet'
   | 'error.invalidColor'
+  | 'error.invalidRegex'
+  | 'error.invalidNumber'
+  | 'error.invalidBase'
+  | 'error.invalidPermissions'
+  | 'error.invalidVersion'
+  | 'error.invalidRange'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

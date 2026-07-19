@@ -8,6 +8,7 @@ export type ToolCategory =
   | 'design'
   | 'crypto'
   | 'generators'
+  | 'dev'
 
 export interface Tool {
   /** Doubles as the URL slug and the i18n namespace: `tools.<id>.name`. */
@@ -26,7 +27,7 @@ export interface Tool {
  * adding a tool means adding one entry here plus its component — nothing else.
  *
  * `lazy` matters: without it every tool would ship in the initial bundle and a
- * visitor who only wanted to decode a JWT would pay for all seventy.
+ * visitor who only wanted to decode a JWT would pay for all of them.
  */
 export const TOOLS: Tool[] = [
   {
@@ -48,6 +49,12 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./url/UrlTool')),
   },
   {
+    id: 'escape',
+    category: 'encoding',
+    keywords: ['quote', 'unescape', 'entities', 'sql', 'shell', 'backslash'],
+    Component: lazy(() => import('./escape/EscapeTool')),
+  },
+  {
     id: 'json',
     category: 'formatting',
     keywords: ['pretty', 'beautify', 'minify', 'format', 'validate'],
@@ -58,6 +65,24 @@ export const TOOLS: Tool[] = [
     category: 'text',
     keywords: ['camel', 'snake', 'kebab', 'pascal', 'slug', 'slugify', 'capitalize'],
     Component: lazy(() => import('./case/CaseTool')),
+  },
+  {
+    id: 'regex',
+    category: 'text',
+    keywords: ['regexp', 'pattern', 'match', 'test', 'expression'],
+    Component: lazy(() => import('./regex/RegexTool')),
+  },
+  {
+    id: 'diff',
+    category: 'text',
+    keywords: ['compare', 'difference', 'changes', 'patch'],
+    Component: lazy(() => import('./diff/DiffTool')),
+  },
+  {
+    id: 'invisible',
+    category: 'text',
+    keywords: ['zero width', 'hidden', 'whitespace', 'unicode', 'bom', 'nbsp'],
+    Component: lazy(() => import('./invisible/InvisibleTool')),
   },
   {
     id: 'lines',
@@ -76,6 +101,18 @@ export const TOOLS: Tool[] = [
     category: 'converters',
     keywords: ['unix', 'epoch', 'date', 'time', 'iso'],
     Component: lazy(() => import('./timestamp/TimestampTool')),
+  },
+  {
+    id: 'numberBase',
+    category: 'converters',
+    keywords: ['binary', 'hex', 'octal', 'decimal', 'radix', 'base'],
+    Component: lazy(() => import('./numberBase/NumberBaseTool')),
+  },
+  {
+    id: 'dataSize',
+    category: 'converters',
+    keywords: ['bytes', 'kb', 'mb', 'gb', 'mib', 'gib', 'storage'],
+    Component: lazy(() => import('./dataSize/DataSizeTool')),
   },
   {
     id: 'color',
@@ -101,6 +138,18 @@ export const TOOLS: Tool[] = [
     keywords: ['passphrase', 'secret', 'random', 'entropy', 'strong'],
     Component: lazy(() => import('./password/PasswordTool')),
   },
+  {
+    id: 'chmod',
+    category: 'dev',
+    keywords: ['permissions', 'unix', 'linux', '755', '644', 'rwx'],
+    Component: lazy(() => import('./chmod/ChmodTool')),
+  },
+  {
+    id: 'semver',
+    category: 'dev',
+    keywords: ['version', 'semantic', 'range', 'caret', 'tilde', 'npm'],
+    Component: lazy(() => import('./semver/SemverTool')),
+  },
 ]
 
 export const CATEGORY_ORDER: ToolCategory[] = [
@@ -111,6 +160,7 @@ export const CATEGORY_ORDER: ToolCategory[] = [
   'design',
   'crypto',
   'generators',
+  'dev',
 ]
 
 export function findTool(id: string): Tool | undefined {
