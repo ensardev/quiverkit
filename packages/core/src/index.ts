@@ -14,6 +14,18 @@ export { formatJson, minifyJson, sortJsonKeys } from './tools/json.js'
 export { claimAsDate, decodeJwt, type DecodedJwt } from './tools/jwt.js'
 
 export {
+  CASE_STYLES,
+  convertCase,
+  slugify,
+  sortLines,
+  splitWords,
+  textStats,
+  type CaseStyle,
+  type SortOptions,
+  type TextStats,
+} from './tools/text.js'
+
+export {
   describeTimestamp,
   parseTimestamp,
   type TimestampView,

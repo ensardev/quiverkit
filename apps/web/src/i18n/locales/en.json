@@ -36,6 +36,7 @@
   "category": {
     "encoding": "Encoding",
     "formatting": "Formatting",
+    "text": "Text",
     "converters": "Converters",
     "crypto": "Cryptography",
     "generators": "Generators"
@@ -97,6 +98,51 @@
       "minify": "Minify",
       "sort": "Sort keys",
       "indent": "Indent"
+    },
+    "case": {
+      "name": "Case Converter",
+      "description": "Convert between camelCase, snake_case, kebab-case and more, plus URL slugs.",
+      "localeNote": "Identifier styles ignore your language on purpose: under Turkish rules \"ID\" lowercases to \"ıd\", which no compiler accepts. Plain lowercase and UPPERCASE do follow it, so \"istanbul\" becomes \"İSTANBUL\".",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "Line Sorter",
+      "description": "Sort lines, remove duplicates and order embedded numbers naturally.",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "Remove duplicates",
+      "natural": "Natural order",
+      "caseSensitive": "Case sensitive",
+      "localeNote": "Sorting follows the alphabet of the selected language — in Turkish, ç comes right after c instead of after z."
+    },
+    "stats": {
+      "name": "Text Statistics",
+      "description": "Count characters, words, sentences and reading time in any language.",
+      "characters": "Characters",
+      "charactersHint": "Emoji count as one",
+      "charactersNoSpaces": "Without spaces",
+      "words": "Words",
+      "sentences": "Sentences",
+      "lines": "Lines",
+      "paragraphs": "Paragraphs",
+      "bytes": "Bytes (UTF-8)",
+      "bytesHint": "{{codeUnits}} UTF-16 code units",
+      "readingTime": "Reading time",
+      "minutesSeconds": "{{minutes}}m {{seconds}}s",
+      "seconds": "{{seconds}}s",
+      "segmenterNote": "Words are counted with Intl.Segmenter, so Japanese and Chinese — written without spaces — are counted correctly rather than as one long word."
     },
     "timestamp": {
       "name": "Timestamp Converter",

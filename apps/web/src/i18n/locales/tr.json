@@ -36,6 +36,7 @@
   "category": {
     "encoding": "Kodlama",
     "formatting": "Biçimlendirme",
+    "text": "Metin",
     "converters": "Dönüştürücüler",
     "crypto": "Kriptografi",
     "generators": "Üreteçler"
@@ -97,6 +98,51 @@
       "minify": "Küçült",
       "sort": "Anahtarları sırala",
       "indent": "Girinti"
+    },
+    "case": {
+      "name": "Harf Biçimi Dönüştürücü",
+      "description": "camelCase, snake_case, kebab-case ve diğerleri arasında dönüştür, URL slug'ı da üret.",
+      "localeNote": "Tanımlayıcı stilleri bilerek dilini yok sayar: Türkçe kurallarıyla \"ID\" kelimesi \"ıd\" olur ve hiçbir derleyici bunu kabul etmez. Düz lowercase ve UPPERCASE ise dili takip eder, \"istanbul\" → \"İSTANBUL\".",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "Satır Sıralayıcı",
+      "description": "Satırları sırala, tekrarları kaldır, içindeki sayıları doğal sırayla diz.",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "Tekrarları kaldır",
+      "natural": "Doğal sıra",
+      "caseSensitive": "Büyük/küçük harf duyarlı",
+      "localeNote": "Sıralama seçili dilin alfabesine göre yapılır — Türkçede ç harfi z'den sonra değil, doğrudan c'den sonra gelir."
+    },
+    "stats": {
+      "name": "Metin İstatistikleri",
+      "description": "Herhangi bir dilde karakter, kelime, cümle ve okuma süresi say.",
+      "characters": "Karakter",
+      "charactersHint": "Emoji tek sayılır",
+      "charactersNoSpaces": "Boşluksuz",
+      "words": "Kelime",
+      "sentences": "Cümle",
+      "lines": "Satır",
+      "paragraphs": "Paragraf",
+      "bytes": "Bayt (UTF-8)",
+      "bytesHint": "{{codeUnits}} UTF-16 kod birimi",
+      "readingTime": "Okuma süresi",
+      "minutesSeconds": "{{minutes}}dk {{seconds}}sn",
+      "seconds": "{{seconds}}sn",
+      "segmenterNote": "Kelimeler Intl.Segmenter ile sayılıyor; böylece boşluk kullanmayan Japonca ve Çince tek uzun kelime olarak değil, doğru şekilde sayılıyor."
     },
     "timestamp": {
       "name": "Zaman Damgası Dönüştürücü",

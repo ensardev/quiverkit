@@ -36,6 +36,7 @@
   "category": {
     "encoding": "Codificación",
     "formatting": "Formato",
+    "text": "Texto",
     "converters": "Conversores",
     "crypto": "Criptografía",
     "generators": "Generadores"
@@ -97,6 +98,51 @@
       "minify": "Minificar",
       "sort": "Ordenar claves",
       "indent": "Sangría"
+    },
+    "case": {
+      "name": "Conversor de mayúsculas",
+      "description": "Convierte entre camelCase, snake_case, kebab-case y más, además de slugs para URL.",
+      "localeNote": "Los estilos de identificador ignoran tu idioma a propósito: con las reglas turcas, \"ID\" se convierte en \"ıd\", que ningún compilador acepta. En cambio, lowercase y UPPERCASE sí lo siguen, así que \"istanbul\" se convierte en \"İSTANBUL\".",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "Ordenador de líneas",
+      "description": "Ordena líneas, elimina duplicados y ordena los números de forma natural.",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "Eliminar duplicados",
+      "natural": "Orden natural",
+      "caseSensitive": "Distinguir mayúsculas",
+      "localeNote": "La ordenación sigue el alfabeto del idioma seleccionado: en turco, ç va justo después de c en lugar de después de z."
+    },
+    "stats": {
+      "name": "Estadísticas de texto",
+      "description": "Cuenta caracteres, palabras, frases y tiempo de lectura en cualquier idioma.",
+      "characters": "Caracteres",
+      "charactersHint": "Los emoji cuentan como uno",
+      "charactersNoSpaces": "Sin espacios",
+      "words": "Palabras",
+      "sentences": "Frases",
+      "lines": "Líneas",
+      "paragraphs": "Párrafos",
+      "bytes": "Bytes (UTF-8)",
+      "bytesHint": "{{codeUnits}} unidades de código UTF-16",
+      "readingTime": "Tiempo de lectura",
+      "minutesSeconds": "{{minutes}} min {{seconds}} s",
+      "seconds": "{{seconds}} s",
+      "segmenterNote": "Las palabras se cuentan con Intl.Segmenter, así que el japonés y el chino — que se escriben sin espacios — se cuentan correctamente y no como una sola palabra larga."
     },
     "timestamp": {
       "name": "Conversor de marcas de tiempo",

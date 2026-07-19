@@ -1,6 +1,12 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 
-export type ToolCategory = 'encoding' | 'formatting' | 'converters' | 'crypto' | 'generators'
+export type ToolCategory =
+  | 'encoding'
+  | 'formatting'
+  | 'text'
+  | 'converters'
+  | 'crypto'
+  | 'generators'
 
 export interface Tool {
   /** Doubles as the URL slug and the i18n namespace: `tools.<id>.name`. */
@@ -47,6 +53,24 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./json/JsonTool')),
   },
   {
+    id: 'case',
+    category: 'text',
+    keywords: ['camel', 'snake', 'kebab', 'pascal', 'slug', 'slugify', 'capitalize'],
+    Component: lazy(() => import('./case/CaseTool')),
+  },
+  {
+    id: 'lines',
+    category: 'text',
+    keywords: ['sort', 'unique', 'dedupe', 'duplicate', 'alphabetical', 'order'],
+    Component: lazy(() => import('./lines/LinesTool')),
+  },
+  {
+    id: 'stats',
+    category: 'text',
+    keywords: ['count', 'characters', 'words', 'length', 'reading'],
+    Component: lazy(() => import('./stats/StatsTool')),
+  },
+  {
     id: 'timestamp',
     category: 'converters',
     keywords: ['unix', 'epoch', 'date', 'time', 'iso'],
@@ -69,6 +93,7 @@ export const TOOLS: Tool[] = [
 export const CATEGORY_ORDER: ToolCategory[] = [
   'encoding',
   'formatting',
+  'text',
   'converters',
   'crypto',
   'generators',
