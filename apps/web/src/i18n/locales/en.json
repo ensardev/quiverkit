@@ -21,7 +21,8 @@
     "clear": "Clear",
     "swap": "Swap",
     "generate": "Generate",
-    "example": "Try an example"
+    "example": "Try an example",
+    "textLanguage": "Text language"
   },
   "theme": {
     "toggle": "Switch theme"
@@ -102,7 +103,7 @@
     "case": {
       "name": "Case Converter",
       "description": "Convert between camelCase, snake_case, kebab-case and more, plus URL slugs.",
-      "localeNote": "Identifier styles ignore your language on purpose: under Turkish rules \"ID\" lowercases to \"ıd\", which no compiler accepts. Plain lowercase and UPPERCASE do follow it, so \"istanbul\" becomes \"İSTANBUL\".",
+      "localeNote": "Identifier styles ignore the text language on purpose: under Turkish rules \"ID\" lowercases to \"ıd\", which no compiler accepts. Prose styles — Title Case, Sentence case, lowercase and UPPERCASE — do follow it, so Turkish turns \"istanbul\" into \"İstanbul\" while English gives \"Istanbul\".",
       "style": {
         "camel": "camelCase",
         "pascal": "PascalCase",
@@ -125,7 +126,7 @@
       "unique": "Remove duplicates",
       "natural": "Natural order",
       "caseSensitive": "Case sensitive",
-      "localeNote": "Sorting follows the alphabet of the selected language — in Turkish, ç comes right after c instead of after z."
+      "localeNote": "Sorting follows the alphabet of the text language, not the interface — in Turkish, ç comes right after c instead of after z."
     },
     "stats": {
       "name": "Text Statistics",

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
+import { LANGUAGES } from '@/i18n'
 
 interface ButtonProps {
   children: ReactNode
@@ -128,6 +129,38 @@ export function CodeArea({ value, onChange, placeholder, readOnly }: CodeAreaPro
 export function ErrorNote({ children }: { children: ReactNode }) {
   return (
     <p className="bg-danger-soft text-danger border-line border-t px-4 py-2 text-sm">{children}</p>
+  )
+}
+
+interface LocaleSelectProps {
+  value: string
+  onChange: (locale: string) => void
+}
+
+/**
+ * The language of the *content*, which is not the language of the interface.
+ * Someone reading the UI in Turkish may well be converting English text, and
+ * Turkish casing would turn "infinity" into "İnfinity". Defaulting to the UI
+ * language is only a guess, so the guess has to be visible and changeable.
+ */
+export function LocaleSelect({ value, onChange }: LocaleSelectProps) {
+  const { t } = useTranslation()
+
+  return (
+    <label className="text-muted flex items-center gap-2 text-sm">
+      {t('common.textLanguage')}
+      <select
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="border-line bg-sunken text-ink cursor-pointer rounded-lg border px-2 py-1 text-sm focus:outline-none"
+      >
+        {LANGUAGES.map((language) => (
+          <option key={language.code} value={language.code}>
+            {language.label}
+          </option>
+        ))}
+      </select>
+    </label>
   )
 }
 

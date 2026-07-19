@@ -1,7 +1,14 @@
 import { sortLines } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, CopyButton, Panel, SegmentedControl, ToolShell } from '@/components/ui'
+import {
+  CodeArea,
+  CopyButton,
+  LocaleSelect,
+  Panel,
+  SegmentedControl,
+  ToolShell,
+} from '@/components/ui'
 
 interface ToggleProps {
   label: string
@@ -30,20 +37,15 @@ export default function LinesTool() {
   const [unique, setUnique] = useState(false)
   const [caseSensitive, setCaseSensitive] = useState(false)
   const [natural, setNatural] = useState(true)
+  const [locale, setLocale] = useState(i18n.language)
 
   const output = useMemo(() => {
     if (input === '') return ''
 
-    // The active language decides the alphabet: with Turkish selected, ç sorts
-    // straight after c instead of landing past z.
-    return sortLines(input, {
-      direction,
-      unique,
-      caseSensitive,
-      natural,
-      locale: i18n.language,
-    })
-  }, [input, direction, unique, caseSensitive, natural, i18n.language])
+    // The alphabet comes from the language of the list, not of the interface:
+    // with Turkish selected, ç sorts straight after c instead of past z.
+    return sortLines(input, { direction, unique, caseSensitive, natural, locale })
+  }, [input, direction, unique, caseSensitive, natural, locale])
 
   return (
     <ToolShell id="lines">
@@ -63,6 +65,7 @@ export default function LinesTool() {
           checked={caseSensitive}
           onChange={setCaseSensitive}
         />
+        <LocaleSelect value={locale} onChange={setLocale} />
       </div>
 
       <p className="text-muted text-sm">{t('tools.lines.localeNote')}</p>

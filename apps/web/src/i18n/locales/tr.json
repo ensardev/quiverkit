@@ -21,7 +21,8 @@
     "clear": "Temizle",
     "swap": "Yer değiştir",
     "generate": "Üret",
-    "example": "Örnek dene"
+    "example": "Örnek dene",
+    "textLanguage": "Metin dili"
   },
   "theme": {
     "toggle": "Temayı değiştir"
@@ -102,7 +103,7 @@
     "case": {
       "name": "Harf Biçimi Dönüştürücü",
       "description": "camelCase, snake_case, kebab-case ve diğerleri arasında dönüştür, URL slug'ı da üret.",
-      "localeNote": "Tanımlayıcı stilleri bilerek dilini yok sayar: Türkçe kurallarıyla \"ID\" kelimesi \"ıd\" olur ve hiçbir derleyici bunu kabul etmez. Düz lowercase ve UPPERCASE ise dili takip eder, \"istanbul\" → \"İSTANBUL\".",
+      "localeNote": "Tanımlayıcı stilleri metin dilini bilerek yok sayar: Türkçe kurallarıyla \"ID\" kelimesi \"ıd\" olur ve hiçbir derleyici bunu kabul etmez. Metin stilleri — Title Case, Sentence case, lowercase, UPPERCASE — ise dili takip eder: Türkçede \"istanbul\" → \"İstanbul\", İngilizcede \"Istanbul\".",
       "style": {
         "camel": "camelCase",
         "pascal": "PascalCase",
@@ -125,7 +126,7 @@
       "unique": "Tekrarları kaldır",
       "natural": "Doğal sıra",
       "caseSensitive": "Büyük/küçük harf duyarlı",
-      "localeNote": "Sıralama seçili dilin alfabesine göre yapılır — Türkçede ç harfi z'den sonra değil, doğrudan c'den sonra gelir."
+      "localeNote": "Sıralama arayüzün değil, metin dilinin alfabesine göre yapılır — Türkçede ç harfi z'den sonra değil, doğrudan c'den sonra gelir."
     },
     "stats": {
       "name": "Metin İstatistikleri",

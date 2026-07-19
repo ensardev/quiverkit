@@ -21,7 +21,8 @@
     "clear": "Limpiar",
     "swap": "Intercambiar",
     "generate": "Generar",
-    "example": "Probar un ejemplo"
+    "example": "Probar un ejemplo",
+    "textLanguage": "Idioma del texto"
   },
   "theme": {
     "toggle": "Cambiar tema"
@@ -102,7 +103,7 @@
     "case": {
       "name": "Conversor de mayúsculas",
       "description": "Convierte entre camelCase, snake_case, kebab-case y más, además de slugs para URL.",
-      "localeNote": "Los estilos de identificador ignoran tu idioma a propósito: con las reglas turcas, \"ID\" se convierte en \"ıd\", que ningún compilador acepta. En cambio, lowercase y UPPERCASE sí lo siguen, así que \"istanbul\" se convierte en \"İSTANBUL\".",
+      "localeNote": "Los estilos de identificador ignoran el idioma del texto a propósito: con las reglas turcas, \"ID\" se convierte en \"ıd\", que ningún compilador acepta. Los estilos de prosa — Title Case, Sentence case, lowercase y UPPERCASE — sí lo siguen: en turco \"istanbul\" da \"İstanbul\" y en inglés \"Istanbul\".",
       "style": {
         "camel": "camelCase",
         "pascal": "PascalCase",
@@ -125,7 +126,7 @@
       "unique": "Eliminar duplicados",
       "natural": "Orden natural",
       "caseSensitive": "Distinguir mayúsculas",
-      "localeNote": "La ordenación sigue el alfabeto del idioma seleccionado: en turco, ç va justo después de c en lugar de después de z."
+      "localeNote": "La ordenación sigue el alfabeto del idioma del texto, no el de la interfaz: en turco, ç va justo después de c en lugar de después de z."
     },
     "stats": {
       "name": "Estadísticas de texto",

@@ -1,7 +1,7 @@
 import { textStats } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, Panel, ToolShell } from '@/components/ui'
+import { CodeArea, LocaleSelect, Panel, ToolShell } from '@/components/ui'
 
 interface StatProps {
   label: string
@@ -22,8 +22,10 @@ function Stat({ label, value, hint }: StatProps) {
 export default function StatsTool() {
   const { t, i18n } = useTranslation()
   const [input, setInput] = useState('')
+  const [locale, setLocale] = useState(i18n.language)
 
-  const stats = useMemo(() => textStats(input, i18n.language), [input, i18n.language])
+  // Word segmentation follows the text; digit grouping follows the interface.
+  const stats = useMemo(() => textStats(input, locale), [input, locale])
 
   const number = useMemo(() => new Intl.NumberFormat(i18n.language), [i18n.language])
 
@@ -37,6 +39,8 @@ export default function StatsTool() {
 
   return (
     <ToolShell id="stats">
+      <LocaleSelect value={locale} onChange={setLocale} />
+
       <Panel
         label={t('common.input')}
         action={

@@ -1,27 +1,30 @@
 import { CASE_STYLES, convertCase, slugify } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, DataRow, Panel, ToolShell } from '@/components/ui'
+import { CodeArea, DataRow, LocaleSelect, Panel, ToolShell } from '@/components/ui'
 
 export default function CaseTool() {
   const { t, i18n } = useTranslation()
   const [input, setInput] = useState('')
+  const [locale, setLocale] = useState(i18n.language)
 
   const rows = useMemo(() => {
     const styles = CASE_STYLES.map((style) => ({
       key: style,
       label: t(`tools.case.style.${style}`),
-      value: input === '' ? '' : convertCase(input, style, i18n.language),
+      value: input === '' ? '' : convertCase(input, style, locale),
     }))
 
     return [
       ...styles,
       { key: 'slug', label: t('tools.case.style.slug'), value: input === '' ? '' : slugify(input) },
     ]
-  }, [input, t, i18n.language])
+  }, [input, t, locale])
 
   return (
     <ToolShell id="case">
+      <LocaleSelect value={locale} onChange={setLocale} />
+
       <Panel
         label={t('common.input')}
         action={
