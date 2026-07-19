@@ -5,7 +5,7 @@
   },
   "home": {
     "heading": "Her seferinde arattığın araçlar",
-    "subheading": "Base64, JSON, UUID ve fazlası. Her şey senin makinende çalışır — yükleme yok, hesap yok, takip yok.",
+    "subheading": "Base64, JWT, hash, UUID ve fazlası. Her şey senin makinende çalışır — yükleme yok, hesap yok, takip yok.",
     "browse": "Tüm araçlar"
   },
   "nav": {
@@ -36,13 +36,18 @@
   "category": {
     "encoding": "Kodlama",
     "formatting": "Biçimlendirme",
+    "converters": "Dönüştürücüler",
+    "crypto": "Kriptografi",
     "generators": "Üreteçler"
   },
   "error": {
     "emptyInput": "Başlamak için bir şeyler yaz veya yapıştır.",
     "invalidBase64": "Bu geçerli bir Base64 değil.",
     "invalidUtf8": "Çözüldü, ama sonuç metin değil, ikili veri.",
-    "invalidJson": "Bu geçerli bir JSON değil."
+    "invalidJson": "Bu geçerli bir JSON değil.",
+    "invalidJwt": "Bu geçerli bir JWT değil. Token nokta ile ayrılmış üç parçadan oluşur.",
+    "invalidUrlEncoding": "Bu geçerli bir yüzde kodlaması değil.",
+    "invalidTimestamp": "Bu bir tarih ya da Unix zaman damgası değil."
   },
   "tools": {
     "base64": {
@@ -52,6 +57,39 @@
       "decode": "Çöz",
       "urlSafe": "URL uyumlu"
     },
+    "jwt": {
+      "name": "JWT Çözücü",
+      "description": "Bir JSON Web Token'ın başlığını, içeriğini ve geçerlilik süresini incele — hiçbir yere göndermeden.",
+      "token": "Token",
+      "header": "Başlık",
+      "payload": "İçerik",
+      "claims": "Zaman alanları",
+      "expired": "{{date}} tarihinde süresi doldu",
+      "validUntil": "{{date}} tarihine kadar geçerli",
+      "signatureNote": "İmza gösteriliyor ama doğrulanmıyor: doğrulamak için imzalama anahtarı gerekir, ve senden anahtarını isteyen bir araç kullanmaman gereken bir araçtır.",
+      "claim": {
+        "iat": "oluşturulma",
+        "nbf": "şu tarihten önce geçersiz",
+        "exp": "bitiş"
+      }
+    },
+    "url": {
+      "name": "URL Kodlayıcı",
+      "description": "URL'leri yüzde kodlamasıyla kodla, çöz veya parçalarına ayır.",
+      "encode": "Kodla",
+      "decode": "Çöz",
+      "parse": "Ayrıştır",
+      "wholeUrl": "Tüm adres",
+      "componentHint": "/ ? & = dahil güvensiz her karakteri kaçırır — tek bir değer için bunu kullan.",
+      "wholeHint": "Ayrılmış karakterlere dokunmaz — tam bir adres için bunu kullan.",
+      "parseHint": "Adresi protokol, sunucu, yol ve sorgu parametrelerine ayırır.",
+      "protocol": "Protokol",
+      "host": "Sunucu",
+      "port": "Port",
+      "path": "Yol",
+      "hash": "Parça",
+      "param": "sorgu"
+    },
     "json": {
       "name": "JSON Biçimlendirici",
       "description": "JSON'u biçimlendir, küçült ve alfabetik sırala.",
@@ -59,6 +97,26 @@
       "minify": "Küçült",
       "sort": "Anahtarları sırala",
       "indent": "Girinti"
+    },
+    "timestamp": {
+      "name": "Zaman Damgası Dönüştürücü",
+      "description": "Unix zamanı, ISO 8601 ve okunabilir tarihler arasında dönüştür.",
+      "now": "Şimdi",
+      "hint": "Unix saniye, Unix milisaniye veya herhangi bir tarih metni kabul eder.",
+      "relative": "Göreli",
+      "local": "Yerel saat",
+      "seconds": "Unix saniye",
+      "millis": "Unix milisaniye"
+    },
+    "hash": {
+      "name": "Hash Üretici",
+      "description": "SHA-1, SHA-256, SHA-384 ve SHA-512 özetleri, isteğe bağlı HMAC ile.",
+      "secret": "HMAC anahtarı",
+      "secretPlaceholder": "Düz hash için boş bırak",
+      "secretHint": "Buraya bir anahtar yazarsan girdi hash'lenmek yerine HMAC ile imzalanır.",
+      "digests": "Özetler",
+      "hmacDigests": "HMAC özetleri",
+      "md5Note": "MD5 bilerek yok. Tarayıcılar kırılmış olduğu için onu uygulamayı reddediyor, kendimiz eklersek de kullanımını teşvik etmiş oluruz."
     },
     "uuid": {
       "name": "UUID Üretici",

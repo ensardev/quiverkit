@@ -5,7 +5,7 @@
   },
   "home": {
     "heading": "Every tool you keep googling for",
-    "subheading": "Base64, JSON, UUIDs and more. Everything runs on your machine — no upload, no account, no tracking.",
+    "subheading": "Base64, JWT, hashes, UUIDs and more. Everything runs on your machine — no upload, no account, no tracking.",
     "browse": "All tools"
   },
   "nav": {
@@ -36,13 +36,18 @@
   "category": {
     "encoding": "Encoding",
     "formatting": "Formatting",
+    "converters": "Converters",
+    "crypto": "Cryptography",
     "generators": "Generators"
   },
   "error": {
     "emptyInput": "Type or paste something to get started.",
     "invalidBase64": "This is not valid Base64.",
     "invalidUtf8": "Decoded successfully, but the result is binary, not text.",
-    "invalidJson": "This is not valid JSON."
+    "invalidJson": "This is not valid JSON.",
+    "invalidJwt": "This is not a valid JWT. A token has three dot-separated parts.",
+    "invalidUrlEncoding": "This is not valid percent-encoding.",
+    "invalidTimestamp": "This is not a date or a Unix timestamp."
   },
   "tools": {
     "base64": {
@@ -52,6 +57,39 @@
       "decode": "Decode",
       "urlSafe": "URL-safe"
     },
+    "jwt": {
+      "name": "JWT Decoder",
+      "description": "Inspect a JSON Web Token's header, payload and expiry — without sending it anywhere.",
+      "token": "Token",
+      "header": "Header",
+      "payload": "Payload",
+      "claims": "Time claims",
+      "expired": "Expired on {{date}}",
+      "validUntil": "Valid until {{date}}",
+      "signatureNote": "The signature is shown but not verified: checking it needs the signing key, and a tool that asks for your key is a tool you should not use.",
+      "claim": {
+        "iat": "issued at",
+        "nbf": "not valid before",
+        "exp": "expires"
+      }
+    },
+    "url": {
+      "name": "URL Encoder",
+      "description": "Percent-encode and decode URLs, or split one into its parts.",
+      "encode": "Encode",
+      "decode": "Decode",
+      "parse": "Parse",
+      "wholeUrl": "Whole URL",
+      "componentHint": "Escapes everything unsafe, including / ? & = — use this for a single value.",
+      "wholeHint": "Leaves reserved characters intact — use this for a complete address.",
+      "parseHint": "Splits an address into protocol, host, path and query parameters.",
+      "protocol": "Protocol",
+      "host": "Host",
+      "port": "Port",
+      "path": "Path",
+      "hash": "Fragment",
+      "param": "query"
+    },
     "json": {
       "name": "JSON Formatter",
       "description": "Format, minify and alphabetically sort JSON.",
@@ -59,6 +97,26 @@
       "minify": "Minify",
       "sort": "Sort keys",
       "indent": "Indent"
+    },
+    "timestamp": {
+      "name": "Timestamp Converter",
+      "description": "Convert between Unix time, ISO 8601 and human-readable dates.",
+      "now": "Now",
+      "hint": "Accepts Unix seconds, Unix milliseconds or any date string.",
+      "relative": "Relative",
+      "local": "Local time",
+      "seconds": "Unix seconds",
+      "millis": "Unix milliseconds"
+    },
+    "hash": {
+      "name": "Hash Generator",
+      "description": "SHA-1, SHA-256, SHA-384 and SHA-512 digests, with optional HMAC.",
+      "secret": "HMAC key",
+      "secretPlaceholder": "Leave empty for a plain hash",
+      "secretHint": "Fill this in to sign the input with HMAC instead of hashing it.",
+      "digests": "Digests",
+      "hmacDigests": "HMAC digests",
+      "md5Note": "MD5 is missing on purpose. Browsers refuse to implement it because it is broken, and adding our own would only encourage its use."
     },
     "uuid": {
       "name": "UUID Generator",

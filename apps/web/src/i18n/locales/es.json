@@ -5,7 +5,7 @@
   },
   "home": {
     "heading": "Las herramientas que siempre acabas buscando",
-    "subheading": "Base64, JSON, UUID y más. Todo se ejecuta en tu equipo: sin subidas, sin cuentas, sin rastreo.",
+    "subheading": "Base64, JWT, hashes, UUID y más. Todo se ejecuta en tu equipo: sin subidas, sin cuentas, sin rastreo.",
     "browse": "Todas las herramientas"
   },
   "nav": {
@@ -36,13 +36,18 @@
   "category": {
     "encoding": "Codificación",
     "formatting": "Formato",
+    "converters": "Conversores",
+    "crypto": "Criptografía",
     "generators": "Generadores"
   },
   "error": {
     "emptyInput": "Escribe o pega algo para empezar.",
     "invalidBase64": "Esto no es Base64 válido.",
     "invalidUtf8": "Se descodificó correctamente, pero el resultado es binario, no texto.",
-    "invalidJson": "Esto no es JSON válido."
+    "invalidJson": "Esto no es JSON válido.",
+    "invalidJwt": "Esto no es un JWT válido. Un token tiene tres partes separadas por puntos.",
+    "invalidUrlEncoding": "Esto no es una codificación porcentual válida.",
+    "invalidTimestamp": "Esto no es una fecha ni una marca de tiempo Unix."
   },
   "tools": {
     "base64": {
@@ -52,6 +57,39 @@
       "decode": "Descodificar",
       "urlSafe": "Seguro para URL"
     },
+    "jwt": {
+      "name": "Descodificador JWT",
+      "description": "Inspecciona la cabecera, el contenido y la caducidad de un JSON Web Token, sin enviarlo a ningún sitio.",
+      "token": "Token",
+      "header": "Cabecera",
+      "payload": "Contenido",
+      "claims": "Campos de tiempo",
+      "expired": "Caducó el {{date}}",
+      "validUntil": "Válido hasta el {{date}}",
+      "signatureNote": "La firma se muestra pero no se verifica: comprobarla requiere la clave de firma, y una herramienta que te pide tu clave es una herramienta que no deberías usar.",
+      "claim": {
+        "iat": "emitido en",
+        "nbf": "no válido antes de",
+        "exp": "caduca"
+      }
+    },
+    "url": {
+      "name": "Codificador de URL",
+      "description": "Codifica y descodifica URLs, o divídelas en sus partes.",
+      "encode": "Codificar",
+      "decode": "Descodificar",
+      "parse": "Analizar",
+      "wholeUrl": "URL completa",
+      "componentHint": "Escapa todo lo inseguro, incluidos / ? & = — úsalo para un solo valor.",
+      "wholeHint": "Deja intactos los caracteres reservados — úsalo para una dirección completa.",
+      "parseHint": "Divide una dirección en protocolo, host, ruta y parámetros de consulta.",
+      "protocol": "Protocolo",
+      "host": "Host",
+      "port": "Puerto",
+      "path": "Ruta",
+      "hash": "Fragmento",
+      "param": "consulta"
+    },
     "json": {
       "name": "Formateador JSON",
       "description": "Formatea, minifica y ordena JSON alfabéticamente.",
@@ -59,6 +97,26 @@
       "minify": "Minificar",
       "sort": "Ordenar claves",
       "indent": "Sangría"
+    },
+    "timestamp": {
+      "name": "Conversor de marcas de tiempo",
+      "description": "Convierte entre tiempo Unix, ISO 8601 y fechas legibles.",
+      "now": "Ahora",
+      "hint": "Acepta segundos Unix, milisegundos Unix o cualquier texto de fecha.",
+      "relative": "Relativo",
+      "local": "Hora local",
+      "seconds": "Segundos Unix",
+      "millis": "Milisegundos Unix"
+    },
+    "hash": {
+      "name": "Generador de hashes",
+      "description": "Resúmenes SHA-1, SHA-256, SHA-384 y SHA-512, con HMAC opcional.",
+      "secret": "Clave HMAC",
+      "secretPlaceholder": "Déjalo vacío para un hash normal",
+      "secretHint": "Rellena esto para firmar la entrada con HMAC en lugar de aplicarle un hash.",
+      "digests": "Resúmenes",
+      "hmacDigests": "Resúmenes HMAC",
+      "md5Note": "MD5 falta a propósito. Los navegadores se niegan a implementarlo porque está roto, y añadir el nuestro solo fomentaría su uso."
     },
     "uuid": {
       "name": "Generador de UUID",

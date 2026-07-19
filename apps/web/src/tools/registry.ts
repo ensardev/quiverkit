@@ -1,6 +1,6 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 
-export type ToolCategory = 'encoding' | 'formatting' | 'generators'
+export type ToolCategory = 'encoding' | 'formatting' | 'converters' | 'crypto' | 'generators'
 
 export interface Tool {
   /** Doubles as the URL slug and the i18n namespace: `tools.<id>.name`. */
@@ -29,10 +29,34 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./base64/Base64Tool')),
   },
   {
+    id: 'jwt',
+    category: 'encoding',
+    keywords: ['token', 'bearer', 'auth', 'claims', 'decode'],
+    Component: lazy(() => import('./jwt/JwtTool')),
+  },
+  {
+    id: 'url',
+    category: 'encoding',
+    keywords: ['uri', 'percent', 'escape', 'query', 'querystring'],
+    Component: lazy(() => import('./url/UrlTool')),
+  },
+  {
     id: 'json',
     category: 'formatting',
     keywords: ['pretty', 'beautify', 'minify', 'format', 'validate'],
     Component: lazy(() => import('./json/JsonTool')),
+  },
+  {
+    id: 'timestamp',
+    category: 'converters',
+    keywords: ['unix', 'epoch', 'date', 'time', 'iso'],
+    Component: lazy(() => import('./timestamp/TimestampTool')),
+  },
+  {
+    id: 'hash',
+    category: 'crypto',
+    keywords: ['sha', 'sha256', 'digest', 'checksum', 'hmac', 'md5'],
+    Component: lazy(() => import('./hash/HashTool')),
   },
   {
     id: 'uuid',
@@ -42,7 +66,13 @@ export const TOOLS: Tool[] = [
   },
 ]
 
-export const CATEGORY_ORDER: ToolCategory[] = ['encoding', 'formatting', 'generators']
+export const CATEGORY_ORDER: ToolCategory[] = [
+  'encoding',
+  'formatting',
+  'converters',
+  'crypto',
+  'generators',
+]
 
 export function findTool(id: string): Tool | undefined {
   return TOOLS.find((tool) => tool.id === id)

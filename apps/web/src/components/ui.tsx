@@ -131,6 +131,28 @@ export function ErrorNote({ children }: { children: ReactNode }) {
   )
 }
 
+interface DataRowProps {
+  label: string
+  value: string
+  hint?: string
+}
+
+/** Label on the left, monospace value on the right, copyable. */
+export function DataRow({ label, value, hint }: DataRowProps) {
+  return (
+    <div className="border-line flex items-baseline justify-between gap-4 border-b px-4 py-2.5 last:border-b-0">
+      <div className="min-w-0">
+        <span className="text-muted text-sm">{label}</span>
+        {hint && <span className="text-muted/70 ml-2 text-xs">{hint}</span>}
+      </div>
+      <div className="flex min-w-0 items-baseline gap-3">
+        <span className="truncate font-mono text-sm">{value}</span>
+        <CopyButton value={value} />
+      </div>
+    </div>
+  )
+}
+
 /** Every tool page shares this header, sourced from `tools.<id>.*`. */
 export function ToolShell({ id, children }: { id: string; children: ReactNode }) {
   const { t } = useTranslation()
