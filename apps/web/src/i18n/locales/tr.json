@@ -39,6 +39,7 @@
     "formatting": "Biçimlendirme",
     "text": "Metin",
     "converters": "Dönüştürücüler",
+    "design": "Tasarım",
     "crypto": "Kriptografi",
     "generators": "Üreteçler"
   },
@@ -49,7 +50,9 @@
     "invalidJson": "Bu geçerli bir JSON değil.",
     "invalidJwt": "Bu geçerli bir JWT değil. Token nokta ile ayrılmış üç parçadan oluşur.",
     "invalidUrlEncoding": "Bu geçerli bir yüzde kodlaması değil.",
-    "invalidTimestamp": "Bu bir tarih ya da Unix zaman damgası değil."
+    "invalidTimestamp": "Bu bir tarih ya da Unix zaman damgası değil.",
+    "noCharacterSet": "En az bir karakter kümesi seç.",
+    "invalidColor": "Bu rengi tanıyamadık. #3b82f6, rgb(59 130 246) veya hsl(217 91% 60%) dene."
   },
   "tools": {
     "base64": {
@@ -164,6 +167,44 @@
       "digests": "Özetler",
       "hmacDigests": "HMAC özetleri",
       "md5Note": "MD5 bilerek yok. Tarayıcılar kırılmış olduğu için onu uygulamayı reddediyor, kendimiz eklersek de kullanımını teşvik etmiş oluruz."
+    },
+    "color": {
+      "name": "Renk Dönüştürücü",
+      "description": "HEX, RGB, HSL ve OKLCH arasında dönüştür, WCAG kontrastını denetle.",
+      "foreground": "Ön plan",
+      "background": "Arka plan",
+      "formats": "Biçimler",
+      "contrast": "Kontrast",
+      "sample": "Çoğu arayüzün kullandığı boyutta normal metin.",
+      "sampleLarge": "Büyük metin",
+      "ratio": "kontrast oranı",
+      "normalAA": "Normal AA",
+      "normalAAA": "Normal AAA",
+      "largeAA": "Büyük AA",
+      "largeAAA": "Büyük AAA",
+      "oklchNote": "OKLCH öğrenmeye değer: HSL'den farklı olarak parlaklığındaki eşit adımlar göze de eşit farklılıkta görünür, bu yüzden onunla kurulan paletler dengeli kalır. Büyük metin 24px, kalınsa 18,66px demek."
+    },
+    "password": {
+      "name": "Parola Üretici",
+      "description": "Yanlılıksız rastgelelikle güçlü parolalar üret, gerçek gücünü gör.",
+      "regenerate": "Yeniden üret",
+      "options": "Seçenekler",
+      "length": "Uzunluk",
+      "excludeAmbiguous": "Birbirine benzeyen karakterler olmasın",
+      "bits": "{{entropy}} bit",
+      "entropyNote": "Güç, parolanın içinde sembol olup olmadığına göre değil, entropi bitiyle ölçülür — yani saldırganın kaç deneme yapması gerektiğiyle. Her karakter reddetme örneklemesiyle seçiliyor, böylece hiçbir harf diğerinden daha olası değil.",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "Semboller"
+      },
+      "strength": {
+        "weak": "Zayıf",
+        "fair": "Orta",
+        "strong": "Güçlü",
+        "excellent": "Mükemmel"
+      }
     },
     "uuid": {
       "name": "UUID Üretici",

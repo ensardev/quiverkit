@@ -7,7 +7,29 @@ export {
   encodeBase64Url,
 } from './tools/base64.js'
 
+export {
+  checkContrast,
+  contrastRatio,
+  parseColor,
+  relativeLuminance,
+  toHex,
+  toHsl,
+  toOklch,
+  type ContrastVerdict,
+  type Hsl,
+  type Oklch,
+  type Rgb,
+} from './tools/color.js'
+
 export { HASH_ALGORITHMS, hashText, hmac, type HashAlgorithm } from './tools/hash.js'
+
+export {
+  generatePassword,
+  passwordEntropy,
+  passwordStrength,
+  type PasswordOptions,
+  type PasswordStrength,
+} from './tools/password.js'
 
 export { formatJson, minifyJson, sortJsonKeys } from './tools/json.js'
 

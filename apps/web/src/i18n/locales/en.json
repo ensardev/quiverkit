@@ -39,6 +39,7 @@
     "formatting": "Formatting",
     "text": "Text",
     "converters": "Converters",
+    "design": "Design",
     "crypto": "Cryptography",
     "generators": "Generators"
   },
@@ -49,7 +50,9 @@
     "invalidJson": "This is not valid JSON.",
     "invalidJwt": "This is not a valid JWT. A token has three dot-separated parts.",
     "invalidUrlEncoding": "This is not valid percent-encoding.",
-    "invalidTimestamp": "This is not a date or a Unix timestamp."
+    "invalidTimestamp": "This is not a date or a Unix timestamp.",
+    "noCharacterSet": "Pick at least one set of characters.",
+    "invalidColor": "This is not a colour we recognise. Try #3b82f6, rgb(59 130 246) or hsl(217 91% 60%)."
   },
   "tools": {
     "base64": {
@@ -164,6 +167,44 @@
       "digests": "Digests",
       "hmacDigests": "HMAC digests",
       "md5Note": "MD5 is missing on purpose. Browsers refuse to implement it because it is broken, and adding our own would only encourage its use."
+    },
+    "color": {
+      "name": "Colour Converter",
+      "description": "Convert between HEX, RGB, HSL and OKLCH, and check WCAG contrast.",
+      "foreground": "Foreground",
+      "background": "Background",
+      "formats": "Formats",
+      "contrast": "Contrast",
+      "sample": "Normal text at the size most interfaces use.",
+      "sampleLarge": "Large text",
+      "ratio": "contrast ratio",
+      "normalAA": "Normal AA",
+      "normalAAA": "Normal AAA",
+      "largeAA": "Large AA",
+      "largeAAA": "Large AAA",
+      "oklchNote": "OKLCH is worth learning: unlike HSL, equal steps in its lightness look equally different to the eye, so palettes built in it stay balanced. Large text means 24px, or 18.66px bold."
+    },
+    "password": {
+      "name": "Password Generator",
+      "description": "Generate strong passwords with unbiased randomness, and see their real strength.",
+      "regenerate": "Regenerate",
+      "options": "Options",
+      "length": "Length",
+      "excludeAmbiguous": "No look-alike characters",
+      "bits": "{{entropy}} bits",
+      "entropyNote": "Strength is measured in bits of entropy — how many guesses an attacker needs — rather than by whether the password happens to contain a symbol. Every character is drawn with rejection sampling, so no letter is more likely than another.",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "Symbols"
+      },
+      "strength": {
+        "weak": "Weak",
+        "fair": "Fair",
+        "strong": "Strong",
+        "excellent": "Excellent"
+      }
     },
     "uuid": {
       "name": "UUID Generator",

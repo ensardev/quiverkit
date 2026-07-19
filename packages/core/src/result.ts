@@ -14,6 +14,8 @@ export type ToolError =
   | 'error.invalidJwt'
   | 'error.invalidUrlEncoding'
   | 'error.invalidTimestamp'
+  | 'error.noCharacterSet'
+  | 'error.invalidColor'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

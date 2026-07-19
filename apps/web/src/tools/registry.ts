@@ -5,6 +5,7 @@ export type ToolCategory =
   | 'formatting'
   | 'text'
   | 'converters'
+  | 'design'
   | 'crypto'
   | 'generators'
 
@@ -77,6 +78,12 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./timestamp/TimestampTool')),
   },
   {
+    id: 'color',
+    category: 'design',
+    keywords: ['hex', 'rgb', 'hsl', 'oklch', 'contrast', 'wcag', 'accessibility', 'a11y'],
+    Component: lazy(() => import('./color/ColorTool')),
+  },
+  {
     id: 'hash',
     category: 'crypto',
     keywords: ['sha', 'sha256', 'digest', 'checksum', 'hmac', 'md5'],
@@ -88,6 +95,12 @@ export const TOOLS: Tool[] = [
     keywords: ['guid', 'nanoid', 'id', 'random', 'v4', 'v7'],
     Component: lazy(() => import('./uuid/UuidTool')),
   },
+  {
+    id: 'password',
+    category: 'generators',
+    keywords: ['passphrase', 'secret', 'random', 'entropy', 'strong'],
+    Component: lazy(() => import('./password/PasswordTool')),
+  },
 ]
 
 export const CATEGORY_ORDER: ToolCategory[] = [
@@ -95,6 +108,7 @@ export const CATEGORY_ORDER: ToolCategory[] = [
   'formatting',
   'text',
   'converters',
+  'design',
   'crypto',
   'generators',
 ]

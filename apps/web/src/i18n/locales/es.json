@@ -39,6 +39,7 @@
     "formatting": "Formato",
     "text": "Texto",
     "converters": "Conversores",
+    "design": "Diseño",
     "crypto": "Criptografía",
     "generators": "Generadores"
   },
@@ -49,7 +50,9 @@
     "invalidJson": "Esto no es JSON válido.",
     "invalidJwt": "Esto no es un JWT válido. Un token tiene tres partes separadas por puntos.",
     "invalidUrlEncoding": "Esto no es una codificación porcentual válida.",
-    "invalidTimestamp": "Esto no es una fecha ni una marca de tiempo Unix."
+    "invalidTimestamp": "Esto no es una fecha ni una marca de tiempo Unix.",
+    "noCharacterSet": "Elige al menos un conjunto de caracteres.",
+    "invalidColor": "No reconocemos este color. Prueba #3b82f6, rgb(59 130 246) o hsl(217 91% 60%)."
   },
   "tools": {
     "base64": {
@@ -164,6 +167,44 @@
       "digests": "Resúmenes",
       "hmacDigests": "Resúmenes HMAC",
       "md5Note": "MD5 falta a propósito. Los navegadores se niegan a implementarlo porque está roto, y añadir el nuestro solo fomentaría su uso."
+    },
+    "color": {
+      "name": "Conversor de color",
+      "description": "Convierte entre HEX, RGB, HSL y OKLCH, y comprueba el contraste WCAG.",
+      "foreground": "Primer plano",
+      "background": "Fondo",
+      "formats": "Formatos",
+      "contrast": "Contraste",
+      "sample": "Texto normal al tamaño que usa la mayoría de las interfaces.",
+      "sampleLarge": "Texto grande",
+      "ratio": "relación de contraste",
+      "normalAA": "Normal AA",
+      "normalAAA": "Normal AAA",
+      "largeAA": "Grande AA",
+      "largeAAA": "Grande AAA",
+      "oklchNote": "Vale la pena aprender OKLCH: a diferencia de HSL, pasos iguales en su luminosidad se ven igual de distintos al ojo, así que las paletas creadas con él se mantienen equilibradas. Texto grande significa 24px, o 18,66px en negrita."
+    },
+    "password": {
+      "name": "Generador de contraseñas",
+      "description": "Genera contraseñas seguras con aleatoriedad sin sesgo y comprueba su fuerza real.",
+      "regenerate": "Regenerar",
+      "options": "Opciones",
+      "length": "Longitud",
+      "excludeAmbiguous": "Sin caracteres que se confunden",
+      "bits": "{{entropy}} bits",
+      "entropyNote": "La fuerza se mide en bits de entropía — cuántos intentos necesita un atacante — y no según si la contraseña incluye un símbolo. Cada carácter se elige con muestreo por rechazo, así que ninguna letra es más probable que otra.",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "Símbolos"
+      },
+      "strength": {
+        "weak": "Débil",
+        "fair": "Aceptable",
+        "strong": "Fuerte",
+        "excellent": "Excelente"
+      }
     },
     "uuid": {
       "name": "Generador de UUID",
