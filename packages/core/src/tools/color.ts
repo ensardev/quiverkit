@@ -18,6 +18,15 @@ export interface Hsl {
   a: number
 }
 
+export interface Hsv {
+  /** 0–360 */
+  h: number
+  /** 0–100 */
+  s: number
+  v: number
+  a: number
+}
+
 export interface Oklch {
   /** 0–1 */
   l: number
@@ -156,6 +165,63 @@ export function toHsl({ r, g, b, a }: Rgb): Hsl {
     s: round(saturation * 100, 1),
     l: round(lightness * 100, 1),
     a,
+  }
+}
+
+/**
+ * HSV, not HSL, is what a colour picker's square is built on: the horizontal
+ * axis is saturation and the vertical one is value, which is exactly the shape
+ * of that gradient.
+ */
+export function toHsv({ r, g, b, a }: Rgb): Hsv {
+  const red = r / 255
+  const green = g / 255
+  const blue = b / 255
+
+  const max = Math.max(red, green, blue)
+  const delta = max - Math.min(red, green, blue)
+
+  let hue = 0
+  if (delta !== 0) {
+    if (max === red) hue = ((green - blue) / delta) % 6
+    else if (max === green) hue = (blue - red) / delta + 2
+    else hue = (red - green) / delta + 4
+    hue *= 60
+    if (hue < 0) hue += 360
+  }
+
+  return {
+    h: round(hue, 1),
+    s: round((max === 0 ? 0 : delta / max) * 100, 1),
+    v: round(max * 100, 1),
+    a,
+  }
+}
+
+export function hsvToRgb({ h, s, v, a }: Hsv): Rgb {
+  const saturation = clamp(s, 0, 100) / 100
+  const value = clamp(v, 0, 100) / 100
+  const chroma = value * saturation
+  const secondary = chroma * (1 - Math.abs(((h / 60) % 2) - 1))
+  const match = value - chroma
+
+  const sector = Math.floor((((h % 360) + 360) % 360) / 60)
+  const table: [number, number, number][] = [
+    [chroma, secondary, 0],
+    [secondary, chroma, 0],
+    [0, chroma, secondary],
+    [0, secondary, chroma],
+    [secondary, 0, chroma],
+    [chroma, 0, secondary],
+  ]
+
+  const [red, green, blue] = table[sector] ?? [0, 0, 0]
+
+  return {
+    r: Math.round((red + match) * 255),
+    g: Math.round((green + match) * 255),
+    b: Math.round((blue + match) * 255),
+    a: clamp(a, 0, 1),
   }
 }
 

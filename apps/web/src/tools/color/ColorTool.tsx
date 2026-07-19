@@ -1,6 +1,7 @@
 import { checkContrast, parseColor, toHex, toHsl, toOklch, type Rgb } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import ColorPicker from '@/components/ColorPicker'
 import { DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 interface ColorFieldProps {
@@ -11,20 +12,45 @@ interface ColorFieldProps {
 }
 
 function ColorField({ label, value, onChange, swatch }: ColorFieldProps) {
+  const { t } = useTranslation()
+  const [picking, setPicking] = useState(false)
+
   return (
-    <label className="flex flex-1 items-center gap-3">
-      <span
-        className="border-line size-10 shrink-0 rounded-lg border"
-        style={swatch ? { backgroundColor: toHex({ ...swatch, a: 1 }) } : undefined}
+    <div className="relative flex flex-1 items-center gap-3">
+      <button
+        type="button"
+        onClick={() => setPicking((open) => !open)}
+        aria-label={t('tools.color.pick')}
+        title={t('tools.color.pick')}
+        // The checkerboard sits underneath so a semi-transparent colour reads as
+        // transparent rather than as a lighter shade.
+        className="border-line hover:border-accent size-10 shrink-0 cursor-pointer rounded-lg border transition-colors"
+        style={{
+          backgroundImage: swatch
+            ? `linear-gradient(${toHex(swatch)}, ${toHex(swatch)}), repeating-conic-gradient(#bbb 0% 25%, #fff 0% 50%)`
+            : undefined,
+          backgroundSize: 'auto, 10px 10px',
+        }}
       />
-      <span className="sr-only">{label}</span>
-      <input
-        value={value}
-        onChange={(event) => onChange(event.target.value)}
-        placeholder="#3b82f6"
-        className="border-line bg-surface placeholder:text-muted focus:border-accent w-full rounded-lg border px-3 py-2 font-mono text-sm transition-colors focus:outline-none"
-      />
-    </label>
+
+      {picking && swatch && (
+        <ColorPicker
+          value={swatch}
+          onChange={(next) => onChange(toHex(next))}
+          onClose={() => setPicking(false)}
+        />
+      )}
+
+      <label className="w-full">
+        <span className="sr-only">{label}</span>
+        <input
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder="#3b82f6"
+          className="border-line bg-surface placeholder:text-muted focus:border-accent w-full rounded-lg border px-3 py-2 font-mono text-sm transition-colors focus:outline-none"
+        />
+      </label>
+    </div>
   )
 }
 

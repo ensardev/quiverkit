@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest'
-import { checkContrast, contrastRatio, parseColor, toHex, toHsl, toOklch } from './color.js'
+import {
+  checkContrast,
+  contrastRatio,
+  hsvToRgb,
+  parseColor,
+  toHex,
+  toHsl,
+  toHsv,
+  toOklch,
+} from './color.js'
 
 function rgb(input: string) {
   const result = parseColor(input)
@@ -42,6 +51,16 @@ describe('conversions', () => {
   it('converts to hsl', () => {
     expect(toHsl(rgb('#ff0000'))).toEqual({ h: 0, s: 100, l: 50, a: 1 })
     expect(toHsl(rgb('#808080'))).toMatchObject({ s: 0 })
+  })
+
+  it('converts to hsv and back', () => {
+    expect(toHsv(rgb('#ff0000'))).toEqual({ h: 0, s: 100, v: 100, a: 1 })
+    expect(toHsv(rgb('#000000'))).toMatchObject({ s: 0, v: 0 })
+    expect(toHsv(rgb('#ffffff'))).toMatchObject({ s: 0, v: 100 })
+
+    for (const hex of ['#ff0000', '#3b82f6', '#123456', '#a1b2c3']) {
+      expect(toHex(hsvToRgb(toHsv(rgb(hex))))).toBe(hex)
+    }
   })
 
   it('converts to oklch', () => {

@@ -10,13 +10,16 @@ export {
 export {
   checkContrast,
   contrastRatio,
+  hsvToRgb,
   parseColor,
   relativeLuminance,
   toHex,
   toHsl,
+  toHsv,
   toOklch,
   type ContrastVerdict,
   type Hsl,
+  type Hsv,
   type Oklch,
   type Rgb,
 } from './tools/color.js'
