@@ -26,6 +26,7 @@ export type ToolError =
   | 'error.invalidCurl'
   | 'error.decryptFailed'
   | 'error.keyGenerationFailed'
+  | 'error.unsupportedImage'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

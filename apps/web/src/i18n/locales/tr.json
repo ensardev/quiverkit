@@ -40,6 +40,7 @@
     "text": "Metin",
     "converters": "Dönüştürücüler",
     "design": "Tasarım",
+    "media": "Medya",
     "network": "Ağ",
     "crypto": "Kriptografi",
     "generators": "Üreteçler",
@@ -64,7 +65,8 @@
     "invalidCidr": "Adres ve önek yaz, 192.168.1.0/24 gibi.",
     "invalidCurl": "Bu, URL içeren bir curl komutuna benzemiyor.",
     "decryptFailed": "Çözülemedi. Parola yanlış ya da mesaj değiştirilmiş.",
-    "keyGenerationFailed": "Tarayıcın bu tür bir anahtar üretemiyor."
+    "keyGenerationFailed": "Tarayıcın bu tür bir anahtar üretemiyor.",
+    "unsupportedImage": "Bu araç JPEG dosyalarını okur. Diğer biçimler üst veriyi farklı saklar."
   },
   "tools": {
     "base64": {
@@ -292,6 +294,72 @@
       "matches": "{{version}}, {{range}} aralığına uyuyor",
       "noMatch": "{{version}}, {{range}} aralığına uymuyor",
       "note": "^, ~, >, >=, <, <=, =, x joker karakterleri, VE için boşluk ve VEYA için || destekleniyor. Tire aralıkları kapsam dışı."
+    },
+    "units": {
+      "name": "CSS Birimleri",
+      "description": "px, rem, em, pt ve yüzde arasında dönüştür.",
+      "rootFontSize": "Kök yazı boyutu",
+      "parentFontSize": "Üst öğe yazı boyutu",
+      "note": "rem belgeye, em ise öğenin üstüne göredir — iç içe em değerlerinin birikmesinin sebebi budur. CSS 1 inç'i 96px'e sabitler, yani 12pt her ekranda tam olarak 16px eder."
+    },
+    "gradient": {
+      "name": "Gradient Üretici",
+      "description": "Doğrusal, dairesel veya konik gradient kur ve CSS'ini kopyala.",
+      "stops": "Renk durakları",
+      "addStop": "Durak ekle",
+      "kind": {
+        "linear": "Doğrusal",
+        "radial": "Dairesel",
+        "conic": "Konik"
+      }
+    },
+    "shadow": {
+      "name": "Kutu Gölgesi",
+      "description": "Gölge tasarla, katmanları üst üste koy ve CSS'ini kopyala.",
+      "offsetX": "Yatay kaydırma",
+      "offsetY": "Dikey kaydırma",
+      "blur": "Bulanıklık",
+      "spread": "Yayılma",
+      "layer": "{{number}}. katman",
+      "soft": "Yumuşak hazır ayar",
+      "deep": "Derin hazır ayar",
+      "addLayer": "Katman ekle",
+      "note": "Tek ve sert bir gölge nadiren doğru görünür. Kaydırması artan, opaklığı azalan birkaç katman tek bir yumuşak ışık kaynağı gibi okunur; tasarım sistemlerinin derinliği böyle kurulur."
+    },
+    "bezier": {
+      "name": "Cubic Bézier",
+      "description": "Tutamaçları sürükleyerek yumuşatma eğrisi tasarla ve hareketi izle.",
+      "curve": "Eğri",
+      "css": "CSS",
+      "preview": "Önizleme",
+      "play": "Oynat",
+      "note": "Bir tutamacı kutunun üstüne ya da altına sürükle — animasyona zıplamayı veren şey budur. CSS yatay ekseni 0–1 arasına sıkıştırır ama dikey ekseni sıkıştırmaz."
+    },
+    "image": {
+      "name": "Görsel Dönüştürücü",
+      "description": "Görselleri yüklemeden dönüştür, boyutlandır ve sıkıştır.",
+      "drop": "Görseli buraya bırak",
+      "dropHint": "ya da seçmek için tıkla",
+      "quality": "Kalite",
+      "maxWidth": "En fazla genişlik",
+      "convert": "Dönüştür",
+      "original": "Özgün",
+      "result": "Sonuç",
+      "pending": "Sonucu görmek için Dönüştür'e bas",
+      "download": "İndir",
+      "note": "Her şey tarayıcındaki bir canvas üzerinde çalışır. Özgün boyutu korumak için en fazla genişliği 0 yap. Yeniden çizim üst verinin tamamını da düşürür, çünkü bu turdan yalnızca pikseller sağ çıkar."
+    },
+    "exif": {
+      "name": "EXIF Görüntüleyici",
+      "description": "Bir fotoğrafın senin hakkında ne söylediğini gör ve temizle.",
+      "drop": "JPEG dosyasını buraya bırak",
+      "dropHint": "ya da seçmek için tıkla",
+      "metadata": "Üst veri",
+      "locationFound": "Bu fotoğraf konumunu taşıyor",
+      "locationWarning": "Bu dosyayı alan herkes bu koordinatları okuyabilir. Çoğu sosyal ağ bunları siler; dosyayı doğrudan gönderdiğinde silinmez.",
+      "clean": "Üst veri bulunamadı. Bu dosya olduğu gibi paylaşılabilir.",
+      "download": "Üst verisiz indir",
+      "note": "Temizleme yalnızca üst veri bölümlerini kaldırır, görüntü verisini bayt bayt kopyalar — hiçbir şey yeniden kodlanmaz, kalite kaybı olmaz. Dosya tarayıcından hiç çıkmaz."
     },
     "cidr": {
       "name": "Alt Ağ Hesaplayıcı",

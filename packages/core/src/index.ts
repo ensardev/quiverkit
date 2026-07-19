@@ -27,7 +27,42 @@ export {
 
 export { decryptAes, encryptAes } from './tools/aes.js'
 
+export {
+  BEZIER_PRESETS,
+  evaluate,
+  sample,
+  toCss,
+  type BezierCurve,
+} from './tools/bezier.js'
+
 export { contains, parseCidr, type CidrInfo } from './tools/cidr.js'
+
+export {
+  elevation,
+  gradientToCss,
+  shadowToCss,
+  type Gradient,
+  type GradientKind,
+  type GradientStop,
+  type Shadow,
+} from './tools/css.js'
+
+export {
+  convertUnits,
+  CSS_UNITS,
+  DEFAULT_CONTEXT,
+  type CssUnit,
+  type UnitContext,
+  type UnitView,
+} from './tools/cssUnits.js'
+
+export {
+  parseExif,
+  stripExif,
+  type ExifData,
+  type ExifEntry,
+  type GpsPosition,
+} from './tools/exif.js'
 
 export {
   CODE_TARGETS,

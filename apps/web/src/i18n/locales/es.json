@@ -40,6 +40,7 @@
     "text": "Texto",
     "converters": "Conversores",
     "design": "Diseño",
+    "media": "Multimedia",
     "network": "Red",
     "crypto": "Criptografía",
     "generators": "Generadores",
@@ -64,7 +65,8 @@
     "invalidCidr": "Usa una dirección y un prefijo, como 192.168.1.0/24.",
     "invalidCurl": "Esto no parece un comando curl con una URL.",
     "decryptFailed": "No se pudo descifrar. La contraseña es incorrecta o el mensaje ha sido alterado.",
-    "keyGenerationFailed": "Tu navegador no puede generar este tipo de clave."
+    "keyGenerationFailed": "Tu navegador no puede generar este tipo de clave.",
+    "unsupportedImage": "Esta herramienta lee archivos JPEG. Otros formatos guardan los metadatos de otra forma."
   },
   "tools": {
     "base64": {
@@ -292,6 +294,72 @@
       "matches": "{{version}} cumple {{range}}",
       "noMatch": "{{version}} no cumple {{range}}",
       "note": "Admite ^, ~, >, >=, <, <=, =, comodines x, espacios para Y y || para O. Los rangos con guion no están cubiertos."
+    },
+    "units": {
+      "name": "Unidades CSS",
+      "description": "Convierte entre px, rem, em, pt y porcentaje.",
+      "rootFontSize": "Tamaño de fuente raíz",
+      "parentFontSize": "Tamaño de fuente del padre",
+      "note": "rem es relativo al documento y em al padre del elemento, y por eso los em anidados se acumulan. CSS fija 1 pulgada en 96px, así que 12pt son exactamente 16px en cualquier pantalla."
+    },
+    "gradient": {
+      "name": "Generador de degradados",
+      "description": "Crea un degradado lineal, radial o cónico y copia el CSS.",
+      "stops": "Paradas de color",
+      "addStop": "Añadir parada",
+      "kind": {
+        "linear": "Lineal",
+        "radial": "Radial",
+        "conic": "Cónico"
+      }
+    },
+    "shadow": {
+      "name": "Sombra de caja",
+      "description": "Diseña una sombra, apila varias capas y copia el CSS.",
+      "offsetX": "Desplazamiento X",
+      "offsetY": "Desplazamiento Y",
+      "blur": "Desenfoque",
+      "spread": "Extensión",
+      "layer": "Capa {{number}}",
+      "soft": "Preajuste suave",
+      "deep": "Preajuste profundo",
+      "addLayer": "Añadir capa",
+      "note": "Una sola sombra dura rara vez queda bien. Apilar varias capas con un desplazamiento creciente y una opacidad decreciente se lee como una única luz suave, y así consiguen su profundidad los sistemas de diseño."
+    },
+    "bezier": {
+      "name": "Cubic Bézier",
+      "description": "Da forma a una curva de easing arrastrando sus manejadores y previsualiza el movimiento.",
+      "curve": "Curva",
+      "css": "CSS",
+      "preview": "Vista previa",
+      "play": "Reproducir",
+      "note": "Arrastra un manejador por encima o por debajo del recuadro para sobrepasar el destino: eso es lo que da el rebote. CSS limita el eje horizontal a 0–1, pero no el vertical."
+    },
+    "image": {
+      "name": "Conversor de imágenes",
+      "description": "Convierte, redimensiona y comprime imágenes sin subirlas.",
+      "drop": "Suelta una imagen aquí",
+      "dropHint": "o haz clic para elegir una",
+      "quality": "Calidad",
+      "maxWidth": "Ancho máximo",
+      "convert": "Convertir",
+      "original": "Original",
+      "result": "Resultado",
+      "pending": "Pulsa Convertir para ver el resultado",
+      "download": "Descargar",
+      "note": "Todo pasa por un canvas en tu navegador. Pon el ancho máximo en 0 para conservar el tamaño original. Redibujar también elimina todos los metadatos, porque solo los píxeles sobreviven al proceso."
+    },
+    "exif": {
+      "name": "Visor EXIF",
+      "description": "Descubre lo que una foto revela sobre ti y elimínalo.",
+      "drop": "Suelta un JPEG aquí",
+      "dropHint": "o haz clic para elegir uno",
+      "metadata": "Metadatos",
+      "locationFound": "Esta foto lleva tu ubicación",
+      "locationWarning": "Cualquiera que reciba este archivo puede leer estas coordenadas. La mayoría de las redes sociales las eliminan; enviar el archivo directamente no.",
+      "clean": "No se encontraron metadatos. Este archivo se puede compartir tal cual.",
+      "download": "Descargar sin metadatos",
+      "note": "La limpieza elimina los segmentos de metadatos y copia los datos de imagen byte a byte, así que nada se recodifica y no se pierde calidad. El archivo nunca sale de tu navegador."
     },
     "cidr": {
       "name": "Calculadora de subredes",

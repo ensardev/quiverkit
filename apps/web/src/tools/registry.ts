@@ -6,6 +6,7 @@ export type ToolCategory =
   | 'text'
   | 'converters'
   | 'design'
+  | 'media'
   | 'network'
   | 'crypto'
   | 'generators'
@@ -122,6 +123,42 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./color/ColorTool')),
   },
   {
+    id: 'units',
+    category: 'design',
+    keywords: ['px', 'rem', 'em', 'pt', 'font', 'size'],
+    Component: lazy(() => import('./units/UnitsTool')),
+  },
+  {
+    id: 'gradient',
+    category: 'design',
+    keywords: ['linear', 'radial', 'conic', 'background', 'css'],
+    Component: lazy(() => import('./gradient/GradientTool')),
+  },
+  {
+    id: 'shadow',
+    category: 'design',
+    keywords: ['box-shadow', 'elevation', 'depth', 'css'],
+    Component: lazy(() => import('./shadow/ShadowTool')),
+  },
+  {
+    id: 'bezier',
+    category: 'design',
+    keywords: ['cubic', 'easing', 'animation', 'transition', 'curve'],
+    Component: lazy(() => import('./bezier/BezierTool')),
+  },
+  {
+    id: 'image',
+    category: 'media',
+    keywords: ['convert', 'compress', 'resize', 'webp', 'jpeg', 'png'],
+    Component: lazy(() => import('./image/ImageTool')),
+  },
+  {
+    id: 'exif',
+    category: 'media',
+    keywords: ['metadata', 'gps', 'location', 'privacy', 'photo', 'strip'],
+    Component: lazy(() => import('./exif/ExifTool')),
+  },
+  {
     id: 'cidr',
     category: 'network',
     keywords: ['subnet', 'netmask', 'ip', 'ipv4', 'network', 'broadcast'],
@@ -189,6 +226,7 @@ export const CATEGORY_ORDER: ToolCategory[] = [
   'text',
   'converters',
   'design',
+  'media',
   'network',
   'crypto',
   'generators',

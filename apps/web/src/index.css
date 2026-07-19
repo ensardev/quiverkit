@@ -60,6 +60,15 @@
     monospace;
 }
 
+@keyframes quiverkit-slide {
+  from {
+    left: 0.5rem;
+  }
+  to {
+    left: calc(100% - 2.5rem);
+  }
+}
+
 @layer base {
   html {
     color-scheme: light;

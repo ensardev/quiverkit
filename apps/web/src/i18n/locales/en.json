@@ -40,6 +40,7 @@
     "text": "Text",
     "converters": "Converters",
     "design": "Design",
+    "media": "Media",
     "network": "Network",
     "crypto": "Cryptography",
     "generators": "Generators",
@@ -64,7 +65,8 @@
     "invalidCidr": "Use an address and a prefix, like 192.168.1.0/24.",
     "invalidCurl": "This does not look like a curl command with a URL.",
     "decryptFailed": "Could not decrypt. The passphrase is wrong, or the message has been altered.",
-    "keyGenerationFailed": "Your browser cannot generate this kind of key."
+    "keyGenerationFailed": "Your browser cannot generate this kind of key.",
+    "unsupportedImage": "This tool reads JPEG files. Other formats store metadata differently."
   },
   "tools": {
     "base64": {
@@ -292,6 +294,72 @@
       "matches": "{{version}} satisfies {{range}}",
       "noMatch": "{{version}} does not satisfy {{range}}",
       "note": "Supports ^, ~, >, >=, <, <=, =, x wildcards, spaces for AND and || for OR. Hyphen ranges are not covered."
+    },
+    "units": {
+      "name": "CSS Units",
+      "description": "Convert between px, rem, em, pt and percent.",
+      "rootFontSize": "Root font size",
+      "parentFontSize": "Parent font size",
+      "note": "rem is relative to the document, em to the element's parent — which is why nested em values compound. CSS fixes 1in at 96px, so 12pt is exactly 16px on every screen."
+    },
+    "gradient": {
+      "name": "Gradient Generator",
+      "description": "Build a linear, radial or conic gradient and copy the CSS.",
+      "stops": "Colour stops",
+      "addStop": "Add a stop",
+      "kind": {
+        "linear": "Linear",
+        "radial": "Radial",
+        "conic": "Conic"
+      }
+    },
+    "shadow": {
+      "name": "Box Shadow",
+      "description": "Design a shadow, stack several layers and copy the CSS.",
+      "offsetX": "Offset X",
+      "offsetY": "Offset Y",
+      "blur": "Blur",
+      "spread": "Spread",
+      "layer": "Layer {{number}}",
+      "soft": "Soft preset",
+      "deep": "Deep preset",
+      "addLayer": "Add a layer",
+      "note": "One hard shadow rarely looks right. Stacking a few layers with growing offset and fading opacity reads as a single soft light source, which is how design systems get their depth."
+    },
+    "bezier": {
+      "name": "Cubic Bézier",
+      "description": "Shape an easing curve by dragging its handles and preview the motion.",
+      "curve": "Curve",
+      "css": "CSS",
+      "preview": "Preview",
+      "play": "Play",
+      "note": "Drag a handle above or below the box to overshoot — that is what gives an animation its bounce. CSS clamps the horizontal axis to 0–1, but not the vertical one."
+    },
+    "image": {
+      "name": "Image Converter",
+      "description": "Convert, resize and compress images without uploading them.",
+      "drop": "Drop an image here",
+      "dropHint": "or click to choose one",
+      "quality": "Quality",
+      "maxWidth": "Max width",
+      "convert": "Convert",
+      "original": "Original",
+      "result": "Result",
+      "pending": "Press Convert to see the result",
+      "download": "Download",
+      "note": "Everything runs through a canvas in your browser. Set max width to 0 to keep the original size. Re-drawing also drops every piece of metadata, since only pixels survive the round trip."
+    },
+    "exif": {
+      "name": "EXIF Viewer",
+      "description": "See what a photo reveals about you, and strip it out.",
+      "drop": "Drop a JPEG here",
+      "dropHint": "or click to choose one",
+      "metadata": "Metadata",
+      "locationFound": "This photo carries your location",
+      "locationWarning": "Anyone who receives this file can read these coordinates. Most social networks strip them; sending the file directly does not.",
+      "clean": "No metadata found. This file is safe to share as it is.",
+      "download": "Download without metadata",
+      "note": "Stripping removes the metadata segments and copies the image data byte for byte, so nothing is re-encoded and no quality is lost. The file never leaves your browser."
     },
     "cidr": {
       "name": "Subnet Calculator",
