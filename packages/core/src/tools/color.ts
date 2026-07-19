@@ -259,10 +259,35 @@ export function relativeLuminance({ r, g, b }: Rgb): number {
   return 0.2126 * linearise(r) + 0.7152 * linearise(g) + 0.0722 * linearise(b)
 }
 
-/** WCAG 2.1 contrast: 1 for identical colours, 21 for black against white. */
+const WHITE: Rgb = { r: 255, g: 255, b: 255, a: 1 }
+
+/** Source-over compositing: the colour the eye actually receives. */
+export function blend(foreground: Rgb, background: Rgb): Rgb {
+  const alpha = clamp(foreground.a, 0, 1)
+  const mix = (top: number, bottom: number) => Math.round(top * alpha + bottom * (1 - alpha))
+
+  return {
+    r: mix(foreground.r, background.r),
+    g: mix(foreground.g, background.g),
+    b: mix(foreground.b, background.b),
+    a: background.a,
+  }
+}
+
+/**
+ * WCAG 2.1 contrast: 1 for identical colours, 21 for black against white.
+ *
+ * The formula is defined for opaque colours only, so translucent input has to
+ * be flattened first — 50% black on white is grey to the eye, and reporting it
+ * as 21:1 would pass text that nobody can read. A translucent *background* has
+ * nothing behind it that we can know about, so we assume the page is white.
+ */
 export function contrastRatio(foreground: Rgb, background: Rgb): number {
-  const first = relativeLuminance(foreground)
-  const second = relativeLuminance(background)
+  const solidBackground = background.a < 1 ? blend(background, WHITE) : background
+  const solidForeground = foreground.a < 1 ? blend(foreground, solidBackground) : foreground
+
+  const first = relativeLuminance(solidForeground)
+  const second = relativeLuminance(solidBackground)
   const lighter = Math.max(first, second)
   const darker = Math.min(first, second)
 

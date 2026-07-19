@@ -186,7 +186,8 @@
       "normalAAA": "Normal AAA",
       "largeAA": "Grande AA",
       "largeAAA": "Grande AAA",
-      "oklchNote": "Vale la pena aprender OKLCH: a diferencia de HSL, pasos iguales en su luminosidad se ven igual de distintos al ojo, así que las paletas creadas con él se mantienen equilibradas. Texto grande significa 24px, o 18,66px en negrita."
+      "oklchNote": "Vale la pena aprender OKLCH: a diferencia de HSL, pasos iguales en su luminosidad se ven igual de distintos al ojo, así que las paletas creadas con él se mantienen equilibradas. Texto grande significa 24px, o 18,66px en negrita.",
+      "alphaNote": "La fórmula WCAG solo cubre colores opacos, así que el texto translúcido se combina primero con su fondo: bajar la opacidad sí reduce el contraste. Un fondo translúcido se combina con blanco, ya que no se puede saber qué hay detrás de la página."
     },
     "password": {
       "name": "Generador de contraseñas",

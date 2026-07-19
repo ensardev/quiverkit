@@ -1,4 +1,4 @@
-import { checkContrast, parseColor, toHex, toHsl, toOklch, type Rgb } from '@quiverkit/core'
+import { blend, checkContrast, parseColor, toHex, toHsl, toOklch, type Rgb } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import ColorPicker from '@/components/ColorPicker'
@@ -135,8 +135,13 @@ export default function ColorTool() {
             <div
               className="border-line rounded-lg border p-6 text-center"
               style={{
-                backgroundColor: parsedBackground.ok ? toHex({ ...parsedBackground.value, a: 1 }) : undefined,
-                color: parsedForeground.ok ? toHex({ ...parsedForeground.value, a: 1 }) : undefined,
+                // The preview has to show the same thing the ratio measures:
+                // the text keeps its opacity, and a translucent background is
+                // flattened onto white exactly as `contrastRatio` assumes.
+                backgroundColor: parsedBackground.ok
+                  ? toHex(blend(parsedBackground.value, { r: 255, g: 255, b: 255, a: 1 }))
+                  : undefined,
+                color: parsedForeground.ok ? toHex(parsedForeground.value) : undefined,
               }}
             >
               <p className="text-base">{t('tools.color.sample')}</p>
@@ -158,6 +163,7 @@ export default function ColorTool() {
         </Panel>
       )}
 
+      <p className="text-muted text-sm">{t('tools.color.alphaNote')}</p>
       <p className="text-muted text-sm">{t('tools.color.oklchNote')}</p>
     </ToolShell>
   )

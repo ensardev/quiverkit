@@ -8,6 +8,7 @@ export {
 } from './tools/base64.js'
 
 export {
+  blend,
   checkContrast,
   contrastRatio,
   hsvToRgb,

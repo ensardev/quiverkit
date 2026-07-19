@@ -186,7 +186,8 @@
       "normalAAA": "Normal AAA",
       "largeAA": "Büyük AA",
       "largeAAA": "Büyük AAA",
-      "oklchNote": "OKLCH öğrenmeye değer: HSL'den farklı olarak parlaklığındaki eşit adımlar göze de eşit farklılıkta görünür, bu yüzden onunla kurulan paletler dengeli kalır. Büyük metin 24px, kalınsa 18,66px demek."
+      "oklchNote": "OKLCH öğrenmeye değer: HSL'den farklı olarak parlaklığındaki eşit adımlar göze de eşit farklılıkta görünür, bu yüzden onunla kurulan paletler dengeli kalır. Büyük metin 24px, kalınsa 18,66px demek.",
+      "alphaNote": "WCAG formülü yalnızca opak renkler için tanımlı, bu yüzden yarı saydam metin önce arka planla harmanlanıyor — metni soluklaştırmak kontrastı gerçekten düşürür. Yarı saydam arka plan ise beyaza harmanlanıyor, çünkü sayfanın arkasında ne olduğu bilinemez."
     },
     "password": {
       "name": "Parola Üretici",

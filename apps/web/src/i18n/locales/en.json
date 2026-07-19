@@ -186,7 +186,8 @@
       "normalAAA": "Normal AAA",
       "largeAA": "Large AA",
       "largeAAA": "Large AAA",
-      "oklchNote": "OKLCH is worth learning: unlike HSL, equal steps in its lightness look equally different to the eye, so palettes built in it stay balanced. Large text means 24px, or 18.66px bold."
+      "oklchNote": "OKLCH is worth learning: unlike HSL, equal steps in its lightness look equally different to the eye, so palettes built in it stay balanced. Large text means 24px, or 18.66px bold.",
+      "alphaNote": "The WCAG formula only covers opaque colours, so translucent text is flattened onto its background first — fading text really does lower its contrast. A translucent background is flattened onto white, since nothing can be known about the page behind it."
     },
     "password": {
       "name": "Password Generator",

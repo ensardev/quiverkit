@@ -85,6 +85,35 @@ describe('contrast', () => {
     expect(contrastRatio(rgb('#333'), rgb('#eee'))).toBe(contrastRatio(rgb('#eee'), rgb('#333')))
   })
 
+  it('flattens translucent text against its background before measuring', () => {
+    const opaque = contrastRatio(rgb('#000000'), rgb('#ffffff'))
+    const half = contrastRatio(rgb('#00000080'), rgb('#ffffff'))
+
+    expect(opaque).toBe(21)
+    // 50% black over white is mid grey, which is nowhere near 21:1.
+    expect(half).toBeCloseTo(3.95, 1)
+    expect(half).toBeLessThan(opaque)
+  })
+
+  it('drops steadily as text fades out', () => {
+    const ratios = ['#000000ff', '#000000bf', '#00000080', '#00000040'].map((hex) =>
+      contrastRatio(rgb(hex), rgb('#ffffff')),
+    )
+
+    for (let index = 1; index < ratios.length; index += 1) {
+      expect(ratios[index]).toBeLessThan(ratios[index - 1] as number)
+    }
+  })
+
+  it('assumes a white page behind a translucent background', () => {
+    expect(contrastRatio(rgb('#000000'), rgb('#00000000'))).toBe(21)
+  })
+
+  it('turns a passing colour into a failing one when it fades', () => {
+    expect(checkContrast(rgb('#595959'), rgb('#ffffff')).normalAA).toBe(true)
+    expect(checkContrast(rgb('#59595980'), rgb('#ffffff')).normalAA).toBe(false)
+  })
+
   it('applies the WCAG thresholds', () => {
     expect(checkContrast(rgb('#000'), rgb('#fff'))).toMatchObject({
       normalAA: true,
