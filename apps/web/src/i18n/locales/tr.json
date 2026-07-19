@@ -442,13 +442,14 @@
     },
     "lorem": {
       "name": "Lorem Ipsum",
-      "description": "Latince, İngilizce, Türkçe, İspanyolca veya Japonca yer tutucu metin.",
+      "description": "Klasik Latince yer tutucu metin; kelime, cümle veya paragraf olarak.",
+      "startWithLorem": "\"lorem ipsum\" ile başlat",
       "unit": {
         "words": "Kelime",
         "sentences": "Cümle",
         "paragraphs": "Paragraf"
       },
-      "note": "Türkçe ya da Japonca bir tasarımın yanındaki Latince dolgu, taslağın göstermesi gereken şeyi gizler: gerçek yazının alanı nasıl doldurduğunu, nerede satır atladığını, satırların ne kadar yükseldiğini."
+      "note": "Aynı istek her zaman aynı metni üretir; böylece taslağın her yeniden üretimde baştan karışmaz."
     },
     "cipher": {
       "name": "Klasik Şifreler",

@@ -442,13 +442,14 @@
     },
     "lorem": {
       "name": "Lorem Ipsum",
-      "description": "Texto de relleno en latín, inglés, turco, español o japonés.",
+      "description": "El clásico texto de relleno en latín, por palabras, frases o párrafos.",
+      "startWithLorem": "Empezar con «lorem ipsum»",
       "unit": {
         "words": "Palabras",
         "sentences": "Frases",
         "paragraphs": "Párrafos"
       },
-      "note": "El relleno en latín junto a un diseño en turco o japonés esconde justo lo que una maqueta debería revelar: cómo llena el espacio la escritura real, dónde corta la línea y cuánto suben los renglones."
+      "note": "La misma petición produce siempre el mismo texto, así que una maqueta no se reordena cada vez que la regeneras."
     },
     "cipher": {
       "name": "Cifrados clásicos",

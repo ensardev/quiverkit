@@ -442,13 +442,14 @@
     },
     "lorem": {
       "name": "Lorem Ipsum",
-      "description": "Placeholder text in Latin, English, Turkish, Spanish or Japanese.",
+      "description": "The classic Latin placeholder text, by words, sentences or paragraphs.",
+      "startWithLorem": "Start with \"lorem ipsum\"",
       "unit": {
         "words": "Words",
         "sentences": "Sentences",
         "paragraphs": "Paragraphs"
       },
-      "note": "Latin filler beside a Turkish or Japanese layout hides what a mock-up should reveal: how the real script fills the space, where it wraps, how tall the lines run."
+      "note": "The same request always produces the same text, so a mock-up does not shuffle itself every time you regenerate it."
     },
     "cipher": {
       "name": "Classic Ciphers",

@@ -71,13 +71,7 @@ export { queryJson, type PathMatch } from './tools/jsonpath.js'
 
 export { jsonToSchema, jsonToTypeScript } from './tools/jsonTypes.js'
 
-export {
-  generateLorem,
-  LOREM_LANGUAGES,
-  type LoremLanguage,
-  type LoremOptions,
-  type LoremUnit,
-} from './tools/lorem.js'
+export { generateLorem, type LoremOptions, type LoremUnit } from './tools/lorem.js'
 
 export {
   generateMockData,

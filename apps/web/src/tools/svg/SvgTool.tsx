@@ -58,9 +58,12 @@ export default function SvgTool() {
 
       {optimised.ok && (
         <div
-          className="border-line bg-sunken text-ink flex h-32 items-center justify-center rounded-xl border"
-          // The preview is the user's own markup, already stripped of scripts by
-          // the optimiser; it never leaves this page.
+          // An SVG without width and height attributes renders at its natural
+          // size and would spill across the page, so the wrapper clips it and
+          // the child is forced to fit inside.
+          className="border-line bg-sunken text-ink flex h-40 items-center justify-center overflow-hidden rounded-xl border p-4 [&>svg]:max-h-full [&>svg]:max-w-full [&>svg]:w-auto [&>svg]:object-contain"
+          // The markup is the user's own, already stripped by the optimiser, and
+          // it never leaves this page.
           dangerouslySetInnerHTML={{ __html: optimised.value.markup }}
         />
       )}
