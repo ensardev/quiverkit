@@ -14,6 +14,16 @@ leaves the page.
 Most online dev tools ask you to paste a production JWT, a customer payload or an
 internal config into someone else's server. QuiverKit exists so you never have to.
 
+## Get it
+
+- **Web** — [quiverkit.dev](https://quiverkit.dev), nothing to install.
+- **Desktop** — a native app for Windows and Linux on the
+  [download page](https://quiverkit.dev/download) or the
+  [releases](https://github.com/ensardev/quiverkit/releases)
+  (`.exe`/`.msi`, `.deb`/`.rpm`/AppImage). The builds are not code-signed yet, so
+  Windows may show a SmartScreen prompt — choose *More info → Run anyway*.
+- **Browser extension** — a side panel for Chrome and Edge, coming soon.
+
 ## Tools
 
 ### Encoding
@@ -119,28 +129,41 @@ internal config into someone else's server. QuiverKit exists so you never have t
 
 ## Languages
 
-English, Español, Türkçe — with the structure in place for many more. Each
-language is a single JSON file and is downloaded only when selected.
+English, Deutsch, Español, Português, Русский, Türkçe, 日本語, 한국어 and 中文 —
+nine languages, with the structure in place for more. Each language is a single
+JSON file and is downloaded only when selected.
 
 ## Development
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
-npm test           # core logic tests
+npm run dev            # web — http://localhost:5173
+npm run dev:desktop    # desktop app (Tauri window)
+npm run dev:extension  # browser extension
+npm test               # core logic tests
 npm run typecheck
-npm run build
+npm run build          # web (static site)
+npm run build:desktop  # desktop installers for the current OS
 ```
 
-Requires Node 20 or newer.
+Requires Node 20 or newer. Desktop builds also need the
+[Rust toolchain](https://www.rust-lang.org/tools/install) and Tauri's
+[system dependencies](https://tauri.app/start/prerequisites/).
+
+The published Windows and Linux installers are built in CI: push a `v*` tag (or
+run the **release** workflow by hand) and GitHub Actions builds each platform on
+its own runner and attaches the packages to a GitHub release.
 
 ## How it is put together
 
 ```
 packages/core   Pure TypeScript. Every transformation lives here, with no
-                reference to React or the DOM, so the same logic can back a
-                desktop build or a CLI later.
+                reference to React or the DOM, so the same logic backs the web,
+                desktop and extension builds alike.
 apps/web        React + Vite. Reads the tool registry and does the rendering.
+apps/desktop    The same UI wrapped in a Tauri window — a native app for
+                Windows and Linux.
+apps/extension  A Chrome/Edge side panel that reuses the web UI.
 ```
 
 Two rules keep it that way:
