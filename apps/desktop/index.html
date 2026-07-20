@@ -7,8 +7,12 @@
     <script>
       // Applied before first paint so a dark-mode user never sees a white flash.
       const stored = localStorage.getItem('quiverkit.theme')
+      // Retro was replaced by dim. Anyone still carrying the old preference is
+      // moved across here rather than silently dropped back to light.
+      const migrated = stored === 'retro' ? 'dim' : stored
+      if (migrated !== stored) localStorage.setItem('quiverkit.theme', migrated)
       const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches
-      document.documentElement.dataset.theme = stored ?? (prefersDark ? 'dark' : 'light')
+      document.documentElement.dataset.theme = migrated ?? (prefersDark ? 'dark' : 'light')
     </script>
   </head>
   <body>

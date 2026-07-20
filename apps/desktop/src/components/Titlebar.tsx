@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import LanguagePicker from '@/components/LanguagePicker'
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from '@/components/ThemeToggle'
 
 /**
  * Dragging is handled by `data-tauri-drag-region`, not a mousedown listener.
