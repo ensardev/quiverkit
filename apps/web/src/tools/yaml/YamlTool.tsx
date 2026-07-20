@@ -1,4 +1,5 @@
-import { jsonToYaml, yamlToJson, type Result } from '@quiverkit/core'
+import type { Result } from '@quiverkit/core'
+import { jsonToYaml, yamlToJson } from '@quiverkit/core/yaml'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'

@@ -322,7 +322,22 @@ export {
 
 export { decodeCertificate, type CertInfo } from './tools/cert.js'
 
-export { renderMarkdown } from './tools/markdown.js'
+/*
+ * markdown, qrcode, toml and yaml are deliberately NOT re-exported here.
+ *
+ * Each one pulls a third-party library, and this barrel is imported by every
+ * tool in the app. Re-exporting them put js-yaml, marked and qrcode into a
+ * single shared chunk that all sixty-one tools depended on — opening the UUID
+ * generator downloaded a YAML parser. They are reachable through their own
+ * subpaths instead:
+ *
+ *   import { renderMarkdown } from '@quiverkit/core/markdown'
+ *   import { generateQr, readQr } from '@quiverkit/core/qrcode'
+ *   import { jsonToToml, tomlToJson } from '@quiverkit/core/toml'
+ *   import { jsonToYaml, yamlToJson } from '@quiverkit/core/yaml'
+ *
+ * Anything added here must stay dependency-free.
+ */
 
 export { formatGraphql, minifyGraphql } from './tools/graphql.js'
 
@@ -337,10 +352,5 @@ export { stripHtml } from './tools/html.js'
 
 export { diffJson, type JsonDiffEntry } from './tools/jsondiff.js'
 
-export { generateQr, readQr } from './tools/qrcode.js'
-
-export { jsonToToml, tomlToJson } from './tools/toml.js'
-
-export { jsonToYaml, yamlToJson } from './tools/yaml.js'
 
 export { generateNanoId, generateUuidV4, generateUuidV7 } from './tools/uuid.js'

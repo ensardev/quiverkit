@@ -34,6 +34,14 @@
     "badge": "Funciona sin conexión",
     "note": "Nada de lo que escribes aquí se envía a ningún sitio."
   },
+  "palette": {
+    "title": "Buscar herramientas",
+    "placeholder": "Buscar herramientas…",
+    "navigate": "navegar",
+    "open": "abrir",
+    "close": "cerrar",
+    "hint": "Ctrl K"
+  },
   "network": {
     "badge": "Sale a la red",
     "short": "red",
@@ -723,7 +731,9 @@
     "markdown": {
       "name": "Vista previa de Markdown",
       "description": "Escribe Markdown y ve el HTML renderizado lado a lado.",
-      "preview": "Vista previa"
+      "preview": "Vista previa",
+      "empty": "Empieza a escribir para ver la vista previa",
+      "resize": "Arrastra para redimensionar · doble clic para restablecer"
     },
     "qrcode": {
       "name": "Código QR",

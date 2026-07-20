@@ -3,8 +3,10 @@ import QRCode from 'qrcode'
 import { err, ok, type Result } from '../result.js'
 
 /**
- * Generates a QR code as an SVG string.  The function is async because the
- * underlying encoder runs off the main thread to keep the page responsive.
+ * Generates a QR code as an SVG string. The encoder itself is synchronous; the
+ * async signature comes from the library's promise-based API, which is also
+ * what leaves room to move the work into a worker later without changing any
+ * caller.
  */
 export async function generateQr(input: string): Promise<Result<string>> {
   const trimmed = input.trim()

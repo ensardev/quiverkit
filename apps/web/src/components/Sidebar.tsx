@@ -95,15 +95,20 @@ export default function Sidebar() {
         </NavLink>
       </div>
 
-      <div className="p-3">
+      <div className="relative p-3">
         <input
           ref={searchInput}
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder={t('nav.search')}
           aria-label={t('nav.search')}
-          className="border-line bg-sunken placeholder:text-muted focus:border-accent w-full rounded-lg border px-3 py-2 text-sm transition-colors focus:outline-none"
+          className="border-line bg-sunken placeholder:text-muted focus:border-accent w-full rounded-lg border py-2 pr-16 pl-3 text-sm transition-colors focus:outline-none"
         />
+        {query === '' && (
+          <kbd className="border-line text-muted pointer-events-none absolute top-1/2 right-5 -translate-y-1/2 rounded border px-1.5 py-0.5 font-sans text-[10px]">
+            {t('palette.hint')}
+          </kbd>
+        )}
       </div>
 
       <nav className="flex-1 overflow-y-auto px-3 pb-3">

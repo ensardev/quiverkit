@@ -34,6 +34,14 @@
     "badge": "Runs offline",
     "note": "Nothing you type here is sent anywhere."
   },
+  "palette": {
+    "title": "Search tools",
+    "placeholder": "Search tools…",
+    "navigate": "navigate",
+    "open": "open",
+    "close": "close",
+    "hint": "Ctrl K"
+  },
   "network": {
     "badge": "Goes online",
     "short": "net",
@@ -723,7 +731,9 @@
     "markdown": {
       "name": "Markdown Preview",
       "description": "Write Markdown and see the rendered HTML side by side.",
-      "preview": "Preview"
+      "preview": "Preview",
+      "empty": "Start typing to see the preview",
+      "resize": "Drag to resize · double-click to reset"
     },
     "qrcode": {
       "name": "QR Code",

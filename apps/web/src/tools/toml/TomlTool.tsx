@@ -1,4 +1,5 @@
-import { jsonToToml, tomlToJson, type Result } from '@quiverkit/core'
+import type { Result } from '@quiverkit/core'
+import { jsonToToml, tomlToJson } from '@quiverkit/core/toml'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'

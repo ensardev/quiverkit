@@ -34,6 +34,14 @@
     "badge": "Çevrimdışı çalışır",
     "note": "Buraya yazdığın hiçbir şey hiçbir yere gönderilmiyor."
   },
+  "palette": {
+    "title": "Araç ara",
+    "placeholder": "Araç ara…",
+    "navigate": "gezin",
+    "open": "aç",
+    "close": "kapat",
+    "hint": "Ctrl K"
+  },
   "network": {
     "badge": "Ağa çıkar",
     "short": "ağ",
@@ -723,7 +731,9 @@
     "markdown": {
       "name": "Markdown Önizleme",
       "description": "Markdown yaz ve işlenmiş HTML'i yan yana gör.",
-      "preview": "Önizleme"
+      "preview": "Önizleme",
+      "empty": "Önizlemeyi görmek için yazmaya başla",
+      "resize": "Sürükleyerek genişlet · çift tıkla sıfırla"
     },
     "qrcode": {
       "name": "QR Kod",

@@ -2,9 +2,14 @@
 
 **Developer tools that never leave your browser.**
 
-Base64, JSON, JWT, certificates, ciphers, color pickers and more — 60+ tools, every
-one running entirely on your own machine. No upload, no account, no tracking. Open
-the network tab and check.
+Base64, JSON, JWT, certificates, ciphers, color pickers and more — 60+ tools running
+entirely on your own machine. No upload, no account, no tracking. Open the network
+tab and check.
+
+One tool is the exception: **DNS lookup** has to ask a resolver, because there is no
+offline way to resolve a name. It is badged in the sidebar, on the home page and
+inside the tool itself, and it names the resolver it talks to. Everything else never
+leaves the page.
 
 Most online dev tools ask you to paste a production JWT, a customer payload or an
 internal config into someone else's server. QuiverKit exists so you never have to.
@@ -19,7 +24,7 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | Hex Viewer | Hex dump, binary inspection, byte-level viewer |
 | URL | Percent-encode and decode query strings and URIs |
 | Punycode | International domain name (IDN) encode and decode |
-| Escape | Unescape strings (HTML entities, SQL, shell, backslash) |
+| Escape | Escape and unescape for JSON, HTML, SQL, shell and regex |
 | Gzip | Compress and decompress with gzip, brotli, deflate or zlib |
 | JWT | Decode and verify JSON Web Tokens, inspect claims |
 | QR Code | Generate and decode QR codes from text or image |
@@ -75,19 +80,19 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | Tool | What it does |
 | --- | --- |
 | Image | Convert, compress, and resize images (JPEG, PNG, WebP) |
-| Favicon | Extract and inspect favicon metadata from any site |
+| Favicon | Generate every icon size a site needs from one image |
 | EXIF | View and strip GPS and other metadata from photos |
 
 ### Network
 | Tool | What it does |
 | --- | --- |
 | CIDR | Subnet calculator — netmask, broadcast, usable IP range |
-| DNS | Look up DNS records (A, MX, TXT, NS and more) |
+| DNS | Look up DNS records (A, MX, TXT, NS and more) — **the one tool that contacts a server** |
 
 ### Crypto
 | Tool | What it does |
 | --- | --- |
-| Hash | SHA-1, SHA-256, SHA-512, MD5, HMAC digests |
+| Hash | SHA-1, SHA-256, SHA-384, SHA-512 and HMAC digests |
 | Checksum | Verify file integrity against a known hash |
 | AES | Encrypt and decrypt with AES-GCM using a password |
 | Keypair | Generate RSA, ECDSA, and Ed25519 key pairs in PEM |

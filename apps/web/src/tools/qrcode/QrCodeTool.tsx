@@ -1,4 +1,4 @@
-import { generateQr, readQr } from '@quiverkit/core'
+import { generateQr, readQr } from '@quiverkit/core/qrcode'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
