@@ -40,6 +40,12 @@
     "badge": "Çevrimdışı çalışır",
     "note": "Buraya yazdığın hiçbir şey hiçbir yere gönderilmiyor."
   },
+  "footer": {
+    "builtBy": "<author>ensar.dev</author> tarafından geliştirildi",
+    "desktopApp": "Masaüstü uygulaması",
+    "sourceCode": "Kaynak kod",
+    "licence": "MIT lisansı"
+  },
   "share": {
     "label": "Bağlantı paylaş",
     "copied": "Bağlantı kopyalandı",

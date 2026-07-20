@@ -40,6 +40,12 @@
     "badge": "Runs offline",
     "note": "Nothing you type here is sent anywhere."
   },
+  "footer": {
+    "builtBy": "Built by <author>ensar.dev</author>",
+    "desktopApp": "Desktop app",
+    "sourceCode": "Source code",
+    "licence": "MIT licence"
+  },
   "share": {
     "label": "Share link",
     "copied": "Link copied",

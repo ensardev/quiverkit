@@ -40,6 +40,12 @@
     "badge": "Funciona sin conexión",
     "note": "Nada de lo que escribes aquí se envía a ningún sitio."
   },
+  "footer": {
+    "builtBy": "Desarrollado por <author>ensar.dev</author>",
+    "desktopApp": "Aplicación de escritorio",
+    "sourceCode": "Código fuente",
+    "licence": "Licencia MIT"
+  },
   "share": {
     "label": "Compartir enlace",
     "copied": "Enlace copiado",
