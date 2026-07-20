@@ -1,1 +1,863 @@
-{}
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "始终留在浏览器中的开发者工具"
+  },
+  "home": {
+    "heading": "你总在搜索的所有工具",
+    "subheading": "Base64、JWT、哈希、UUID 等等。所有操作都在你的设备上完成——无需上传、无需账号、不会追踪。",
+    "browse": "所有工具"
+  },
+  "nav": {
+    "back": "返回",
+    "search": "搜索工具",
+    "searchHint": "按 / 搜索",
+    "noResults": "没有与“{{query}}”匹配的内容"
+  },
+  "common": {
+    "input": "输入",
+    "output": "输出",
+    "copy": "复制",
+    "copied": "已复制",
+    "clear": "清空",
+    "swap": "交换",
+    "generate": "生成",
+    "example": "试试示例",
+    "textLanguage": "文本语言"
+  },
+  "theme": {
+    "toggle": "切换主题",
+    "switchTo": "切换到{{theme}}主题",
+    "name": {
+      "light": "浅色",
+      "dim": "柔和",
+      "dark": "深色"
+    }
+  },
+  "language": {
+    "label": "语言"
+  },
+  "privacy": {
+    "badge": "离线运行",
+    "note": "你在这里输入的任何内容都不会被发送到别处。"
+  },
+  "footer": {
+    "builtBy": "由 <author>ensar.dev</author> 构建",
+    "desktopApp": "桌面应用",
+    "sourceCode": "源代码",
+    "licence": "MIT 许可证"
+  },
+  "share": {
+    "label": "分享链接",
+    "copied": "链接已复制",
+    "tooltip": "复制一个包含当前输入的链接。数据位于 URL 片段中，浏览器不会将其发送到服务器。"
+  },
+  "detector": {
+    "title": "粘贴任意内容",
+    "subtitle": "它会识别你拥有的内容，并将你带到正确的工具。",
+    "placeholder": "令牌、哈希、时间戳、编码字符串……",
+    "unknown": "未识别出内容。请从下方列表中选择一个工具。",
+    "level": {
+      "sure": "确定",
+      "likely": "很可能",
+      "maybe": "可能"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "PEM 块",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "电子邮件地址",
+      "ipv4": "IPv4 地址",
+      "cidr": "CIDR 块",
+      "semver": "语义化版本",
+      "cron": "Cron 表达式",
+      "colour": "颜色",
+      "unixSeconds": "Unix 时间戳（秒）",
+      "unixMillis": "Unix 时间戳（毫秒）",
+      "isoDate": "ISO 8601 日期",
+      "md5": "MD5 哈希",
+      "sha1": "SHA-1 哈希",
+      "sha256": "SHA-256 哈希",
+      "sha512": "SHA-512 哈希",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "十六进制",
+      "punycode": "Punycode 域名",
+      "htmlEntities": "HTML 实体",
+      "urlEncoded": "百分号编码文本"
+    }
+  },
+  "palette": {
+    "title": "搜索工具",
+    "placeholder": "搜索工具……",
+    "navigate": "导航",
+    "open": "打开",
+    "close": "关闭",
+    "hint": "Ctrl K"
+  },
+  "network": {
+    "badge": "需要联网",
+    "short": "网络",
+    "tooltip": "此工具必须连接服务器。其他所有工具都完全在你的浏览器中运行。"
+  },
+  "category": {
+    "detect": "识别",
+    "encoding": "编码",
+    "formatting": "格式化",
+    "text": "文本",
+    "converters": "转换器",
+    "design": "设计",
+    "media": "媒体",
+    "network": "网络",
+    "crypto": "密码学",
+    "generators": "生成器",
+    "dev": "开发者"
+  },
+  "error": {
+    "emptyInput": "输入或粘贴一些内容即可开始。",
+    "invalidBase64": "这不是有效的 Base64。",
+    "invalidUtf8": "解码成功，但结果是二进制数据，不是文本。",
+    "invalidJson": "这不是有效的 JSON。",
+    "invalidJwt": "这不是有效的 JWT。令牌应包含三个由点分隔的部分。",
+    "invalidUrlEncoding": "这不是有效的百分号编码。",
+    "invalidTimestamp": "这不是日期或 Unix 时间戳。",
+    "noCharacterSet": "请至少选择一组字符。",
+    "invalidColor": "无法识别此颜色。请尝试 #3b82f6、rgb(59 130 246) 或 hsl(217 91% 60%)。",
+    "invalidRegex": "此模式无法编译。",
+    "invalidNumber": "此数字不属于所选进制。",
+    "invalidBase": "请选择 2 到 36 之间的进制。",
+    "invalidPermissions": "请使用三位或四位八进制数字（755），或九个符号（rwxr-xr-x）。",
+    "invalidVersion": "请使用包含三个部分的完整版本号，例如 1.2.3。",
+    "invalidRange": "无法读取此范围。",
+    "invalidCidr": "请输入地址和前缀，例如 192.168.1.0/24。",
+    "invalidCurl": "这不像是包含 URL 的 curl 命令。",
+    "decryptFailed": "解密失败。密码短语错误，或消息已被篡改。",
+    "keyGenerationFailed": "你的浏览器无法生成此类密钥。",
+    "unsupportedImage": "此工具读取 JPEG 文件。其他格式以不同方式存储元数据。",
+    "invalidCron": "Cron 行包含五个字段，例如 0 9 * * mon-fri。",
+    "invalidCsv": "这不是可读取的表格。JSON 输入必须是对象数组。",
+    "invalidHex": "十六进制内容必须包含偶数个数字。",
+    "invalidXml": "无法读取此标记。",
+    "invalidPath": "无法读取此路径。",
+    "invalidSvg": "其中不包含 <svg> 元素。",
+    "invalidBase32": "Base32 仅使用 A–Z 和 2–7。",
+    "invalidBase58": "Base58 会有意排除 0、O、I 和 l。",
+    "invalidSecret": "这不是有效的 Base32 密钥。",
+    "invalidDomain": "请输入域名，例如 example.com。",
+    "networkFailed": "请求失败。请检查网络连接或查询的名称。",
+    "invalidYaml": "这不是有效的 YAML。",
+    "invalidToml": "这不是有效的 TOML。",
+    "noQrFound": "此图像中未找到二维码。",
+    "invalidCertificate": "无法读取此证书。请尝试 PEM 格式的 X.509 证书。"
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "编码和解码 Base64，支持 URL 安全输出和完整 Unicode。",
+      "encode": "编码",
+      "decode": "解码",
+      "urlSafe": "URL 安全"
+    },
+    "jwt": {
+      "name": "JWT 解码器",
+      "description": "检查 JSON Web Token 的标头、载荷和过期时间——无需发送到任何地方。",
+      "token": "令牌",
+      "header": "标头",
+      "payload": "载荷",
+      "claims": "时间声明",
+      "expired": "已于 {{date}} 过期",
+      "validUntil": "有效期至 {{date}}",
+      "verify": "验证签名",
+      "secretPlaceholder": "HMAC 密钥（如有）",
+      "verifyNote": "这里只能验证 HS256、HS384 和 HS512 算法，因为它们使用与签名相同的密钥进行验证。留空即可跳过验证。",
+      "outcome": {
+        "valid": "签名与此密钥匹配。",
+        "invalid": "签名不匹配。",
+        "unsupported": "{{algorithm}} 使用公钥验证，而此工具不包含该公钥。"
+      },
+      "signatureNote": "你粘贴到这里的内容不会离开页面，但粘贴到任何网站的生产密钥都应视为已泄露。",
+      "claim": {
+        "iat": "签发于",
+        "nbf": "在此之前无效",
+        "exp": "过期于"
+      }
+    },
+    "url": {
+      "name": "URL 编码器",
+      "description": "对 URL 进行百分号编码和解码，或将其拆分为各个部分。",
+      "encode": "编码",
+      "decode": "解码",
+      "parse": "解析",
+      "wholeUrl": "完整 URL",
+      "componentHint": "转义所有不安全字符，包括 / ? & =——适用于单个值。",
+      "wholeHint": "保留预留字符不变——适用于完整地址。",
+      "parseHint": "将地址拆分为协议、主机、路径和查询参数。",
+      "protocol": "协议",
+      "host": "主机",
+      "port": "端口",
+      "path": "路径",
+      "hash": "片段",
+      "param": "查询"
+    },
+    "json": {
+      "name": "JSON 格式化器",
+      "description": "格式化、压缩并按字母顺序排列 JSON。",
+      "format": "格式化",
+      "minify": "压缩",
+      "sort": "排序键",
+      "indent": "缩进"
+    },
+    "case": {
+      "name": "大小写转换器",
+      "description": "在 camelCase、snake_case、kebab-case 等格式之间转换，并生成 URL slug。",
+      "localeNote": "标识符样式会有意忽略文本语言：按土耳其语规则，\"ID\" 转为小写会变成 \"ıd\"，任何编译器都不会接受。正文样式——Title Case、Sentence case、lowercase 和 UPPERCASE——则会遵循语言规则，因此土耳其语会将 \"istanbul\" 转为 \"İstanbul\"，英语则是 \"Istanbul\"。",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "标题式大小写",
+        "sentence": "句首大写",
+        "lower": "小写",
+        "upper": "大写",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "行排序器",
+      "description": "对行进行排序、删除重复项，并按自然顺序排列其中的数字。",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "删除重复项",
+      "natural": "自然顺序",
+      "caseSensitive": "区分大小写",
+      "localeNote": "排序依据文本语言的字母表，而不是界面语言——在土耳其语中，ç 紧跟在 c 后面，而不是排在 z 后面。"
+    },
+    "stats": {
+      "name": "文本统计",
+      "description": "统计任意语言的字符、单词、句子和阅读时间。",
+      "characters": "字符",
+      "charactersHint": "表情符号计为一个字符",
+      "charactersNoSpaces": "不含空格",
+      "words": "单词",
+      "sentences": "句子",
+      "lines": "行",
+      "paragraphs": "段落",
+      "bytes": "字节（UTF-8）",
+      "bytesHint": "{{codeUnits}} 个 UTF-16 代码单元",
+      "readingTime": "阅读时间",
+      "minutesSeconds": "{{minutes}}分 {{seconds}}秒",
+      "seconds": "{{seconds}}秒",
+      "segmenterNote": "单词使用 Intl.Segmenter 统计，因此不使用空格书写的日语和中文也能正确计数，而不会被视为一个超长单词。"
+    },
+    "timestamp": {
+      "name": "时间戳转换器",
+      "description": "在 Unix 时间、ISO 8601 和易读日期之间转换。",
+      "now": "现在",
+      "hint": "支持 Unix 秒、Unix 毫秒或任意日期字符串。",
+      "relative": "相对时间",
+      "local": "本地时间",
+      "seconds": "Unix 秒",
+      "millis": "Unix 毫秒"
+    },
+    "hash": {
+      "name": "哈希生成器",
+      "description": "生成 SHA-1、SHA-256、SHA-384 和 SHA-512 摘要，可选 HMAC。",
+      "secret": "HMAC 密钥",
+      "secretPlaceholder": "留空以生成普通哈希",
+      "secretHint": "填写此项可使用 HMAC 签名输入，而不是直接进行哈希。",
+      "digests": "摘要",
+      "hmacDigests": "HMAC 摘要",
+      "md5Note": "这里有意不提供 MD5。浏览器拒绝实现它，因为它已经不安全；自行添加只会鼓励继续使用。"
+    },
+    "escape": {
+      "name": "转义与反转义",
+      "description": "为 JSON、HTML、SQL、Shell 或正则表达式转义文本。",
+      "escape": "转义",
+      "unescape": "反转义",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "Shell",
+        "regex": "正则表达式"
+      },
+      "hint": {
+        "json": "生成 JSON 字符串内部的内容，不包含两侧引号。",
+        "html": "将会破坏标记的五个字符转换为实体。",
+        "sql": "将单引号加倍——这是所有 SQL 方言都认可的形式。转义不能替代参数化查询。",
+        "shell": "用单引号包裹文本，使其中内容不会展开。可安全地作为单个参数粘贴。",
+        "regex": "转义元字符，使文本按字面匹配自身。"
+      }
+    },
+    "regex": {
+      "name": "正则表达式测试器",
+      "description": "用文本测试正则表达式，并检查每个匹配项和分组。",
+      "subject": "测试字符串",
+      "matches": "匹配项",
+      "groups": "匹配详情",
+      "flag": {
+        "ignoreCase": "忽略大小写",
+        "multiline": "多行",
+        "dotAll": "点号匹配换行符",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "文本差异",
+      "description": "逐行比较两段文本。",
+      "original": "原文",
+      "changed": "修改后",
+      "result": "差异",
+      "ignoreCase": "忽略大小写",
+      "ignoreWhitespace": "忽略空白"
+    },
+    "invisible": {
+      "name": "隐形字符",
+      "description": "查找隐藏在文本中的零宽、形似和控制字符。",
+      "placeholder": "粘贴那段总是不正常的文本……",
+      "clean": "未发现隐形字符。",
+      "found": "发现 {{count}} 个隐形字符。",
+      "characters": "其中包含什么",
+      "normalise": "将特殊空格转换为普通空格",
+      "cleaned": "清理后的文本",
+      "note": "这些字符会在复制粘贴时悄无声息地保留下来，并导致一整类错误：配置键无法匹配、密码被拒绝、正则表达式静默失败。",
+      "kind": {
+        "zeroWidth": "零宽",
+        "space": "空格",
+        "control": "控制",
+        "bidi": "方向",
+        "lineEnding": "行尾"
+      }
+    },
+    "numberBase": {
+      "name": "进制转换器",
+      "description": "在二进制、八进制、十进制、十六进制以及最高 36 进制之间转换。",
+      "base": "{{base}} 进制",
+      "custom": "任意进制",
+      "note": "转换使用任意精度整数，因此超过 2^53 的哈希和位掩码仍会保持精确，而不会悄悄舍入。"
+    },
+    "dataSize": {
+      "name": "数据大小转换器",
+      "description": "在字节、kB 和 KiB 之间转换，并查看两种计算方式的差异。",
+      "bytes": "字节",
+      "decimal": "十进制（÷1000）",
+      "binary": "二进制（÷1024）",
+      "note": "硬盘厂商所说的 1 TB 是 10^12 字节，而操作系统按 1024 除后显示为 931 GiB。同一块硬盘，不同的计算方式。"
+    },
+    "chmod": {
+      "name": "chmod 计算器",
+      "description": "在 755 和 rwxr-xr-x 之间转换 Unix 权限。",
+      "octal": "八进制",
+      "symbolic": "符号形式",
+      "permissions": "权限",
+      "role": "对象",
+      "command": "结果",
+      "note": "当特殊位设置在不可执行的对象上时，字母会变为大写：4644 显示为 rwSr--r--。",
+      "action": {
+        "read": "读取",
+        "write": "写入",
+        "execute": "执行"
+      },
+      "who": {
+        "owner": "所有者",
+        "group": "用户组",
+        "others": "其他用户"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "语义化版本",
+      "description": "比较版本，并检查它们是否符合 ^1.2.0 之类的范围。",
+      "first": "第一个版本",
+      "second": "第二个版本",
+      "parts": "{{version}} 的组成部分",
+      "prereleaseHint": "低于正式版本",
+      "buildHint": "比较时忽略",
+      "range": "范围检查",
+      "matches": "{{version}} 满足 {{range}}",
+      "noMatch": "{{version}} 不满足 {{range}}",
+      "note": "支持 ^、~、>、>=、<、<=、=、x 通配符，以空格表示 AND，以 || 表示 OR。不支持连字符范围。"
+    },
+    "units": {
+      "name": "CSS 单位",
+      "description": "在 px、rem、em、pt 和百分比之间转换。",
+      "rootFontSize": "根字体大小",
+      "parentFontSize": "父元素字体大小",
+      "note": "rem 相对于文档，em 相对于元素的父级——这就是嵌套 em 值会叠加的原因。CSS 将 1in 固定为 96px，因此 12pt 在任何屏幕上都恰好是 16px。"
+    },
+    "gradient": {
+      "name": "渐变生成器",
+      "description": "创建线性、径向或锥形渐变，并复制 CSS。",
+      "stops": "色标点",
+      "addStop": "添加色标点",
+      "kind": {
+        "linear": "线性",
+        "radial": "径向",
+        "conic": "锥形"
+      }
+    },
+    "shadow": {
+      "name": "盒阴影",
+      "description": "设计阴影、叠加多个图层并复制 CSS。",
+      "offsetX": "X 偏移",
+      "offsetY": "Y 偏移",
+      "blur": "模糊",
+      "spread": "扩散",
+      "layer": "第 {{number}} 层",
+      "soft": "柔和预设",
+      "deep": "深邃预设",
+      "addLayer": "添加图层",
+      "note": "单个硬阴影很少看起来自然。将多个偏移逐渐增大、透明度逐渐降低的图层叠加起来，会呈现为一个柔和光源；设计系统正是这样营造层次感。"
+    },
+    "bezier": {
+      "name": "三次贝塞尔曲线",
+      "description": "拖动控制柄调整缓动曲线，并预览运动效果。",
+      "curve": "曲线",
+      "css": "CSS",
+      "preview": "预览",
+      "play": "播放",
+      "note": "将控制柄拖到框的上方或下方即可产生过冲——动画的弹跳感正来源于此。CSS 会将水平轴限制在 0–1，但不会限制垂直轴。"
+    },
+    "image": {
+      "name": "图像转换器",
+      "description": "无需上传即可转换、调整大小和压缩图像。",
+      "drop": "将图像拖到这里",
+      "dropHint": "或点击选择",
+      "quality": "质量",
+      "maxWidth": "最大宽度",
+      "convert": "转换",
+      "original": "原图",
+      "result": "结果",
+      "pending": "点击“转换”查看结果",
+      "download": "下载",
+      "note": "所有操作都通过浏览器中的画布完成。将最大宽度设为 0 可保留原始尺寸。重新绘制也会移除全部元数据，因为往返过程中只有像素会被保留。"
+    },
+    "exif": {
+      "name": "EXIF 查看器",
+      "description": "查看照片泄露了哪些关于你的信息，并将其移除。",
+      "drop": "将 JPEG 拖到这里",
+      "dropHint": "或点击选择",
+      "metadata": "元数据",
+      "locationFound": "这张照片包含你的位置信息",
+      "locationWarning": "任何收到此文件的人都能读取这些坐标。大多数社交网络会将其移除，但直接发送文件不会。",
+      "clean": "未发现元数据。此文件可直接安全分享。",
+      "download": "下载无元数据版本",
+      "note": "清理过程会移除元数据段，并逐字节复制图像数据，因此不会重新编码，也不会损失质量。文件始终不会离开你的浏览器。"
+    },
+    "detect": {
+      "name": "这是什么？",
+      "description": "粘贴任意内容，看看它是什么。",
+      "note": "这里的每项识别结果都来自工具本身使用的同一套解析器，因此匹配意味着指向的工具确实能够打开它。多个结果可能同时成立——例如 UUID 也是有效的十六进制。"
+    },
+    "baseEncoding": {
+      "name": "Base32 和 Base58",
+      "description": "Base64 未覆盖的两种字母表。",
+      "encode": "编码",
+      "decode": "解码",
+      "hint": {
+        "base32": "RFC 4648。仅使用 A–Z 和 2–7，因此即使口头读出或手动输入也不易出错——这正是身份验证器密钥使用它的原因。",
+        "base58": "比特币字母表：从 Base64 中去掉 0、O、I、l 以及两个符号，避免任何字符被误读。编码是对整个数值进行进制转换，而不是位打包。"
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "在国际化域名与其 xn-- 形式之间互相转换。",
+      "encode": "转为 Punycode",
+      "decode": "转为 Unicode",
+      "note": "每个标签会单独转换，因为点号永远不会被编码。同形异义攻击也正是这样隐藏的：两个域名看起来可能完全相同，但编码结果不同。"
+    },
+    "totp": {
+      "name": "TOTP 生成器",
+      "description": "根据 Base32 密钥生成六位验证码，就像身份验证器应用一样。",
+      "code": "当前验证码",
+      "remaining": "剩余 {{seconds}} 秒",
+      "note": "粘贴 otpauth:// URI 后，所有字段都会自动填写。密钥不会离开此页面——但粘贴到任何网站的密钥都应随后轮换；此工具用于调试，不能替代你的身份验证器。"
+    },
+    "vision": {
+      "name": "色觉模拟",
+      "description": "查看一组颜色对色觉障碍用户是否仍易于区分。",
+      "comparison": "并排比较",
+      "simulated": "第一种颜色的模拟效果",
+      "tooClose": "过于接近",
+      "distinct": "仍可区分",
+      "type": {
+        "normal": "正常色觉",
+        "protanopia": "红色盲",
+        "deuteranopia": "绿色盲",
+        "tritanopia": "蓝黄色盲",
+        "achromatopsia": "全色盲"
+      },
+      "note": "仅绿色盲就影响约十二分之一的男性。依靠红绿区分的调色板对他们会失效，而依靠蓝黄区分的仍然有效——因此状态颜色不仅应在色相上不同，明度也应有所区别。"
+    },
+    "favicon": {
+      "name": "网站图标生成器",
+      "description": "将一张图像转换为网站所需的所有图标尺寸。",
+      "drop": "将图像拖到这里",
+      "dropHint": "或点击选择",
+      "sizes": "尺寸",
+      "download": "下载",
+      "snippet": "HTML",
+      "note": "非正方形图像会从中央裁剪，而不是被压扁。所有内容都在此处通过画布绘制，因此图像不会被上传。"
+    },
+    "dns": {
+      "name": "DNS 查询",
+      "description": "解析域名记录。",
+      "warningTitle": "此工具会离开你的浏览器",
+      "warning": "查询会发送到 {{resolver}}，它将看到你查询的域名。这里的其他所有工具都完全在你的设备上运行。",
+      "lookup": "查询",
+      "working": "查询中……",
+      "records": "记录（{{count}}）",
+      "empty": "没有此类型的记录。",
+      "note": "解析名称意味着必须询问解析器——无法离线完成。请求通过 DNS-over-HTTPS 发送，因此网络提供商无法读取，但解析器可以。"
+    },
+    "cron": {
+      "name": "Cron 表达式",
+      "description": "读取 crontab 行，并查看它实际会在何时运行。",
+      "fields": "字段",
+      "nextRuns": "下次运行",
+      "every": "每",
+      "never": "此表达式永远不会匹配真实日期。",
+      "note": "当月中日期和星期几都受到限制时，cron 会在任一条件满足时运行，而不是两者同时满足。\"0 0 13 * fri\" 表示每月 13 日以及每个星期五，而不是“13 号星期五”。",
+      "field": {
+        "minutes": "分钟",
+        "hours": "小时",
+        "daysOfMonth": "月中日期",
+        "months": "月份",
+        "daysOfWeek": "星期几"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "在 CSV 和 JSON 之间转换，包括带引号的字段。",
+      "hasHeader": "第一行为表头",
+      "note": "读取时会逐字符解析，而不是简单地按分隔符拆分，因此包含逗号、换行符或双引号转义的带引号字段也能完整保留。"
+    },
+    "jsonTypes": {
+      "name": "JSON 转类型",
+      "description": "将示例响应转换为 TypeScript 接口或 JSON Schema。",
+      "rootName": "根名称",
+      "note": "对于数组，只在部分元素中出现的键会被标记为可选——这样生成的结果才能用于真实 API，而不仅仅适用于你的示例。"
+    },
+    "timezone": {
+      "name": "时区转换器",
+      "description": "同时查看同一时刻在多个时区的时间。",
+      "now": "现在",
+      "zones": "时区",
+      "add": "添加时区",
+      "note": "偏移量来自浏览器自身的时区数据库，因此会正确处理夏令时，而不是进行假设。"
+    },
+    "dateDiff": {
+      "name": "日期差",
+      "description": "计算两个日期之间的天数、工作日和日历间隔。",
+      "from": "从",
+      "to": "到",
+      "days": "天",
+      "breakdown": "日历间隔",
+      "parts": "{{years}}年 {{months}}月 {{days}}天",
+      "workingDays": "工作日",
+      "workingHint": "周一至周五",
+      "hours": "小时",
+      "minutes": "分钟",
+      "weeks": "周"
+    },
+    "reference": {
+      "name": "HTTP 参考",
+      "description": "查询状态码和 MIME 类型。",
+      "statuses": "状态码",
+      "mimeTypes": "MIME 类型",
+      "group": {
+        "informational": "信息",
+        "success": "成功",
+        "redirect": "重定向",
+        "clientError": "客户端",
+        "serverError": "服务器"
+      }
+    },
+    "hex": {
+      "name": "十六进制查看器",
+      "description": "将文本转换为十六进制并还原，或逐字节转储文件。",
+      "encode": "文本 → 十六进制",
+      "decode": "十六进制 → 文本",
+      "dump": "文件转储",
+      "drop": "将文件拖到这里",
+      "dropHint": "或点击选择",
+      "note": "转换使用 UTF-8，因此任何文字系统的文本都能正确往返。转储会显示前 512 行。"
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "经典拉丁文占位文本，可按单词、句子或段落生成。",
+      "startWithLorem": "以“lorem ipsum”开头",
+      "unit": {
+        "words": "单词",
+        "sentences": "句子",
+        "paragraphs": "段落"
+      },
+      "note": "相同请求始终会生成相同文本，因此模型稿不会在每次重新生成时自行变化。"
+    },
+    "cipher": {
+      "name": "经典密码",
+      "description": "ROT13、凯撒密码、Atbash、反转和摩尔斯电码。",
+      "encode": "编码",
+      "decode": "解码",
+      "shift": "位移",
+      "note": "这些只是谜题，不是安全手段——它们早在数百年前就已被破解。之所以保留，是因为 CTF、谜语和学校练习仍经常使用它们。"
+    },
+    "sql": {
+      "name": "SQL 格式化器",
+      "description": "将查询排成易读的多行，或压缩为一行。",
+      "format": "格式化",
+      "minify": "压缩",
+      "note": "字符串和注释会单独标记，因此恰好出现在字面量中的关键字绝不会被改为大写——那会改变查询的行为。"
+    },
+    "xml": {
+      "name": "XML / HTML 格式化器",
+      "description": "缩进标记，或移除其中的空白。",
+      "format": "格式化",
+      "minify": "压缩",
+      "note": "如果元素的唯一子节点是文本，它会保持在一行；而 <br> 等 HTML 空元素不会增加缩进层级。"
+    },
+    "jsonpath": {
+      "name": "JSONPath 查询",
+      "description": "使用路径表达式从 JSON 文档中提取值。",
+      "matches": "匹配项（{{count}}）",
+      "paths": "来源路径",
+      "note": "支持 $.key、[0]、[-1]、[*]、[1:3] 和递归的 ..key。不支持筛选表达式——从那里开始，语法会变成一门独立的语言。"
+    },
+    "svg": {
+      "name": "SVG 优化器",
+      "description": "精简 SVG，然后将其导出为数据 URI 或 JSX 组件。",
+      "optimise": "优化",
+      "bytes": "字节",
+      "note": "数据 URI 只对会破坏 CSS url() 的字符进行百分号编码，因此比 base64 短得多，同时仍然可读。"
+    },
+    "palette": {
+      "name": "调色板",
+      "description": "从一种颜色构建色调阶梯和匹配的配色方案。",
+      "steps": "色阶",
+      "css": "CSS 变量",
+      "onWhite": "白色背景",
+      "onBlack": "黑色背景",
+      "harmony": {
+        "complementary": "互补色",
+        "analogous": "邻近色",
+        "triadic": "三角色",
+        "tetradic": "四角色"
+      },
+      "note": "使用 OKLCH 构建，其中相同的明度步长在人眼看来也具有相同的差异。色度会逐步降低，直到每一级都落在 sRGB 范围内——若直接裁剪通道，则会拖动色相，把浅蓝色变成淡紫色。"
+    },
+    "mock": {
+      "name": "模拟数据",
+      "description": "以可复现方式生成真实感测试数据，并输出为 JSON。",
+      "rows": "行数",
+      "seed": "种子",
+      "reroll": "新种子",
+      "fields": "字段",
+      "addField": "添加字段",
+      "note": "相同种子始终会重建相同数据，因此测试夹具在多次运行之间保持稳定。姓名取自多个地区，而不是单一地区。"
+    },
+    "cidr": {
+      "name": "子网计算器",
+      "description": "计算 IPv4 块的网络地址、广播地址和主机范围。",
+      "block": "地址块",
+      "netmask": "子网掩码",
+      "wildcard": "通配符掩码",
+      "network": "网络地址",
+      "broadcast": "广播地址",
+      "firstHost": "第一个主机",
+      "lastHost": "最后一个主机",
+      "total": "地址总数",
+      "usableHosts": "可用主机",
+      "private": "私有地址范围",
+      "check": "地址是否在其中？",
+      "inside": "{{address}} 位于 {{block}} 内",
+      "outside": "{{address}} 不位于 {{block}} 内",
+      "note": "/31 包含两个地址，/32 恰好包含一个；它们都不会像更大的地址块那样预留网络地址或广播地址。"
+    },
+    "aes": {
+      "name": "AES 加密",
+      "description": "完全在浏览器中使用密码短语加密和解密文本。",
+      "encrypt": "加密",
+      "decrypt": "解密",
+      "passphrase": "密码短语",
+      "plaintext": "明文",
+      "ciphertext": "密文",
+      "working": "正在派生密钥……",
+      "note": "使用 AES-GCM，并通过 250,000 轮 PBKDF2 从密码短语派生密钥。GCM 在加密的同时进行身份验证，因此被修改的消息会拒绝解密，而不是变成乱码。盐值和 IV 会随密文一起保存——两者都不需要保密。"
+    },
+    "keypair": {
+      "name": "密钥对生成器",
+      "description": "生成 PEM 格式的 RSA、ECDSA 或 Ed25519 密钥对。",
+      "generate": "生成",
+      "working": "生成中……",
+      "publicKey": "公钥",
+      "privateKey": "私钥",
+      "note": "密钥由浏览器自身的加密引擎生成，绝不会离开页面。不过，粘贴到任何网站的密钥都应视为已泄露——生产密钥请使用你自己的工具生成。",
+      "hint": {
+        "RSA-2048": "安全的默认选项。支持广泛，生成速度也足够快。",
+        "RSA-4096": "更强，但生成和使用速度明显更慢。",
+        "ECDSA-P256": "在相当的安全强度下，密钥小得多。常见的现代选择。",
+        "Ed25519": "速度快、体积小且不易误用。需要较新的浏览器。"
+      }
+    },
+    "checksum": {
+      "name": "文件校验和",
+      "description": "无需上传，即可使用发布的哈希值验证下载文件。",
+      "drop": "将文件拖到这里",
+      "dropHint": "或点击选择",
+      "working": "正在计算哈希……",
+      "digests": "摘要",
+      "compare": "与发布的哈希值比较",
+      "expected": "粘贴预期的哈希值",
+      "match": "文件匹配。",
+      "noMatch": "没有任何摘要与此哈希值匹配。",
+      "note": "文件会被读入内存并当场计算哈希。不会上传任何内容，因此你可以放心检查那些绝不会发送给陌生人的文件。"
+    },
+    "curl": {
+      "name": "cURL 转代码",
+      "description": "将 curl 命令转换为 fetch、axios、Python 或 Go 代码。",
+      "command": "curl 命令",
+      "request": "发送内容",
+      "note": "不会改变请求的参数——例如 -L、-k、--compressed 等——会被忽略，而不是进行猜测。"
+    },
+    "color": {
+      "name": "颜色转换器",
+      "description": "在 HEX、RGB、HSL 和 OKLCH 之间转换，并检查 WCAG 对比度。",
+      "foreground": "前景色",
+      "background": "背景色",
+      "pick": "选择颜色",
+      "saturation": "饱和度和亮度",
+      "hue": "色相",
+      "alpha": "不透明度",
+      "formats": "格式",
+      "contrast": "对比度",
+      "sample": "大多数界面常用字号的普通文本。",
+      "sampleLarge": "大号文本",
+      "ratio": "对比度",
+      "normalAA": "普通文本 AA",
+      "normalAAA": "普通文本 AAA",
+      "largeAA": "大号文本 AA",
+      "largeAAA": "大号文本 AAA",
+      "oklchNote": "OKLCH 值得学习：与 HSL 不同，其中相同的明度步长在人眼看来也同样明显，因此构建出的调色板会保持平衡。大号文本指 24px，或 18.66px 粗体。",
+      "alphaNote": "WCAG 公式只适用于不透明颜色，因此半透明文本会先与背景合成——降低文本透明度确实会降低对比度。半透明背景会与白色合成，因为无法得知页面后方的颜色。"
+    },
+    "password": {
+      "name": "密码生成器",
+      "description": "使用无偏随机性生成强密码，并查看其真实强度。",
+      "regenerate": "重新生成",
+      "options": "选项",
+      "length": "长度",
+      "excludeAmbiguous": "排除易混淆字符",
+      "bits": "{{entropy}} 位",
+      "entropyNote": "强度以熵位数衡量——也就是攻击者需要尝试多少次——而不是看密码是否恰好包含符号。每个字符都通过拒绝采样选取，因此所有字符出现的概率相同。",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "符号"
+      },
+      "strength": {
+        "weak": "弱",
+        "fair": "一般",
+        "strong": "强",
+        "excellent": "极强"
+      }
+    },
+    "uuid": {
+      "name": "UUID 生成器",
+      "description": "生成 UUID v4、按时间排序的 UUID v7 和 Nano ID。",
+      "amount": "数量",
+      "regenerate": "重新生成",
+      "v4": "UUID v4",
+      "v4Hint": "完全随机。安全的默认选项。",
+      "v7": "UUID v7",
+      "v7Hint": "按时间排序，因此会按创建顺序排列。更适合作为数据库键。",
+      "nanoid": "Nano ID",
+      "nanoidHint": "简短且适合 URL。"
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "在 YAML 和 JSON 之间转换。",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Markdown 预览",
+      "description": "编写 Markdown，并并排查看渲染后的 HTML。",
+      "preview": "预览",
+      "empty": "开始输入即可查看预览",
+      "resize": "拖动以调整大小 · 双击重置"
+    },
+    "qrcode": {
+      "name": "二维码",
+      "description": "从文本生成二维码，或从图像中解码二维码。",
+      "generate": "生成",
+      "read": "读取",
+      "drop": "将二维码图像拖到这里",
+      "dropHint": "或点击选择",
+      "uploaded": "已上传",
+      "decoding": "处理中……"
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "在 TOML 和 JSON 之间转换。",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "HTML 标签移除器",
+      "description": "移除 HTML 标签，并将实体解码回纯文本。"
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "直接在浏览器中使用 GZip 或 Deflate 压缩文本。",
+      "compress": "压缩",
+      "decompress": "解压",
+      "note": "压缩使用浏览器内置的 CompressionStream API。不会向任何地方发送内容。"
+    },
+    "cert": {
+      "name": "证书解码器",
+      "description": "解码 PEM X.509 证书并检查其字段——无需上传，全部在本地完成。",
+      "input": "证书",
+      "decode": "解码",
+      "working": "解码中……",
+      "subject": "主体",
+      "issuer": "颁发者",
+      "validity": "有效期",
+      "notBefore": "生效时间",
+      "notAfter": "失效时间",
+      "fingerprints": "指纹",
+      "publicKey": "公钥",
+      "signature": "签名",
+      "algorithm": "算法",
+      "keySize": "密钥大小",
+      "dn": "DN",
+      "serial": "序列号",
+      "san": "主体备用名称"
+    },
+    "jsondiff": {
+      "name": "JSON 差异",
+      "description": "按结构逐键、逐值比较两个 JSON 文档。",
+      "left": "左侧（之前）",
+      "right": "右侧（之后）",
+      "added": "已添加",
+      "removed": "已移除",
+      "changed": "已更改",
+      "identical": "两个文档完全相同。",
+      "changes": "{{count}} 处差异"
+    },
+    "graphql": {
+      "name": "GraphQL 格式化器",
+      "description": "格式化或压缩 GraphQL 查询、变更或架构定义。",
+      "minify": "压缩"
+    }
+  }
+}

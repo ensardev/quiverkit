@@ -1,1 +1,863 @@
-{}
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "ブラウザから一歩も出ない開発者向けツール"
+  },
+  "home": {
+    "heading": "何度も検索しているツールを、ここに全部",
+    "subheading": "Base64、JWT、ハッシュ、UUID など。すべてあなたの端末上で動作します。アップロード不要、アカウント不要、追跡なし。",
+    "browse": "すべてのツール"
+  },
+  "nav": {
+    "back": "戻る",
+    "search": "ツールを検索",
+    "searchHint": "/ を押して検索",
+    "noResults": "「{{query}}」に一致するものはありません"
+  },
+  "common": {
+    "input": "入力",
+    "output": "出力",
+    "copy": "コピー",
+    "copied": "コピーしました",
+    "clear": "クリア",
+    "swap": "入れ替え",
+    "generate": "生成",
+    "example": "例を試す",
+    "textLanguage": "テキストの言語"
+  },
+  "theme": {
+    "toggle": "テーマを切り替え",
+    "switchTo": "{{theme}}テーマに切り替え",
+    "name": {
+      "light": "ライト",
+      "dim": "薄暗い",
+      "dark": "ダーク"
+    }
+  },
+  "language": {
+    "label": "言語"
+  },
+  "privacy": {
+    "badge": "オフラインで動作",
+    "note": "ここに入力した内容はどこにも送信されません。"
+  },
+  "footer": {
+    "builtBy": "<author>ensar.dev</author> が開発",
+    "desktopApp": "デスクトップアプリ",
+    "sourceCode": "ソースコード",
+    "licence": "MIT ライセンス"
+  },
+  "share": {
+    "label": "リンクを共有",
+    "copied": "リンクをコピーしました",
+    "tooltip": "この入力内容を含むリンクをコピーします。データは URL フラグメントに保存され、ブラウザからサーバーへ送信されることはありません。"
+  },
+  "detector": {
+    "title": "何でも貼り付けてください",
+    "subtitle": "内容を判別し、適切なツールへ案内します。",
+    "placeholder": "トークン、ハッシュ、タイムスタンプ、エンコード済み文字列…",
+    "unknown": "判別できませんでした。下の一覧からツールを試してください。",
+    "level": {
+      "sure": "確実",
+      "likely": "可能性が高い",
+      "maybe": "可能性あり"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "PEM ブロック",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "メールアドレス",
+      "ipv4": "IPv4 アドレス",
+      "cidr": "CIDR ブロック",
+      "semver": "セマンティックバージョン",
+      "cron": "Cron 式",
+      "colour": "色",
+      "unixSeconds": "Unix タイムスタンプ（秒）",
+      "unixMillis": "Unix タイムスタンプ（ミリ秒）",
+      "isoDate": "ISO 8601 日付",
+      "md5": "MD5 ハッシュ",
+      "sha1": "SHA-1 ハッシュ",
+      "sha256": "SHA-256 ハッシュ",
+      "sha512": "SHA-512 ハッシュ",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "16 進数",
+      "punycode": "Punycode ドメイン",
+      "htmlEntities": "HTML エンティティ",
+      "urlEncoded": "パーセントエンコード済みテキスト"
+    }
+  },
+  "palette": {
+    "title": "ツールを検索",
+    "placeholder": "ツールを検索…",
+    "navigate": "移動",
+    "open": "開く",
+    "close": "閉じる",
+    "hint": "Ctrl K"
+  },
+  "network": {
+    "badge": "オンライン接続あり",
+    "short": "通信",
+    "tooltip": "このツールはサーバーへの接続が必要です。それ以外はすべてブラウザ内だけで動作します。"
+  },
+  "category": {
+    "detect": "判別",
+    "encoding": "エンコード",
+    "formatting": "整形",
+    "text": "テキスト",
+    "converters": "変換",
+    "design": "デザイン",
+    "media": "メディア",
+    "network": "ネットワーク",
+    "crypto": "暗号",
+    "generators": "生成",
+    "dev": "開発"
+  },
+  "error": {
+    "emptyInput": "開始するには何か入力または貼り付けてください。",
+    "invalidBase64": "有効な Base64 ではありません。",
+    "invalidUtf8": "デコードには成功しましたが、結果はテキストではなくバイナリデータです。",
+    "invalidJson": "有効な JSON ではありません。",
+    "invalidJwt": "有効な JWT ではありません。トークンはドットで区切られた 3 つの部分から成ります。",
+    "invalidUrlEncoding": "有効なパーセントエンコードではありません。",
+    "invalidTimestamp": "日付または Unix タイムスタンプではありません。",
+    "noCharacterSet": "少なくとも 1 つの文字セットを選んでください。",
+    "invalidColor": "認識できない色です。#3b82f6、rgb(59 130 246)、または hsl(217 91% 60%) を試してください。",
+    "invalidRegex": "このパターンはコンパイルできません。",
+    "invalidNumber": "この数値は選択した基数では表せません。",
+    "invalidBase": "2 から 36 の間の基数を選んでください。",
+    "invalidPermissions": "3 桁または 4 桁の 8 進数（755）、もしくは 9 文字の記号（rwxr-xr-x）を使用してください。",
+    "invalidVersion": "1.2.3 のような 3 部構成の完全なバージョンを入力してください。",
+    "invalidRange": "この範囲は解釈できません。",
+    "invalidCidr": "192.168.1.0/24 のようにアドレスとプレフィックスを入力してください。",
+    "invalidCurl": "URL を含む curl コマンドには見えません。",
+    "decryptFailed": "復号できませんでした。パスフレーズが違うか、メッセージが改変されています。",
+    "keyGenerationFailed": "この種類の鍵はブラウザで生成できません。",
+    "unsupportedImage": "このツールは JPEG ファイルを読み取ります。他の形式ではメタデータの保存方法が異なります。",
+    "invalidCron": "Cron 行は 0 9 * * mon-fri のように 5 つのフィールドで構成されます。",
+    "invalidCsv": "読み取れる表ではありません。JSON 入力はオブジェクトの配列である必要があります。",
+    "invalidHex": "16 進数は偶数桁である必要があります。",
+    "invalidXml": "このマークアップは読み取れません。",
+    "invalidPath": "このパスは読み取れません。",
+    "invalidSvg": "<svg> 要素が含まれていません。",
+    "invalidBase32": "Base32 では A–Z と 2–7 のみを使用します。",
+    "invalidBase58": "Base58 では見間違いを防ぐため 0、O、I、l を除外しています。",
+    "invalidSecret": "有効な Base32 シークレットではありません。",
+    "invalidDomain": "example.com のようなドメイン名を入力してください。",
+    "networkFailed": "リクエストに失敗しました。接続または問い合わせた名前を確認してください。",
+    "invalidYaml": "有効な YAML ではありません。",
+    "invalidToml": "有効な TOML ではありません。",
+    "noQrFound": "この画像に QR コードは見つかりませんでした。",
+    "invalidCertificate": "証明書を読み取れませんでした。PEM 形式の X.509 証明書を試してください。"
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "Base64 をエンコード・デコードします。URL セーフ出力と完全な Unicode に対応しています。",
+      "encode": "エンコード",
+      "decode": "デコード",
+      "urlSafe": "URL セーフ"
+    },
+    "jwt": {
+      "name": "JWT デコーダー",
+      "description": "JSON Web Token のヘッダー、ペイロード、有効期限を、どこにも送信せずに確認します。",
+      "token": "トークン",
+      "header": "ヘッダー",
+      "payload": "ペイロード",
+      "claims": "時刻クレーム",
+      "expired": "{{date}} に期限切れ",
+      "validUntil": "{{date}} まで有効",
+      "verify": "署名を検証",
+      "secretPlaceholder": "HMAC シークレット（ある場合）",
+      "verifyNote": "ここで確認できるのは HS256、HS384、HS512 のみです。これらは署名と検証に同じ鍵を使うためです。検証を省略する場合は空欄にしてください。",
+      "outcome": {
+        "valid": "署名はこのシークレットと一致します。",
+        "invalid": "署名が一致しません。",
+        "unsupported": "{{algorithm}} は公開鍵で検証しますが、このツールには公開鍵がありません。"
+      },
+      "signatureNote": "ここに貼り付けた内容がページ外へ送られることはありません。ただし、本番用シークレットをウェブサイトに貼り付けた場合は漏えいしたものとして扱ってください。",
+      "claim": {
+        "iat": "発行日時",
+        "nbf": "有効開始日時",
+        "exp": "有効期限"
+      }
+    },
+    "url": {
+      "name": "URL エンコーダー",
+      "description": "URL をパーセントエンコード・デコードするか、構成要素に分解します。",
+      "encode": "エンコード",
+      "decode": "デコード",
+      "parse": "解析",
+      "wholeUrl": "URL 全体",
+      "componentHint": "/ ? & = を含む安全でない文字をすべてエスケープします。単一の値に使用してください。",
+      "wholeHint": "予約文字はそのまま残します。完全なアドレスに使用してください。",
+      "parseHint": "アドレスをプロトコル、ホスト、パス、クエリパラメーターに分割します。",
+      "protocol": "プロトコル",
+      "host": "ホスト",
+      "port": "ポート",
+      "path": "パス",
+      "hash": "フラグメント",
+      "param": "クエリ"
+    },
+    "json": {
+      "name": "JSON フォーマッター",
+      "description": "JSON の整形、圧縮、キーのアルファベット順ソートを行います。",
+      "format": "整形",
+      "minify": "圧縮",
+      "sort": "キーを並べ替え",
+      "indent": "インデント"
+    },
+    "case": {
+      "name": "文字ケース変換",
+      "description": "camelCase、snake_case、kebab-case などを相互変換し、URL スラッグも生成します。",
+      "localeNote": "識別子スタイルでは意図的にテキスト言語を無視します。トルコ語の規則では「ID」が「ıd」になりますが、これはどのコンパイラーでも受け付けられません。一方、Title Case、Sentence case、lowercase、UPPERCASE などの文章スタイルは言語規則に従うため、トルコ語では「istanbul」が「İstanbul」に、英語では「Istanbul」になります。",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "行ソーター",
+      "description": "行を並べ替え、重複を削除し、含まれる数字を自然順で整列します。",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "重複を削除",
+      "natural": "自然順",
+      "caseSensitive": "大文字と小文字を区別",
+      "localeNote": "並べ替えはインターフェースではなくテキスト言語のアルファベットに従います。たとえばトルコ語では ç は z の後ではなく c の直後に並びます。"
+    },
+    "stats": {
+      "name": "テキスト統計",
+      "description": "あらゆる言語の文字数、単語数、文数、読了時間を数えます。",
+      "characters": "文字",
+      "charactersHint": "絵文字は 1 文字として数えます",
+      "charactersNoSpaces": "空白を除く",
+      "words": "単語",
+      "sentences": "文",
+      "lines": "行",
+      "paragraphs": "段落",
+      "bytes": "バイト（UTF-8）",
+      "bytesHint": "{{codeUnits}} UTF-16 コード単位",
+      "readingTime": "読了時間",
+      "minutesSeconds": "{{minutes}}分 {{seconds}}秒",
+      "seconds": "{{seconds}}秒",
+      "segmenterNote": "単語は Intl.Segmenter で数えるため、空白を使わない日本語や中国語も 1 つの長い単語ではなく正しく数えられます。"
+    },
+    "timestamp": {
+      "name": "タイムスタンプ変換",
+      "description": "Unix 時刻、ISO 8601、人が読める日付を相互変換します。",
+      "now": "現在",
+      "hint": "Unix 秒、Unix ミリ秒、または任意の日付文字列を受け付けます。",
+      "relative": "相対表示",
+      "local": "ローカル時刻",
+      "seconds": "Unix 秒",
+      "millis": "Unix ミリ秒"
+    },
+    "hash": {
+      "name": "ハッシュ生成",
+      "description": "SHA-1、SHA-256、SHA-384、SHA-512 のダイジェストを生成します。HMAC にも対応しています。",
+      "secret": "HMAC キー",
+      "secretPlaceholder": "通常のハッシュでは空欄",
+      "secretHint": "入力をハッシュする代わりに HMAC で署名する場合は入力してください。",
+      "digests": "ダイジェスト",
+      "hmacDigests": "HMAC ダイジェスト",
+      "md5Note": "MD5 は意図的に省いています。壊れているためブラウザは実装を拒否しており、独自実装を追加しても利用を助長するだけです。"
+    },
+    "escape": {
+      "name": "エスケープ／アンエスケープ",
+      "description": "JSON、HTML、SQL、シェル、正規表現向けにテキストをエスケープします。",
+      "escape": "エスケープ",
+      "unescape": "元に戻す",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "シェル",
+        "regex": "正規表現"
+      },
+      "hint": {
+        "json": "外側の引用符を付けずに、JSON 文字列の内部だけを生成します。",
+        "html": "マークアップを壊す 5 つの文字をエンティティに変換します。",
+        "sql": "単一引用符を 2 つにします。すべての SQL 方言で共通する形式です。エスケープはパラメーター化クエリの代わりにはなりません。",
+        "shell": "テキストを単一引用符で囲み、展開を防ぎます。1 つの引数として安全に貼り付けられます。",
+        "regex": "メタ文字をエスケープし、テキストそのものに文字どおり一致させます。"
+      }
+    },
+    "regex": {
+      "name": "正規表現テスター",
+      "description": "テキストに対して正規表現を試し、すべての一致とグループを確認します。",
+      "subject": "テスト文字列",
+      "matches": "一致",
+      "groups": "一致の詳細",
+      "flag": {
+        "ignoreCase": "大文字と小文字を区別しない",
+        "multiline": "複数行",
+        "dotAll": "ドットを改行にも一致",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "テキスト差分",
+      "description": "2 つのテキストを行ごとに比較します。",
+      "original": "元の内容",
+      "changed": "変更後",
+      "result": "差分",
+      "ignoreCase": "大文字と小文字を無視",
+      "ignoreWhitespace": "空白を無視"
+    },
+    "invisible": {
+      "name": "不可視文字",
+      "description": "テキストに隠れたゼロ幅文字、紛らわしい文字、制御文字を見つけます。",
+      "placeholder": "うまく動かないテキストを貼り付けてください…",
+      "clean": "不可視文字は見つかりませんでした。",
+      "found": "{{count}} 個の不可視文字が見つかりました。",
+      "characters": "含まれている文字",
+      "normalise": "特殊な空白を通常の空白に変換",
+      "cleaned": "クリーニング済みテキスト",
+      "note": "これらの文字はコピー＆ペーストでも気付かれずに残り、設定キーが一致しない、パスワードが拒否される、正規表現が黙って失敗するなど、多くのバグの原因になります。",
+      "kind": {
+        "zeroWidth": "ゼロ幅",
+        "space": "空白",
+        "control": "制御",
+        "bidi": "方向制御",
+        "lineEnding": "改行"
+      }
+    },
+    "numberBase": {
+      "name": "基数変換",
+      "description": "2 進数、8 進数、10 進数、16 進数、および 36 進数までの任意の基数を相互変換します。",
+      "base": "{{base}} 進数",
+      "custom": "任意の基数",
+      "note": "変換には任意精度整数を使用するため、2^53 を超えるハッシュやビットマスクも丸められず正確に保持されます。"
+    },
+    "dataSize": {
+      "name": "データサイズ変換",
+      "description": "バイト、kB、KiB を相互変換し、10 進表記と 2 進表記の違いを確認します。",
+      "bytes": "バイト",
+      "decimal": "10 進（÷1000）",
+      "binary": "2 進（÷1024）",
+      "note": "ドライブメーカーの 1 TB は 10^12 バイトですが、OS は 1024 で割って 931 GiB と表示します。同じドライブでも計算方法が異なります。"
+    },
+    "chmod": {
+      "name": "chmod 計算機",
+      "description": "Unix 権限を 755 と rwxr-xr-x の間で変換します。",
+      "octal": "8 進数",
+      "symbolic": "記号形式",
+      "permissions": "権限",
+      "role": "対象",
+      "command": "結果",
+      "note": "実行できない対象に特殊ビットが設定されると文字は大文字になります。たとえば 4644 は rwSr--r-- と表示されます。",
+      "action": {
+        "read": "読み取り",
+        "write": "書き込み",
+        "execute": "実行"
+      },
+      "who": {
+        "owner": "所有者",
+        "group": "グループ",
+        "others": "その他"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "セマンティックバージョン",
+      "description": "バージョンを比較し、^1.2.0 のような範囲に適合するか確認します。",
+      "first": "1 つ目のバージョン",
+      "second": "2 つ目のバージョン",
+      "parts": "{{version}} の構成",
+      "prereleaseHint": "正式リリースより下に順位付けされます",
+      "buildHint": "比較では無視されます",
+      "range": "範囲チェック",
+      "matches": "{{version}} は {{range}} を満たします",
+      "noMatch": "{{version}} は {{range}} を満たしません",
+      "note": "^、~、>、>=、<、<=、=、x ワイルドカード、AND を表す空白、OR を表す || に対応しています。ハイフン範囲には対応していません。"
+    },
+    "units": {
+      "name": "CSS 単位",
+      "description": "px、rem、em、pt、パーセントを相互変換します。",
+      "rootFontSize": "ルートのフォントサイズ",
+      "parentFontSize": "親要素のフォントサイズ",
+      "note": "rem はドキュメント、em は要素の親を基準にするため、入れ子の em は累積します。CSS では 1in を 96px に固定しているので、12pt はどの画面でも正確に 16px です。"
+    },
+    "gradient": {
+      "name": "グラデーション生成",
+      "description": "線形、放射、円錐グラデーションを作成して CSS をコピーします。",
+      "stops": "カラーストップ",
+      "addStop": "ストップを追加",
+      "kind": {
+        "linear": "線形",
+        "radial": "放射",
+        "conic": "円錐"
+      }
+    },
+    "shadow": {
+      "name": "ボックスシャドウ",
+      "description": "影をデザインし、複数のレイヤーを重ねて CSS をコピーします。",
+      "offsetX": "X オフセット",
+      "offsetY": "Y オフセット",
+      "blur": "ぼかし",
+      "spread": "広がり",
+      "layer": "レイヤー {{number}}",
+      "soft": "ソフトプリセット",
+      "deep": "ディーププリセット",
+      "addLayer": "レイヤーを追加",
+      "note": "硬い影を 1 つだけ置いても自然に見えることはほとんどありません。オフセットを徐々に増やし、不透明度を下げた複数レイヤーを重ねると、単一の柔らかな光源のように見えます。デザインシステムの奥行きはこの方法で作られます。"
+    },
+    "bezier": {
+      "name": "3 次ベジェ",
+      "description": "ハンドルをドラッグしてイージング曲線を形作り、動きをプレビューします。",
+      "curve": "曲線",
+      "css": "CSS",
+      "preview": "プレビュー",
+      "play": "再生",
+      "note": "ハンドルをボックスの上または下へドラッグするとオーバーシュートし、アニメーションに弾む動きが生まれます。CSS は横軸を 0～1 に制限しますが、縦軸は制限しません。"
+    },
+    "image": {
+      "name": "画像変換",
+      "description": "画像をアップロードせずに変換、サイズ変更、圧縮します。",
+      "drop": "ここに画像をドロップ",
+      "dropHint": "またはクリックして選択",
+      "quality": "品質",
+      "maxWidth": "最大幅",
+      "convert": "変換",
+      "original": "元画像",
+      "result": "結果",
+      "pending": "「変換」を押すと結果が表示されます",
+      "download": "ダウンロード",
+      "note": "すべてブラウザ内の canvas で処理されます。最大幅を 0 にすると元のサイズを維持します。再描画ではピクセルだけが残るため、すべてのメタデータも削除されます。"
+    },
+    "exif": {
+      "name": "EXIF ビューアー",
+      "description": "写真がどんな情報を明かしているか確認し、削除します。",
+      "drop": "ここに JPEG をドロップ",
+      "dropHint": "またはクリックして選択",
+      "metadata": "メタデータ",
+      "locationFound": "この写真には位置情報が含まれています",
+      "locationWarning": "このファイルを受け取った人は誰でも座標を読み取れます。多くの SNS は削除しますが、ファイルを直接送った場合は削除されません。",
+      "clean": "メタデータは見つかりませんでした。このまま安全に共有できます。",
+      "download": "メタデータなしでダウンロード",
+      "note": "メタデータ部分だけを削除し、画像データはバイト単位でそのままコピーします。再エンコードされないため画質は劣化しません。ファイルがブラウザ外へ送られることもありません。"
+    },
+    "detect": {
+      "name": "これは何？",
+      "description": "何でも貼り付けて内容を判別します。",
+      "note": "ここでの判定には各ツール本体と同じパーサーを使っています。一致した場合、案内先のツールで実際に開けることを意味します。複数の判定が同時に正しい場合もあります。たとえば UUID は有効な 16 進数でもあります。"
+    },
+    "baseEncoding": {
+      "name": "Base32・Base58",
+      "description": "Base64 では扱わない 2 つのアルファベットです。",
+      "encode": "エンコード",
+      "decode": "デコード",
+      "hint": {
+        "base32": "RFC 4648。A～Z と 2～7 だけを使うため、読み上げたり手入力したりしても壊れにくく、認証アプリのシークレットに使われています。",
+        "base58": "Bitcoin のアルファベットです。Base64 から 0、O、I、l と 2 つの記号を除き、見間違いを防ぎます。エンコードはビットの詰め替えではなく、数値全体の基数変換です。"
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "国際化ドメインを xn-- 形式へ変換し、元に戻します。",
+      "encode": "Punycode へ",
+      "decode": "Unicode へ",
+      "note": "ドットはエンコードされないため、各ラベルを個別に変換します。ホモグラフ攻撃もこの仕組みに隠れます。見た目が同じ 2 つのドメインでも、エンコード結果が異なることがあります。"
+    },
+    "totp": {
+      "name": "TOTP 生成",
+      "description": "認証アプリのように、Base32 シークレットから 6 桁のコードを生成します。",
+      "code": "現在のコード",
+      "remaining": "残り {{seconds}} 秒",
+      "note": "otpauth:// URI を貼り付けると、すべての項目が自動入力されます。シークレットがこのページ外へ送られることはありません。ただし、ウェブサイトに貼り付けたシークレットは後でローテーションしてください。これは認証アプリの代替ではなく、デバッグ用です。"
+    },
+    "vision": {
+      "name": "色覚シミュレーション",
+      "description": "2 色の組み合わせが色覚特性のある人にも区別できるか確認します。",
+      "comparison": "並べて比較",
+      "simulated": "1 色目のシミュレーション",
+      "tooClose": "近すぎます",
+      "distinct": "区別できます",
+      "type": {
+        "normal": "通常色覚",
+        "protanopia": "1 型色覚",
+        "deuteranopia": "2 型色覚",
+        "tritanopia": "3 型色覚",
+        "achromatopsia": "全色盲"
+      },
+      "note": "2 型色覚だけでも男性のおよそ 12 人に 1 人に見られます。赤と緑だけで区別する配色は見分けにくくなりますが、青と黄なら区別しやすくなります。そのためステータス色は色相だけでなく明度にも差を付ける必要があります。"
+    },
+    "favicon": {
+      "name": "Favicon 生成",
+      "description": "1 枚の画像からサイトに必要なすべてのアイコンサイズを生成します。",
+      "drop": "ここに画像をドロップ",
+      "dropHint": "またはクリックして選択",
+      "sizes": "サイズ",
+      "download": "ダウンロード",
+      "snippet": "HTML",
+      "note": "正方形でない画像は引き伸ばさず、中央から切り抜きます。すべてここで canvas に描画されるため、画像がアップロードされることはありません。"
+    },
+    "dns": {
+      "name": "DNS ルックアップ",
+      "description": "ドメインのレコードを名前解決します。",
+      "warningTitle": "このツールはブラウザ外へ通信します",
+      "warning": "問い合わせは {{resolver}} に送信され、指定したドメインが相手に見えます。それ以外のツールはすべて端末上だけで動作します。",
+      "lookup": "検索",
+      "working": "問い合わせ中…",
+      "records": "レコード（{{count}}）",
+      "empty": "この種類のレコードはありません。",
+      "note": "名前解決にはリゾルバーへの問い合わせが必要で、オフラインでは実行できません。リクエストは DNS-over-HTTPS で送られるためネットワーク事業者には読まれませんが、リゾルバーには見えます。"
+    },
+    "cron": {
+      "name": "Cron 式",
+      "description": "crontab の 1 行を解析し、実際の実行日時を確認します。",
+      "fields": "フィールド",
+      "nextRuns": "次回の実行",
+      "every": "毎",
+      "never": "この式に一致する実在の日付はありません。",
+      "note": "日付と曜日の両方が制限されている場合、cron は両方ではなくどちらか一方に一致すると実行されます。「0 0 13 * fri」は「13 日の金曜日」ではなく、毎月 13 日と毎週金曜日を意味します。",
+      "field": {
+        "minutes": "分",
+        "hours": "時",
+        "daysOfMonth": "日",
+        "months": "月",
+        "daysOfWeek": "曜日"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "引用符付きフィールドを含め、CSV と JSON を相互変換します。",
+      "hasHeader": "先頭行をヘッダーとして扱う",
+      "note": "区切り文字で単純に分割せず 1 文字ずつ読み取るため、カンマ、改行、二重引用符を含む引用符付きフィールドもそのまま保持されます。"
+    },
+    "jsonTypes": {
+      "name": "JSON から型を生成",
+      "description": "サンプルレスポンスから TypeScript インターフェースまたは JSON Schema を生成します。",
+      "rootName": "ルート名",
+      "note": "配列を入力した場合、一部の要素にしか存在しないキーは省略可能として扱われます。これにより、サンプルだけでなく実際の API にも使える結果になります。"
+    },
+    "timezone": {
+      "name": "タイムゾーン変換",
+      "description": "同じ瞬間を複数のタイムゾーンで同時に表示します。",
+      "now": "現在",
+      "zones": "タイムゾーン",
+      "add": "タイムゾーンを追加",
+      "note": "オフセットはブラウザ内蔵のタイムゾーンデータベースから取得するため、夏時間も正しく処理されます。"
+    },
+    "dateDiff": {
+      "name": "日付差分",
+      "description": "2 つの日付間の日数、営業日数、カレンダー上の差を計算します。",
+      "from": "開始",
+      "to": "終了",
+      "days": "日",
+      "breakdown": "カレンダー上の差",
+      "parts": "{{years}}年 {{months}}か月 {{days}}日",
+      "workingDays": "営業日",
+      "workingHint": "月曜日から金曜日",
+      "hours": "時間",
+      "minutes": "分",
+      "weeks": "週"
+    },
+    "reference": {
+      "name": "HTTP リファレンス",
+      "description": "ステータスコードと MIME タイプを検索します。",
+      "statuses": "ステータスコード",
+      "mimeTypes": "MIME タイプ",
+      "group": {
+        "informational": "情報",
+        "success": "成功",
+        "redirect": "リダイレクト",
+        "clientError": "クライアント",
+        "serverError": "サーバー"
+      }
+    },
+    "hex": {
+      "name": "Hex ビューアー",
+      "description": "テキストと 16 進数を相互変換し、ファイルをバイト単位でダンプします。",
+      "encode": "テキスト → Hex",
+      "decode": "Hex → テキスト",
+      "dump": "ファイルダンプ",
+      "drop": "ここにファイルをドロップ",
+      "dropHint": "またはクリックして選択",
+      "note": "変換には UTF-8 を使うため、どの文字体系のテキストでも正しく往復変換できます。ダンプには先頭 512 行を表示します。"
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "単語、文、段落単位で生成できる定番のラテン語ダミーテキストです。",
+      "startWithLorem": "「lorem ipsum」から開始",
+      "unit": {
+        "words": "単語",
+        "sentences": "文",
+        "paragraphs": "段落"
+      },
+      "note": "同じ条件なら常に同じテキストを生成するため、再生成するたびにモックアップの内容が変わることはありません。"
+    },
+    "cipher": {
+      "name": "古典暗号",
+      "description": "ROT13、シーザー、Atbash、逆順、モールス信号を扱います。",
+      "encode": "暗号化",
+      "decode": "復号",
+      "shift": "シフト",
+      "note": "これらはセキュリティではなくパズルです。すべて何世紀も前に解読されていますが、CTF、なぞなぞ、学校の課題では今でも頻繁に使われています。"
+    },
+    "sql": {
+      "name": "SQL フォーマッター",
+      "description": "クエリを読みやすい複数行に整形するか、1 行に圧縮します。",
+      "format": "整形",
+      "minify": "圧縮",
+      "note": "文字列とコメントは別々にトークン化されるため、リテラル内にたまたま含まれるキーワードが大文字化されることはありません。大文字化するとクエリの動作が変わってしまいます。"
+    },
+    "xml": {
+      "name": "XML / HTML フォーマッター",
+      "description": "マークアップにインデントを付けるか、空白を取り除いて圧縮します。",
+      "format": "整形",
+      "minify": "圧縮",
+      "note": "唯一の子がテキストである要素は 1 行のまま保持され、<br> のような HTML の空要素タグはインデント階層を増やしません。"
+    },
+    "jsonpath": {
+      "name": "JSONPath クエリ",
+      "description": "パス式を使って JSON ドキュメントから値を取り出します。",
+      "matches": "一致（{{count}}）",
+      "paths": "取得元のパス",
+      "note": "$.key、[0]、[-1]、[*]、[1:3]、再帰検索の ..key に対応しています。フィルター式は対象外です。そこから文法が独立した言語のように複雑になるためです。"
+    },
+    "svg": {
+      "name": "SVG 最適化",
+      "description": "SVG を軽量化し、データ URI または JSX コンポーネントとして書き出します。",
+      "optimise": "最適化",
+      "bytes": "バイト",
+      "note": "データ URI では CSS の url() を壊す文字だけをパーセントエンコードするため、Base64 より大幅に短く、しかも読みやすさを保てます。"
+    },
+    "palette": {
+      "name": "カラーパレット",
+      "description": "1 色からトーンスケールと調和する配色を作成します。",
+      "steps": "スケール",
+      "css": "CSS 変数",
+      "onWhite": "白背景",
+      "onBlack": "黒背景",
+      "harmony": {
+        "complementary": "補色",
+        "analogous": "類似色",
+        "triadic": "トライアド",
+        "tetradic": "テトラード"
+      },
+      "note": "明度の等間隔が視覚的にも等しい差に見える OKLCH で生成します。各段階が sRGB 内に収まるまで彩度を下げます。チャンネルを単純にクランプすると色相がずれ、明るい青が薄紫になってしまいます。"
+    },
+    "mock": {
+      "name": "モックデータ",
+      "description": "現実的なテストデータを JSON 形式で再現可能に生成します。",
+      "rows": "行数",
+      "seed": "シード",
+      "reroll": "新しいシード",
+      "fields": "フィールド",
+      "addField": "フィールドを追加",
+      "note": "同じシードからは常に同じデータが再生成されるため、実行ごとにフィクスチャが変わりません。名前は 1 地域だけでなく複数地域から選ばれます。"
+    },
+    "cidr": {
+      "name": "サブネット計算",
+      "description": "IPv4 ブロックのネットワーク、ブロードキャスト、ホスト範囲を計算します。",
+      "block": "ブロック",
+      "netmask": "ネットマスク",
+      "wildcard": "ワイルドカード",
+      "network": "ネットワークアドレス",
+      "broadcast": "ブロードキャスト",
+      "firstHost": "最初のホスト",
+      "lastHost": "最後のホスト",
+      "total": "総アドレス数",
+      "usableHosts": "利用可能なホスト",
+      "private": "プライベート範囲",
+      "check": "アドレスが範囲内か確認",
+      "inside": "{{address}} は {{block}} の範囲内です",
+      "outside": "{{address}} は {{block}} の範囲外です",
+      "note": "/31 は 2 個、/32 は 1 個のアドレスを持ちます。大きなブロックとは異なり、どちらもネットワークアドレスやブロードキャストアドレスを予約しません。"
+    },
+    "aes": {
+      "name": "AES 暗号化",
+      "description": "ブラウザ内だけで、パスフレーズを使ってテキストを暗号化・復号します。",
+      "encrypt": "暗号化",
+      "decrypt": "復号",
+      "passphrase": "パスフレーズ",
+      "plaintext": "平文",
+      "ciphertext": "暗号文",
+      "working": "鍵を導出中…",
+      "note": "パスフレーズを PBKDF2 で 250,000 回処理して鍵を導出し、AES-GCM を使用します。GCM は暗号化だけでなく認証も行うため、改変されたメッセージは文字化けせず復号を拒否します。ソルトと IV は暗号文に含まれますが、どちらも秘密情報ではありません。"
+    },
+    "keypair": {
+      "name": "鍵ペア生成",
+      "description": "RSA、ECDSA、Ed25519 の鍵ペアを PEM 形式で生成します。",
+      "generate": "生成",
+      "working": "生成中…",
+      "publicKey": "公開鍵",
+      "privateKey": "秘密鍵",
+      "note": "鍵はブラウザ内蔵の暗号エンジンで生成され、ページ外へ送られません。ただし、ウェブサイトに貼り付けた鍵は漏えいしたものとして扱うべきです。本番用の鍵は自身のツールで生成してください。",
+      "hint": {
+        "RSA-2048": "安全な既定値です。広く対応しており、生成も十分高速です。",
+        "RSA-4096": "より強力ですが、生成も利用も明らかに遅くなります。",
+        "ECDSA-P256": "同等の強度で鍵が大幅に小さくなります。一般的なモダン構成です。",
+        "Ed25519": "高速で小さく、誤用しにくい方式です。新しいブラウザが必要です。"
+      }
+    },
+    "checksum": {
+      "name": "ファイルチェックサム",
+      "description": "ファイルをアップロードせず、公開されているハッシュと照合してダウンロード内容を検証します。",
+      "drop": "ここにファイルをドロップ",
+      "dropHint": "またはクリックして選択",
+      "working": "ハッシュ計算中…",
+      "digests": "ダイジェスト",
+      "compare": "公開ハッシュと比較",
+      "expected": "期待するハッシュを貼り付け",
+      "match": "ファイルは一致します。",
+      "noMatch": "このハッシュに一致するダイジェストはありません。",
+      "note": "ファイルをメモリに読み込み、その場でハッシュ化します。アップロードされないため、他人には送りたくないファイルでも安心して確認できます。"
+    },
+    "curl": {
+      "name": "cURL からコードへ",
+      "description": "curl コマンドを fetch、axios、Python、Go のコードへ変換します。",
+      "command": "curl コマンド",
+      "request": "送信内容",
+      "note": "-L、-k、--compressed など、リクエスト内容を変えないフラグは推測せず無視します。"
+    },
+    "color": {
+      "name": "色変換",
+      "description": "HEX、RGB、HSL、OKLCH を相互変換し、WCAG コントラストを確認します。",
+      "foreground": "前景色",
+      "background": "背景色",
+      "pick": "色を選択",
+      "saturation": "彩度と明るさ",
+      "hue": "色相",
+      "alpha": "不透明度",
+      "formats": "形式",
+      "contrast": "コントラスト",
+      "sample": "多くのインターフェースで使われるサイズの通常テキストです。",
+      "sampleLarge": "大きなテキスト",
+      "ratio": "コントラスト比",
+      "normalAA": "通常 AA",
+      "normalAAA": "通常 AAA",
+      "largeAA": "大文字 AA",
+      "largeAAA": "大文字 AAA",
+      "oklchNote": "OKLCH は覚える価値があります。HSL と違い、明度を同じ幅で変えたとき見た目の差も均等になるため、バランスの取れたパレットを作れます。大きなテキストとは 24px、または太字で 18.66px 以上です。",
+      "alphaNote": "WCAG の式は不透明な色だけを対象とするため、半透明のテキストは先に背景色へ合成します。テキストを薄くすると実際にコントラストも下がります。半透明の背景は、その背後のページ色が分からないため白に合成します。"
+    },
+    "password": {
+      "name": "パスワード生成",
+      "description": "偏りのない乱数で強力なパスワードを生成し、実際の強度を確認します。",
+      "regenerate": "再生成",
+      "options": "オプション",
+      "length": "長さ",
+      "excludeAmbiguous": "紛らわしい文字を除外",
+      "bits": "{{entropy}} ビット",
+      "entropyNote": "強度は記号を含むかどうかではなく、攻撃者が何回推測する必要があるかを表すエントロピーのビット数で測ります。各文字は棄却サンプリングで選ぶため、特定の文字が出やすくなる偏りはありません。",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "記号"
+      },
+      "strength": {
+        "weak": "弱い",
+        "fair": "普通",
+        "strong": "強い",
+        "excellent": "非常に強い"
+      }
+    },
+    "uuid": {
+      "name": "UUID 生成",
+      "description": "UUID v4、時系列で並ぶ UUID v7、Nano ID を生成します。",
+      "amount": "生成数",
+      "regenerate": "再生成",
+      "v4": "UUID v4",
+      "v4Hint": "完全なランダム。安全な既定値です。",
+      "v7": "UUID v7",
+      "v7Hint": "時系列順なので作成順に並びます。データベースキーに適しています。",
+      "nanoid": "Nano ID",
+      "nanoidHint": "短く、URL で扱いやすい形式です。"
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "YAML と JSON を相互変換します。",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Markdown プレビュー",
+      "description": "Markdown を記述し、レンダリングされた HTML を横に並べて確認します。",
+      "preview": "プレビュー",
+      "empty": "入力するとプレビューが表示されます",
+      "resize": "ドラッグでサイズ変更・ダブルクリックでリセット"
+    },
+    "qrcode": {
+      "name": "QR コード",
+      "description": "テキストから QR コードを生成するか、画像から読み取ります。",
+      "generate": "生成",
+      "read": "読み取り",
+      "drop": "QR コード画像をここにドロップ",
+      "dropHint": "またはクリックして選択",
+      "uploaded": "アップロード済み",
+      "decoding": "処理中…"
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "TOML と JSON を相互変換します。",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "HTML タグ除去",
+      "description": "HTML タグを取り除き、エンティティを通常のテキストへデコードします。"
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "ブラウザ内でテキストを GZip または Deflate 圧縮します。",
+      "compress": "圧縮",
+      "decompress": "展開",
+      "note": "圧縮にはブラウザ内蔵の CompressionStream API を使用します。データはどこにも送信されません。"
+    },
+    "cert": {
+      "name": "証明書デコーダー",
+      "description": "PEM 形式の X.509 証明書をローカルでデコードし、各フィールドを確認します。アップロードはありません。",
+      "input": "証明書",
+      "decode": "デコード",
+      "working": "デコード中…",
+      "subject": "サブジェクト",
+      "issuer": "発行者",
+      "validity": "有効期間",
+      "notBefore": "有効開始",
+      "notAfter": "有効期限",
+      "fingerprints": "フィンガープリント",
+      "publicKey": "公開鍵",
+      "signature": "署名",
+      "algorithm": "アルゴリズム",
+      "keySize": "鍵長",
+      "dn": "DN",
+      "serial": "シリアル番号",
+      "san": "サブジェクト代替名"
+    },
+    "jsondiff": {
+      "name": "JSON 差分",
+      "description": "2 つの JSON ドキュメントを、キーと値ごとに構造的に比較します。",
+      "left": "左（変更前）",
+      "right": "右（変更後）",
+      "added": "追加",
+      "removed": "削除",
+      "changed": "変更",
+      "identical": "2 つのドキュメントは同一です。",
+      "changes": "{{count}} 件の差分"
+    },
+    "graphql": {
+      "name": "GraphQL フォーマッター",
+      "description": "GraphQL のクエリ、ミューテーション、スキーマ定義を整形または圧縮します。",
+      "minify": "圧縮"
+    }
+  }
+}

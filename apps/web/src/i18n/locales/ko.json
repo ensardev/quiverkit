@@ -1,1 +1,863 @@
-{}
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "브라우저를 벗어나지 않는 개발자 도구"
+  },
+  "home": {
+    "heading": "자꾸 검색하게 되는 모든 도구",
+    "subheading": "Base64, JWT, 해시, UUID 등. 모든 작업은 내 컴퓨터에서 실행됩니다 — 업로드, 계정, 추적 없음.",
+    "browse": "모든 도구"
+  },
+  "nav": {
+    "back": "뒤로",
+    "search": "도구 검색",
+    "searchHint": "/ 키를 눌러 검색",
+    "noResults": "“{{query}}”와 일치하는 항목이 없습니다"
+  },
+  "common": {
+    "input": "입력",
+    "output": "출력",
+    "copy": "복사",
+    "copied": "복사됨",
+    "clear": "지우기",
+    "swap": "서로 바꾸기",
+    "generate": "생성",
+    "example": "예제 사용",
+    "textLanguage": "텍스트 언어"
+  },
+  "theme": {
+    "toggle": "테마 전환",
+    "switchTo": "{{theme}} 테마로 전환",
+    "name": {
+      "light": "라이트",
+      "dim": "딤",
+      "dark": "다크"
+    }
+  },
+  "language": {
+    "label": "언어"
+  },
+  "privacy": {
+    "badge": "오프라인 실행",
+    "note": "여기에 입력한 내용은 어디에도 전송되지 않습니다."
+  },
+  "footer": {
+    "builtBy": "<author>ensar.dev</author> 제작",
+    "desktopApp": "데스크톱 앱",
+    "sourceCode": "소스 코드",
+    "licence": "MIT 라이선스"
+  },
+  "share": {
+    "label": "링크 공유",
+    "copied": "링크 복사됨",
+    "tooltip": "현재 입력을 담은 링크를 복사합니다. 데이터는 브라우저가 서버로 전송하지 않는 URL 프래그먼트에 저장됩니다."
+  },
+  "detector": {
+    "title": "무엇이든 붙여넣기",
+    "subtitle": "입력한 내용을 판별해 알맞은 도구로 안내합니다.",
+    "placeholder": "토큰, 해시, 타임스탬프, 인코딩된 문자열…",
+    "unknown": "인식할 수 없습니다. 아래 목록에서 도구를 선택해 보세요.",
+    "level": {
+      "sure": "확실",
+      "likely": "가능성 높음",
+      "maybe": "가능성 있음"
+    },
+    "kind": {
+      "jwt": "JSON 웹 토큰",
+      "pem": "PEM 블록",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "이메일 주소",
+      "ipv4": "IPv4 주소",
+      "cidr": "CIDR 블록",
+      "semver": "시맨틱 버전",
+      "cron": "Cron 표현식",
+      "colour": "색상",
+      "unixSeconds": "Unix 타임스탬프(초)",
+      "unixMillis": "Unix 타임스탬프(밀리초)",
+      "isoDate": "ISO 8601 날짜",
+      "md5": "MD5 해시",
+      "sha1": "SHA-1 해시",
+      "sha256": "SHA-256 해시",
+      "sha512": "SHA-512 해시",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "16진수",
+      "punycode": "Punycode 도메인",
+      "htmlEntities": "HTML 엔터티",
+      "urlEncoded": "퍼센트 인코딩된 텍스트"
+    }
+  },
+  "palette": {
+    "title": "도구 검색",
+    "placeholder": "도구 검색…",
+    "navigate": "이동",
+    "open": "열기",
+    "close": "닫기",
+    "hint": "Ctrl K"
+  },
+  "network": {
+    "badge": "온라인 연결 필요",
+    "short": "네트워크",
+    "tooltip": "이 도구는 서버에 연결해야 합니다. 그 밖의 모든 도구는 브라우저에서만 실행됩니다."
+  },
+  "category": {
+    "detect": "식별",
+    "encoding": "인코딩",
+    "formatting": "서식",
+    "text": "텍스트",
+    "converters": "변환기",
+    "design": "디자인",
+    "media": "미디어",
+    "network": "네트워크",
+    "crypto": "암호화",
+    "generators": "생성기",
+    "dev": "개발자"
+  },
+  "error": {
+    "emptyInput": "시작하려면 내용을 입력하거나 붙여넣으세요.",
+    "invalidBase64": "유효한 Base64가 아닙니다.",
+    "invalidUtf8": "디코딩에는 성공했지만 결과가 텍스트가 아닌 바이너리 데이터입니다.",
+    "invalidJson": "유효한 JSON이 아닙니다.",
+    "invalidJwt": "유효한 JWT가 아닙니다. 토큰은 점으로 구분된 세 부분으로 이루어집니다.",
+    "invalidUrlEncoding": "유효한 퍼센트 인코딩이 아닙니다.",
+    "invalidTimestamp": "날짜 또는 Unix 타임스탬프가 아닙니다.",
+    "noCharacterSet": "문자 집합을 하나 이상 선택하세요.",
+    "invalidColor": "인식할 수 없는 색상입니다. #3b82f6, rgb(59 130 246) 또는 hsl(217 91% 60%)를 사용해 보세요.",
+    "invalidRegex": "이 패턴은 컴파일할 수 없습니다.",
+    "invalidNumber": "이 숫자는 선택한 진법에 맞지 않습니다.",
+    "invalidBase": "2에서 36 사이의 진법을 선택하세요.",
+    "invalidPermissions": "세 자리 또는 네 자리 8진수(755), 혹은 아홉 개의 기호(rwxr-xr-x)를 사용하세요.",
+    "invalidVersion": "1.2.3처럼 세 부분으로 된 전체 버전을 입력하세요.",
+    "invalidRange": "이 범위를 해석할 수 없습니다.",
+    "invalidCidr": "192.168.1.0/24처럼 주소와 접두사를 입력하세요.",
+    "invalidCurl": "URL이 포함된 curl 명령으로 보이지 않습니다.",
+    "decryptFailed": "복호화할 수 없습니다. 암호문이 잘못되었거나 메시지가 변경되었습니다.",
+    "keyGenerationFailed": "브라우저에서 이 유형의 키를 생성할 수 없습니다.",
+    "unsupportedImage": "이 도구는 JPEG 파일을 읽습니다. 다른 형식은 메타데이터를 다르게 저장합니다.",
+    "invalidCron": "Cron 줄은 0 9 * * mon-fri처럼 다섯 개의 필드로 이루어집니다.",
+    "invalidCsv": "읽을 수 있는 표가 아닙니다. JSON 입력은 객체 배열이어야 합니다.",
+    "invalidHex": "16진수는 자릿수가 짝수여야 합니다.",
+    "invalidXml": "이 마크업을 읽을 수 없습니다.",
+    "invalidPath": "이 경로를 읽을 수 없습니다.",
+    "invalidSvg": "<svg> 요소가 포함되어 있지 않습니다.",
+    "invalidBase32": "Base32는 A–Z와 2–7만 사용합니다.",
+    "invalidBase58": "Base58은 혼동을 피하기 위해 0, O, I, l을 제외합니다.",
+    "invalidSecret": "유효한 Base32 비밀 키가 아닙니다.",
+    "invalidDomain": "example.com처럼 도메인 이름을 입력하세요.",
+    "networkFailed": "요청에 실패했습니다. 연결 상태나 조회한 이름을 확인하세요.",
+    "invalidYaml": "유효한 YAML이 아닙니다.",
+    "invalidToml": "유효한 TOML이 아닙니다.",
+    "noQrFound": "이 이미지에서 QR 코드를 찾지 못했습니다.",
+    "invalidCertificate": "인증서를 읽을 수 없습니다. PEM 형식의 X.509 인증서를 사용해 보세요."
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "완전한 Unicode 지원과 URL 안전 출력을 사용해 Base64를 인코딩하고 디코딩합니다.",
+      "encode": "인코딩",
+      "decode": "디코딩",
+      "urlSafe": "URL 안전"
+    },
+    "jwt": {
+      "name": "JWT 디코더",
+      "description": "JSON 웹 토큰의 헤더, 페이로드, 만료 시간을 어디에도 전송하지 않고 확인합니다.",
+      "token": "토큰",
+      "header": "헤더",
+      "payload": "페이로드",
+      "claims": "시간 클레임",
+      "expired": "{{date}}에 만료됨",
+      "validUntil": "{{date}}까지 유효",
+      "verify": "서명 검증",
+      "secretPlaceholder": "HMAC 비밀 키(있는 경우)",
+      "verifyNote": "HS256, HS384, HS512 알고리즘만 여기서 확인할 수 있습니다. 이 알고리즘들은 서명에 사용한 키와 같은 키로 검증하기 때문입니다. 검증을 건너뛰려면 필드를 비워 두세요.",
+      "outcome": {
+        "valid": "서명이 이 비밀 키와 일치합니다.",
+        "invalid": "서명이 일치하지 않습니다.",
+        "unsupported": "{{algorithm}}은 공개 키로 검증하며, 이 도구에는 해당 키가 없습니다."
+      },
+      "signatureNote": "여기에 붙여넣은 내용은 페이지 밖으로 나가지 않지만, 어떤 웹사이트든 프로덕션 비밀 키를 붙여넣었다면 노출된 것으로 간주해야 합니다.",
+      "claim": {
+        "iat": "발급 시각",
+        "nbf": "유효 시작 시각",
+        "exp": "만료 시각"
+      }
+    },
+    "url": {
+      "name": "URL 인코더",
+      "description": "URL을 퍼센트 인코딩하거나 디코딩하고, 구성 요소로 나눕니다.",
+      "encode": "인코딩",
+      "decode": "디코딩",
+      "parse": "분석",
+      "wholeUrl": "전체 URL",
+      "componentHint": "/ ? & =를 포함해 안전하지 않은 모든 문자를 이스케이프합니다 — 하나의 값에 사용하세요.",
+      "wholeHint": "예약 문자는 그대로 둡니다 — 전체 주소에 사용하세요.",
+      "parseHint": "주소를 프로토콜, 호스트, 경로, 쿼리 매개변수로 나눕니다.",
+      "protocol": "프로토콜",
+      "host": "호스트",
+      "port": "포트",
+      "path": "경로",
+      "hash": "프래그먼트",
+      "param": "쿼리"
+    },
+    "json": {
+      "name": "JSON 포매터",
+      "description": "JSON을 서식화하고, 축소하고, 키를 알파벳순으로 정렬합니다.",
+      "format": "서식화",
+      "minify": "축소",
+      "sort": "키 정렬",
+      "indent": "들여쓰기"
+    },
+    "case": {
+      "name": "대소문자 변환기",
+      "description": "camelCase, snake_case, kebab-case 등 여러 형식과 URL 슬러그 사이를 변환합니다.",
+      "localeNote": "식별자 스타일은 의도적으로 텍스트 언어를 무시합니다. 터키어 규칙에서는 \"ID\"가 \"ıd\"로 소문자화되지만 어떤 컴파일러도 이를 허용하지 않습니다. 반면 Title Case, Sentence case, lowercase, UPPERCASE 같은 일반 문장 스타일은 언어를 따르므로, 터키어에서는 \"istanbul\"이 \"İstanbul\"이 되고 영어에서는 \"Istanbul\"이 됩니다.",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "줄 정렬기",
+      "description": "줄을 정렬하고, 중복을 제거하며, 포함된 숫자를 자연스럽게 순서대로 배치합니다.",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "중복 제거",
+      "natural": "자연 정렬",
+      "caseSensitive": "대소문자 구분",
+      "localeNote": "정렬은 인터페이스가 아닌 텍스트 언어의 알파벳을 따릅니다 — 터키어에서는 ç가 z 뒤가 아니라 c 바로 뒤에 옵니다."
+    },
+    "stats": {
+      "name": "텍스트 통계",
+      "description": "모든 언어에서 문자, 단어, 문장, 읽기 시간을 계산합니다.",
+      "characters": "문자",
+      "charactersHint": "이모지는 하나로 계산",
+      "charactersNoSpaces": "공백 제외",
+      "words": "단어",
+      "sentences": "문장",
+      "lines": "줄",
+      "paragraphs": "문단",
+      "bytes": "바이트(UTF-8)",
+      "bytesHint": "UTF-16 코드 단위 {{codeUnits}}개",
+      "readingTime": "읽기 시간",
+      "minutesSeconds": "{{minutes}}분 {{seconds}}초",
+      "seconds": "{{seconds}}초",
+      "segmenterNote": "단어는 Intl.Segmenter로 계산하므로, 공백 없이 쓰는 일본어와 중국어도 하나의 긴 단어가 아니라 올바르게 계산됩니다."
+    },
+    "timestamp": {
+      "name": "타임스탬프 변환기",
+      "description": "Unix 시간, ISO 8601, 사람이 읽을 수 있는 날짜 사이를 변환합니다.",
+      "now": "현재",
+      "hint": "Unix 초, Unix 밀리초 또는 모든 날짜 문자열을 입력할 수 있습니다.",
+      "relative": "상대 시간",
+      "local": "현지 시간",
+      "seconds": "Unix 초",
+      "millis": "Unix 밀리초"
+    },
+    "hash": {
+      "name": "해시 생성기",
+      "description": "선택적으로 HMAC을 적용해 SHA-1, SHA-256, SHA-384, SHA-512 다이제스트를 생성합니다.",
+      "secret": "HMAC 키",
+      "secretPlaceholder": "일반 해시는 비워 두세요",
+      "secretHint": "입력을 해시하는 대신 HMAC으로 서명하려면 여기에 키를 입력하세요.",
+      "digests": "다이제스트",
+      "hmacDigests": "HMAC 다이제스트",
+      "md5Note": "MD5는 의도적으로 제외했습니다. 이미 깨진 알고리즘이라 브라우저가 구현을 거부하며, 직접 추가하면 사용만 부추기게 됩니다."
+    },
+    "escape": {
+      "name": "이스케이프 및 해제",
+      "description": "JSON, HTML, SQL, 셸 또는 정규 표현식에 맞게 텍스트를 이스케이프합니다.",
+      "escape": "이스케이프",
+      "unescape": "이스케이프 해제",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "셸",
+        "regex": "정규식"
+      },
+      "hint": {
+        "json": "바깥쪽 따옴표 없이 JSON 문자열 내부 내용을 생성합니다.",
+        "html": "마크업을 깨뜨리는 다섯 문자를 엔터티로 바꿉니다.",
+        "sql": "모든 SQL 방언이 동의하는 방식으로 작은따옴표를 두 번 씁니다. 이스케이프는 매개변수화된 쿼리를 대신할 수 없습니다.",
+        "shell": "아무것도 확장되지 않도록 텍스트를 작은따옴표로 감쌉니다. 하나의 인수로 안전하게 붙여넣을 수 있습니다.",
+        "regex": "메타문자를 이스케이프해 텍스트가 문자 그대로 자기 자신과 일치하게 합니다."
+      }
+    },
+    "regex": {
+      "name": "정규식 테스터",
+      "description": "텍스트에 정규 표현식을 테스트하고 모든 일치 항목과 그룹을 확인합니다.",
+      "subject": "테스트 문자열",
+      "matches": "일치 항목",
+      "groups": "일치 세부 정보",
+      "flag": {
+        "ignoreCase": "대소문자 무시",
+        "multiline": "여러 줄",
+        "dotAll": "점이 줄바꿈과도 일치",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "텍스트 비교",
+      "description": "두 텍스트 블록을 줄 단위로 비교합니다.",
+      "original": "원본",
+      "changed": "변경본",
+      "result": "차이",
+      "ignoreCase": "대소문자 무시",
+      "ignoreWhitespace": "공백 무시"
+    },
+    "invisible": {
+      "name": "보이지 않는 문자",
+      "description": "텍스트에 숨어 있는 폭 0 문자, 유사 문자, 제어 문자를 찾습니다.",
+      "placeholder": "제대로 동작하지 않는 텍스트를 붙여넣으세요…",
+      "clean": "보이지 않는 문자가 없습니다.",
+      "found": "보이지 않는 문자 {{count}}개를 찾았습니다.",
+      "characters": "포함된 문자",
+      "normalise": "특수 공백을 일반 공백으로 바꾸기",
+      "cleaned": "정리된 텍스트",
+      "note": "이 문자들은 복사해서 붙여넣을 때 눈에 띄지 않게 남아 온갖 버그를 일으킵니다. 설정 키가 일치하지 않거나, 비밀번호가 거부되거나, 정규식이 조용히 실패할 수 있습니다.",
+      "kind": {
+        "zeroWidth": "폭 0",
+        "space": "공백",
+        "control": "제어",
+        "bidi": "방향",
+        "lineEnding": "줄 끝"
+      }
+    },
+    "numberBase": {
+      "name": "진법 변환기",
+      "description": "2진수, 8진수, 10진수, 16진수 및 36진법까지 모든 진법 사이를 변환합니다.",
+      "base": "{{base}}진법",
+      "custom": "임의의 진법",
+      "note": "변환은 임의 정밀도 정수로 처리되므로 2^53을 넘는 해시와 비트 마스크도 조용히 반올림되지 않고 정확하게 유지됩니다."
+    },
+    "dataSize": {
+      "name": "데이터 크기 변환기",
+      "description": "바이트, kB, KiB 사이를 변환하고 두 단위가 어디서 달라지는지 확인합니다.",
+      "bytes": "바이트",
+      "decimal": "십진법(÷1000)",
+      "binary": "이진법(÷1024)",
+      "note": "드라이브 제조사가 말하는 1 TB는 10^12바이트지만 운영 체제는 1024로 나누어 931 GiB로 표시합니다. 같은 드라이브, 다른 계산법입니다."
+    },
+    "chmod": {
+      "name": "chmod 계산기",
+      "description": "Unix 권한을 755와 rwxr-xr-x 형식 사이에서 변환합니다.",
+      "octal": "8진수",
+      "symbolic": "기호",
+      "permissions": "권한",
+      "role": "대상",
+      "command": "결과",
+      "note": "실행할 수 없는 항목에 특수 비트가 설정되면 문자가 대문자로 바뀝니다. 예를 들어 4644는 rwSr--r--로 표시됩니다.",
+      "action": {
+        "read": "읽기",
+        "write": "쓰기",
+        "execute": "실행"
+      },
+      "who": {
+        "owner": "소유자",
+        "group": "그룹",
+        "others": "기타 사용자"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "시맨틱 버전",
+      "description": "버전을 비교하고 ^1.2.0 같은 범위에 맞는지 확인합니다.",
+      "first": "첫 번째 버전",
+      "second": "두 번째 버전",
+      "parts": "{{version}}의 구성 요소",
+      "prereleaseHint": "정식 릴리스보다 낮은 순위",
+      "buildHint": "비교할 때 무시됨",
+      "range": "범위 확인",
+      "matches": "{{version}}은(는) {{range}}을(를) 만족합니다",
+      "noMatch": "{{version}}은(는) {{range}}을(를) 만족하지 않습니다",
+      "note": "^, ~, >, >=, <, <=, =, x 와일드카드, AND를 뜻하는 공백, OR을 뜻하는 ||를 지원합니다. 하이픈 범위는 지원하지 않습니다."
+    },
+    "units": {
+      "name": "CSS 단위",
+      "description": "px, rem, em, pt, 퍼센트 사이를 변환합니다.",
+      "rootFontSize": "루트 글꼴 크기",
+      "parentFontSize": "부모 글꼴 크기",
+      "note": "rem은 문서를 기준으로 하고 em은 요소의 부모를 기준으로 하므로 중첩된 em 값은 누적됩니다. CSS는 1in을 96px로 고정하므로 모든 화면에서 12pt는 정확히 16px입니다."
+    },
+    "gradient": {
+      "name": "그라디언트 생성기",
+      "description": "선형, 방사형 또는 원뿔형 그라디언트를 만들고 CSS를 복사합니다.",
+      "stops": "색상 정지점",
+      "addStop": "정지점 추가",
+      "kind": {
+        "linear": "선형",
+        "radial": "방사형",
+        "conic": "원뿔형"
+      }
+    },
+    "shadow": {
+      "name": "박스 그림자",
+      "description": "그림자를 디자인하고 여러 레이어를 쌓아 CSS를 복사합니다.",
+      "offsetX": "X 오프셋",
+      "offsetY": "Y 오프셋",
+      "blur": "블러",
+      "spread": "확산",
+      "layer": "레이어 {{number}}",
+      "soft": "부드러운 프리셋",
+      "deep": "깊은 프리셋",
+      "addLayer": "레이어 추가",
+      "note": "하나의 딱딱한 그림자는 자연스럽게 보이기 어렵습니다. 오프셋을 늘리고 불투명도를 낮춘 여러 레이어를 쌓으면 하나의 부드러운 광원처럼 보여 디자인 시스템의 깊이감을 만들 수 있습니다."
+    },
+    "bezier": {
+      "name": "3차 베지어",
+      "description": "핸들을 드래그해 이징 곡선을 만들고 움직임을 미리 봅니다.",
+      "curve": "곡선",
+      "css": "CSS",
+      "preview": "미리보기",
+      "play": "재생",
+      "note": "핸들을 상자 위나 아래로 드래그하면 목표를 지나치는 효과가 생기며, 이것이 애니메이션의 튕김을 만듭니다. CSS는 가로축을 0–1로 제한하지만 세로축은 제한하지 않습니다."
+    },
+    "image": {
+      "name": "이미지 변환기",
+      "description": "이미지를 업로드하지 않고 변환하고, 크기를 조절하고, 압축합니다.",
+      "drop": "이미지를 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "quality": "품질",
+      "maxWidth": "최대 너비",
+      "convert": "변환",
+      "original": "원본",
+      "result": "결과",
+      "pending": "결과를 보려면 변환을 누르세요",
+      "download": "다운로드",
+      "note": "모든 작업은 브라우저의 캔버스를 통해 실행됩니다. 원본 크기를 유지하려면 최대 너비를 0으로 설정하세요. 다시 그리는 과정에서는 픽셀만 남으므로 모든 메타데이터도 제거됩니다."
+    },
+    "exif": {
+      "name": "EXIF 뷰어",
+      "description": "사진이 노출하는 정보를 확인하고 제거합니다.",
+      "drop": "JPEG를 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "metadata": "메타데이터",
+      "locationFound": "이 사진에 위치 정보가 포함되어 있습니다",
+      "locationWarning": "이 파일을 받은 사람은 누구나 이 좌표를 읽을 수 있습니다. 대부분의 소셜 네트워크는 이를 제거하지만 파일을 직접 전송하면 제거되지 않습니다.",
+      "clean": "메타데이터가 없습니다. 이 파일은 그대로 공유해도 안전합니다.",
+      "download": "메타데이터 없이 다운로드",
+      "note": "메타데이터 구간만 제거하고 이미지 데이터는 바이트 단위로 그대로 복사하므로 다시 인코딩되지 않고 품질도 손실되지 않습니다. 파일은 브라우저 밖으로 나가지 않습니다."
+    },
+    "detect": {
+      "name": "이게 무엇인가요?",
+      "description": "무엇이든 붙여넣고 정체를 확인하세요.",
+      "note": "여기의 모든 판별은 각 도구가 실제로 사용하는 동일한 파서에서 나오므로, 일치한다면 연결된 도구에서도 실제로 열립니다. 여러 판별이 동시에 맞을 수 있습니다 — UUID는 유효한 16진수이기도 합니다."
+    },
+    "baseEncoding": {
+      "name": "Base32 및 Base58",
+      "description": "Base64가 다루지 않는 두 가지 알파벳입니다.",
+      "encode": "인코딩",
+      "decode": "디코딩",
+      "hint": {
+        "base32": "RFC 4648. A–Z와 2–7만 사용하므로 소리 내어 읽거나 직접 입력해도 혼동이 적습니다 — 인증 앱의 비밀 키가 이를 사용하는 이유입니다.",
+        "base58": "Bitcoin의 알파벳입니다. Base64에서 0, O, I, l과 두 기호를 뺀 형태라 잘못 읽을 일이 없습니다. 인코딩은 비트 패킹이 아니라 전체 숫자의 진법 변환입니다."
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "국제화 도메인을 xn-- 형식으로 변환하거나 다시 되돌립니다.",
+      "encode": "Punycode로",
+      "decode": "Unicode로",
+      "note": "점은 인코딩되지 않으므로 각 레이블이 개별적으로 변환됩니다. 동형 문자 공격도 이런 방식으로 숨습니다. 두 도메인이 똑같아 보여도 서로 다르게 인코딩될 수 있습니다."
+    },
+    "totp": {
+      "name": "TOTP 생성기",
+      "description": "인증 앱처럼 Base32 비밀 키에서 여섯 자리 코드를 생성합니다.",
+      "code": "현재 코드",
+      "remaining": "{{seconds}}초 남음",
+      "note": "otpauth:// URI를 붙여넣으면 모든 필드가 자동으로 채워집니다. 비밀 키는 이 페이지를 떠나지 않지만, 어떤 웹사이트든 붙여넣은 비밀 키는 이후 교체해야 합니다. 이 도구는 인증 앱을 대체하는 것이 아니라 디버깅을 돕기 위한 것입니다."
+    },
+    "vision": {
+      "name": "색각 시뮬레이터",
+      "description": "두 색상이 색각 이상 사용자에게도 구분되는지 확인합니다.",
+      "comparison": "나란히 비교",
+      "simulated": "첫 번째 색상 시뮬레이션",
+      "tooClose": "너무 비슷함",
+      "distinct": "여전히 구분됨",
+      "type": {
+        "normal": "정상 색각",
+        "protanopia": "적색맹",
+        "deuteranopia": "녹색맹",
+        "tritanopia": "청색맹",
+        "achromatopsia": "무채색 시야"
+      },
+      "note": "녹색맹만 해도 남성 약 12명 중 1명에게 영향을 줍니다. 빨강과 초록으로만 구분한 팔레트는 이들에게 무너지지만 파랑과 노랑으로 구분한 팔레트는 유지됩니다 — 상태 색상은 색조뿐 아니라 밝기도 달라야 하는 이유입니다."
+    },
+    "favicon": {
+      "name": "파비콘 생성기",
+      "description": "이미지 하나를 사이트에 필요한 모든 아이콘 크기로 만듭니다.",
+      "drop": "이미지를 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "sizes": "크기",
+      "download": "다운로드",
+      "snippet": "HTML",
+      "note": "정사각형이 아닌 이미지는 찌그러뜨리지 않고 가운데를 기준으로 잘라냅니다. 모든 작업은 캔버스에서 실행되므로 이미지는 업로드되지 않습니다."
+    },
+    "dns": {
+      "name": "DNS 조회",
+      "description": "도메인의 레코드를 조회합니다.",
+      "warningTitle": "이 도구는 브라우저 밖으로 요청을 보냅니다",
+      "warning": "조회 요청은 {{resolver}}에 전송되며, 해당 서비스는 조회한 도메인을 볼 수 있습니다. 그 밖의 모든 도구는 내 컴퓨터에서만 실행됩니다.",
+      "lookup": "조회",
+      "working": "조회 중…",
+      "records": "레코드({{count}})",
+      "empty": "이 유형의 레코드가 없습니다.",
+      "note": "이름을 확인하려면 리졸버에 물어야 하므로 오프라인에서는 처리할 수 없습니다. 요청은 DNS-over-HTTPS로 전송되어 네트워크 제공자는 내용을 읽을 수 없지만 리졸버는 볼 수 있습니다."
+    },
+    "cron": {
+      "name": "Cron 표현식",
+      "description": "Crontab 줄을 읽고 실제 실행 시간을 확인합니다.",
+      "fields": "필드",
+      "nextRuns": "다음 실행",
+      "every": "매",
+      "never": "이 표현식은 실제 날짜와 절대 일치하지 않습니다.",
+      "note": "월의 일과 요일이 모두 제한되면 cron은 둘 다가 아니라 둘 중 하나에 맞을 때 실행됩니다. \"0 0 13 * fri\"는 13일이면서 금요일인 날이 아니라 매월 13일과 매주 금요일을 뜻합니다.",
+      "field": {
+        "minutes": "분",
+        "hours": "시",
+        "daysOfMonth": "일",
+        "months": "월",
+        "daysOfWeek": "요일"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "따옴표로 감싼 필드까지 포함해 CSV와 JSON 사이를 변환합니다.",
+      "hasHeader": "첫 번째 행을 헤더로 사용",
+      "note": "구분자로 단순 분할하지 않고 문자 단위로 읽으므로, 쉼표나 줄바꿈 또는 연속된 따옴표가 포함된 인용 필드도 그대로 유지됩니다."
+    },
+    "jsonTypes": {
+      "name": "JSON을 타입으로",
+      "description": "샘플 응답을 TypeScript 인터페이스 또는 JSON Schema로 변환합니다.",
+      "rootName": "루트 이름",
+      "note": "배열에서 일부 요소에만 나타나는 키는 선택 사항으로 표시됩니다. 그래야 결과가 샘플 하나에만 맞는 것이 아니라 실제 API에도 사용할 수 있습니다."
+    },
+    "timezone": {
+      "name": "시간대 변환기",
+      "description": "한 시점을 여러 시간대에서 동시에 확인합니다.",
+      "now": "현재",
+      "zones": "시간대",
+      "add": "시간대 추가",
+      "note": "오프셋은 브라우저 자체 시간대 데이터베이스에서 가져오므로 일광 절약 시간도 추측하지 않고 올바르게 처리합니다."
+    },
+    "dateDiff": {
+      "name": "날짜 차이",
+      "description": "두 날짜 사이의 일수, 근무일, 달력상 간격을 계산합니다.",
+      "from": "시작",
+      "to": "종료",
+      "days": "일",
+      "breakdown": "달력 기준 차이",
+      "parts": "{{years}}년 {{months}}개월 {{days}}일",
+      "workingDays": "근무일",
+      "workingHint": "월요일부터 금요일까지",
+      "hours": "시간",
+      "minutes": "분",
+      "weeks": "주"
+    },
+    "reference": {
+      "name": "HTTP 참고표",
+      "description": "상태 코드와 MIME 유형을 조회합니다.",
+      "statuses": "상태 코드",
+      "mimeTypes": "MIME 유형",
+      "group": {
+        "informational": "정보",
+        "success": "성공",
+        "redirect": "리디렉션",
+        "clientError": "클라이언트",
+        "serverError": "서버"
+      }
+    },
+    "hex": {
+      "name": "16진수 뷰어",
+      "description": "텍스트를 16진수로 변환하거나 되돌리고, 파일을 바이트 단위로 덤프합니다.",
+      "encode": "텍스트 → 16진수",
+      "decode": "16진수 → 텍스트",
+      "dump": "파일 덤프",
+      "drop": "파일을 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "note": "변환은 UTF-8을 거치므로 어떤 문자 체계의 텍스트든 정확히 왕복 변환됩니다. 덤프에는 처음 512행이 표시됩니다."
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "단어, 문장 또는 문단 단위로 생성하는 고전적인 라틴어 자리 표시자 텍스트입니다.",
+      "startWithLorem": "\"lorem ipsum\"으로 시작",
+      "unit": {
+        "words": "단어",
+        "sentences": "문장",
+        "paragraphs": "문단"
+      },
+      "note": "같은 요청은 항상 같은 텍스트를 생성하므로 다시 생성할 때마다 목업 내용이 바뀌지 않습니다."
+    },
+    "cipher": {
+      "name": "고전 암호",
+      "description": "ROT13, Caesar, Atbash, 뒤집기, Morse를 제공합니다.",
+      "encode": "인코딩",
+      "decode": "디코딩",
+      "shift": "이동",
+      "note": "이 방식들은 보안이 아니라 퍼즐용입니다 — 모두 수백 년 전에 이미 해독되었습니다. CTF, 수수께끼, 학교 과제에서 여전히 자주 쓰이기 때문에 제공합니다."
+    },
+    "sql": {
+      "name": "SQL 포매터",
+      "description": "쿼리를 읽기 쉬운 여러 줄로 배치하거나 한 줄로 축소합니다.",
+      "format": "서식화",
+      "minify": "축소",
+      "note": "문자열과 주석은 별도로 토큰화하므로 리터럴 안에 있는 키워드는 대문자로 바뀌지 않습니다. 그렇게 바꾸면 쿼리 동작 자체가 달라질 수 있습니다."
+    },
+    "xml": {
+      "name": "XML / HTML 포매터",
+      "description": "마크업에 들여쓰기를 적용하거나 공백을 다시 제거합니다.",
+      "format": "서식화",
+      "minify": "축소",
+      "note": "자식이 텍스트 하나뿐인 요소는 한 줄에 유지되며, <br> 같은 빈 HTML 태그는 들여쓰기 수준을 열지 않습니다."
+    },
+    "jsonpath": {
+      "name": "JSONPath 쿼리",
+      "description": "경로 표현식으로 JSON 문서에서 값을 추출합니다.",
+      "matches": "일치 항목({{count}})",
+      "paths": "출처 경로",
+      "note": "$.key, [0], [-1], [*], [1:3], 재귀형 ..key를 지원합니다. 필터 표현식은 제외했습니다 — 그 부분부터 문법이 하나의 별도 언어가 되기 때문입니다."
+    },
+    "svg": {
+      "name": "SVG 최적화 도구",
+      "description": "SVG를 정리한 뒤 데이터 URI 또는 JSX 컴포넌트로 내보냅니다.",
+      "optimise": "최적화",
+      "bytes": "바이트",
+      "note": "데이터 URI는 CSS url()을 깨뜨리는 문자만 퍼센트 인코딩하므로 base64보다 훨씬 짧고 사람이 읽을 수도 있습니다."
+    },
+    "palette": {
+      "name": "색상 팔레트",
+      "description": "하나의 색상으로 명도 단계와 조화 색상을 만듭니다.",
+      "steps": "명도 단계",
+      "css": "CSS 변수",
+      "onWhite": "흰색 위",
+      "onBlack": "검은색 위",
+      "harmony": {
+        "complementary": "보색",
+        "analogous": "유사색",
+        "triadic": "삼색 조화",
+        "tetradic": "사색 조화"
+      },
+      "note": "OKLCH로 만들어져 밝기가 같은 간격으로 변하면 눈에도 같은 정도로 다르게 보입니다. 각 단계가 sRGB 범위에 들어올 때까지 채도를 낮춥니다 — 채널 값을 단순히 제한하면 색조가 끌려가 밝은 파랑이 연보라색으로 변할 수 있습니다."
+    },
+    "mock": {
+      "name": "목 데이터",
+      "description": "재현 가능한 현실적인 테스트 데이터를 JSON으로 생성합니다.",
+      "rows": "행",
+      "seed": "시드",
+      "reroll": "새 시드",
+      "fields": "필드",
+      "addField": "필드 추가",
+      "note": "같은 시드는 항상 같은 데이터를 다시 만들므로 실행 사이에도 픽스처가 안정적으로 유지됩니다. 이름은 한 지역이 아니라 여러 지역에서 가져옵니다."
+    },
+    "cidr": {
+      "name": "서브넷 계산기",
+      "description": "IPv4 블록의 네트워크, 브로드캐스트, 호스트 범위를 계산합니다.",
+      "block": "블록",
+      "netmask": "넷마스크",
+      "wildcard": "와일드카드",
+      "network": "네트워크 주소",
+      "broadcast": "브로드캐스트",
+      "firstHost": "첫 번째 호스트",
+      "lastHost": "마지막 호스트",
+      "total": "전체 주소",
+      "usableHosts": "사용 가능한 호스트",
+      "private": "사설 범위",
+      "check": "주소가 범위 안에 있나요?",
+      "inside": "{{address}}은(는) {{block}} 안에 있습니다",
+      "outside": "{{address}}은(는) {{block}} 밖에 있습니다",
+      "note": "/31에는 주소 두 개, /32에는 정확히 한 개가 있으며, 더 큰 블록과 달리 어느 쪽도 네트워크 주소나 브로드캐스트 주소를 따로 예약하지 않습니다."
+    },
+    "aes": {
+      "name": "AES 암호화",
+      "description": "브라우저 안에서 암호 구문으로 텍스트를 암호화하고 복호화합니다.",
+      "encrypt": "암호화",
+      "decrypt": "복호화",
+      "passphrase": "암호 구문",
+      "plaintext": "평문",
+      "ciphertext": "암호화됨",
+      "working": "키 생성 중…",
+      "note": "암호 구문에서 PBKDF2를 250,000회 반복해 늘린 키로 AES-GCM을 사용합니다. GCM은 암호화와 함께 인증도 수행하므로 메시지가 변경되면 쓰레기 데이터로 복호화되지 않고 아예 복호화를 거부합니다. Salt와 IV는 암호문과 함께 저장되며 둘 다 비밀 정보가 아닙니다."
+    },
+    "keypair": {
+      "name": "키 쌍 생성기",
+      "description": "RSA, ECDSA 또는 Ed25519 키 쌍을 PEM 형식으로 생성합니다.",
+      "generate": "생성",
+      "working": "생성 중…",
+      "publicKey": "공개 키",
+      "privateKey": "개인 키",
+      "note": "키는 브라우저 자체 암호화 엔진에서 생성되며 페이지 밖으로 나가지 않습니다. 그래도 어떤 웹사이트든 붙여넣은 키는 노출된 것으로 간주해야 합니다 — 프로덕션 키는 본인의 도구로 생성하세요.",
+      "hint": {
+        "RSA-2048": "안전한 기본값입니다. 널리 지원되며 생성 속도도 충분히 빠릅니다.",
+        "RSA-4096": "더 강력하지만 생성과 사용이 눈에 띄게 느립니다.",
+        "ECDSA-P256": "비슷한 강도에서 키가 훨씬 작습니다. 일반적인 현대식 선택입니다.",
+        "Ed25519": "빠르고 작으며 잘못 사용하기 어렵습니다. 최신 브라우저가 필요합니다."
+      }
+    },
+    "checksum": {
+      "name": "파일 체크섬",
+      "description": "다운로드한 파일을 업로드하지 않고 게시된 해시와 비교해 검증합니다.",
+      "drop": "파일을 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "working": "해시 계산 중…",
+      "digests": "다이제스트",
+      "compare": "게시된 해시와 비교",
+      "expected": "예상 해시를 붙여넣으세요",
+      "match": "파일이 일치합니다.",
+      "noMatch": "이 해시와 일치하는 다이제스트가 없습니다.",
+      "note": "파일은 메모리로 읽어 즉시 해시됩니다. 아무것도 업로드되지 않으므로 낯선 사람에게 절대 보내지 않을 파일도 안심하고 확인할 수 있습니다."
+    },
+    "curl": {
+      "name": "cURL을 코드로",
+      "description": "curl 명령을 fetch, axios, Python 또는 Go 코드로 변환합니다.",
+      "command": "curl 명령",
+      "request": "전송 내용",
+      "note": "요청 자체를 바꾸지 않는 -L, -k, --compressed 같은 플래그는 추측해서 처리하지 않고 무시합니다."
+    },
+    "color": {
+      "name": "색상 변환기",
+      "description": "HEX, RGB, HSL, OKLCH 사이를 변환하고 WCAG 대비를 확인합니다.",
+      "foreground": "전경색",
+      "background": "배경색",
+      "pick": "색상 선택",
+      "saturation": "채도 및 밝기",
+      "hue": "색조",
+      "alpha": "불투명도",
+      "formats": "형식",
+      "contrast": "대비",
+      "sample": "대부분의 인터페이스에서 사용하는 크기의 일반 텍스트입니다.",
+      "sampleLarge": "큰 텍스트",
+      "ratio": "대비율",
+      "normalAA": "일반 텍스트 AA",
+      "normalAAA": "일반 텍스트 AAA",
+      "largeAA": "큰 텍스트 AA",
+      "largeAAA": "큰 텍스트 AAA",
+      "oklchNote": "OKLCH는 배워 둘 가치가 있습니다. HSL과 달리 밝기의 동일한 간격이 눈에도 비슷한 차이로 보여, 이를 기반으로 만든 팔레트는 균형을 유지합니다. 큰 텍스트는 24px 또는 굵은 글씨 18.66px를 뜻합니다.",
+      "alphaNote": "WCAG 공식은 불투명한 색상만 다루므로 반투명 텍스트는 먼저 배경과 합성합니다 — 텍스트를 흐리게 하면 실제로 대비가 낮아집니다. 반투명 배경은 그 뒤의 페이지를 알 수 없으므로 흰색 위에 합성합니다."
+    },
+    "password": {
+      "name": "비밀번호 생성기",
+      "description": "편향 없는 무작위성으로 강력한 비밀번호를 만들고 실제 강도를 확인합니다.",
+      "regenerate": "다시 생성",
+      "options": "옵션",
+      "length": "길이",
+      "excludeAmbiguous": "헷갈리는 문자 제외",
+      "bits": "{{entropy}}비트",
+      "entropyNote": "강도는 비밀번호에 기호가 들어 있는지가 아니라 공격자가 몇 번 추측해야 하는지를 나타내는 엔트로피 비트로 측정합니다. 모든 문자는 거부 샘플링으로 뽑으므로 특정 문자가 다른 문자보다 더 자주 선택되지 않습니다.",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "기호"
+      },
+      "strength": {
+        "weak": "약함",
+        "fair": "보통",
+        "strong": "강함",
+        "excellent": "매우 강함"
+      }
+    },
+    "uuid": {
+      "name": "UUID 생성기",
+      "description": "UUID v4, 시간순 UUID v7, Nano ID를 생성합니다.",
+      "amount": "개수",
+      "regenerate": "다시 생성",
+      "v4": "UUID v4",
+      "v4Hint": "완전히 무작위입니다. 안전한 기본값입니다.",
+      "v7": "UUID v7",
+      "v7Hint": "시간순으로 정렬되므로 생성 순서대로 정렬됩니다. 데이터베이스 키로 더 적합합니다.",
+      "nanoid": "Nano ID",
+      "nanoidHint": "짧고 URL에 사용하기 좋습니다."
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "YAML과 JSON 사이를 변환합니다.",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Markdown 미리보기",
+      "description": "Markdown을 작성하고 렌더링된 HTML을 나란히 확인합니다.",
+      "preview": "미리보기",
+      "empty": "입력을 시작하면 미리보기가 표시됩니다",
+      "resize": "드래그하여 크기 조절 · 두 번 클릭하여 초기화"
+    },
+    "qrcode": {
+      "name": "QR 코드",
+      "description": "텍스트로 QR 코드를 생성하거나 이미지에서 디코딩합니다.",
+      "generate": "생성",
+      "read": "읽기",
+      "drop": "QR 코드 이미지를 여기에 놓으세요",
+      "dropHint": "또는 클릭해서 선택",
+      "uploaded": "업로드됨",
+      "decoding": "처리 중..."
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "TOML과 JSON 사이를 변환합니다.",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "HTML 태그 제거기",
+      "description": "HTML 태그를 제거하고 엔터티를 일반 텍스트로 다시 디코딩합니다."
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "브라우저에서 바로 GZip 또는 Deflate로 텍스트를 압축합니다.",
+      "compress": "압축",
+      "decompress": "압축 해제",
+      "note": "압축에는 브라우저에 내장된 CompressionStream API를 사용합니다. 아무것도 외부로 전송되지 않습니다."
+    },
+    "cert": {
+      "name": "인증서 디코더",
+      "description": "PEM X.509 인증서를 디코딩하고 필드를 확인합니다 — 업로드 없이 모두 로컬에서 처리됩니다.",
+      "input": "인증서",
+      "decode": "디코딩",
+      "working": "디코딩 중…",
+      "subject": "주체",
+      "issuer": "발급자",
+      "validity": "유효 기간",
+      "notBefore": "유효 시작",
+      "notAfter": "유효 종료",
+      "fingerprints": "지문",
+      "publicKey": "공개 키",
+      "signature": "서명",
+      "algorithm": "알고리즘",
+      "keySize": "키 크기",
+      "dn": "DN",
+      "serial": "일련번호",
+      "san": "주체 대체 이름"
+    },
+    "jsondiff": {
+      "name": "JSON 비교",
+      "description": "두 JSON 문서를 키와 값 단위로 구조적으로 비교합니다.",
+      "left": "왼쪽(이전)",
+      "right": "오른쪽(이후)",
+      "added": "추가됨",
+      "removed": "제거됨",
+      "changed": "변경됨",
+      "identical": "두 문서가 동일합니다.",
+      "changes": "차이 {{count}}개"
+    },
+    "graphql": {
+      "name": "GraphQL 포매터",
+      "description": "GraphQL 쿼리, 뮤테이션 또는 스키마 정의를 서식화하거나 축소합니다.",
+      "minify": "축소"
+    }
+  }
+}

@@ -1,1 +1,863 @@
-{}
+{
+  "app": {
+    "name": "QuiverKit",
+    "tagline": "Ferramentas para desenvolvedores que nunca saem do seu navegador"
+  },
+  "home": {
+    "heading": "Todas as ferramentas que você vive pesquisando",
+    "subheading": "Base64, JWT, hashes, UUIDs e muito mais. Tudo é executado na sua máquina — sem upload, sem conta, sem rastreamento.",
+    "browse": "Todas as ferramentas"
+  },
+  "nav": {
+    "back": "Voltar",
+    "search": "Pesquisar ferramentas",
+    "searchHint": "Pressione / para pesquisar",
+    "noResults": "Nada corresponde a “{{query}}”"
+  },
+  "common": {
+    "input": "Entrada",
+    "output": "Saída",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "clear": "Limpar",
+    "swap": "Trocar",
+    "generate": "Gerar",
+    "example": "Testar um exemplo",
+    "textLanguage": "Idioma do texto"
+  },
+  "theme": {
+    "toggle": "Alternar tema",
+    "switchTo": "Mudar para o tema {{theme}}",
+    "name": {
+      "light": "claro",
+      "dim": "suave",
+      "dark": "escuro"
+    }
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "privacy": {
+    "badge": "Funciona offline",
+    "note": "Nada do que você digita aqui é enviado para lugar algum."
+  },
+  "footer": {
+    "builtBy": "Criado por <author>ensar.dev</author>",
+    "desktopApp": "Aplicativo para desktop",
+    "sourceCode": "Código-fonte",
+    "licence": "Licença MIT"
+  },
+  "share": {
+    "label": "Compartilhar link",
+    "copied": "Link copiado",
+    "tooltip": "Copia um link que contém esta entrada. Os dados ficam no fragmento da URL, que os navegadores nunca enviam a um servidor."
+  },
+  "detector": {
+    "title": "Cole qualquer coisa",
+    "subtitle": "Ele identifica o que você tem e direciona para a ferramenta certa.",
+    "placeholder": "Um token, um hash, um timestamp, uma string codificada…",
+    "unknown": "Nada reconhecível. Tente uma ferramenta da lista abaixo.",
+    "level": {
+      "sure": "certo",
+      "likely": "provável",
+      "maybe": "possível"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "Bloco PEM",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "Endereço de e-mail",
+      "ipv4": "Endereço IPv4",
+      "cidr": "Bloco CIDR",
+      "semver": "Versão semântica",
+      "cron": "Expressão cron",
+      "colour": "Cor",
+      "unixSeconds": "Timestamp Unix (segundos)",
+      "unixMillis": "Timestamp Unix (milissegundos)",
+      "isoDate": "Data ISO 8601",
+      "md5": "Hash MD5",
+      "sha1": "Hash SHA-1",
+      "sha256": "Hash SHA-256",
+      "sha512": "Hash SHA-512",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "Hexadecimal",
+      "punycode": "Domínio Punycode",
+      "htmlEntities": "Entidades HTML",
+      "urlEncoded": "Texto codificado por porcentagem"
+    }
+  },
+  "palette": {
+    "title": "Pesquisar ferramentas",
+    "placeholder": "Pesquisar ferramentas…",
+    "navigate": "navegar",
+    "open": "abrir",
+    "close": "fechar",
+    "hint": "Ctrl K"
+  },
+  "network": {
+    "badge": "Acessa a internet",
+    "short": "rede",
+    "tooltip": "Esta ferramenta precisa entrar em contato com um servidor. Todas as outras são executadas inteiramente no seu navegador."
+  },
+  "category": {
+    "detect": "Identificar",
+    "encoding": "Codificação",
+    "formatting": "Formatação",
+    "text": "Texto",
+    "converters": "Conversores",
+    "design": "Design",
+    "media": "Mídia",
+    "network": "Rede",
+    "crypto": "Criptografia",
+    "generators": "Geradores",
+    "dev": "Desenvolvedor"
+  },
+  "error": {
+    "emptyInput": "Digite ou cole alguma coisa para começar.",
+    "invalidBase64": "Isto não é um Base64 válido.",
+    "invalidUtf8": "Decodificado com sucesso, mas o resultado é binário, não texto.",
+    "invalidJson": "Isto não é um JSON válido.",
+    "invalidJwt": "Isto não é um JWT válido. Um token tem três partes separadas por pontos.",
+    "invalidUrlEncoding": "Isto não é uma codificação por porcentagem válida.",
+    "invalidTimestamp": "Isto não é uma data nem um timestamp Unix.",
+    "noCharacterSet": "Escolha pelo menos um conjunto de caracteres.",
+    "invalidColor": "Não reconhecemos esta cor. Tente #3b82f6, rgb(59 130 246) ou hsl(217 91% 60%).",
+    "invalidRegex": "Este padrão não pode ser compilado.",
+    "invalidNumber": "Este número não pertence à base escolhida.",
+    "invalidBase": "Escolha uma base entre 2 e 36.",
+    "invalidPermissions": "Use três ou quatro dígitos octais (755) ou nove símbolos (rwxr-xr-x).",
+    "invalidVersion": "Use uma versão completa com três partes, como 1.2.3.",
+    "invalidRange": "Este intervalo não pode ser interpretado.",
+    "invalidCidr": "Use um endereço e um prefixo, como 192.168.1.0/24.",
+    "invalidCurl": "Isto não parece ser um comando curl com uma URL.",
+    "decryptFailed": "Não foi possível descriptografar. A senha está incorreta ou a mensagem foi alterada.",
+    "keyGenerationFailed": "Seu navegador não consegue gerar este tipo de chave.",
+    "unsupportedImage": "Esta ferramenta lê arquivos JPEG. Outros formatos armazenam metadados de outra forma.",
+    "invalidCron": "Uma linha cron tem cinco campos, como 0 9 * * mon-fri.",
+    "invalidCsv": "Esta não é uma tabela que podemos ler. A entrada JSON deve ser um array de objetos.",
+    "invalidHex": "Hex precisa ter um número par de dígitos.",
+    "invalidXml": "Esta marcação não pode ser lida.",
+    "invalidPath": "Este caminho não pode ser lido.",
+    "invalidSvg": "Isto não contém um elemento <svg>.",
+    "invalidBase32": "Base32 usa apenas A–Z e 2–7.",
+    "invalidBase58": "Base58 exclui 0, O, I e l de propósito.",
+    "invalidSecret": "Isto não é um segredo Base32 válido.",
+    "invalidDomain": "Digite um nome de domínio, como example.com.",
+    "networkFailed": "A solicitação falhou. Verifique sua conexão ou o nome consultado.",
+    "invalidYaml": "Isto não é um YAML válido.",
+    "invalidToml": "Isto não é um TOML válido.",
+    "noQrFound": "Nenhum código QR foi encontrado nesta imagem.",
+    "invalidCertificate": "Não foi possível ler este certificado. Tente um certificado X.509 no formato PEM."
+  },
+  "tools": {
+    "base64": {
+      "name": "Base64",
+      "description": "Codifique e decodifique Base64, com saída segura para URL e suporte completo a Unicode.",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "urlSafe": "Seguro para URL"
+    },
+    "jwt": {
+      "name": "Decodificador JWT",
+      "description": "Inspecione o cabeçalho, o payload e a expiração de um JSON Web Token — sem enviá-lo para lugar algum.",
+      "token": "Token",
+      "header": "Cabeçalho",
+      "payload": "Payload",
+      "claims": "Campos de tempo",
+      "expired": "Expirou em {{date}}",
+      "validUntil": "Válido até {{date}}",
+      "verify": "Verificar assinatura",
+      "secretPlaceholder": "Segredo HMAC, se você tiver",
+      "verifyNote": "Somente os algoritmos HS256, HS384 e HS512 podem ser verificados aqui, pois usam a mesma chave para assinar e verificar. Deixe o campo vazio para ignorar a verificação.",
+      "outcome": {
+        "valid": "A assinatura corresponde a este segredo.",
+        "invalid": "A assinatura não corresponde.",
+        "unsupported": "{{algorithm}} é verificado com uma chave pública, que esta ferramenta não possui."
+      },
+      "signatureNote": "Nada do que você cola aqui sai da página, mas um segredo de produção colado em qualquer site deve ser considerado comprometido.",
+      "claim": {
+        "iat": "emitido em",
+        "nbf": "não é válido antes de",
+        "exp": "expira"
+      }
+    },
+    "url": {
+      "name": "Codificador de URL",
+      "description": "Codifique e decodifique URLs por porcentagem ou divida uma URL em suas partes.",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "parse": "Analisar",
+      "wholeUrl": "URL completa",
+      "componentHint": "Escapa tudo o que não é seguro, incluindo / ? & = — use isto para um único valor.",
+      "wholeHint": "Mantém os caracteres reservados intactos — use isto para um endereço completo.",
+      "parseHint": "Divide um endereço em protocolo, host, caminho e parâmetros de consulta.",
+      "protocol": "Protocolo",
+      "host": "Host",
+      "port": "Porta",
+      "path": "Caminho",
+      "hash": "Fragmento",
+      "param": "consulta"
+    },
+    "json": {
+      "name": "Formatador JSON",
+      "description": "Formate, minifique e ordene as chaves de um JSON alfabeticamente.",
+      "format": "Formatar",
+      "minify": "Minificar",
+      "sort": "Ordenar chaves",
+      "indent": "Recuo"
+    },
+    "case": {
+      "name": "Conversor de capitalização",
+      "description": "Converta entre camelCase, snake_case, kebab-case e outros estilos, além de slugs de URL.",
+      "localeNote": "Os estilos de identificador ignoram o idioma do texto de propósito: pelas regras do turco, \"ID\" em minúsculas vira \"ıd\", algo que nenhum compilador aceita. Os estilos de texto — Title Case, Sentence case, lowercase e UPPERCASE — seguem o idioma; assim, em turco \"istanbul\" vira \"İstanbul\", enquanto em inglês vira \"Istanbul\".",
+      "style": {
+        "camel": "camelCase",
+        "pascal": "PascalCase",
+        "snake": "snake_case",
+        "constant": "CONSTANT_CASE",
+        "kebab": "kebab-case",
+        "dot": "dot.case",
+        "title": "Title Case",
+        "sentence": "Sentence case",
+        "lower": "lowercase",
+        "upper": "UPPERCASE",
+        "slug": "url-slug"
+      }
+    },
+    "lines": {
+      "name": "Ordenador de linhas",
+      "description": "Ordene linhas, remova duplicatas e coloque números incorporados em ordem natural.",
+      "ascending": "A → Z",
+      "descending": "Z → A",
+      "unique": "Remover duplicatas",
+      "natural": "Ordem natural",
+      "caseSensitive": "Diferenciar maiúsculas de minúsculas",
+      "localeNote": "A ordenação segue o alfabeto do idioma do texto, não o da interface — em turco, ç vem logo depois de c, e não depois de z."
+    },
+    "stats": {
+      "name": "Estatísticas de texto",
+      "description": "Conte caracteres, palavras, frases e tempo de leitura em qualquer idioma.",
+      "characters": "Caracteres",
+      "charactersHint": "Emojis contam como um",
+      "charactersNoSpaces": "Sem espaços",
+      "words": "Palavras",
+      "sentences": "Frases",
+      "lines": "Linhas",
+      "paragraphs": "Parágrafos",
+      "bytes": "Bytes (UTF-8)",
+      "bytesHint": "{{codeUnits}} unidades de código UTF-16",
+      "readingTime": "Tempo de leitura",
+      "minutesSeconds": "{{minutes}}min {{seconds}}s",
+      "seconds": "{{seconds}}s",
+      "segmenterNote": "As palavras são contadas com Intl.Segmenter, portanto japonês e chinês — escritos sem espaços — são contados corretamente, em vez de serem tratados como uma única palavra longa."
+    },
+    "timestamp": {
+      "name": "Conversor de timestamp",
+      "description": "Converta entre tempo Unix, ISO 8601 e datas legíveis.",
+      "now": "Agora",
+      "hint": "Aceita segundos Unix, milissegundos Unix ou qualquer string de data.",
+      "relative": "Relativo",
+      "local": "Hora local",
+      "seconds": "Segundos Unix",
+      "millis": "Milissegundos Unix"
+    },
+    "hash": {
+      "name": "Gerador de hash",
+      "description": "Hashes SHA-1, SHA-256, SHA-384 e SHA-512, com HMAC opcional.",
+      "secret": "Chave HMAC",
+      "secretPlaceholder": "Deixe vazio para um hash simples",
+      "secretHint": "Preencha este campo para assinar a entrada com HMAC em vez de apenas gerar seu hash.",
+      "digests": "Hashes",
+      "hmacDigests": "Hashes HMAC",
+      "md5Note": "MD5 foi omitido de propósito. Os navegadores se recusam a implementá-lo porque ele é inseguro, e adicionar uma implementação própria só incentivaria seu uso."
+    },
+    "escape": {
+      "name": "Escapar e desfazer escape",
+      "description": "Escape texto para JSON, HTML, SQL, shell ou expressão regular.",
+      "escape": "Escapar",
+      "unescape": "Desfazer escape",
+      "flavour": {
+        "json": "JSON",
+        "html": "HTML",
+        "sql": "SQL",
+        "shell": "Shell",
+        "regex": "Regex"
+      },
+      "hint": {
+        "json": "Produz o conteúdo interno de uma string JSON, sem as aspas ao redor.",
+        "html": "Converte em entidades os cinco caracteres que quebram a marcação.",
+        "sql": "Duplica a aspa simples — a forma aceita por todos os dialetos SQL. Escapar não substitui consultas parametrizadas.",
+        "shell": "Envolve o texto em aspas simples para impedir qualquer expansão. É seguro colá-lo como um único argumento.",
+        "regex": "Escapa os metacaracteres para que o texto corresponda literalmente a si mesmo."
+      }
+    },
+    "regex": {
+      "name": "Testador de regex",
+      "description": "Teste uma expressão regular em um texto e inspecione cada correspondência e grupo.",
+      "subject": "String de teste",
+      "matches": "Correspondências",
+      "groups": "Detalhes das correspondências",
+      "flag": {
+        "ignoreCase": "Ignorar maiúsculas e minúsculas",
+        "multiline": "Multilinha",
+        "dotAll": "Ponto corresponde a quebra de linha",
+        "unicode": "Unicode"
+      }
+    },
+    "diff": {
+      "name": "Diferença entre textos",
+      "description": "Compare dois blocos de texto linha por linha.",
+      "original": "Original",
+      "changed": "Alterado",
+      "result": "Diferença",
+      "ignoreCase": "Ignorar maiúsculas e minúsculas",
+      "ignoreWhitespace": "Ignorar espaços em branco"
+    },
+    "invisible": {
+      "name": "Caracteres invisíveis",
+      "description": "Encontre caracteres de largura zero, semelhantes e de controle escondidos no texto.",
+      "placeholder": "Cole o texto que não está se comportando como deveria…",
+      "clean": "Nenhum caractere invisível encontrado.",
+      "found": "{{count}} caractere(s) invisível(is) encontrado(s).",
+      "characters": "O que há aqui",
+      "normalise": "Converter espaços incomuns em espaços normais",
+      "cleaned": "Texto limpo",
+      "note": "Esses caracteres sobrevivem a copiar e colar sem serem notados e estão por trás de toda uma categoria de bugs: uma chave de configuração que não corresponde, uma senha rejeitada ou uma regex que falha silenciosamente.",
+      "kind": {
+        "zeroWidth": "largura zero",
+        "space": "espaço",
+        "control": "controle",
+        "bidi": "direção",
+        "lineEnding": "fim de linha"
+      }
+    },
+    "numberBase": {
+      "name": "Conversor de bases numéricas",
+      "description": "Converta entre binário, octal, decimal, hexadecimal e qualquer base até 36.",
+      "base": "base {{base}}",
+      "custom": "Qualquer base",
+      "note": "A conversão usa inteiros de precisão arbitrária, então hashes e máscaras de bits acima de 2^53 permanecem exatos em vez de serem arredondados silenciosamente."
+    },
+    "dataSize": {
+      "name": "Conversor de tamanho de dados",
+      "description": "Converta entre bytes, kB e KiB e veja onde os dois sistemas divergem.",
+      "bytes": "bytes",
+      "decimal": "Decimal (÷1000)",
+      "binary": "Binário (÷1024)",
+      "note": "O 1 TB de um fabricante de discos equivale a 10^12 bytes, enquanto o sistema operacional divide por 1024 e informa 931 GiB. O mesmo disco, uma aritmética diferente."
+    },
+    "chmod": {
+      "name": "Calculadora chmod",
+      "description": "Converta permissões Unix entre 755 e rwxr-xr-x.",
+      "octal": "Octal",
+      "symbolic": "Simbólico",
+      "permissions": "Permissões",
+      "role": "Quem",
+      "command": "Resultado",
+      "note": "Quando um bit especial está definido em algo que não pode ser executado, a letra fica maiúscula: 4644 aparece como rwSr--r--.",
+      "action": {
+        "read": "Ler",
+        "write": "Gravar",
+        "execute": "Executar"
+      },
+      "who": {
+        "owner": "Proprietário",
+        "group": "Grupo",
+        "others": "Outros"
+      },
+      "special": {
+        "setuid": "setuid",
+        "setgid": "setgid",
+        "sticky": "sticky"
+      }
+    },
+    "semver": {
+      "name": "Versão semântica",
+      "description": "Compare versões e verifique-as em relação a um intervalo como ^1.2.0.",
+      "first": "Primeira versão",
+      "second": "Segunda versão",
+      "parts": "Partes de {{version}}",
+      "prereleaseHint": "fica abaixo da versão final",
+      "buildHint": "ignorado na comparação",
+      "range": "Verificação de intervalo",
+      "matches": "{{version}} satisfaz {{range}}",
+      "noMatch": "{{version}} não satisfaz {{range}}",
+      "note": "Compatível com ^, ~, >, >=, <, <=, =, curingas x, espaços para E e || para OU. Intervalos com hífen não são cobertos."
+    },
+    "units": {
+      "name": "Unidades CSS",
+      "description": "Converta entre px, rem, em, pt e porcentagem.",
+      "rootFontSize": "Tamanho da fonte raiz",
+      "parentFontSize": "Tamanho da fonte do elemento pai",
+      "note": "rem é relativo ao documento, enquanto em é relativo ao elemento pai — por isso valores em aninhados se acumulam. O CSS fixa 1in em 96px, então 12pt equivalem exatamente a 16px em qualquer tela."
+    },
+    "gradient": {
+      "name": "Gerador de gradiente",
+      "description": "Crie um gradiente linear, radial ou cônico e copie o CSS.",
+      "stops": "Pontos de cor",
+      "addStop": "Adicionar ponto",
+      "kind": {
+        "linear": "Linear",
+        "radial": "Radial",
+        "conic": "Cônico"
+      }
+    },
+    "shadow": {
+      "name": "Sombra de caixa",
+      "description": "Crie uma sombra, empilhe várias camadas e copie o CSS.",
+      "offsetX": "Deslocamento X",
+      "offsetY": "Deslocamento Y",
+      "blur": "Desfoque",
+      "spread": "Expansão",
+      "layer": "Camada {{number}}",
+      "soft": "Predefinição suave",
+      "deep": "Predefinição profunda",
+      "addLayer": "Adicionar camada",
+      "note": "Uma única sombra dura raramente parece correta. Empilhar algumas camadas com deslocamento crescente e opacidade decrescente produz a impressão de uma única fonte de luz suave — é assim que sistemas de design criam profundidade."
+    },
+    "bezier": {
+      "name": "Curva de Bézier cúbica",
+      "description": "Modele uma curva de easing arrastando suas alças e visualize o movimento.",
+      "curve": "Curva",
+      "css": "CSS",
+      "preview": "Pré-visualização",
+      "play": "Reproduzir",
+      "note": "Arraste uma alça para cima ou para baixo da caixa para ultrapassar o limite — é isso que dá elasticidade à animação. O CSS limita o eixo horizontal a 0–1, mas não o vertical."
+    },
+    "image": {
+      "name": "Conversor de imagens",
+      "description": "Converta, redimensione e compacte imagens sem fazer upload.",
+      "drop": "Solte uma imagem aqui",
+      "dropHint": "ou clique para escolher uma",
+      "quality": "Qualidade",
+      "maxWidth": "Largura máxima",
+      "convert": "Converter",
+      "original": "Original",
+      "result": "Resultado",
+      "pending": "Pressione Converter para ver o resultado",
+      "download": "Baixar",
+      "note": "Tudo passa por um canvas no seu navegador. Defina a largura máxima como 0 para manter o tamanho original. Redesenhar a imagem também remove todos os metadados, pois somente os pixels sobrevivem ao processo."
+    },
+    "exif": {
+      "name": "Visualizador EXIF",
+      "description": "Veja o que uma foto revela sobre você e remova essas informações.",
+      "drop": "Solte um JPEG aqui",
+      "dropHint": "ou clique para escolher um",
+      "metadata": "Metadados",
+      "locationFound": "Esta foto contém sua localização",
+      "locationWarning": "Qualquer pessoa que receber este arquivo poderá ler essas coordenadas. A maioria das redes sociais as remove; enviar o arquivo diretamente não.",
+      "clean": "Nenhum metadado encontrado. Este arquivo pode ser compartilhado como está.",
+      "download": "Baixar sem metadados",
+      "note": "A remoção exclui os segmentos de metadados e copia os dados da imagem byte por byte, portanto nada é recodificado e nenhuma qualidade é perdida. O arquivo nunca sai do seu navegador."
+    },
+    "detect": {
+      "name": "O que é isto?",
+      "description": "Cole qualquer coisa e descubra o que é.",
+      "note": "Cada identificação aqui vem dos mesmos analisadores usados pelas próprias ferramentas, portanto uma correspondência significa que a ferramenta indicada realmente conseguirá abrir o conteúdo. Várias identificações podem ser verdadeiras ao mesmo tempo — um UUID também é hexadecimal válido."
+    },
+    "baseEncoding": {
+      "name": "Base32 e Base58",
+      "description": "Os dois alfabetos que o Base64 não cobre.",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "hint": {
+        "base32": "RFC 4648. Usa apenas A–Z e 2–7, por isso pode ser lido em voz alta ou digitado manualmente sem confusão — é por isso que segredos de autenticadores usam esse formato.",
+        "base58": "O alfabeto do Bitcoin: Base64 sem 0, O, I, l e os dois símbolos, para que nada seja confundido. A codificação é uma mudança de base aplicada ao número inteiro, não um empacotamento de bits."
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "Converta um domínio internacionalizado para o formato xn-- e vice-versa.",
+      "encode": "Para Punycode",
+      "decode": "Para Unicode",
+      "note": "Cada rótulo é convertido separadamente, pois o ponto nunca é codificado. É também assim que ataques homógrafos se escondem: dois domínios podem parecer idênticos e ter codificações diferentes."
+    },
+    "totp": {
+      "name": "Gerador TOTP",
+      "description": "Gere o código de seis dígitos a partir de um segredo Base32, como um aplicativo autenticador.",
+      "code": "Código atual",
+      "remaining": "{{seconds}}s restantes",
+      "note": "Cole uma URI otpauth:// e todos os campos serão preenchidos automaticamente. O segredo nunca sai desta página — mas um segredo colado em qualquer site deve ser trocado depois, e esta é uma ferramenta de depuração, não um substituto para seu autenticador."
+    },
+    "vision": {
+      "name": "Visão de cores",
+      "description": "Veja como um par de cores se comporta para pessoas com daltonismo.",
+      "comparison": "Lado a lado",
+      "simulated": "Primeira cor, simulada",
+      "tooClose": "Muito próximas",
+      "distinct": "Ainda distintas",
+      "type": {
+        "normal": "Visão normal",
+        "protanopia": "Protanopia",
+        "deuteranopia": "Deuteranopia",
+        "tritanopia": "Tritanopia",
+        "achromatopsia": "Sem percepção de cores"
+      },
+      "note": "A deuteranopia, sozinha, afeta aproximadamente um em cada doze homens. Uma paleta que diferencia vermelho de verde deixa de funcionar para essas pessoas; uma que diferencia azul de amarelo continua funcionando — por isso as cores de status também devem variar em luminosidade, não apenas em matiz."
+    },
+    "favicon": {
+      "name": "Gerador de favicon",
+      "description": "Transforme uma imagem em todos os tamanhos de ícone necessários para um site.",
+      "drop": "Solte uma imagem aqui",
+      "dropHint": "ou clique para escolher uma",
+      "sizes": "Tamanhos",
+      "download": "Baixar",
+      "snippet": "HTML",
+      "note": "Uma imagem que não seja quadrada é recortada a partir do centro, em vez de ser deformada. Tudo é desenhado em um canvas aqui, então a imagem nunca é enviada."
+    },
+    "dns": {
+      "name": "Consulta DNS",
+      "description": "Resolva os registros de um domínio.",
+      "warningTitle": "Esta ferramenta sai do seu navegador",
+      "warning": "A consulta é enviada para {{resolver}}, que verá o domínio consultado. Todas as outras ferramentas são executadas inteiramente na sua máquina.",
+      "lookup": "Consultar",
+      "working": "Consultando…",
+      "records": "Registros ({{count}})",
+      "empty": "Nenhum registro deste tipo.",
+      "note": "Resolver um nome significa consultar um resolvedor — não existe forma offline de fazer isso. A solicitação usa DNS sobre HTTPS, então seu provedor de rede não consegue lê-la, mas o resolvedor consegue."
+    },
+    "cron": {
+      "name": "Expressão cron",
+      "description": "Interprete uma linha de crontab e veja quando ela realmente é executada.",
+      "fields": "Campos",
+      "nextRuns": "Próximas execuções",
+      "every": "a cada",
+      "never": "Esta expressão nunca corresponde a uma data real.",
+      "note": "Quando tanto o dia do mês quanto o dia da semana são restritos, o cron executa em qualquer um deles — não nos dois ao mesmo tempo. \"0 0 13 * fri\" significa todo dia 13 e toda sexta-feira, não sexta-feira 13.",
+      "field": {
+        "minutes": "Minuto",
+        "hours": "Hora",
+        "daysOfMonth": "Dia do mês",
+        "months": "Mês",
+        "daysOfWeek": "Dia da semana"
+      }
+    },
+    "csv": {
+      "name": "CSV ↔ JSON",
+      "description": "Converta entre CSV e JSON, incluindo campos entre aspas.",
+      "hasHeader": "A primeira linha é um cabeçalho",
+      "note": "A leitura é feita caractere por caractere, em vez de dividir pelo delimitador, portanto um campo entre aspas que contenha vírgula, quebra de linha ou aspas duplicadas permanece intacto."
+    },
+    "jsonTypes": {
+      "name": "JSON para tipos",
+      "description": "Transforme uma resposta de exemplo em interfaces TypeScript ou em um JSON Schema.",
+      "rootName": "Nome raiz",
+      "note": "Em um array, uma chave que aparece em apenas alguns elementos é marcada como opcional — isso torna o resultado útil para uma API real, e não apenas para o seu exemplo."
+    },
+    "timezone": {
+      "name": "Conversor de fuso horário",
+      "description": "Veja o mesmo instante em vários fusos horários ao mesmo tempo.",
+      "now": "Agora",
+      "zones": "Fusos",
+      "add": "Adicionar fuso",
+      "note": "Os deslocamentos vêm do banco de dados de fusos horários do próprio navegador, portanto o horário de verão é considerado em vez de ser presumido."
+    },
+    "dateDiff": {
+      "name": "Diferença entre datas",
+      "description": "Conte os dias, dias úteis e a diferença de calendário entre duas datas.",
+      "from": "De",
+      "to": "Até",
+      "days": "dias",
+      "breakdown": "Diferença de calendário",
+      "parts": "{{years}}a {{months}}m {{days}}d",
+      "workingDays": "Dias úteis",
+      "workingHint": "De segunda a sexta-feira",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "weeks": "Semanas"
+    },
+    "reference": {
+      "name": "Referência HTTP",
+      "description": "Consulte códigos de status e tipos MIME.",
+      "statuses": "Códigos de status",
+      "mimeTypes": "Tipos MIME",
+      "group": {
+        "informational": "informativo",
+        "success": "sucesso",
+        "redirect": "redirecionamento",
+        "clientError": "cliente",
+        "serverError": "servidor"
+      }
+    },
+    "hex": {
+      "name": "Visualizador hexadecimal",
+      "description": "Converta texto para hexadecimal e vice-versa ou examine um arquivo byte por byte.",
+      "encode": "Texto → Hex",
+      "decode": "Hex → Texto",
+      "dump": "Despejo de arquivo",
+      "drop": "Solte um arquivo aqui",
+      "dropHint": "ou clique para escolher um",
+      "note": "A conversão passa por UTF-8, portanto textos em qualquer sistema de escrita fazem o percurso de ida e volta corretamente. O despejo mostra as primeiras 512 linhas."
+    },
+    "lorem": {
+      "name": "Lorem Ipsum",
+      "description": "O clássico texto de preenchimento em latim, por palavras, frases ou parágrafos.",
+      "startWithLorem": "Começar com \"lorem ipsum\"",
+      "unit": {
+        "words": "Palavras",
+        "sentences": "Frases",
+        "paragraphs": "Parágrafos"
+      },
+      "note": "A mesma solicitação sempre produz o mesmo texto, portanto um mockup não muda sozinho toda vez que você o gera novamente."
+    },
+    "cipher": {
+      "name": "Cifras clássicas",
+      "description": "ROT13, César, Atbash, inversão e Morse.",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "shift": "Deslocamento",
+      "note": "Isto é quebra-cabeça, não segurança — todas essas cifras foram quebradas há séculos. Elas estão aqui porque CTFs, enigmas e exercícios escolares ainda as usam com frequência."
+    },
+    "sql": {
+      "name": "Formatador SQL",
+      "description": "Organize uma consulta em linhas legíveis ou compacte-a em uma única linha.",
+      "format": "Formatar",
+      "minify": "Minificar",
+      "note": "Strings e comentários são tokenizados separadamente, portanto uma palavra-chave que esteja dentro de um literal nunca é convertida para maiúsculas — isso alteraria o comportamento da consulta."
+    },
+    "xml": {
+      "name": "Formatador XML / HTML",
+      "description": "Aplique recuo à marcação ou remova novamente os espaços em branco.",
+      "format": "Formatar",
+      "minify": "Minificar",
+      "note": "Um elemento cujo único filho é texto permanece em uma linha, e tags HTML vazias como <br> não abrem um novo nível de recuo."
+    },
+    "jsonpath": {
+      "name": "Consulta JSONPath",
+      "description": "Extraia valores de um documento JSON usando uma expressão de caminho.",
+      "matches": "Correspondências ({{count}})",
+      "paths": "De onde vieram",
+      "note": "Compatível com $.key, [0], [-1], [*], [1:3] e o recursivo ..key. Expressões de filtro ficam de fora — é nesse ponto que a gramática se transforma em uma linguagem própria."
+    },
+    "svg": {
+      "name": "Otimizador SVG",
+      "description": "Simplifique um SVG e depois exporte-o como URI de dados ou componente JSX.",
+      "optimise": "Otimizar",
+      "bytes": "bytes",
+      "note": "A URI de dados codifica por porcentagem apenas os caracteres que quebrariam um url() do CSS, o que a mantém muito menor que Base64 — e ainda legível."
+    },
+    "palette": {
+      "name": "Paleta de cores",
+      "description": "Crie uma escala tonal e harmonias correspondentes a partir de uma única cor.",
+      "steps": "Escala",
+      "css": "Variáveis CSS",
+      "onWhite": "sobre branco",
+      "onBlack": "sobre preto",
+      "harmony": {
+        "complementary": "Complementar",
+        "analogous": "Análoga",
+        "triadic": "Triádica",
+        "tetradic": "Tetrádica"
+      },
+      "note": "Construída em OKLCH, onde passos iguais de luminosidade parecem igualmente diferentes aos olhos. O croma é reduzido até que cada passo caiba no sRGB — limitar os canais diretamente deslocaria o matiz e transformaria um azul-claro em lilás."
+    },
+    "mock": {
+      "name": "Dados simulados",
+      "description": "Gere dados de teste realistas em JSON, de forma reproduzível.",
+      "rows": "Linhas",
+      "seed": "Semente",
+      "reroll": "Nova semente",
+      "fields": "Campos",
+      "addField": "Adicionar campo",
+      "note": "A mesma semente sempre recria os mesmos dados, portanto um fixture permanece estável entre execuções. Os nomes são escolhidos de várias regiões, não de apenas uma."
+    },
+    "cidr": {
+      "name": "Calculadora de sub-rede",
+      "description": "Calcule a rede, o broadcast e o intervalo de hosts de um bloco IPv4.",
+      "block": "Bloco",
+      "netmask": "Máscara de rede",
+      "wildcard": "Curinga",
+      "network": "Endereço de rede",
+      "broadcast": "Broadcast",
+      "firstHost": "Primeiro host",
+      "lastHost": "Último host",
+      "total": "Total de endereços",
+      "usableHosts": "hosts utilizáveis",
+      "private": "Intervalo privado",
+      "check": "O endereço está dentro?",
+      "inside": "{{address}} está dentro de {{block}}",
+      "outside": "{{address}} está fora de {{block}}",
+      "note": "Um /31 contém dois endereços e um /32 exatamente um; nenhum deles reserva endereço de rede ou de broadcast como blocos maiores fazem."
+    },
+    "aes": {
+      "name": "Criptografia AES",
+      "description": "Criptografe e descriptografe texto com uma senha, inteiramente no seu navegador.",
+      "encrypt": "Criptografar",
+      "decrypt": "Descriptografar",
+      "passphrase": "Senha",
+      "plaintext": "Texto simples",
+      "ciphertext": "Criptografado",
+      "working": "Derivando a chave…",
+      "note": "AES-GCM com uma chave derivada da sua senha por 250.000 rodadas de PBKDF2. O GCM autentica além de criptografar, então uma mensagem alterada se recusa a ser descriptografada em vez de virar dados sem sentido. O salt e o IV acompanham o texto cifrado — nenhum dos dois é secreto."
+    },
+    "keypair": {
+      "name": "Gerador de par de chaves",
+      "description": "Gere um par de chaves RSA, ECDSA ou Ed25519 no formato PEM.",
+      "generate": "Gerar",
+      "working": "Gerando…",
+      "publicKey": "Chave pública",
+      "privateKey": "Chave privada",
+      "note": "As chaves são geradas pelo mecanismo criptográfico do próprio navegador e nunca saem da página. Ainda assim, qualquer chave colada em um site deve ser considerada comprometida — gere chaves de produção com suas próprias ferramentas.",
+      "hint": {
+        "RSA-2048": "A opção segura padrão. Amplamente compatível e rápida o suficiente para gerar.",
+        "RSA-4096": "Mais forte, perceptivelmente mais lenta para gerar e usar.",
+        "ECDSA-P256": "Chaves muito menores com força comparável. A escolha moderna mais comum.",
+        "Ed25519": "Rápida, pequena e difícil de usar incorretamente. Requer um navegador recente."
+      }
+    },
+    "checksum": {
+      "name": "Checksum de arquivo",
+      "description": "Verifique um arquivo baixado comparando-o com o hash publicado, sem fazer upload.",
+      "drop": "Solte um arquivo aqui",
+      "dropHint": "ou clique para escolher um",
+      "working": "Calculando o hash…",
+      "digests": "Hashes",
+      "compare": "Comparar com um hash publicado",
+      "expected": "Cole o hash esperado",
+      "match": "O arquivo corresponde.",
+      "noMatch": "Nenhum hash corresponde a este valor.",
+      "note": "O arquivo é lido na memória e seu hash é calculado na hora. Nada é enviado, o que torna razoável verificar um arquivo que você jamais mandaria a um desconhecido."
+    },
+    "curl": {
+      "name": "cURL para código",
+      "description": "Transforme um comando curl em fetch, axios, Python ou Go.",
+      "command": "Comando curl",
+      "request": "O que ele envia",
+      "note": "Opções que não alteram a solicitação — -L, -k, --compressed e semelhantes — são ignoradas em vez de terem seu comportamento presumido."
+    },
+    "color": {
+      "name": "Conversor de cores",
+      "description": "Converta entre HEX, RGB, HSL e OKLCH e verifique o contraste WCAG.",
+      "foreground": "Primeiro plano",
+      "background": "Fundo",
+      "pick": "Escolher uma cor",
+      "saturation": "Saturação e brilho",
+      "hue": "Matiz",
+      "alpha": "Opacidade",
+      "formats": "Formatos",
+      "contrast": "Contraste",
+      "sample": "Texto normal no tamanho usado pela maioria das interfaces.",
+      "sampleLarge": "Texto grande",
+      "ratio": "taxa de contraste",
+      "normalAA": "Normal AA",
+      "normalAAA": "Normal AAA",
+      "largeAA": "Grande AA",
+      "largeAAA": "Grande AAA",
+      "oklchNote": "Vale a pena aprender OKLCH: ao contrário do HSL, passos iguais de luminosidade parecem igualmente diferentes aos olhos, então paletas criadas nesse espaço permanecem equilibradas. Texto grande significa 24px ou 18.66px em negrito.",
+      "alphaNote": "A fórmula WCAG cobre apenas cores opacas, portanto um texto translúcido é primeiro mesclado ao fundo — reduzir a opacidade do texto realmente diminui seu contraste. Um fundo translúcido é mesclado ao branco, já que não é possível saber o que existe atrás dele na página."
+    },
+    "password": {
+      "name": "Gerador de senhas",
+      "description": "Gere senhas fortes com aleatoriedade sem viés e veja sua força real.",
+      "regenerate": "Gerar novamente",
+      "options": "Opções",
+      "length": "Comprimento",
+      "excludeAmbiguous": "Sem caracteres parecidos",
+      "bits": "{{entropy}} bits",
+      "entropyNote": "A força é medida em bits de entropia — quantas tentativas um invasor precisa fazer — e não pela simples presença de um símbolo na senha. Cada caractere é escolhido por amostragem por rejeição, portanto nenhuma letra é mais provável que outra.",
+      "set": {
+        "lowercase": "a-z",
+        "uppercase": "A-Z",
+        "digits": "0-9",
+        "symbols": "Símbolos"
+      },
+      "strength": {
+        "weak": "Fraca",
+        "fair": "Razoável",
+        "strong": "Forte",
+        "excellent": "Excelente"
+      }
+    },
+    "uuid": {
+      "name": "Gerador de UUID",
+      "description": "Gere UUID v4, UUID v7 ordenado por tempo e Nano IDs.",
+      "amount": "Quantidade",
+      "regenerate": "Gerar novamente",
+      "v4": "UUID v4",
+      "v4Hint": "Totalmente aleatório. A opção segura padrão.",
+      "v7": "UUID v7",
+      "v7Hint": "Ordenado por tempo, portanto é classificado pela criação. Melhor como chave de banco de dados.",
+      "nanoid": "Nano ID",
+      "nanoidHint": "Curto e adequado para URLs."
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "Converta entre YAML e JSON.",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Pré-visualização de Markdown",
+      "description": "Escreva Markdown e veja o HTML renderizado lado a lado.",
+      "preview": "Pré-visualização",
+      "empty": "Comece a digitar para ver a pré-visualização",
+      "resize": "Arraste para redimensionar · clique duas vezes para redefinir"
+    },
+    "qrcode": {
+      "name": "Código QR",
+      "description": "Gere códigos QR a partir de texto ou decodifique-os de uma imagem.",
+      "generate": "Gerar",
+      "read": "Ler",
+      "drop": "Solte aqui uma imagem de um código QR",
+      "dropHint": "ou clique para escolher uma",
+      "uploaded": "Enviado",
+      "decoding": "Processando..."
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "Converta entre TOML e JSON.",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "Removedor de HTML",
+      "description": "Remova tags HTML e decodifique entidades de volta para texto simples."
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "Compacte texto com GZip ou Deflate diretamente no seu navegador.",
+      "compress": "Compactar",
+      "decompress": "Descompactar",
+      "note": "A compactação usa a API CompressionStream integrada ao navegador. Nada é enviado para lugar algum."
+    },
+    "cert": {
+      "name": "Decodificador de certificado",
+      "description": "Decodifique um certificado PEM X.509 e inspecione seus campos — sem upload, tudo local.",
+      "input": "Certificado",
+      "decode": "Decodificar",
+      "working": "Decodificando…",
+      "subject": "Titular",
+      "issuer": "Emissor",
+      "validity": "Validade",
+      "notBefore": "Válido a partir de",
+      "notAfter": "Válido até",
+      "fingerprints": "Impressões digitais",
+      "publicKey": "Chave pública",
+      "signature": "Assinatura",
+      "algorithm": "Algoritmo",
+      "keySize": "Tamanho da chave",
+      "dn": "DN",
+      "serial": "Número de série",
+      "san": "Nomes alternativos do titular"
+    },
+    "jsondiff": {
+      "name": "Diferença entre JSONs",
+      "description": "Compare estruturalmente dois documentos JSON, chave por chave e valor por valor.",
+      "left": "Esquerda (antes)",
+      "right": "Direita (depois)",
+      "added": "Adicionado",
+      "removed": "Removido",
+      "changed": "Alterado",
+      "identical": "Os dois documentos são idênticos.",
+      "changes": "{{count}} diferença(s)"
+    },
+    "graphql": {
+      "name": "Formatador GraphQL",
+      "description": "Formate ou minifique uma consulta, mutação ou definição de schema GraphQL.",
+      "minify": "Minificar"
+    }
+  }
+}
