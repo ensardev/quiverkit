@@ -19,6 +19,14 @@
     "title": "Leve o QuiverKit com você",
     "subtitle": "As mesmas ferramentas, offline e a uma tecla de distância. Nada do que você cola sai da sua máquina.",
     "soon": "Em breve",
+    "notes": {
+      "title": "Antes de instalar",
+      "windows": "Ainda sem assinatura, então o Windows pode exibir um aviso do SmartScreen — clique em Mais informações e depois em Executar assim mesmo.",
+      "linux": "Marque o AppImage como executável (chmod +x) antes de abrir pela primeira vez."
+    },
+    "changelog": {
+      "title": "Novidades"
+    },
     "desktop": {
       "name": "Aplicativo de desktop",
       "tagline": "Uma janela nativa para Windows e Linux — sem navegador, sem aba para perder.",

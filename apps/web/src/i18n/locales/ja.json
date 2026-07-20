@@ -19,6 +19,14 @@
     "title": "QuiverKit をどこへでも",
     "subtitle": "同じツールを、オフラインで、キーひとつで。貼り付けたものが端末の外に出ることはありません。",
     "soon": "近日公開",
+    "notes": {
+      "title": "インストールの前に",
+      "windows": "まだ署名されていないため、Windows が SmartScreen の警告を表示することがあります。「詳細情報」→「実行」の順にクリックしてください。",
+      "linux": "初回起動の前に AppImage を実行可能にしてください（chmod +x）。"
+    },
+    "changelog": {
+      "title": "新着情報"
+    },
     "desktop": {
       "name": "デスクトップアプリ",
       "tagline": "Windows と Linux 向けのネイティブウィンドウ。ブラウザも、見失うタブもありません。",

@@ -19,6 +19,14 @@
     "title": "随身携带 QuiverKit",
     "subtitle": "同样的工具，离线可用，一键即达。你粘贴的任何内容都不会离开你的设备。",
     "soon": "即将推出",
+    "notes": {
+      "title": "安装前须知",
+      "windows": "尚未签名，Windows 可能会显示 SmartScreen 警告——点击“更多信息”，然后选择“仍要运行”。",
+      "linux": "首次运行前，请将 AppImage 设为可执行（chmod +x）。"
+    },
+    "changelog": {
+      "title": "更新内容"
+    },
     "desktop": {
       "name": "桌面应用",
       "tagline": "为 Windows 和 Linux 打造的原生窗口——无需浏览器，也不会弄丢标签页。",

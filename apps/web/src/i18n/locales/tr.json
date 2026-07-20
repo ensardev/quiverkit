@@ -19,6 +19,14 @@
     "title": "QuiverKit'i yanında taşı",
     "subtitle": "Aynı araçlar, çevrimdışı ve bir tuş uzağında. Yapıştırdığın hiçbir şey makineni terk etmez.",
     "soon": "Yakında",
+    "notes": {
+      "title": "Kurmadan önce",
+      "windows": "Henüz imzalı değil, bu yüzden Windows SmartScreen uyarısı gösterebilir — Ek bilgi'ye, sonra Yine de çalıştır'a tıkla.",
+      "linux": "AppImage'i ilk çalıştırmadan önce çalıştırılabilir yap (chmod +x)."
+    },
+    "changelog": {
+      "title": "Yenilikler"
+    },
     "desktop": {
       "name": "Masaüstü uygulaması",
       "tagline": "Windows ve Linux için native bir pencere — tarayıcı yok, kaybolacak sekme yok.",

@@ -1,8 +1,28 @@
 import type { ReactNode } from 'react'
 import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { CHANGELOG } from '@/changelog'
 import { DownloadIcon, LinuxIcon, MonitorIcon, PuzzleIcon, WindowsIcon } from '@/components/icons'
 import { LINKS } from '@/links'
+
+function AlertIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+      <path d="M12 9v4m0 4h.01" />
+    </svg>
+  )
+}
 
 /** One download target — a platform button with a leading glyph and a hint. */
 function PlatformButton({
@@ -43,7 +63,8 @@ function SoonBadge() {
 }
 
 export default function Download() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const formatDate = new Intl.DateTimeFormat(i18n.language, { dateStyle: 'medium' })
 
   return (
     <div className="mx-auto w-full max-w-4xl p-6 lg:p-10">
@@ -110,7 +131,58 @@ export default function Download() {
         </section>
       </div>
 
-      <p className="text-muted mt-8 text-sm">
+      {/* Install caveats — chiefly that the builds are unsigned, so Windows and
+          Linux each need a small manual step to get past their gatekeepers. */}
+      <section className="border-line bg-sunken mt-5 rounded-xl border p-4">
+        <h2 className="mb-2 flex items-center gap-2 text-sm font-medium">
+          <span className="text-accent">
+            <AlertIcon />
+          </span>
+          {t('download.notes.title')}
+        </h2>
+        <ul className="text-muted space-y-1.5 text-xs">
+          <li className="flex items-start gap-2">
+            <span className="mt-0.5 shrink-0">
+              <WindowsIcon size={13} />
+            </span>
+            {t('download.notes.windows')}
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="mt-0.5 shrink-0">
+              <LinuxIcon size={13} />
+            </span>
+            {t('download.notes.linux')}
+          </li>
+        </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="mb-4 text-lg font-semibold tracking-tight">
+          {t('download.changelog.title')}
+        </h2>
+        <ol className="space-y-6">
+          {CHANGELOG.map((release) => (
+            <li key={release.version} className="border-line border-l-2 pl-4">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-sm font-medium">v{release.version}</span>
+                <span className="text-muted text-xs">
+                  {formatDate.format(new Date(release.date))}
+                </span>
+              </div>
+              <ul className="text-muted mt-2 space-y-1 text-sm">
+                {release.changes.map((change) => (
+                  <li key={change} className="flex gap-2">
+                    <span className="text-accent shrink-0">•</span>
+                    {change}
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <p className="text-muted mt-10 text-sm">
         <Trans
           i18nKey="download.webNote"
           components={{

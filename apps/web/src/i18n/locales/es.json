@@ -19,6 +19,14 @@
     "title": "Lleva QuiverKit contigo",
     "subtitle": "Las mismas herramientas, sin conexión y a una tecla de distancia. Nada de lo que pegas sale de tu máquina.",
     "soon": "Próximamente",
+    "notes": {
+      "title": "Antes de instalar",
+      "windows": "Aún sin firmar, así que Windows puede mostrar un aviso de SmartScreen: haz clic en Más información y luego en Ejecutar de todas formas.",
+      "linux": "Marca el AppImage como ejecutable (chmod +x) antes del primer uso."
+    },
+    "changelog": {
+      "title": "Novedades"
+    },
     "desktop": {
       "name": "Aplicación de escritorio",
       "tagline": "Una ventana nativa para Windows y Linux: sin navegador, sin pestañas que perder.",

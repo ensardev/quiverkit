@@ -19,6 +19,14 @@
     "title": "Nimm QuiverKit überallhin mit",
     "subtitle": "Dieselben Tools, offline und nur einen Tastendruck entfernt. Nichts, was du einfügst, verlässt je deinen Rechner.",
     "soon": "Demnächst",
+    "notes": {
+      "title": "Vor der Installation",
+      "windows": "Noch nicht signiert, daher kann Windows per SmartScreen warnen — klicke auf Weitere Informationen und dann Trotzdem ausführen.",
+      "linux": "Mache das AppImage vor dem ersten Start ausführbar (chmod +x)."
+    },
+    "changelog": {
+      "title": "Neuigkeiten"
+    },
     "desktop": {
       "name": "Desktop-App",
       "tagline": "Ein natives Fenster für Windows und Linux — kein Browser, kein Tab, der verloren geht.",

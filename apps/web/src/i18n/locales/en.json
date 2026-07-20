@@ -19,6 +19,14 @@
     "title": "Take QuiverKit with you",
     "subtitle": "The same tools, offline and one keystroke away. Nothing you paste ever leaves your machine.",
     "soon": "Coming soon",
+    "notes": {
+      "title": "Before you install",
+      "windows": "Not signed yet, so Windows may flag it with SmartScreen — click More info, then Run anyway.",
+      "linux": "Mark the AppImage as executable (chmod +x) before the first run."
+    },
+    "changelog": {
+      "title": "What's new"
+    },
     "desktop": {
       "name": "Desktop app",
       "tagline": "A native window for Windows and Linux — no browser, no tab to lose track of.",

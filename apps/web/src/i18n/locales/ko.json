@@ -19,6 +19,14 @@
     "title": "QuiverKit을 어디서나",
     "subtitle": "같은 도구를 오프라인에서, 키 하나로. 붙여넣은 것은 기기를 벗어나지 않습니다.",
     "soon": "곧 출시",
+    "notes": {
+      "title": "설치하기 전에",
+      "windows": "아직 서명되지 않아 Windows가 SmartScreen 경고를 표시할 수 있습니다 — 추가 정보를 클릭한 다음 실행을 누르세요.",
+      "linux": "처음 실행하기 전에 AppImage를 실행 가능하게 만드세요 (chmod +x)."
+    },
+    "changelog": {
+      "title": "새로운 기능"
+    },
     "desktop": {
       "name": "데스크톱 앱",
       "tagline": "Windows와 Linux를 위한 네이티브 창 — 브라우저도, 잃어버릴 탭도 없습니다.",
