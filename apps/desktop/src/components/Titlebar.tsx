@@ -4,70 +4,81 @@ import { useTranslation } from 'react-i18next'
 import LanguagePicker from '@/components/LanguagePicker'
 import ThemeToggle from './ThemeToggle'
 
+interface Win {
+  minimize(): Promise<void>
+  toggleMaximize(): Promise<void>
+  close(): Promise<void>
+  isMaximized(): Promise<boolean>
+  startDragging(): Promise<void>
+  onResized(fn: () => void): Promise<() => void>
+}
+
 export default function Titlebar() {
   const { t } = useTranslation()
-  const win = useRef<{
-    minimize: () => void
-    toggleMaximize: () => void
-    close: () => void
-    isMaximized: () => Promise<boolean>
-    onResized: (fn: () => void) => Promise<() => void>
-  } | null>(null)
-
   const [maximized, setMaximized] = useState(false)
+  const [ready, setReady] = useState(false)
+  const win = useRef<Win | null>(null)
 
-  // Lazy-load the Tauri window API — only available inside the desktop app
   useEffect(() => {
+    let cancelled = false
     import('@tauri-apps/api/window')
       .then(async ({ getCurrentWindow }) => {
+        if (cancelled) return
         const w = getCurrentWindow()
         win.current = {
           minimize: () => w.minimize(),
           toggleMaximize: () => w.toggleMaximize(),
           close: () => w.close(),
           isMaximized: () => w.isMaximized(),
+          startDragging: () => w.startDragging(),
           onResized: (fn) => w.onResized(fn),
         }
         setMaximized(await w.isMaximized())
-        await w.onResized(async () => setMaximized(await w.isMaximized()))
+        w.onResized(async () => { if (!cancelled) setMaximized(await w.isMaximized()) })
+        setReady(true)
       })
-      .catch(() => {
-        // Browser dev mode — controls simply do nothing
-      })
+      .catch(() => { /* browser dev mode */ })
+    return () => { cancelled = true }
   }, [])
 
-  const minimize = useCallback(() => win.current?.minimize(), [])
-  const toggleMaximize = useCallback(() => win.current?.toggleMaximize(), [])
-  const closeWindow = useCallback(() => win.current?.close(), [])
+  const minimize = useCallback(() => { win.current?.minimize() }, [])
+  const toggleMaximize = useCallback(() => { win.current?.toggleMaximize() }, [])
+  const closeWindow = useCallback(() => { win.current?.close() }, [])
+  const onDrag = useCallback((e: React.MouseEvent) => {
+    // Only left button, only when Tauri is ready
+    if (e.button !== 0 || !ready) return
+    e.preventDefault()
+    win.current?.startDragging()
+  }, [ready])
 
   return (
     <div
-      data-tauri-drag-region
+      onMouseDown={onDrag}
       className="border-line bg-surface flex shrink-0 select-none items-center gap-3 border-b px-4"
       style={{ height: 40 }}
     >
-      <Link to="/" className="flex items-baseline gap-1.5" data-tauri-drag-region="false">
+      <Link to="/" className="flex items-baseline gap-1.5">
         <span className="text-sm font-semibold tracking-tight">Quiver</span>
         <span className="text-accent text-sm font-semibold tracking-tight">Kit</span>
       </Link>
 
-      <span className="text-muted hidden text-xs sm:inline" data-tauri-drag-region="false">
+      <span className="text-muted hidden text-xs sm:inline">
         {t('palette.hint')}
       </span>
 
       <div className="flex-1" />
 
-      <div className="flex items-center gap-0.5" data-tauri-drag-region="false">
+      <div className="flex items-center gap-0.5">
         <LanguagePicker />
         <ThemeToggle />
       </div>
 
-      {/* Window controls */}
-      <div className="-mr-3 ml-1 flex h-full" data-tauri-drag-region="false">
+      <div className="-mr-3 ml-1 flex h-full">
         <button
           type="button"
           onClick={minimize}
-          className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
+          disabled={!ready}
+          className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors disabled:opacity-30"
           aria-label="Minimise"
         >
           <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" strokeWidth="2">
@@ -78,7 +89,8 @@ export default function Titlebar() {
         <button
           type="button"
           onClick={toggleMaximize}
-          className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
+          disabled={!ready}
+          className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors disabled:opacity-30"
           aria-label={maximized ? 'Restore' : 'Maximise'}
         >
           {maximized ? (
@@ -96,7 +108,8 @@ export default function Titlebar() {
         <button
           type="button"
           onClick={closeWindow}
-          className="text-muted hover:bg-danger hover:text-white flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
+          disabled={!ready}
+          className="text-muted hover:bg-danger hover:text-white flex h-full w-10 cursor-pointer items-center justify-center transition-colors disabled:opacity-30"
           aria-label="Close"
         >
           <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" strokeWidth="2">
