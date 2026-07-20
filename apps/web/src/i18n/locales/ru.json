@@ -34,6 +34,7 @@
       "windowsHint": "Установщик .exe",
       "linux": "Debian · Ubuntu",
       "linuxHint": "Пакет .deb",
+      "more": "Другие форматы:",
       "note": "Сборки появятся с первым релизом."
     },
     "extension": {

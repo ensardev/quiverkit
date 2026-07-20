@@ -34,6 +34,7 @@
       "windowsHint": ".exe 安装程序",
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb 软件包",
+      "more": "其他格式：",
       "note": "首个版本发布时即可下载。"
     },
     "extension": {

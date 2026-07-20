@@ -34,6 +34,7 @@
       "windowsHint": ".exe 설치 프로그램",
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb 패키지",
+      "more": "다른 형식:",
       "note": "빌드는 첫 릴리스와 함께 제공됩니다."
     },
     "extension": {

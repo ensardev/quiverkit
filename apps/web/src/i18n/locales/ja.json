@@ -34,6 +34,7 @@
       "windowsHint": ".exe インストーラー",
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb パッケージ",
+      "more": "その他の形式:",
       "note": "ビルドは最初のリリースとともに公開されます。"
     },
     "extension": {

@@ -34,6 +34,7 @@
       "windowsHint": ".exe yükleyici",
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb paketi",
+      "more": "Diğer formatlar:",
       "note": "Derlemeler ilk sürümle birlikte gelecek."
     },
     "extension": {

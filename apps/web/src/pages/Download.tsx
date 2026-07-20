@@ -3,7 +3,7 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { CHANGELOG } from '@/changelog'
 import { DownloadIcon, LinuxIcon, MonitorIcon, PuzzleIcon, WindowsIcon } from '@/components/icons'
-import { LINKS } from '@/links'
+import { DESKTOP_VERSION, DOWNLOADS } from '@/downloads'
 
 function AlertIcon({ size = 16 }: { size?: number }) {
   return (
@@ -53,6 +53,20 @@ function PlatformButton({
   )
 }
 
+/** A small pill link for the less-common installer formats. */
+function FormatLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="border-line hover:border-accent hover:text-ink rounded-full border px-2 py-0.5 transition-colors"
+    >
+      {label}
+    </a>
+  )
+}
+
 function SoonBadge() {
   const { t } = useTranslation()
   return (
@@ -87,20 +101,29 @@ export default function Download() {
 
           <div className="mt-5 space-y-2.5">
             <PlatformButton
-              href={LINKS.releases}
+              href={DOWNLOADS.exe}
               icon={<WindowsIcon />}
               label={t('download.desktop.windows')}
               hint={t('download.desktop.windowsHint')}
             />
             <PlatformButton
-              href={LINKS.releases}
+              href={DOWNLOADS.deb}
               icon={<LinuxIcon />}
               label={t('download.desktop.linux')}
               hint={t('download.desktop.linuxHint')}
             />
           </div>
 
-          <p className="text-muted mt-4 text-xs">{t('download.desktop.note')}</p>
+          {/* The two most common formats get buttons; the rest sit here as
+              small links so every artefact is reachable without five buttons. */}
+          <div className="text-muted mt-3 flex flex-wrap items-center gap-2 text-xs">
+            <span>{t('download.desktop.more')}</span>
+            <FormatLink href={DOWNLOADS.msi} label="MSI" />
+            <FormatLink href={DOWNLOADS.rpm} label="RPM" />
+            <FormatLink href={DOWNLOADS.appimage} label="AppImage" />
+          </div>
+
+          <p className="text-muted mt-4 text-xs">v{DESKTOP_VERSION}</p>
         </section>
 
         {/* Extension — not on any store yet, so everything here is disabled. */}

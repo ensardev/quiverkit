@@ -34,6 +34,7 @@
       "windowsHint": ".exe installer",
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb package",
+      "more": "Other formats:",
       "note": "Builds arrive with the first release."
     },
     "extension": {
