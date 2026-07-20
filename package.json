@@ -14,6 +14,8 @@
     "preview": "npm run preview --workspace @quiverkit/web",
     "dev:desktop": "npm run dev --workspace @quiverkit/desktop",
     "build:desktop": "npm run build --workspace @quiverkit/desktop",
+    "dev:extension": "npm run dev --workspace @quiverkit/extension",
+    "build:extension": "npm run build --workspace @quiverkit/extension",
     "test": "npm run test --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
   },

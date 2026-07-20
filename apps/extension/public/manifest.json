@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "QuiverKit",
+  "version": "0.1.0",
+  "description": "60+ developer tools in a side panel. Everything runs on your machine — no upload, no account, no tracking.",
+  "minimum_chrome_version": "114",
+  "icons": {
+    "32": "icons/32.png",
+    "128": "icons/128.png"
+  },
+  "permissions": ["contextMenus", "sidePanel", "storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "side_panel": {
+    "default_path": "panel.html"
+  },
+  "action": {
+    "default_title": "QuiverKit"
+  }
+}

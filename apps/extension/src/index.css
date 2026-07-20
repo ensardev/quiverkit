@@ -1,0 +1,21 @@
+/*
+ * Tell Tailwind to scan the web source tree for class names — the panel renders
+ * the shared tools, so their utilities have to be generated here too.
+ */
+@source "../../web/src/";
+
+/*
+ * Everything else — CSS variables, all three themes, @theme inline,
+ * @custom-variant dark, base styles — comes from the web's index.css.
+ */
+@import "../../web/src/index.css";
+
+/*
+ * A side panel is resizable but starts near 320px, so the panel body must never
+ * assume desktop room. Nothing here fights the shared styles; it only stops the
+ * document itself from scrolling sideways.
+ */
+html,
+body {
+  overflow-x: hidden;
+}
