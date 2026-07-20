@@ -1,0 +1,24 @@
+{
+  "version": "0.1.0",
+  "description": "Developer tools that never leave your machine — 60+ tools, fully offline.",
+  "homepage": "https://quiverkit.dev",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/ensardev/quiverkit/releases/download/v0.1.0/QuiverKit_0.1.0_x64-setup.exe#/dl.7z",
+      "hash": "4ed297c42c4d147d1957213c4c43b34d3a5ca6e992b30ab54169860808732f1d"
+    }
+  },
+  "bin": "QuiverKit.exe",
+  "shortcuts": [
+    ["QuiverKit.exe", "QuiverKit"]
+  ],
+  "checkver": "github",
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/ensardev/quiverkit/releases/download/v$version/QuiverKit_$version_x64-setup.exe#/dl.7z"
+      }
+    }
+  }
+}
