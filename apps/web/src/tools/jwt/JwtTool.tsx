@@ -1,7 +1,8 @@
 import { claimAsDate, decodeJwt, verifyJwt, type VerifyOutcome } from '@quiverkit/core'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, CopyButton, DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
+import { useToolInput } from '@/hooks/useToolInput'
+import { CodeArea, CopyButton, DataRow, ErrorNote, Panel, ShareButton, ToolShell } from '@/components/ui'
 
 /** Claims that carry a unix time and are worth showing as a real date. */
 const TIME_CLAIMS = ['iat', 'nbf', 'exp'] as const
@@ -14,7 +15,7 @@ const OUTCOME_STYLES: Record<VerifyOutcome, string> = {
 
 export default function JwtTool() {
   const { t, i18n } = useTranslation()
-  const [token, setToken] = useState('')
+  const { value: token, setValue: setToken, share } = useToolInput()
   const [secret, setSecret] = useState('')
   const [outcome, setOutcome] = useState<VerifyOutcome | null>(null)
 
@@ -56,6 +57,10 @@ export default function JwtTool() {
 
   return (
     <ToolShell id="jwt">
+      <div className="flex justify-end">
+        <ShareButton share={share} disabled={token === ''} />
+      </div>
+
       <Panel
         label={t('tools.jwt.token')}
         action={

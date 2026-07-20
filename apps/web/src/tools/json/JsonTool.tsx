@@ -1,7 +1,16 @@
 import { formatJson, minifyJson, sortJsonKeys, type Result } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
+import { useToolInput } from '@/hooks/useToolInput'
+import {
+  CodeArea,
+  CopyButton,
+  ErrorNote,
+  Panel,
+  SegmentedControl,
+  ShareButton,
+  ToolShell,
+} from '@/components/ui'
 
 type Mode = 'format' | 'minify' | 'sort'
 
@@ -11,7 +20,7 @@ export default function JsonTool() {
   const { t } = useTranslation()
   const [mode, setMode] = useState<Mode>('format')
   const [indent, setIndent] = useState<number>(2)
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput, share } = useToolInput()
 
   const result: Result<string> | null = useMemo(() => {
     if (input === '') return null
@@ -47,6 +56,9 @@ export default function JsonTool() {
             options={INDENTS.map((size) => ({ value: String(size), label: `${size}` }))}
           />
         )}
+        <div className="ml-auto">
+          <ShareButton share={share} disabled={input === ''} />
+        </div>
       </div>
 
       <div className="grid flex-1 gap-4 lg:grid-cols-2">

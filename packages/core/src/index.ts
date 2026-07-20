@@ -51,6 +51,8 @@ export {
 
 export { applyCipher, CIPHERS, reverseCipher, type Cipher } from './tools/cipher.js'
 
+export { detect, type Detection, type DetectionKind } from './tools/detect.js'
+
 export {
   buildQueryUrl,
   describeTtl,

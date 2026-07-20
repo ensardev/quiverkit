@@ -25,7 +25,13 @@
     "textLanguage": "Metin dili"
   },
   "theme": {
-    "toggle": "Temayı değiştir"
+    "toggle": "Temayı değiştir",
+    "switchTo": "{{theme}} temaya geç",
+    "name": {
+      "light": "açık",
+      "dark": "koyu",
+      "retro": "retro"
+    }
   },
   "language": {
     "label": "Dil"
@@ -33,6 +39,48 @@
   "privacy": {
     "badge": "Çevrimdışı çalışır",
     "note": "Buraya yazdığın hiçbir şey hiçbir yere gönderilmiyor."
+  },
+  "share": {
+    "label": "Bağlantı paylaş",
+    "copied": "Bağlantı kopyalandı",
+    "tooltip": "Bu girdiyi taşıyan bir bağlantı kopyalar. Veri URL'nin # kısmında durur; tarayıcılar orayı hiçbir sunucuya göndermez."
+  },
+  "detector": {
+    "title": "Ne olduğunu bilmiyorsan yapıştır",
+    "subtitle": "Elindekinin ne olduğunu bulur ve doğru araca yönlendirir.",
+    "placeholder": "Bir token, bir hash, bir zaman damgası, kodlanmış bir metin…",
+    "unknown": "Tanınabilir bir şey yok. Aşağıdaki listeden bir araç dene.",
+    "level": {
+      "sure": "kesin",
+      "likely": "muhtemel",
+      "maybe": "olabilir"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "PEM bloğu",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "E-posta adresi",
+      "ipv4": "IPv4 adresi",
+      "cidr": "CIDR bloğu",
+      "semver": "Anlamsal sürüm",
+      "cron": "Cron ifadesi",
+      "colour": "Renk",
+      "unixSeconds": "Unix zaman damgası (saniye)",
+      "unixMillis": "Unix zaman damgası (milisaniye)",
+      "isoDate": "ISO 8601 tarih",
+      "md5": "MD5 özeti",
+      "sha1": "SHA-1 özeti",
+      "sha256": "SHA-256 özeti",
+      "sha512": "SHA-512 özeti",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "Onaltılık",
+      "punycode": "Punycode alan adı",
+      "htmlEntities": "HTML varlıkları",
+      "urlEncoded": "Yüzde kodlanmış metin"
+    }
   },
   "palette": {
     "title": "Araç ara",
@@ -48,6 +96,7 @@
     "tooltip": "Bu araç bir sunucuya bağlanmak zorunda. Diğer her şey tamamen tarayıcında çalışır."
   },
   "category": {
+    "detect": "Tanı",
     "encoding": "Kodlama",
     "formatting": "Biçimlendirme",
     "text": "Metin",
@@ -396,6 +445,11 @@
       "clean": "Üst veri bulunamadı. Bu dosya olduğu gibi paylaşılabilir.",
       "download": "Üst verisiz indir",
       "note": "Temizleme yalnızca üst veri bölümlerini kaldırır, görüntü verisini bayt bayt kopyalar — hiçbir şey yeniden kodlanmaz, kalite kaybı olmaz. Dosya tarayıcından hiç çıkmaz."
+    },
+    "detect": {
+      "name": "Bu ne?",
+      "description": "Herhangi bir şey yapıştır, ne olduğunu söylesin.",
+      "note": "Buradaki her okuma, araçların kendi kullandığı ayrıştırıcılardan geliyor; yani bir eşleşme varsa yönlendirdiği araç onu gerçekten açar. Aynı anda birden fazla okuma doğru olabilir — bir UUID aynı zamanda geçerli bir onaltılık sayıdır."
     },
     "baseEncoding": {
       "name": "Base32 & Base58",

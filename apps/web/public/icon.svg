@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#1c1917"/>
+  <!-- Three arrows standing in a quiver: readable as a mark even at 16px. -->
+  <g stroke="#fbbf24" stroke-width="5" stroke-linecap="round">
+    <path d="M20 46V26"/>
+    <path d="M32 46V18"/>
+    <path d="M44 46V30"/>
+  </g>
+  <g fill="#fbbf24">
+    <path d="M20 14l6 10H14z"/>
+    <path d="M32 6l6 10H26z"/>
+    <path d="M44 18l6 10H38z"/>
+  </g>
+</svg>

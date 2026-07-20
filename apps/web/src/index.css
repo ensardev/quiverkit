@@ -5,7 +5,18 @@
  * the semantic names below, so adding a theme later (the planned retro skin, or
  * a high-contrast mode) means writing one more block here — no component edits.
  */
-@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+/*
+ * Retro is a dark theme too, so anything written as `dark:` has to apply there
+ * as well — otherwise a component's light-mode colour lands on a blue panel.
+ */
+@custom-variant dark (
+  &:where(
+    [data-theme='dark'],
+    [data-theme='dark'] *,
+    [data-theme='retro'],
+    [data-theme='retro'] *
+  )
+);
 
 :root,
 :root[data-theme='light'] {
@@ -36,6 +47,27 @@
   --accent-soft: #2c1d05;
   --danger: #fca5a5;
   --danger-soft: #2a1215;
+}
+
+/*
+ * An optional third theme, not a replacement for either default: the blue and
+ * yellow of a Borland IDE, which is roughly what a developer tool looked like
+ * in 1992. It swaps the same variables as the other two — no component knows it
+ * exists — plus the font, because the look does not survive a proportional one.
+ */
+:root[data-theme='retro'] {
+  --surface-sunken: #00006e;
+  --surface: #0000a8;
+  --surface-hover: #0000d0;
+  --border: #5555ff;
+  --border-strong: #8f8fff;
+  --text: #ffffff;
+  --text-muted: #b9b9ff;
+  --accent: #ffff55;
+  --accent-hover: #ffffb0;
+  --accent-soft: #0000d8;
+  --danger: #ff8080;
+  --danger-soft: #7a0000;
 }
 
 @theme inline {
@@ -74,8 +106,18 @@
     color-scheme: light;
   }
 
-  html[data-theme='dark'] {
+  html[data-theme='dark'],
+  html[data-theme='retro'] {
     color-scheme: dark;
+  }
+
+  html[data-theme='retro'] body {
+    font-family: var(--font-mono);
+  }
+
+  /* Square corners finish the illusion; rounded panels read as modern. */
+  html[data-theme='retro'] :where(section, aside, article, button, input, textarea, select) {
+    border-radius: 0;
   }
 
   body {

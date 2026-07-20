@@ -25,7 +25,13 @@
     "textLanguage": "Text language"
   },
   "theme": {
-    "toggle": "Switch theme"
+    "toggle": "Switch theme",
+    "switchTo": "Switch to {{theme}}",
+    "name": {
+      "light": "light",
+      "dark": "dark",
+      "retro": "retro"
+    }
   },
   "language": {
     "label": "Language"
@@ -33,6 +39,48 @@
   "privacy": {
     "badge": "Runs offline",
     "note": "Nothing you type here is sent anywhere."
+  },
+  "share": {
+    "label": "Share link",
+    "copied": "Link copied",
+    "tooltip": "Copies a link carrying this input. The data sits in the URL fragment, which browsers never send to a server."
+  },
+  "detector": {
+    "title": "Paste anything",
+    "subtitle": "It works out what you have and sends you to the right tool.",
+    "placeholder": "A token, a hash, a timestamp, an encoded string…",
+    "unknown": "Nothing recognisable. Try a tool from the list below.",
+    "level": {
+      "sure": "certain",
+      "likely": "likely",
+      "maybe": "possible"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "PEM block",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "Email address",
+      "ipv4": "IPv4 address",
+      "cidr": "CIDR block",
+      "semver": "Semantic version",
+      "cron": "Cron expression",
+      "colour": "Colour",
+      "unixSeconds": "Unix timestamp (seconds)",
+      "unixMillis": "Unix timestamp (milliseconds)",
+      "isoDate": "ISO 8601 date",
+      "md5": "MD5 hash",
+      "sha1": "SHA-1 hash",
+      "sha256": "SHA-256 hash",
+      "sha512": "SHA-512 hash",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "Hexadecimal",
+      "punycode": "Punycode domain",
+      "htmlEntities": "HTML entities",
+      "urlEncoded": "Percent-encoded text"
+    }
   },
   "palette": {
     "title": "Search tools",
@@ -48,6 +96,7 @@
     "tooltip": "This tool has to contact a server. Everything else runs entirely in your browser."
   },
   "category": {
+    "detect": "Identify",
     "encoding": "Encoding",
     "formatting": "Formatting",
     "text": "Text",
@@ -396,6 +445,11 @@
       "clean": "No metadata found. This file is safe to share as it is.",
       "download": "Download without metadata",
       "note": "Stripping removes the metadata segments and copies the image data byte for byte, so nothing is re-encoded and no quality is lost. The file never leaves your browser."
+    },
+    "detect": {
+      "name": "What is this?",
+      "description": "Paste anything and find out what it is.",
+      "note": "Every reading here comes from the same parsers the tools themselves use, so a match means the tool it points at will really open it. Several readings can be true at once — a UUID is also valid hexadecimal."
     },
     "baseEncoding": {
       "name": "Base32 & Base58",

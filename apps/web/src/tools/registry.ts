@@ -1,6 +1,7 @@
 import { lazy, type ComponentType, type LazyExoticComponent } from 'react'
 
 export type ToolCategory =
+  | 'detect'
   | 'encoding'
   | 'formatting'
   | 'text'
@@ -39,6 +40,13 @@ export interface Tool {
  * visitor who only wanted to decode a JWT would pay for all of them.
  */
 export const TOOLS: Tool[] = [
+  // ── detect ────────────────────────────────────────────────────────────
+  {
+    id: 'detect',
+    category: 'detect',
+    keywords: ['what is this', 'identify', 'paste', 'unknown', 'recognise', 'recognize'],
+    Component: lazy(() => import('./detect/DetectTool')),
+  },
   // ── encoding ──────────────────────────────────────────────────────────
   {
     id: 'base64',
@@ -419,6 +427,7 @@ export const TOOLS: Tool[] = [
 ]
 
 export const CATEGORY_ORDER: ToolCategory[] = [
+  'detect',
   'encoding',
   'formatting',
   'text',

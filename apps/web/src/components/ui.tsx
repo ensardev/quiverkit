@@ -88,6 +88,34 @@ export function CopyButton({ value }: { value: string }) {
   )
 }
 
+/** Copies a link that carries the current input in the URL fragment. */
+export function ShareButton({ share, disabled }: { share: () => string; disabled?: boolean }) {
+  const { t } = useTranslation()
+  const [copied, setCopied] = useState(false)
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined)
+
+  useEffect(() => () => clearTimeout(timer.current), [])
+
+  async function copy() {
+    await navigator.clipboard.writeText(share())
+    setCopied(true)
+    clearTimeout(timer.current)
+    timer.current = setTimeout(() => setCopied(false), 1600)
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => void copy()}
+      disabled={disabled}
+      title={t('share.tooltip')}
+      className="border-line text-muted hover:text-ink hover:bg-hover cursor-pointer rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-40"
+    >
+      {copied ? t('share.copied') : t('share.label')}
+    </button>
+  )
+}
+
 interface PanelProps {
   label: string
   action?: ReactNode

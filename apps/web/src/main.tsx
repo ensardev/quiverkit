@@ -19,3 +19,11 @@ createRoot(container).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+// Registered only for the built site: in development the dev server should keep
+// serving fresh modules rather than a cached copy of yesterday's build.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register('/sw.js')
+  })
+}

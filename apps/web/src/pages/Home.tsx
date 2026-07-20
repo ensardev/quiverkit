@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import Detector from '@/components/Detector'
 import { NetworkBadge } from '@/components/ui'
 import { CATEGORY_ORDER, TOOLS } from '@/tools/registry'
 
@@ -19,7 +20,18 @@ export default function Home() {
         <p className="text-muted mt-3 max-w-2xl text-base">{t('home.subheading')}</p>
       </header>
 
-      {CATEGORY_ORDER.map((category) => {
+      {/*
+        The detector sits above the catalogue on purpose: pasting something and
+        being told what it is skips the step of knowing which tool to look for,
+        which is the part that actually slows people down.
+      */}
+      <section className="mt-8">
+        <h2 className="mb-1 text-lg font-semibold tracking-tight">{t('detector.title')}</h2>
+        <p className="text-muted mb-3 text-sm">{t('detector.subtitle')}</p>
+        <Detector />
+      </section>
+
+      {CATEGORY_ORDER.filter((category) => category !== 'detect').map((category) => {
         const tools = TOOLS.filter((tool) => tool.category === category)
         if (tools.length === 0) return null
 

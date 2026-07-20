@@ -7,7 +7,16 @@ import {
 } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
+import { useToolInput } from '@/hooks/useToolInput'
+import {
+  CodeArea,
+  CopyButton,
+  ErrorNote,
+  Panel,
+  SegmentedControl,
+  ShareButton,
+  ToolShell,
+} from '@/components/ui'
 
 type Mode = 'encode' | 'decode'
 
@@ -15,7 +24,7 @@ export default function Base64Tool() {
   const { t } = useTranslation()
   const [mode, setMode] = useState<Mode>('encode')
   const [urlSafe, setUrlSafe] = useState(false)
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput, share } = useToolInput()
 
   const result: Result<string> | null = useMemo(() => {
     if (input === '') return null
@@ -46,6 +55,9 @@ export default function Base64Tool() {
           />
           {t('tools.base64.urlSafe')}
         </label>
+        <div className="ml-auto">
+          <ShareButton share={share} disabled={input === ''} />
+        </div>
       </div>
 
       <div className="grid flex-1 gap-4 lg:grid-cols-2">

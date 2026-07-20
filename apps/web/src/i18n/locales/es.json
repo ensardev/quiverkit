@@ -25,7 +25,13 @@
     "textLanguage": "Idioma del texto"
   },
   "theme": {
-    "toggle": "Cambiar tema"
+    "toggle": "Cambiar tema",
+    "switchTo": "Cambiar al tema {{theme}}",
+    "name": {
+      "light": "claro",
+      "dark": "oscuro",
+      "retro": "retro"
+    }
   },
   "language": {
     "label": "Idioma"
@@ -33,6 +39,48 @@
   "privacy": {
     "badge": "Funciona sin conexión",
     "note": "Nada de lo que escribes aquí se envía a ningún sitio."
+  },
+  "share": {
+    "label": "Compartir enlace",
+    "copied": "Enlace copiado",
+    "tooltip": "Copia un enlace con esta entrada. Los datos van en el fragmento de la URL, que los navegadores nunca envían a un servidor."
+  },
+  "detector": {
+    "title": "Pega cualquier cosa",
+    "subtitle": "Averigua qué tienes y te lleva a la herramienta adecuada.",
+    "placeholder": "Un token, un hash, una marca de tiempo, un texto codificado…",
+    "unknown": "No se reconoce nada. Prueba una herramienta de la lista.",
+    "level": {
+      "sure": "seguro",
+      "likely": "probable",
+      "maybe": "posible"
+    },
+    "kind": {
+      "jwt": "JSON Web Token",
+      "pem": "Bloque PEM",
+      "uuid": "UUID",
+      "json": "JSON",
+      "url": "URL",
+      "email": "Dirección de correo",
+      "ipv4": "Dirección IPv4",
+      "cidr": "Bloque CIDR",
+      "semver": "Versión semántica",
+      "cron": "Expresión cron",
+      "colour": "Color",
+      "unixSeconds": "Marca de tiempo Unix (segundos)",
+      "unixMillis": "Marca de tiempo Unix (milisegundos)",
+      "isoDate": "Fecha ISO 8601",
+      "md5": "Hash MD5",
+      "sha1": "Hash SHA-1",
+      "sha256": "Hash SHA-256",
+      "sha512": "Hash SHA-512",
+      "base64": "Base64",
+      "base32": "Base32",
+      "hex": "Hexadecimal",
+      "punycode": "Dominio Punycode",
+      "htmlEntities": "Entidades HTML",
+      "urlEncoded": "Texto codificado en porcentaje"
+    }
   },
   "palette": {
     "title": "Buscar herramientas",
@@ -48,6 +96,7 @@
     "tooltip": "Esta herramienta tiene que contactar con un servidor. Todo lo demás se ejecuta íntegramente en tu navegador."
   },
   "category": {
+    "detect": "Identificar",
     "encoding": "Codificación",
     "formatting": "Formato",
     "text": "Texto",
@@ -396,6 +445,11 @@
       "clean": "No se encontraron metadatos. Este archivo se puede compartir tal cual.",
       "download": "Descargar sin metadatos",
       "note": "La limpieza elimina los segmentos de metadatos y copia los datos de imagen byte a byte, así que nada se recodifica y no se pierde calidad. El archivo nunca sale de tu navegador."
+    },
+    "detect": {
+      "name": "¿Qué es esto?",
+      "description": "Pega cualquier cosa y descubre qué es.",
+      "note": "Cada lectura sale de los mismos analizadores que usan las propias herramientas, así que si hay coincidencia la herramienta a la que apunta lo abrirá de verdad. Varias lecturas pueden ser ciertas a la vez: un UUID también es hexadecimal válido."
     },
     "baseEncoding": {
       "name": "Base32 y Base58",
