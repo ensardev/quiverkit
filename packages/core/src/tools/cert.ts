@@ -1,4 +1,3 @@
-import { decodeBase64 } from './base64.js'
 import { err, ok, type Result } from '../result.js'
 
 export interface CertInfo {
@@ -107,22 +106,20 @@ export async function decodeCertificate(input: string): Promise<Result<CertInfo>
     const b64 = trimmed
       .replace(/-----(BEGIN|END) CERTIFICATE-----/g, '')
       .replace(/\s/g, '')
-    const decoded = decodeBase64(b64)
-    if (!decoded.ok) return err('error.invalidCertificate')
 
-    const binary = atob(b64)
-    der = new Uint8Array(binary.length)
-    for (let i = 0; i < binary.length; i++) der[i] = binary.charCodeAt(i)
+    // DER is binary, so we can't use decodeBase64 — it rejects non-UTF-8 bytes.
+    try {
+      der = base64ToBytes(b64)
+    } catch {
+      return err('error.invalidCertificate')
+    }
   } else if (trimmed.startsWith('-----BEGIN')) {
     return err('error.invalidCertificate')
   } else {
-    // Try raw base64 or hex DER.
-    const decoded = decodeBase64(trimmed)
-    if (decoded.ok) {
-      const binary = atob(trimmed)
-      der = new Uint8Array(binary.length)
-      for (let i = 0; i < binary.length; i++) der[i] = binary.charCodeAt(i)
-    } else {
+    // Try raw base64 first, fall back to hex DER.
+    try {
+      der = base64ToBytes(trimmed)
+    } catch {
       // Try hex
       try {
         der = new Uint8Array(trimmed.length / 2)
@@ -239,6 +236,14 @@ export async function decodeCertificate(input: string): Promise<Result<CertInfo>
 }
 
 // -- DER parser -----------------------------------------------------------
+
+function base64ToBytes(b64: string): Uint8Array {
+  const binary = atob(b64)
+  const bytes = new Uint8Array(binary.length)
+  for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i)
+  if (bytes.length === 0) throw new Error('empty')
+  return bytes
+}
 
 function parseDer(data: Uint8Array, offset = 0): DerNode[] {
   const nodes: DerNode[] = []
