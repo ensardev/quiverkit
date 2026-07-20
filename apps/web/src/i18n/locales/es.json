@@ -12,7 +12,29 @@
     "back": "Atrás",
     "search": "Buscar herramientas",
     "searchHint": "Pulsa / para buscar",
-    "noResults": "Nada coincide con «{{query}}»"
+    "noResults": "Nada coincide con «{{query}}»",
+    "download": "Descargar"
+  },
+  "download": {
+    "title": "Lleva QuiverKit contigo",
+    "subtitle": "Las mismas herramientas, sin conexión y a una tecla de distancia. Nada de lo que pegas sale de tu máquina.",
+    "soon": "Próximamente",
+    "desktop": {
+      "name": "Aplicación de escritorio",
+      "tagline": "Una ventana nativa para Windows y Linux: sin navegador, sin pestañas que perder.",
+      "windows": "Windows",
+      "windowsHint": "Instalador .exe",
+      "linux": "Debian · Ubuntu",
+      "linuxHint": "Paquete .deb",
+      "note": "Las versiones llegarán con el primer lanzamiento."
+    },
+    "extension": {
+      "name": "Extensión de navegador",
+      "tagline": "Un panel lateral para Chrome y Edge. Selecciona texto en cualquier página, haz clic derecho y ábrelo en la herramienta adecuada.",
+      "store": "Chrome Web Store",
+      "note": "En revisión de la tienda: llegará pronto."
+    },
+    "webNote": "¿Prefieres el navegador? <link>Abre las herramientas</link>."
   },
   "common": {
     "input": "Entrada",

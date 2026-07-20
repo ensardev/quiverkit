@@ -12,7 +12,29 @@
     "back": "Geri",
     "search": "Araç ara",
     "searchHint": "Aramak için / tuşuna bas",
-    "noResults": "“{{query}}” ile eşleşen bir şey yok"
+    "noResults": "“{{query}}” ile eşleşen bir şey yok",
+    "download": "İndir"
+  },
+  "download": {
+    "title": "QuiverKit'i yanında taşı",
+    "subtitle": "Aynı araçlar, çevrimdışı ve bir tuş uzağında. Yapıştırdığın hiçbir şey makineni terk etmez.",
+    "soon": "Yakında",
+    "desktop": {
+      "name": "Masaüstü uygulaması",
+      "tagline": "Windows ve Linux için native bir pencere — tarayıcı yok, kaybolacak sekme yok.",
+      "windows": "Windows",
+      "windowsHint": ".exe yükleyici",
+      "linux": "Debian · Ubuntu",
+      "linuxHint": ".deb paketi",
+      "note": "Derlemeler ilk sürümle birlikte gelecek."
+    },
+    "extension": {
+      "name": "Tarayıcı eklentisi",
+      "tagline": "Chrome ve Edge için bir yan panel. Herhangi bir sayfada metni seç, sağ tıkla ve doğru araçta aç.",
+      "store": "Chrome Web Mağazası",
+      "note": "Mağaza incelemesi bekleniyor — yakında burada."
+    },
+    "webNote": "Tarayıcıyı mı tercih edersin? <link>Araçları aç</link>."
   },
   "common": {
     "input": "Girdi",

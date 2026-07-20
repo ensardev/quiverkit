@@ -12,7 +12,29 @@
     "back": "戻る",
     "search": "ツールを検索",
     "searchHint": "/ を押して検索",
-    "noResults": "「{{query}}」に一致するものはありません"
+    "noResults": "「{{query}}」に一致するものはありません",
+    "download": "ダウンロード"
+  },
+  "download": {
+    "title": "QuiverKit をどこへでも",
+    "subtitle": "同じツールを、オフラインで、キーひとつで。貼り付けたものが端末の外に出ることはありません。",
+    "soon": "近日公開",
+    "desktop": {
+      "name": "デスクトップアプリ",
+      "tagline": "Windows と Linux 向けのネイティブウィンドウ。ブラウザも、見失うタブもありません。",
+      "windows": "Windows",
+      "windowsHint": ".exe インストーラー",
+      "linux": "Debian · Ubuntu",
+      "linuxHint": ".deb パッケージ",
+      "note": "ビルドは最初のリリースとともに公開されます。"
+    },
+    "extension": {
+      "name": "ブラウザ拡張機能",
+      "tagline": "Chrome と Edge 向けのサイドパネル。どのページでもテキストを選択し、右クリックして最適なツールで開けます。",
+      "store": "Chrome ウェブストア",
+      "note": "ストア審査待ちです。まもなくここに登場します。"
+    },
+    "webNote": "ブラウザがお好みですか？<link>ツールを開く</link>。"
   },
   "common": {
     "input": "入力",

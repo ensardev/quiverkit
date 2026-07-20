@@ -1,8 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
-import LanguagePicker from '@/components/LanguagePicker'
-import ThemeToggle from '@/components/ThemeToggle'
 import { NetworkBadge } from '@/components/ui'
 import { CATEGORY_ORDER, findTool, TOOLS, type Tool, type ToolCategory } from '@/tools/registry'
 
@@ -88,13 +86,6 @@ export default function Sidebar() {
 
   return (
     <aside className="border-line bg-surface flex w-64 shrink-0 flex-col border-r">
-      <div className="border-line border-b p-4">
-        <NavLink to="/" className="flex items-baseline gap-1.5">
-          <span className="text-lg font-semibold tracking-tight">Quiver</span>
-          <span className="text-accent text-lg font-semibold tracking-tight">Kit</span>
-        </NavLink>
-      </div>
-
       <div className="relative p-3">
         <input
           ref={searchInput}
@@ -172,11 +163,6 @@ export default function Sidebar() {
           })
         )}
       </nav>
-
-      <footer className="border-line flex items-center justify-between border-t p-3">
-        <LanguagePicker />
-        <ThemeToggle />
-      </footer>
     </aside>
   )
 }

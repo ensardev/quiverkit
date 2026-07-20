@@ -49,3 +49,60 @@ export function MonitorIcon({ size = 14 }: { size?: number }) {
     </svg>
   )
 }
+
+export function DownloadIcon({ size = 14 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M12 3v12" />
+      <path d="M7 10l5 5 5-5" />
+      <path d="M5 21h14" />
+    </svg>
+  )
+}
+
+/** The four-pane Windows mark, drawn as one filled path. */
+export function WindowsIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden>
+      <path d="M3 5.4 10.6 4.3v7.2H3zM11.6 4.15 21 3v8.5h-9.4zM3 12.5h7.6v7.2L3 18.6zM11.6 12.5H21V21l-9.4-1.3z" />
+    </svg>
+  )
+}
+
+/** A Tux silhouette — the universal "this runs on Linux" cue. */
+export function LinuxIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden>
+      <path d="M12 2.5c-2 0-3.3 1.6-3.3 3.6 0 .8.2 1.4.2 2-1.7 1-3.5 3.2-3.5 7.2 0 .9-.5 1.6-.9 2.3-.3.5-.1 1.1.5 1.3.5.1 1 0 1.4-.2.2.9.6 1.7 1.2 2.3.3.3.8.1.9-.3.2.4.6.7 1.1.8.7.2 1.5.2 2.2.2s1.5 0 2.2-.2c.5-.1.9-.4 1.1-.8.1.4.6.6.9.3.6-.6 1-1.4 1.2-2.3.4.2.9.3 1.4.2.6-.2.8-.8.5-1.3-.4-.7-.9-1.4-.9-2.3 0-4-1.8-6.2-3.5-7.2 0-.6.2-1.2.2-2 0-2-1.3-3.6-3.3-3.6Zm-1.5 3.1a.85.85 0 1 1 0 1.7.85.85 0 0 1 0-1.7Zm3 0a.85.85 0 1 1 0 1.7.85.85 0 0 1 0-1.7Zm-1.5 2.2c.6 0 1.4.4 1.4.9 0 .3-.9.8-1.4.8s-1.4-.5-1.4-.8c0-.5.8-.9 1.4-.9Z" />
+    </svg>
+  )
+}
+
+/** A jigsaw piece for the browser extension. */
+export function PuzzleIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width={size}
+      height={size}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M19.44 7.85c-.05.32.06.65.29.88l1.56 1.57c.47.47.71 1.08.71 1.7s-.24 1.23-.71 1.7l-1.6 1.62a.98.98 0 0 1-.84.27c-.47-.07-.8-.48-.97-.92a2.5 2.5 0 1 0-3.21 3.21c.44.17.85.5.92.97a.98.98 0 0 1-.27.84l-1.62 1.6a2.4 2.4 0 0 1-1.7.71 2.4 2.4 0 0 1-1.7-.71l-1.57-1.56a1.03 1.03 0 0 0-.88-.29c-.49.07-.84.5-1.02.97a2.5 2.5 0 1 1-3.24-3.24c.46-.18.9-.53.97-1.02a1.03 1.03 0 0 0-.29-.88L2.7 13.7A2.4 2.4 0 0 1 2 12c0-.62.24-1.23.71-1.7l1.52-1.53c.24-.24.58-.35.92-.3.51.08.87.53 1.07 1.01a2.5 2.5 0 1 0 3.26-3.26c-.48-.2-.93-.56-1.01-1.07-.05-.34.06-.68.3-.92l1.53-1.52A2.4 2.4 0 0 1 12 2c.62 0 1.23.24 1.7.71l1.57 1.56c.23.23.56.34.88.29.49-.07.84-.5 1.02-.97a2.5 2.5 0 1 1 3.24 3.24c-.47.18-.9.53-.97 1.02Z" />
+    </svg>
+  )
+}

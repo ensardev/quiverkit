@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Layout from '@/components/Layout'
+import Download from '@/pages/Download'
 import Home from '@/pages/Home'
 import { TOOLS } from '@/tools/registry'
 
@@ -13,6 +14,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="download" element={<Download />} />
         {TOOLS.map(({ id, Component }) => (
           <Route
             key={id}

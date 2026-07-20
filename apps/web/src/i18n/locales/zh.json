@@ -12,7 +12,29 @@
     "back": "返回",
     "search": "搜索工具",
     "searchHint": "按 / 搜索",
-    "noResults": "没有与“{{query}}”匹配的内容"
+    "noResults": "没有与“{{query}}”匹配的内容",
+    "download": "下载"
+  },
+  "download": {
+    "title": "随身携带 QuiverKit",
+    "subtitle": "同样的工具，离线可用，一键即达。你粘贴的任何内容都不会离开你的设备。",
+    "soon": "即将推出",
+    "desktop": {
+      "name": "桌面应用",
+      "tagline": "为 Windows 和 Linux 打造的原生窗口——无需浏览器，也不会弄丢标签页。",
+      "windows": "Windows",
+      "windowsHint": ".exe 安装程序",
+      "linux": "Debian · Ubuntu",
+      "linuxHint": ".deb 软件包",
+      "note": "首个版本发布时即可下载。"
+    },
+    "extension": {
+      "name": "浏览器扩展",
+      "tagline": "适用于 Chrome 和 Edge 的侧边栏。在任意页面选中文本，右键即可在合适的工具中打开。",
+      "store": "Chrome 应用商店",
+      "note": "正在等待商店审核——即将上线。"
+    },
+    "webNote": "更喜欢用浏览器？<link>打开工具</link>。"
   },
   "common": {
     "input": "输入",

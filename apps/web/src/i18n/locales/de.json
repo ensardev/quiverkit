@@ -12,7 +12,29 @@
     "back": "Zurück",
     "search": "Tools durchsuchen",
     "searchHint": "Drücke / zum Suchen",
-    "noResults": "Nichts passt zu „{{query}}“"
+    "noResults": "Nichts passt zu „{{query}}“",
+    "download": "Download"
+  },
+  "download": {
+    "title": "Nimm QuiverKit überallhin mit",
+    "subtitle": "Dieselben Tools, offline und nur einen Tastendruck entfernt. Nichts, was du einfügst, verlässt je deinen Rechner.",
+    "soon": "Demnächst",
+    "desktop": {
+      "name": "Desktop-App",
+      "tagline": "Ein natives Fenster für Windows und Linux — kein Browser, kein Tab, der verloren geht.",
+      "windows": "Windows",
+      "windowsHint": ".exe-Installer",
+      "linux": "Debian · Ubuntu",
+      "linuxHint": ".deb-Paket",
+      "note": "Die Builds kommen mit dem ersten Release."
+    },
+    "extension": {
+      "name": "Browser-Erweiterung",
+      "tagline": "Ein Seitenpanel für Chrome und Edge. Markiere Text auf jeder Seite, rechtsklicke und öffne ihn im passenden Tool.",
+      "store": "Chrome Web Store",
+      "note": "Wartet auf die Store-Prüfung — bald hier verfügbar."
+    },
+    "webNote": "Lieber im Browser? <link>Tools öffnen</link>."
   },
   "common": {
     "input": "Eingabe",
