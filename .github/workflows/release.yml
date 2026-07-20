@@ -1,0 +1,79 @@
+name: release
+
+# Build the desktop installers on a real machine per platform — Tauri cannot
+# cross-compile Linux packages from Windows, so each target gets its own runner.
+# Push a version tag (v0.1.0) to build, or run it by hand from the Actions tab.
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+# tauri-action creates the GitHub Release and uploads the installers to it.
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Windows → .msi (WiX) and .exe (NSIS).
+          - platform: windows-latest
+          # Ubuntu 22.04 → .deb, .rpm and .AppImage. Building on the oldest
+          # supported Ubuntu keeps the glibc requirement low, so the packages
+          # run on as many distros as possible.
+          - platform: ubuntu-22.04
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache Rust build
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri -> target
+
+      - name: Install Linux dependencies
+        if: matrix.platform == 'ubuntu-22.04'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev \
+            libappindicator3-dev \
+            librsvg2-dev \
+            patchelf \
+            libxdo-dev \
+            build-essential \
+            file
+
+      # Installs the whole workspace from the root lockfile; npm hoists the
+      # shared packages so the desktop app's Vite build can reach them.
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and release
+        uses: tauri-apps/tauri-action@v0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          projectPath: apps/desktop
+          # __VERSION__ is filled from the app version in tauri.conf.json, so the
+          # tag and title always match the build. Draft, so it can be checked
+          # before it goes public — the download page links to the latest
+          # published release, never a draft.
+          tagName: v__VERSION__
+          releaseName: QuiverKit v__VERSION__
+          releaseDraft: true
+          prerelease: false
