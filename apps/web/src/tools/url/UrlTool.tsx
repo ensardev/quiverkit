@@ -8,6 +8,7 @@ import {
 } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import {
   CodeArea,
   CopyButton,
@@ -24,7 +25,7 @@ export default function UrlTool() {
   const { t } = useTranslation()
   const [mode, setMode] = useState<Mode>('encode')
   const [whole, setWhole] = useState(false)
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput } = useToolInput()
 
   const text: Result<string> | null = useMemo(() => {
     if (input === '' || mode === 'parse') return null

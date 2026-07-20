@@ -1,13 +1,14 @@
 import { CRON_PRESETS, nextRuns, parseCron } from '@quiverkit/core'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { Button, DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 const FIELD_KEYS = ['minutes', 'hours', 'daysOfMonth', 'months', 'daysOfWeek'] as const
 
 export default function CronTool() {
   const { t, i18n } = useTranslation()
-  const [expression, setExpression] = useState('*/15 9-17 * * mon-fri')
+  const { value: expression, setValue: setExpression } = useToolInput('*/15 9-17 * * mon-fri')
 
   const schedule = useMemo(() => parseCron(expression), [expression])
 

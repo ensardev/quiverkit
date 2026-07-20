@@ -1,6 +1,7 @@
 import { base32ToText, base58ToText, textToBase32, textToBase58 } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
 
 type Alphabet = 'base32' | 'base58'
@@ -10,7 +11,7 @@ export default function BaseEncodingTool() {
   const { t } = useTranslation()
   const [alphabet, setAlphabet] = useState<Alphabet>('base32')
   const [direction, setDirection] = useState<Direction>('encode')
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput } = useToolInput()
 
   const result = useMemo(() => {
     if (input === '') return null

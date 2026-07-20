@@ -1,6 +1,7 @@
 import { describeTimestamp, parseTimestamp } from '@quiverkit/core'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { Button, DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 function unixNow(): string {
@@ -9,7 +10,7 @@ function unixNow(): string {
 
 export default function TimestampTool() {
   const { t, i18n } = useTranslation()
-  const [input, setInput] = useState(unixNow)
+  const { value: input, setValue: setInput } = useToolInput(unixNow())
 
   const result = useMemo(() => parseTimestamp(input), [input])
 

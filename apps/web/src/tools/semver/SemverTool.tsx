@@ -1,11 +1,12 @@
 import { compareSemver, parseSemver, satisfies } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 export default function SemverTool() {
   const { t } = useTranslation()
-  const [left, setLeft] = useState('1.2.3')
+  const { value: left, setValue: setLeft } = useToolInput('1.2.3')
   const [right, setRight] = useState('1.10.0')
   const [range, setRange] = useState('^1.2.0')
 

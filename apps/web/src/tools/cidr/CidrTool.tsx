@@ -1,11 +1,12 @@
 import { contains, parseCidr } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 export default function CidrTool() {
   const { t, i18n } = useTranslation()
-  const [input, setInput] = useState('192.168.1.130/24')
+  const { value: input, setValue: setInput } = useToolInput('192.168.1.130/24')
   const [candidate, setCandidate] = useState('')
 
   const result = useMemo(() => parseCidr(input), [input])

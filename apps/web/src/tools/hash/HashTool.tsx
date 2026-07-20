@@ -1,13 +1,14 @@
 import { HASH_ALGORITHMS, hashText, hmac, type HashAlgorithm } from '@quiverkit/core'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { CodeArea, DataRow, Panel, ToolShell } from '@/components/ui'
 
 type Digests = Partial<Record<HashAlgorithm, string>>
 
 export default function HashTool() {
   const { t } = useTranslation()
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput } = useToolInput()
   const [secret, setSecret] = useState('')
   const [digests, setDigests] = useState<Digests>({})
 

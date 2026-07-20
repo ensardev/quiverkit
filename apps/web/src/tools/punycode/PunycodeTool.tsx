@@ -1,6 +1,7 @@
 import { fromPunycode, toPunycode } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
 
 type Direction = 'encode' | 'decode'
@@ -10,7 +11,7 @@ const EXAMPLES = ['münchen.de', '日本語.jp', 'xn--mnchen-3ya.de']
 export default function PunycodeTool() {
   const { t } = useTranslation()
   const [direction, setDirection] = useState<Direction>('encode')
-  const [input, setInput] = useState('münchen.de')
+  const { value: input, setValue: setInput } = useToolInput('münchen.de')
 
   const result = useMemo(
     () => (input.trim() === '' ? null : direction === 'encode' ? toPunycode(input) : fromPunycode(input)),

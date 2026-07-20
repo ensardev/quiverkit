@@ -1,6 +1,7 @@
 import { ESCAPE_FLAVOURS, escapeText, unescapeText, type EscapeFlavour } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
 
 type Direction = 'escape' | 'unescape'
@@ -9,7 +10,7 @@ export default function EscapeTool() {
   const { t } = useTranslation()
   const [flavour, setFlavour] = useState<EscapeFlavour>('json')
   const [direction, setDirection] = useState<Direction>('escape')
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput } = useToolInput()
 
   const result = useMemo(() => {
     if (input === '') return null

@@ -1,6 +1,7 @@
 import { formatDumpRow, hexDump, hexToText, textToHex } from '@quiverkit/core'
 import { useMemo, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import { CodeArea, CopyButton, ErrorNote, Panel, SegmentedControl, ToolShell } from '@/components/ui'
 
 type Mode = 'encode' | 'decode' | 'dump'
@@ -8,7 +9,7 @@ type Mode = 'encode' | 'decode' | 'dump'
 export default function HexTool() {
   const { t } = useTranslation()
   const [mode, setMode] = useState<Mode>('encode')
-  const [input, setInput] = useState('')
+  const { value: input, setValue: setInput } = useToolInput()
   const [dump, setDump] = useState<string>('')
   const [fileName, setFileName] = useState('')
   const picker = useRef<HTMLInputElement>(null)

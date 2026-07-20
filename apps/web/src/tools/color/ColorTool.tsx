@@ -1,6 +1,7 @@
 import { blend, checkContrast, parseColor, toHex, toHsl, toOklch, type Rgb } from '@quiverkit/core'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useToolInput } from '@/hooks/useToolInput'
 import ColorPicker from '@/components/ColorPicker'
 import { DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
@@ -69,7 +70,7 @@ function Badge({ label, passes }: { label: string; passes: boolean }) {
 
 export default function ColorTool() {
   const { t } = useTranslation()
-  const [foreground, setForeground] = useState('#1c1917')
+  const { value: foreground, setValue: setForeground } = useToolInput('#1c1917')
   const [background, setBackground] = useState('#faf9f7')
 
   const parsedForeground = useMemo(() => parseColor(foreground), [foreground])
