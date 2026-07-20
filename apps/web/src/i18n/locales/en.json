@@ -9,6 +9,7 @@
     "browse": "All tools"
   },
   "nav": {
+    "back": "Back",
     "search": "Search tools",
     "searchHint": "Press / to search",
     "noResults": "Nothing matches “{{query}}”"

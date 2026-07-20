@@ -9,6 +9,7 @@
     "browse": "Todas las herramientas"
   },
   "nav": {
+    "back": "Atrás",
     "search": "Buscar herramientas",
     "searchHint": "Pulsa / para buscar",
     "noResults": "Nada coincide con «{{query}}»"

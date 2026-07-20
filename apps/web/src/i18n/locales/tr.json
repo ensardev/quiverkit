@@ -9,6 +9,7 @@
     "browse": "Tüm araçlar"
   },
   "nav": {
+    "back": "Geri",
     "search": "Araç ara",
     "searchHint": "Aramak için / tuşuna bas",
     "noResults": "“{{query}}” ile eşleşen bir şey yok"

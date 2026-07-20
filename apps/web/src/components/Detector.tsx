@@ -1,5 +1,5 @@
 import { detect, type Detection } from '@quiverkit/core'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { findTool } from '@/tools/registry'
@@ -20,11 +20,22 @@ interface DetectorProps {
   /** The home page gives it more room than the sidebar tool page does. */
   rows?: number
   autoFocus?: boolean
+  /**
+   * Text handed in from outside — the extension fills this with whatever was
+   * selected on the page before the panel opened.
+   */
+  initialValue?: string
 }
 
-export default function Detector({ rows = 4, autoFocus = false }: DetectorProps) {
+export default function Detector({ rows = 4, autoFocus = false, initialValue = '' }: DetectorProps) {
   const { t } = useTranslation()
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState(initialValue)
+
+  // A second selection can arrive while the panel is already open, and nothing
+  // remounts in that case.
+  useEffect(() => {
+    if (initialValue !== '') setInput(initialValue)
+  }, [initialValue])
 
   const results = useMemo(() => detect(input), [input])
 
