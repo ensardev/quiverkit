@@ -755,6 +755,7 @@
     "cert": {
       "name": "Certificate Decoder",
       "description": "Decode a PEM X.509 certificate and inspect its fields — no upload, all local.",
+      "input": "Certificate",
       "decode": "Decode",
       "working": "Decoding…",
       "subject": "Subject",

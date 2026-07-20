@@ -755,6 +755,7 @@
     "cert": {
       "name": "Sertifika Çözücü",
       "description": "PEM X.509 sertifikasını çöz ve alanlarını incele — tamamen yerelde.",
+      "input": "Sertifika",
       "decode": "Çöz",
       "working": "Çözülüyor…",
       "subject": "Konu",

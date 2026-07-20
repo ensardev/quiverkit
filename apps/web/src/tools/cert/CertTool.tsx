@@ -37,7 +37,7 @@ export default function CertTool() {
 
   return (
     <ToolShell id="cert">
-      <div className="flex flex-wrap items-center gap-3">
+      <Panel label={t('tools.cert.input')}>
         <CodeArea
           value={input}
           onChange={setInput}
@@ -45,7 +45,7 @@ export default function CertTool() {
 MIID...
 -----END CERTIFICATE-----"
         />
-      </div>
+      </Panel>
 
       <button
         type="button"

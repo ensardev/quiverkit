@@ -755,6 +755,7 @@
     "cert": {
       "name": "Decodificador de Certificados",
       "description": "Decodifica un certificado X.509 en formato PEM e inspecciona sus campos.",
+      "input": "Certificado",
       "decode": "Decodificar",
       "working": "Decodificando…",
       "subject": "Sujeto",
