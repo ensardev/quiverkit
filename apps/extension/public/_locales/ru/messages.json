@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "QuiverKit",
+    "description": "Extension name shown in the store and the toolbar."
+  },
+  "appDescription": {
+    "message": "Более 60 инструментов разработчика в боковой панели. Всё работает на вашем компьютере: без загрузки и отслеживания.",
+    "description": "Store listing description."
+  },
+  "contextMenu": {
+    "message": "Открыть в QuiverKit",
+    "description": "Right-click menu entry shown when text is selected."
+  }
+}

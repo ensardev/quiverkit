@@ -12,7 +12,8 @@ const MENU_ID = 'quiverkit-open'
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: MENU_ID,
-    title: 'Open in QuiverKit',
+    // From _locales, so the menu speaks whatever language Chrome is set to.
+    title: chrome.i18n.getMessage('contextMenu'),
     contexts: ['selection'],
   })
 

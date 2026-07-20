@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "QuiverKit",
+    "description": "Extension name shown in the store and the toolbar."
+  },
+  "appDescription": {
+    "message": "Yan panelde 60+ geliştirici aracı. Her şey senin makinende çalışır — yükleme yok, hesap yok, takip yok.",
+    "description": "Store listing description."
+  },
+  "contextMenu": {
+    "message": "QuiverKit ile aç",
+    "description": "Right-click menu entry shown when text is selected."
+  }
+}

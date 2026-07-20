@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "QuiverKit",
+    "description": "Extension name shown in the store and the toolbar."
+  },
+  "appDescription": {
+    "message": "侧边栏中的 60 多款开发者工具。一切都在你的设备上运行：无需上传、无需账号、不做追踪。",
+    "description": "Store listing description."
+  },
+  "contextMenu": {
+    "message": "在 QuiverKit 中打开",
+    "description": "Right-click menu entry shown when text is selected."
+  }
+}

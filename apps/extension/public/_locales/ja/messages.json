@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "QuiverKit",
+    "description": "Extension name shown in the store and the toolbar."
+  },
+  "appDescription": {
+    "message": "サイドパネルで使える60以上の開発者ツール。すべて手元の端末で動作します。アップロードなし、アカウントなし、追跡なし。",
+    "description": "Store listing description."
+  },
+  "contextMenu": {
+    "message": "QuiverKit で開く",
+    "description": "Right-click menu entry shown when text is selected."
+  }
+}

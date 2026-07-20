@@ -1,0 +1,14 @@
+{
+  "appName": {
+    "message": "QuiverKit",
+    "description": "Extension name shown in the store and the toolbar."
+  },
+  "appDescription": {
+    "message": "사이드 패널에서 쓰는 60가지 이상의 개발자 도구. 모든 작업이 내 기기에서 실행됩니다. 업로드, 계정, 추적 없음.",
+    "description": "Store listing description."
+  },
+  "contextMenu": {
+    "message": "QuiverKit에서 열기",
+    "description": "Right-click menu entry shown when text is selected."
+  }
+}
