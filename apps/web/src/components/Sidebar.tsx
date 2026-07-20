@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
 import LanguagePicker from '@/components/LanguagePicker'
 import ThemeToggle from '@/components/ThemeToggle'
+import { NetworkBadge } from '@/components/ui'
 import { CATEGORY_ORDER, findTool, TOOLS, type Tool, type ToolCategory } from '@/tools/registry'
 
 const STORAGE_KEY = 'quiverkit.openCategories'
@@ -147,14 +148,15 @@ export default function Sidebar() {
                         <NavLink
                           to={`/${tool.id}`}
                           className={({ isActive }) =>
-                            `block rounded-lg py-1.5 pr-3 pl-6 text-sm transition-colors ${
+                            `flex items-center gap-2 rounded-lg py-1.5 pr-3 pl-6 text-sm transition-colors ${
                               isActive
                                 ? 'bg-accent-soft text-accent font-medium'
                                 : 'text-muted hover:text-ink hover:bg-hover'
                             }`
                           }
                         >
-                          {t(`tools.${tool.id}.name`)}
+                          <span className="truncate">{t(`tools.${tool.id}.name`)}</span>
+                          {tool.network && <NetworkBadge compact />}
                         </NavLink>
                       </li>
                     ))}

@@ -33,6 +33,11 @@ export type ToolError =
   | 'error.invalidXml'
   | 'error.invalidPath'
   | 'error.invalidSvg'
+  | 'error.invalidBase32'
+  | 'error.invalidBase58'
+  | 'error.invalidSecret'
+  | 'error.invalidDomain'
+  | 'error.networkFailed'
 
 export type Result<T> =
   | { readonly ok: true; readonly value: T }

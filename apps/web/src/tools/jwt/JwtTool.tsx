@@ -1,17 +1,41 @@
-import { claimAsDate, decodeJwt } from '@quiverkit/core'
-import { useMemo, useState } from 'react'
+import { claimAsDate, decodeJwt, verifyJwt, type VerifyOutcome } from '@quiverkit/core'
+import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { CodeArea, CopyButton, DataRow, ErrorNote, Panel, ToolShell } from '@/components/ui'
 
 /** Claims that carry a unix time and are worth showing as a real date. */
 const TIME_CLAIMS = ['iat', 'nbf', 'exp'] as const
 
+const OUTCOME_STYLES: Record<VerifyOutcome, string> = {
+  valid: 'bg-accent-soft text-accent',
+  invalid: 'bg-danger-soft text-danger',
+  unsupported: 'bg-hover text-muted',
+}
+
 export default function JwtTool() {
   const { t, i18n } = useTranslation()
   const [token, setToken] = useState('')
+  const [secret, setSecret] = useState('')
+  const [outcome, setOutcome] = useState<VerifyOutcome | null>(null)
 
   const result = useMemo(() => (token === '' ? null : decodeJwt(token)), [token])
   const decoded = result?.ok ? result.value : null
+
+  useEffect(() => {
+    if (!decoded || secret === '') {
+      setOutcome(null)
+      return
+    }
+
+    let current = true
+    void verifyJwt(token, secret).then((verified) => {
+      if (current) setOutcome(verified.ok ? verified.value : null)
+    })
+
+    return () => {
+      current = false
+    }
+  }, [token, secret, decoded])
 
   const dates = useMemo(() => {
     if (!decoded) return []
@@ -95,6 +119,24 @@ export default function JwtTool() {
               </div>
             </Panel>
           )}
+
+          <Panel label={t('tools.jwt.verify')}>
+            <div className="space-y-3 p-4">
+              <input
+                type="password"
+                value={secret}
+                onChange={(event) => setSecret(event.target.value)}
+                placeholder={t('tools.jwt.secretPlaceholder')}
+                className="border-line bg-sunken placeholder:text-muted focus:border-accent w-full rounded-lg border px-3 py-2 font-mono text-sm transition-colors focus:outline-none"
+              />
+              {outcome && (
+                <p className={`rounded-lg px-3 py-2 text-sm ${OUTCOME_STYLES[outcome]}`}>
+                  {t(`tools.jwt.outcome.${outcome}`, { algorithm: String(decoded.header.alg ?? '?') })}
+                </p>
+              )}
+              <p className="text-muted text-sm">{t('tools.jwt.verifyNote')}</p>
+            </div>
+          </Panel>
 
           <p className="text-muted text-sm">{t('tools.jwt.signatureNote')}</p>
         </>

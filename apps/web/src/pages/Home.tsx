@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { NetworkBadge } from '@/components/ui'
 import { CATEGORY_ORDER, TOOLS } from '@/tools/registry'
 
 export default function Home() {
@@ -34,7 +35,10 @@ export default function Home() {
                     to={`/${tool.id}`}
                     className="border-line bg-surface hover:border-accent block h-full rounded-xl border p-4 transition-colors"
                   >
-                    <h3 className="font-medium">{t(`tools.${tool.id}.name`)}</h3>
+                    <h3 className="flex items-center gap-2 font-medium">
+                      {t(`tools.${tool.id}.name`)}
+                      {tool.network && <NetworkBadge compact />}
+                    </h3>
                     <p className="text-muted mt-1 text-sm">{t(`tools.${tool.id}.description`)}</p>
                   </Link>
                 </li>

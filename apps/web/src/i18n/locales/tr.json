@@ -34,6 +34,11 @@
     "badge": "Çevrimdışı çalışır",
     "note": "Buraya yazdığın hiçbir şey hiçbir yere gönderilmiyor."
   },
+  "network": {
+    "badge": "Ağa çıkar",
+    "short": "ağ",
+    "tooltip": "Bu araç bir sunucuya bağlanmak zorunda. Diğer her şey tamamen tarayıcında çalışır."
+  },
   "category": {
     "encoding": "Kodlama",
     "formatting": "Biçimlendirme",
@@ -72,7 +77,12 @@
     "invalidHex": "Hex çift sayıda basamak gerektirir.",
     "invalidXml": "Bu işaretleme okunamıyor.",
     "invalidPath": "Bu yol okunamıyor.",
-    "invalidSvg": "Bunun içinde <svg> öğesi yok."
+    "invalidSvg": "Bunun içinde <svg> öğesi yok.",
+    "invalidBase32": "Base32 yalnızca A–Z ve 2–7 kullanır.",
+    "invalidBase58": "Base58, 0, O, I ve l harflerini bilerek dışarıda bırakır.",
+    "invalidSecret": "Bu geçerli bir Base32 gizli anahtarı değil.",
+    "invalidDomain": "Bir alan adı yaz, example.com gibi.",
+    "networkFailed": "İstek başarısız oldu. Bağlantını ya da sorduğun adı kontrol et."
   },
   "tools": {
     "base64": {
@@ -91,7 +101,15 @@
       "claims": "Zaman alanları",
       "expired": "{{date}} tarihinde süresi doldu",
       "validUntil": "{{date}} tarihine kadar geçerli",
-      "signatureNote": "İmza gösteriliyor ama doğrulanmıyor: doğrulamak için imzalama anahtarı gerekir, ve senden anahtarını isteyen bir araç kullanmaman gereken bir araçtır.",
+      "verify": "İmzayı doğrula",
+      "secretPlaceholder": "HMAC anahtarı, varsa",
+      "verifyNote": "Yalnızca HS256, HS384 ve HS512 doğrulanabilir; çünkü bunlarda doğrulama anahtarı ile imzalama anahtarı aynıdır. Alanı boş bırakırsan doğrulama yapılmaz.",
+      "outcome": {
+        "valid": "İmza bu anahtarla eşleşiyor.",
+        "invalid": "İmza eşleşmiyor.",
+        "unsupported": "{{algorithm}} açık anahtarla doğrulanır, bu araç onu taşımıyor."
+      },
+      "signatureNote": "Buraya yapıştırdığın hiçbir şey sayfadan çıkmaz, ama herhangi bir siteye yapıştırılan bir üretim anahtarı ele geçirilmiş sayılmalıdır.",
       "claim": {
         "iat": "oluşturulma",
         "nbf": "şu tarihten önce geçersiz",
@@ -366,6 +384,67 @@
       "clean": "Üst veri bulunamadı. Bu dosya olduğu gibi paylaşılabilir.",
       "download": "Üst verisiz indir",
       "note": "Temizleme yalnızca üst veri bölümlerini kaldırır, görüntü verisini bayt bayt kopyalar — hiçbir şey yeniden kodlanmaz, kalite kaybı olmaz. Dosya tarayıcından hiç çıkmaz."
+    },
+    "baseEncoding": {
+      "name": "Base32 & Base58",
+      "description": "Base64'ün kapsamadığı iki alfabe.",
+      "encode": "Kodla",
+      "decode": "Çöz",
+      "hint": {
+        "base32": "RFC 4648. Yalnızca A–Z ve 2–7 kullanır; sesli okunmaya ve elle yazılmaya dayanır — kimlik doğrulayıcı anahtarlarının bunu kullanmasının sebebi budur.",
+        "base58": "Bitcoin'in alfabesi: Base64'ten 0, O, I, l ve iki sembol çıkarılmış hâli, yani hiçbir karakter yanlış okunamaz. Kodlama bit paketleme değil, sayının tamamının taban değişimidir."
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "Uluslararası bir alan adını xn-- biçimine çevir ve geri al.",
+      "encode": "Punycode'a",
+      "decode": "Unicode'a",
+      "note": "Her etiket ayrı ayrı çevrilir, çünkü nokta hiçbir zaman kodlanmaz. Homograf saldırıları da burada saklanır: iki alan adı birebir aynı görünüp farklı kodlanabilir."
+    },
+    "totp": {
+      "name": "TOTP Üretici",
+      "description": "Base32 bir gizli anahtardan altı haneli kodu üret — kimlik doğrulayıcı uygulama gibi.",
+      "code": "Şu anki kod",
+      "remaining": "{{seconds}}sn kaldı",
+      "note": "otpauth:// bağlantısını yapıştırırsan bütün alanlar kendiliğinden dolar. Anahtar sayfadan çıkmaz — ama herhangi bir siteye yapıştırılan bir anahtar sonrasında değiştirilmelidir; burası bir hata ayıklama aracıdır, kimlik doğrulayıcının yerine geçmez."
+    },
+    "vision": {
+      "name": "Renk Görüşü",
+      "description": "İki rengin renk körü kullanıcılar için ayırt edilebilir kalıp kalmadığını gör.",
+      "comparison": "Yan yana",
+      "simulated": "Birinci renk, simüle edilmiş",
+      "tooClose": "Çok yakın",
+      "distinct": "Hâlâ ayrı",
+      "type": {
+        "normal": "Normal görüş",
+        "protanopia": "Protanopi",
+        "deuteranopia": "Döteranopi",
+        "tritanopia": "Tritanopi",
+        "achromatopsia": "Renksiz"
+      },
+      "note": "Tek başına döteranopi her on iki erkekten birini etkiliyor. Kırmızıyı yeşilden ayıran bir palet onlar için çöker; maviyi sarıdan ayıran ayakta kalır — bu yüzden durum renkleri yalnızca tonda değil, parlaklıkta da farklılaşmalı."
+    },
+    "favicon": {
+      "name": "Favicon Üretici",
+      "description": "Tek bir görselden bir sitenin ihtiyaç duyduğu bütün ikon boyutlarını üret.",
+      "drop": "Görseli buraya bırak",
+      "dropHint": "ya da seçmek için tıkla",
+      "sizes": "Boyutlar",
+      "download": "İndir",
+      "snippet": "HTML",
+      "note": "Kare olmayan bir görsel ezilmek yerine ortasından kırpılır. Her şey burada canvas üzerinde çizilir, görsel hiçbir yere yüklenmez."
+    },
+    "dns": {
+      "name": "DNS Sorgusu",
+      "description": "Bir alan adının kayıtlarını çöz.",
+      "warningTitle": "Bu araç tarayıcından çıkar",
+      "warning": "Sorgu {{resolver}} adresine gönderilir ve orası hangi alan adını sorduğunu görür. Buradaki diğer her araç tamamen senin makinende çalışır.",
+      "lookup": "Sorgula",
+      "working": "Soruluyor…",
+      "records": "Kayıtlar ({{count}})",
+      "empty": "Bu türde kayıt yok.",
+      "note": "Bir adı çözmek bir çözümleyiciye sormak demektir — bunun çevrimdışı yolu yok. İstek DNS-over-HTTPS ile gider, yani internet sağlayıcın okuyamaz; ama çözümleyici okur."
     },
     "cron": {
       "name": "Cron İfadesi",

@@ -134,6 +134,30 @@ export function ErrorNote({ children }: { children: ReactNode }) {
   )
 }
 
+/**
+ * Marks the few tools that reach the network. It appears in the sidebar, on the
+ * home page and inside the tool itself, because a privacy promise is only worth
+ * anything if its exceptions are impossible to miss.
+ */
+export function NetworkBadge({ compact = false }: { compact?: boolean }) {
+  const { t } = useTranslation()
+
+  return (
+    <span
+      title={t('network.tooltip')}
+      className={`inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-500/15 font-medium text-amber-700 dark:text-amber-300 ${
+        compact ? 'px-1.5 py-0.5 text-[10px]' : 'px-2 py-0.5 text-xs'
+      }`}
+    >
+      <svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="3">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18" />
+      </svg>
+      {compact ? t('network.short') : t('network.badge')}
+    </span>
+  )
+}
+
 interface LocaleSelectProps {
   value: string
   onChange: (locale: string) => void

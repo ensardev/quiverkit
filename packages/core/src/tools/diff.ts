@@ -57,6 +57,58 @@ function lcsTable(left: string[], right: string[]): number[][] {
   return table
 }
 
+export interface WordChange {
+  value: string
+  operation: DiffOperation
+}
+
+/**
+ * Compares two lines word by word so a changed line shows what actually moved
+ * rather than lighting up whole. Splitting keeps the separators as their own
+ * tokens, otherwise rebuilding the line would lose its spacing.
+ */
+export function diffWords(left: string, right: string): WordChange[] {
+  const split = (text: string) => text.split(/(\s+)/).filter((part) => part !== '')
+  const leftWords = split(left)
+  const rightWords = split(right)
+  const table = lcsTable(leftWords, rightWords)
+
+  const changes: WordChange[] = []
+  let row = 0
+  let column = 0
+
+  const push = (value: string, operation: DiffOperation) => {
+    const last = changes[changes.length - 1]
+    if (last && last.operation === operation) last.value += value
+    else changes.push({ value, operation })
+  }
+
+  while (row < leftWords.length && column < rightWords.length) {
+    if (leftWords[row] === rightWords[column]) {
+      push(leftWords[row] as string, 'equal')
+      row += 1
+      column += 1
+      continue
+    }
+
+    const down = (table[row + 1] as number[])[column] as number
+    const across = (table[row] as number[])[column + 1] as number
+
+    if (down >= across) {
+      push(leftWords[row] as string, 'delete')
+      row += 1
+    } else {
+      push(rightWords[column] as string, 'insert')
+      column += 1
+    }
+  }
+
+  while (row < leftWords.length) push(leftWords[row++] as string, 'delete')
+  while (column < rightWords.length) push(rightWords[column++] as string, 'insert')
+
+  return changes
+}
+
 export function diffLines(
   leftText: string,
   rightText: string,

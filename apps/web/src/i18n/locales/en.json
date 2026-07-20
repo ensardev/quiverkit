@@ -34,6 +34,11 @@
     "badge": "Runs offline",
     "note": "Nothing you type here is sent anywhere."
   },
+  "network": {
+    "badge": "Goes online",
+    "short": "net",
+    "tooltip": "This tool has to contact a server. Everything else runs entirely in your browser."
+  },
   "category": {
     "encoding": "Encoding",
     "formatting": "Formatting",
@@ -72,7 +77,12 @@
     "invalidHex": "Hex needs an even number of digits.",
     "invalidXml": "This markup cannot be read.",
     "invalidPath": "This path cannot be read.",
-    "invalidSvg": "This does not contain an <svg> element."
+    "invalidSvg": "This does not contain an <svg> element.",
+    "invalidBase32": "Base32 uses A–Z and 2–7 only.",
+    "invalidBase58": "Base58 leaves out 0, O, I and l on purpose.",
+    "invalidSecret": "This is not a valid Base32 secret.",
+    "invalidDomain": "Enter a domain name, like example.com.",
+    "networkFailed": "The request failed. Check your connection, or the name you asked for."
   },
   "tools": {
     "base64": {
@@ -91,7 +101,15 @@
       "claims": "Time claims",
       "expired": "Expired on {{date}}",
       "validUntil": "Valid until {{date}}",
-      "signatureNote": "The signature is shown but not verified: checking it needs the signing key, and a tool that asks for your key is a tool you should not use.",
+      "verify": "Verify signature",
+      "secretPlaceholder": "HMAC secret, if you have it",
+      "verifyNote": "Only the HS256, HS384 and HS512 algorithms can be checked here, because those verify with the same key that signs. Leave the field empty to skip verification.",
+      "outcome": {
+        "valid": "The signature matches this secret.",
+        "invalid": "The signature does not match.",
+        "unsupported": "{{algorithm}} verifies with a public key, which this tool does not carry."
+      },
+      "signatureNote": "Nothing you paste here leaves the page, but a production secret pasted into any website should be treated as compromised.",
       "claim": {
         "iat": "issued at",
         "nbf": "not valid before",
@@ -366,6 +384,67 @@
       "clean": "No metadata found. This file is safe to share as it is.",
       "download": "Download without metadata",
       "note": "Stripping removes the metadata segments and copies the image data byte for byte, so nothing is re-encoded and no quality is lost. The file never leaves your browser."
+    },
+    "baseEncoding": {
+      "name": "Base32 & Base58",
+      "description": "The two alphabets Base64 does not cover.",
+      "encode": "Encode",
+      "decode": "Decode",
+      "hint": {
+        "base32": "RFC 4648. Uses A–Z and 2–7 only, so it survives being read aloud or typed by hand — which is why authenticator secrets use it.",
+        "base58": "Bitcoin's alphabet: Base64 without 0, O, I, l and the two symbols, so nothing can be misread. Encoding is a base change on the whole number, not a bit-packing."
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "Convert an internationalised domain to its xn-- form and back.",
+      "encode": "To Punycode",
+      "decode": "To Unicode",
+      "note": "Each label is converted on its own, since a dot is never encoded. This is also how homograph attacks hide: two domains can look identical and encode differently."
+    },
+    "totp": {
+      "name": "TOTP Generator",
+      "description": "Produce the six-digit code from a Base32 secret, like an authenticator app.",
+      "code": "Current code",
+      "remaining": "{{seconds}}s left",
+      "note": "Paste an otpauth:// URI and every field fills itself. The secret never leaves this page — but a secret pasted into any website should be rotated afterwards, and this is a debugging aid rather than a replacement for your authenticator."
+    },
+    "vision": {
+      "name": "Colour Vision",
+      "description": "See how a pair of colours holds up for colour-blind viewers.",
+      "comparison": "Side by side",
+      "simulated": "First colour, simulated",
+      "tooClose": "Too close",
+      "distinct": "Still distinct",
+      "type": {
+        "normal": "Normal vision",
+        "protanopia": "Protanopia",
+        "deuteranopia": "Deuteranopia",
+        "tritanopia": "Tritanopia",
+        "achromatopsia": "No colour"
+      },
+      "note": "Deuteranopia alone affects roughly one man in twelve. A palette that separates red from green collapses for them; one that separates blue from yellow survives — which is why status colours should differ in lightness too, not only in hue."
+    },
+    "favicon": {
+      "name": "Favicon Generator",
+      "description": "Turn one image into every icon size a site needs.",
+      "drop": "Drop an image here",
+      "dropHint": "or click to choose one",
+      "sizes": "Sizes",
+      "download": "Download",
+      "snippet": "HTML",
+      "note": "A non-square image is cropped from the centre rather than squashed. Everything is drawn on a canvas here, so the image is never uploaded."
+    },
+    "dns": {
+      "name": "DNS Lookup",
+      "description": "Resolve a domain's records.",
+      "warningTitle": "This one leaves your browser",
+      "warning": "The lookup is sent to {{resolver}}, which will see the domain you asked about. Every other tool here runs entirely on your machine.",
+      "lookup": "Look up",
+      "working": "Asking…",
+      "records": "Records ({{count}})",
+      "empty": "No records of this type.",
+      "note": "Resolving a name means asking a resolver — there is no offline way to do it. The request goes over DNS-over-HTTPS, so your network provider cannot read it, but the resolver can."
     },
     "cron": {
       "name": "Cron Expression",

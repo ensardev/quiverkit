@@ -38,7 +38,51 @@ export {
 
 export { contains, parseCidr, type CidrInfo } from './tools/cidr.js'
 
+export {
+  base32ToText,
+  base58ToText,
+  decodeBase32,
+  decodeBase58,
+  encodeBase32,
+  encodeBase58,
+  textToBase32,
+  textToBase58,
+} from './tools/baseEncoding.js'
+
 export { applyCipher, CIPHERS, reverseCipher, type Cipher } from './tools/cipher.js'
+
+export {
+  buildQueryUrl,
+  describeTtl,
+  parseResponse,
+  RECORD_TYPES,
+  RESOLVER,
+  type DnsRecord,
+  type RecordType,
+} from './tools/dns.js'
+
+export { fromPunycode, toPunycode } from './tools/punycode.js'
+
+export {
+  DEFAULT_TOTP,
+  generateTotp,
+  parseOtpUri,
+  TOTP_ALGORITHMS,
+  type OtpUri,
+  type TotpAlgorithm,
+  type TotpCode,
+  type TotpOptions,
+} from './tools/totp.js'
+
+export {
+  comparePair,
+  distanceUnder,
+  simulate,
+  simulateAll,
+  VISION_TYPES,
+  type VisionType,
+  type VisionView,
+} from './tools/vision.js'
 
 export { CRON_PRESETS, nextRuns, parseCron, type CronSchedule } from './tools/cron.js'
 
@@ -179,10 +223,12 @@ export {
 
 export {
   diffLines,
+  diffWords,
   type DiffLine,
   type DiffOperation,
   type DiffOptions,
   type DiffSummary,
+  type WordChange,
 } from './tools/diff.js'
 
 export {
@@ -239,7 +285,13 @@ export {
 
 export { formatJson, minifyJson, sortJsonKeys } from './tools/json.js'
 
-export { claimAsDate, decodeJwt, type DecodedJwt } from './tools/jwt.js'
+export {
+  claimAsDate,
+  decodeJwt,
+  verifyJwt,
+  type DecodedJwt,
+  type VerifyOutcome,
+} from './tools/jwt.js'
 
 export {
   CASE_STYLES,

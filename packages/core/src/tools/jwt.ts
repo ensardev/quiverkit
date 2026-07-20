@@ -45,6 +45,56 @@ export function decodeJwt(token: string): Result<DecodedJwt> {
   return ok({ header, payload, signature })
 }
 
+const HMAC_ALGORITHMS: Record<string, string> = {
+  HS256: 'SHA-256',
+  HS384: 'SHA-384',
+  HS512: 'SHA-512',
+}
+
+export type VerifyOutcome = 'valid' | 'invalid' | 'unsupported'
+
+/**
+ * Only the HMAC family can be checked here, because those are the algorithms
+ * where the verifying key is the signing key. RS256 and friends verify with a
+ * public key, which is safe to paste — but they need certificate parsing that
+ * this tool deliberately does not carry.
+ *
+ * A token whose header says `alg: none` is reported invalid rather than valid:
+ * accepting it is the classic JWT vulnerability.
+ */
+export async function verifyJwt(token: string, secret: string): Promise<Result<VerifyOutcome>> {
+  const decoded = decodeJwt(token)
+  if (!decoded.ok) return decoded
+  if (secret === '') return err('error.emptyInput')
+
+  const algorithm = String(decoded.value.header.alg ?? '').toUpperCase()
+  if (algorithm === 'NONE') return ok('invalid')
+
+  const hash = HMAC_ALGORITHMS[algorithm]
+  if (!hash) return ok('unsupported')
+
+  const [headerPart, payloadPart] = token.trim().split('.')
+  const signed = `${headerPart}.${payloadPart}`
+
+  const key = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(secret),
+    { name: 'HMAC', hash },
+    false,
+    ['sign'],
+  )
+
+  const expected = new Uint8Array(
+    await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(signed)),
+  )
+
+  let binary = ''
+  for (const byte of expected) binary += String.fromCharCode(byte)
+  const encoded = btoa(binary).replaceAll('+', '-').replaceAll('/', '_').replace(/=+$/, '')
+
+  return ok(encoded === decoded.value.signature ? 'valid' : 'invalid')
+}
+
 /** Reads a numeric claim such as `exp`, `iat` or `nbf` as a Date. */
 export function claimAsDate(payload: Record<string, unknown>, claim: string): Date | null {
   const value = payload[claim]

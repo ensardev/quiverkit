@@ -21,6 +21,13 @@ export interface Tool {
    * list only needs the aliases people actually type — "b64", "guid", "pretty".
    */
   keywords: string[]
+  /**
+   * Set on the handful of tools that cannot work without contacting a server.
+   * Everything else runs entirely in the browser, and the promise only holds if
+   * the exceptions are visible before someone types anything into them — so the
+   * sidebar and the home page both badge them.
+   */
+  network?: boolean
   Component: LazyExoticComponent<ComponentType>
 }
 
@@ -55,6 +62,18 @@ export const TOOLS: Tool[] = [
     category: 'encoding',
     keywords: ['quote', 'unescape', 'entities', 'sql', 'shell', 'backslash'],
     Component: lazy(() => import('./escape/EscapeTool')),
+  },
+  {
+    id: 'baseEncoding',
+    category: 'encoding',
+    keywords: ['base32', 'base58', 'bitcoin', 'rfc4648', 'encode'],
+    Component: lazy(() => import('./baseEncoding/BaseEncodingTool')),
+  },
+  {
+    id: 'punycode',
+    category: 'encoding',
+    keywords: ['idn', 'domain', 'unicode', 'internationalised', 'xn--'],
+    Component: lazy(() => import('./punycode/PunycodeTool')),
   },
   {
     id: 'hex',
@@ -213,6 +232,18 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./image/ImageTool')),
   },
   {
+    id: 'vision',
+    category: 'design',
+    keywords: ['colour blind', 'color blind', 'accessibility', 'a11y', 'deuteranopia'],
+    Component: lazy(() => import('./vision/VisionTool')),
+  },
+  {
+    id: 'favicon',
+    category: 'media',
+    keywords: ['icon', 'ico', 'apple touch', 'sizes', 'manifest'],
+    Component: lazy(() => import('./favicon/FaviconTool')),
+  },
+  {
     id: 'exif',
     category: 'media',
     keywords: ['metadata', 'gps', 'location', 'privacy', 'photo', 'strip'],
@@ -223,6 +254,13 @@ export const TOOLS: Tool[] = [
     category: 'network',
     keywords: ['subnet', 'netmask', 'ip', 'ipv4', 'network', 'broadcast'],
     Component: lazy(() => import('./cidr/CidrTool')),
+  },
+  {
+    id: 'dns',
+    category: 'network',
+    keywords: ['lookup', 'resolve', 'record', 'mx', 'txt', 'nameserver', 'dig'],
+    network: true,
+    Component: lazy(() => import('./dns/DnsTool')),
   },
   {
     id: 'hash',
@@ -241,6 +279,12 @@ export const TOOLS: Tool[] = [
     category: 'crypto',
     keywords: ['encrypt', 'decrypt', 'gcm', 'cipher', 'password'],
     Component: lazy(() => import('./aes/AesTool')),
+  },
+  {
+    id: 'totp',
+    category: 'crypto',
+    keywords: ['2fa', 'otp', 'authenticator', 'mfa', 'google authenticator'],
+    Component: lazy(() => import('./totp/TotpTool')),
   },
   {
     id: 'keypair',

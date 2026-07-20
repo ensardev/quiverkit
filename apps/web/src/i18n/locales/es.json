@@ -34,6 +34,11 @@
     "badge": "Funciona sin conexión",
     "note": "Nada de lo que escribes aquí se envía a ningún sitio."
   },
+  "network": {
+    "badge": "Sale a la red",
+    "short": "red",
+    "tooltip": "Esta herramienta tiene que contactar con un servidor. Todo lo demás se ejecuta íntegramente en tu navegador."
+  },
   "category": {
     "encoding": "Codificación",
     "formatting": "Formato",
@@ -72,7 +77,12 @@
     "invalidHex": "El hexadecimal necesita un número par de dígitos.",
     "invalidXml": "Este marcado no se puede leer.",
     "invalidPath": "Esta ruta no se puede leer.",
-    "invalidSvg": "Esto no contiene ningún elemento <svg>."
+    "invalidSvg": "Esto no contiene ningún elemento <svg>.",
+    "invalidBase32": "Base32 solo usa A–Z y 2–7.",
+    "invalidBase58": "Base58 deja fuera 0, O, I y l a propósito.",
+    "invalidSecret": "Este no es un secreto Base32 válido.",
+    "invalidDomain": "Escribe un nombre de dominio, como example.com.",
+    "networkFailed": "La petición falló. Revisa tu conexión o el nombre que consultaste."
   },
   "tools": {
     "base64": {
@@ -91,7 +101,15 @@
       "claims": "Campos de tiempo",
       "expired": "Caducó el {{date}}",
       "validUntil": "Válido hasta el {{date}}",
-      "signatureNote": "La firma se muestra pero no se verifica: comprobarla requiere la clave de firma, y una herramienta que te pide tu clave es una herramienta que no deberías usar.",
+      "verify": "Verificar la firma",
+      "secretPlaceholder": "Clave HMAC, si la tienes",
+      "verifyNote": "Aquí solo se pueden comprobar HS256, HS384 y HS512, porque verifican con la misma clave que firma. Deja el campo vacío para omitir la verificación.",
+      "outcome": {
+        "valid": "La firma coincide con esta clave.",
+        "invalid": "La firma no coincide.",
+        "unsupported": "{{algorithm}} se verifica con una clave pública, que esta herramienta no incluye."
+      },
+      "signatureNote": "Nada de lo que pegues aquí sale de la página, pero una clave de producción pegada en cualquier web debería darse por comprometida.",
       "claim": {
         "iat": "emitido en",
         "nbf": "no válido antes de",
@@ -366,6 +384,67 @@
       "clean": "No se encontraron metadatos. Este archivo se puede compartir tal cual.",
       "download": "Descargar sin metadatos",
       "note": "La limpieza elimina los segmentos de metadatos y copia los datos de imagen byte a byte, así que nada se recodifica y no se pierde calidad. El archivo nunca sale de tu navegador."
+    },
+    "baseEncoding": {
+      "name": "Base32 y Base58",
+      "description": "Los dos alfabetos que Base64 no cubre.",
+      "encode": "Codificar",
+      "decode": "Descodificar",
+      "hint": {
+        "base32": "RFC 4648. Usa solo A–Z y 2–7, así que aguanta que se lea en voz alta o se teclee a mano: por eso lo usan los secretos de los autenticadores.",
+        "base58": "El alfabeto de Bitcoin: Base64 sin 0, O, I, l ni los dos símbolos, para que nada se lea mal. La codificación es un cambio de base del número entero, no un empaquetado de bits."
+      }
+    },
+    "punycode": {
+      "name": "Punycode / IDN",
+      "description": "Convierte un dominio internacionalizado a su forma xn-- y de vuelta.",
+      "encode": "A Punycode",
+      "decode": "A Unicode",
+      "note": "Cada etiqueta se convierte por separado, porque un punto nunca se codifica. Así se esconden también los ataques homográficos: dos dominios pueden verse idénticos y codificarse distinto."
+    },
+    "totp": {
+      "name": "Generador TOTP",
+      "description": "Produce el código de seis dígitos a partir de un secreto Base32, como una app de autenticación.",
+      "code": "Código actual",
+      "remaining": "quedan {{seconds}}s",
+      "note": "Pega un enlace otpauth:// y todos los campos se rellenan solos. El secreto no sale de esta página, pero un secreto pegado en cualquier web debería rotarse después: esto es una ayuda de depuración, no un sustituto de tu autenticador."
+    },
+    "vision": {
+      "name": "Visión del color",
+      "description": "Comprueba si dos colores siguen distinguiéndose para personas daltónicas.",
+      "comparison": "Uno al lado del otro",
+      "simulated": "Primer color, simulado",
+      "tooClose": "Demasiado cerca",
+      "distinct": "Aún distintos",
+      "type": {
+        "normal": "Visión normal",
+        "protanopia": "Protanopía",
+        "deuteranopia": "Deuteranopía",
+        "tritanopia": "Tritanopía",
+        "achromatopsia": "Sin color"
+      },
+      "note": "Solo la deuteranopía afecta aproximadamente a uno de cada doce hombres. Una paleta que separa el rojo del verde se derrumba para ellos; una que separa el azul del amarillo aguanta, y por eso los colores de estado deberían diferir también en luminosidad, no solo en tono."
+    },
+    "favicon": {
+      "name": "Generador de favicon",
+      "description": "Convierte una imagen en todos los tamaños de icono que necesita un sitio.",
+      "drop": "Suelta una imagen aquí",
+      "dropHint": "o haz clic para elegir una",
+      "sizes": "Tamaños",
+      "download": "Descargar",
+      "snippet": "HTML",
+      "note": "Una imagen no cuadrada se recorta desde el centro en lugar de aplastarse. Todo se dibuja aquí en un canvas, así que la imagen nunca se sube."
+    },
+    "dns": {
+      "name": "Consulta DNS",
+      "description": "Resuelve los registros de un dominio.",
+      "warningTitle": "Esta sí sale de tu navegador",
+      "warning": "La consulta se envía a {{resolver}}, que verá el dominio por el que preguntaste. Todas las demás herramientas se ejecutan íntegramente en tu equipo.",
+      "lookup": "Consultar",
+      "working": "Preguntando…",
+      "records": "Registros ({{count}})",
+      "empty": "No hay registros de este tipo.",
+      "note": "Resolver un nombre implica preguntar a un resolutor: no hay forma de hacerlo sin conexión. La petición va por DNS-over-HTTPS, así que tu proveedor no puede leerla, pero el resolutor sí."
     },
     "cron": {
       "name": "Expresión cron",
