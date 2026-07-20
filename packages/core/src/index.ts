@@ -320,7 +320,22 @@ export {
   type ParsedUrl,
 } from './tools/url.js'
 
+export { decodeCertificate, type CertInfo } from './tools/cert.js'
+
 export { renderMarkdown } from './tools/markdown.js'
+
+export { formatGraphql, minifyGraphql } from './tools/graphql.js'
+
+export {
+  compressText,
+  decompressText,
+  type CompressionFormat,
+  type CompressionResult,
+} from './tools/gzip.js'
+
+export { stripHtml } from './tools/html.js'
+
+export { diffJson, type JsonDiffEntry } from './tools/jsondiff.js'
 
 export { generateQr, readQr } from './tools/qrcode.js'
 

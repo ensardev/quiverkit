@@ -40,6 +40,7 @@ export type ToolError =
   | 'error.invalidYaml'
   | 'error.invalidToml'
   | 'error.noQrFound'
+  | 'error.invalidCertificate'
   | 'error.networkFailed'
 
 export type Result<T> =

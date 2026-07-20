@@ -85,7 +85,8 @@
     "networkFailed": "The request failed. Check your connection, or the name you asked for.",
     "invalidYaml": "This is not valid YAML.",
     "invalidToml": "This is not valid TOML.",
-    "noQrFound": "No QR code found in this image."
+    "noQrFound": "No QR code found in this image.",
+    "invalidCertificate": "Could not read this certificate. Try a PEM-formatted X.509 certificate."
   },
   "tools": {
     "base64": {
@@ -739,6 +740,52 @@
       "description": "Convert between TOML and JSON.",
       "toJson": "TOML → JSON",
       "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "HTML Stripper",
+      "description": "Strip HTML tags and decode entities back to plain text."
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "Compress text with GZip or Deflate right in your browser.",
+      "compress": "Compress",
+      "decompress": "Decompress",
+      "note": "Compression uses the browser's built-in CompressionStream API. Nothing is sent anywhere."
+    },
+    "cert": {
+      "name": "Certificate Decoder",
+      "description": "Decode a PEM X.509 certificate and inspect its fields — no upload, all local.",
+      "decode": "Decode",
+      "working": "Decoding…",
+      "subject": "Subject",
+      "issuer": "Issuer",
+      "validity": "Validity",
+      "notBefore": "Not before",
+      "notAfter": "Not after",
+      "fingerprints": "Fingerprints",
+      "publicKey": "Public Key",
+      "signature": "Signature",
+      "algorithm": "Algorithm",
+      "keySize": "Key size",
+      "dn": "DN",
+      "serial": "Serial number",
+      "san": "Subject Alternative Names"
+    },
+    "jsondiff": {
+      "name": "JSON Diff",
+      "description": "Compare two JSON documents structurally, key by key and value by value.",
+      "left": "Left (before)",
+      "right": "Right (after)",
+      "added": "Added",
+      "removed": "Removed",
+      "changed": "Changed",
+      "identical": "The two documents are identical.",
+      "changes": "{{count}} difference(s)"
+    },
+    "graphql": {
+      "name": "GraphQL Formatter",
+      "description": "Format or minify a GraphQL query, mutation or schema definition.",
+      "minify": "Minify"
     }
   }
 }

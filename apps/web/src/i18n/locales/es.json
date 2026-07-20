@@ -85,7 +85,8 @@
     "networkFailed": "La petición falló. Revisa tu conexión o el nombre que consultaste.",
     "invalidYaml": "Este no es un YAML válido.",
     "invalidToml": "Este no es un TOML válido.",
-    "noQrFound": "No se encontró ningún código QR en esta imagen."
+    "noQrFound": "No se encontró ningún código QR en esta imagen.",
+    "invalidCertificate": "No se pudo leer este certificado. Prueba con un certificado X.509 en formato PEM."
   },
   "tools": {
     "base64": {
@@ -739,6 +740,52 @@
       "description": "Convierte entre TOML y JSON.",
       "toJson": "TOML → JSON",
       "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "Limpiador de HTML",
+      "description": "Elimina etiquetas HTML y decodifica entidades a texto plano."
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "Comprime texto con GZip o Deflate directamente en tu navegador.",
+      "compress": "Comprimir",
+      "decompress": "Descomprimir",
+      "note": "La compresión usa la API CompressionStream del navegador. No se envía nada a ningún servidor."
+    },
+    "cert": {
+      "name": "Decodificador de Certificados",
+      "description": "Decodifica un certificado X.509 en formato PEM e inspecciona sus campos.",
+      "decode": "Decodificar",
+      "working": "Decodificando…",
+      "subject": "Sujeto",
+      "issuer": "Emisor",
+      "validity": "Validez",
+      "notBefore": "No antes de",
+      "notAfter": "No después de",
+      "fingerprints": "Huellas digitales",
+      "publicKey": "Clave pública",
+      "signature": "Firma",
+      "algorithm": "Algoritmo",
+      "keySize": "Tamaño de clave",
+      "dn": "DN",
+      "serial": "Número de serie",
+      "san": "Nombres alternativos"
+    },
+    "jsondiff": {
+      "name": "JSON Diff",
+      "description": "Compara dos documentos JSON estructuralmente, clave por clave.",
+      "left": "Izquierda (antes)",
+      "right": "Derecha (después)",
+      "added": "Añadido",
+      "removed": "Eliminado",
+      "changed": "Cambiado",
+      "identical": "Los dos documentos son idénticos.",
+      "changes": "{{count}} diferencia(s)"
+    },
+    "graphql": {
+      "name": "Formateador GraphQL",
+      "description": "Formatea o minimiza una consulta, mutación o esquema GraphQL.",
+      "minify": "Minificar"
     }
   }
 }

@@ -85,7 +85,8 @@
     "networkFailed": "İstek başarısız oldu. Bağlantını ya da sorduğun adı kontrol et.",
     "invalidYaml": "Bu geçerli bir YAML değil.",
     "invalidToml": "Bu geçerli bir TOML değil.",
-    "noQrFound": "Bu görüntüde QR kod bulunamadı."
+    "noQrFound": "Bu görüntüde QR kod bulunamadı.",
+    "invalidCertificate": "Bu sertifika okunamadı. PEM formatında bir X.509 sertifikası deneyin."
   },
   "tools": {
     "base64": {
@@ -739,6 +740,52 @@
       "description": "TOML ve JSON arasında dönüştür.",
       "toJson": "TOML → JSON",
       "toToml": "JSON → TOML"
+    },
+    "html": {
+      "name": "HTML Temizleyici",
+      "description": "HTML etiketlerini temizle ve varlıkları düz metne çevir."
+    },
+    "gzip": {
+      "name": "GZip / Brotli",
+      "description": "Metni tarayıcında GZip veya Deflate ile sıkıştır.",
+      "compress": "Sıkıştır",
+      "decompress": "Aç",
+      "note": "Sıkıştırma tarayıcının CompressionStream API'sini kullanır. Hiçbir veri dışarı gönderilmez."
+    },
+    "cert": {
+      "name": "Sertifika Çözücü",
+      "description": "PEM X.509 sertifikasını çöz ve alanlarını incele — tamamen yerelde.",
+      "decode": "Çöz",
+      "working": "Çözülüyor…",
+      "subject": "Konu",
+      "issuer": "Yayınlayıcı",
+      "validity": "Geçerlilik",
+      "notBefore": "Başlangıç",
+      "notAfter": "Bitiş",
+      "fingerprints": "Parmak izleri",
+      "publicKey": "Açık Anahtar",
+      "signature": "İmza",
+      "algorithm": "Algoritma",
+      "keySize": "Anahtar boyutu",
+      "dn": "DN",
+      "serial": "Seri numarası",
+      "san": "Alternatif Adlar"
+    },
+    "jsondiff": {
+      "name": "JSON Karşılaştırma",
+      "description": "İki JSON belgesini yapısal olarak, anahtar anahtar karşılaştır.",
+      "left": "Sol (önce)",
+      "right": "Sağ (sonra)",
+      "added": "Eklendi",
+      "removed": "Kaldırıldı",
+      "changed": "Değişti",
+      "identical": "İki belge tamamen aynı.",
+      "changes": "{{count}} fark"
+    },
+    "graphql": {
+      "name": "GraphQL Biçimlendirici",
+      "description": "GraphQL sorgusu, mutasyonu veya şema tanımını biçimlendir veya sıkıştır.",
+      "minify": "Sıkıştır"
     }
   }
 }

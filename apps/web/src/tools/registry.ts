@@ -40,6 +40,12 @@ export interface Tool {
  */
 export const TOOLS: Tool[] = [
   {
+    id: 'gzip',
+    category: 'encoding',
+    keywords: ['compress', 'brotli', 'deflate', 'zlib', 'size'],
+    Component: lazy(() => import('./gzip/GzipTool')),
+  },
+  {
     id: 'base64',
     category: 'encoding',
     keywords: ['b64', 'encode', 'decode', 'atob', 'btoa'],
@@ -92,6 +98,18 @@ export const TOOLS: Tool[] = [
     category: 'formatting',
     keywords: ['pretty', 'beautify', 'minify', 'format', 'validate'],
     Component: lazy(() => import('./json/JsonTool')),
+  },
+  {
+    id: 'graphql',
+    category: 'formatting',
+    keywords: ['query', 'mutation', 'schema', 'sdl', 'gql'],
+    Component: lazy(() => import('./graphql/GraphqlTool')),
+  },
+  {
+    id: 'jsondiff',
+    category: 'formatting',
+    keywords: ['compare', 'difference', 'delta', 'structural'],
+    Component: lazy(() => import('./jsondiff/JsonDiffTool')),
   },
   {
     id: 'jsonpath',
@@ -152,6 +170,12 @@ export const TOOLS: Tool[] = [
     category: 'text',
     keywords: ['count', 'characters', 'words', 'length', 'reading'],
     Component: lazy(() => import('./stats/StatsTool')),
+  },
+  {
+    id: 'html',
+    category: 'text',
+    keywords: ['strip', 'tags', 'entities', 'plain', 'clean', 'decode'],
+    Component: lazy(() => import('./html/HtmlTool')),
   },
   {
     id: 'cipher',
@@ -315,6 +339,12 @@ export const TOOLS: Tool[] = [
     category: 'crypto',
     keywords: ['rsa', 'ecdsa', 'ed25519', 'pem', 'public', 'private'],
     Component: lazy(() => import('./keypair/KeypairTool')),
+  },
+  {
+    id: 'cert',
+    category: 'crypto',
+    keywords: ['x509', 'pem', 'ssl', 'tls', 'der', 'subject', 'issuer', 'fingerprint', 'san'],
+    Component: lazy(() => import('./cert/CertTool')),
   },
   {
     id: 'uuid',
