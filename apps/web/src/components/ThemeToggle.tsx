@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const THEMES = ['light', 'dark', 'retro'] as const
+/* Ordered lightest to darkest, so cycling moves in one direction. */
+const THEMES = ['light', 'dim', 'dark'] as const
 
 type Theme = (typeof THEMES)[number]
 
@@ -20,12 +21,9 @@ const ICONS: Record<Theme, React.ReactNode> = {
     </>
   ),
   dark: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />,
-  retro: (
-    <>
-      <rect x="2.5" y="4" width="19" height="13" rx="1.5" />
-      <path d="M8 21h8M12 17v4M6 8h4M6 11h7" />
-    </>
-  ),
+  /* The same moon, faded — dim reads as a softer version of dark, not a
+     separate idea, and the icon says so at a glance. */
+  dim: <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" opacity="0.45" />,
 }
 
 export default function ThemeToggle() {

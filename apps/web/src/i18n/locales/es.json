@@ -29,8 +29,8 @@
     "switchTo": "Cambiar al tema {{theme}}",
     "name": {
       "light": "claro",
-      "dark": "oscuro",
-      "retro": "retro"
+      "dim": "tenue",
+      "dark": "oscuro"
     }
   },
   "language": {

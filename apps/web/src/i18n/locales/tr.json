@@ -29,8 +29,8 @@
     "switchTo": "{{theme}} temaya geç",
     "name": {
       "light": "açık",
-      "dark": "koyu",
-      "retro": "retro"
+      "dim": "loş",
+      "dark": "koyu"
     }
   },
   "language": {

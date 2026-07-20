@@ -29,8 +29,8 @@
     "switchTo": "Switch to {{theme}}",
     "name": {
       "light": "light",
-      "dark": "dark",
-      "retro": "retro"
+      "dim": "dim",
+      "dark": "dark"
     }
   },
   "language": {

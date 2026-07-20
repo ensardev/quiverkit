@@ -2,19 +2,19 @@
 
 /*
  * Themes swap these variables and nothing else. Components only ever reference
- * the semantic names below, so adding a theme later (the planned retro skin, or
- * a high-contrast mode) means writing one more block here — no component edits.
+ * the semantic names below, so adding a theme later (a high-contrast mode, say)
+ * means writing one more block here — no component edits.
  */
 /*
- * Retro is a dark theme too, so anything written as `dark:` has to apply there
- * as well — otherwise a component's light-mode colour lands on a blue panel.
+ * Dim is a dark theme too, so anything written as `dark:` has to apply there as
+ * well — otherwise a component's light-mode colour lands on a dark panel.
  */
 @custom-variant dark (
   &:where(
     [data-theme='dark'],
     [data-theme='dark'] *,
-    [data-theme='retro'],
-    [data-theme='retro'] *
+    [data-theme='dim'],
+    [data-theme='dim'] *
   )
 );
 
@@ -50,24 +50,24 @@
 }
 
 /*
- * An optional third theme, not a replacement for either default: the blue and
- * yellow of a Borland IDE, which is roughly what a developer tool looked like
- * in 1992. It swaps the same variables as the other two — no component knows it
- * exists — plus the font, because the look does not survive a proportional one.
+ * Dim — warm, muted, low-contrast. Lighter than dark mode, heavier than light
+ * mode: easy on the eyes at night without the harshness of a near-black page.
+ * Sepia-toned greys with a brass accent. Same variables as the other two, so no
+ * component knows it exists.
  */
-:root[data-theme='retro'] {
-  --surface-sunken: #00006e;
-  --surface: #0000a8;
-  --surface-hover: #0000d0;
-  --border: #5555ff;
-  --border-strong: #8f8fff;
-  --text: #ffffff;
-  --text-muted: #b9b9ff;
-  --accent: #ffff55;
-  --accent-hover: #ffffb0;
-  --accent-soft: #0000d8;
-  --danger: #ff8080;
-  --danger-soft: #7a0000;
+:root[data-theme='dim'] {
+  --surface-sunken: #1e1c1a;
+  --surface: #262422;
+  --surface-hover: #302e2b;
+  --border: #3d3a36;
+  --border-strong: #55514c;
+  --text: #e8e4df;
+  --text-muted: #9d9790;
+  --accent: #d4a853;
+  --accent-hover: #e0c078;
+  --accent-soft: #2a2418;
+  --danger: #e88383;
+  --danger-soft: #2a1518;
 }
 
 @theme inline {
@@ -107,17 +107,8 @@
   }
 
   html[data-theme='dark'],
-  html[data-theme='retro'] {
+  html[data-theme='dim'] {
     color-scheme: dark;
-  }
-
-  html[data-theme='retro'] body {
-    font-family: var(--font-mono);
-  }
-
-  /* Square corners finish the illusion; rounded panels read as modern. */
-  html[data-theme='retro'] :where(section, aside, article, button, input, textarea, select) {
-    border-radius: 0;
   }
 
   body {
