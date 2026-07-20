@@ -1,10 +1,41 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Detector from '@/components/Detector'
+import { GitHubIcon, GlobeIcon } from '@/components/icons'
 import { NetworkBadge } from '@/components/ui'
+import { LINKS } from '@/links'
 import { CATEGORY_ORDER, TOOLS, type Tool } from '@/tools/registry'
 import { onSelection, takePendingSelection } from '../selection'
+
+/**
+ * Opens in a normal tab. The panel is the wrong shape for browsing a website,
+ * and a link that navigated it would strand the user with no way back.
+ */
+function Outbound({
+  href,
+  label,
+  className,
+  children,
+}: {
+  href: string
+  label?: string
+  className?: string
+  children?: React.ReactNode
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={label}
+      aria-label={label}
+      className={`hover:text-ink transition-colors ${className ?? ''}`}
+    >
+      {children}
+    </a>
+  )
+}
 
 export default function Home() {
   const { t, i18n } = useTranslation()
@@ -95,6 +126,33 @@ export default function Home() {
           ))
         )}
       </section>
+
+      {/* Sits at the end of the list rather than pinned to the panel, where a
+          fixed footer would eat height the tools need. */}
+      <footer className="border-line text-muted mt-6 flex items-center justify-between gap-2 border-t pt-3 text-[11px]">
+        <span>
+          <Trans
+            i18nKey="footer.builtBy"
+            components={{
+              author: (
+                <Outbound
+                  href={LINKS.author}
+                  className="underline decoration-dotted underline-offset-2"
+                />
+              ),
+            }}
+          />
+        </span>
+
+        <span className="flex items-center gap-1.5">
+          <Outbound href={LINKS.website} label="quiverkit.dev" className="flex p-0.5">
+            <GlobeIcon size={13} />
+          </Outbound>
+          <Outbound href={LINKS.repo} label={t('footer.sourceCode')} className="flex p-0.5">
+            <GitHubIcon size={13} />
+          </Outbound>
+        </span>
+      </footer>
     </div>
   )
 }
