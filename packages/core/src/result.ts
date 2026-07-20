@@ -37,6 +37,9 @@ export type ToolError =
   | 'error.invalidBase58'
   | 'error.invalidSecret'
   | 'error.invalidDomain'
+  | 'error.invalidYaml'
+  | 'error.invalidToml'
+  | 'error.noQrFound'
   | 'error.networkFailed'
 
 export type Result<T> =

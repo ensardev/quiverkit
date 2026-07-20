@@ -320,4 +320,12 @@ export {
   type ParsedUrl,
 } from './tools/url.js'
 
+export { renderMarkdown } from './tools/markdown.js'
+
+export { generateQr, readQr } from './tools/qrcode.js'
+
+export { jsonToToml, tomlToJson } from './tools/toml.js'
+
+export { jsonToYaml, yamlToJson } from './tools/yaml.js'
+
 export { generateNanoId, generateUuidV4, generateUuidV7 } from './tools/uuid.js'

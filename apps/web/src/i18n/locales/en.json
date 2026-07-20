@@ -82,7 +82,10 @@
     "invalidBase58": "Base58 leaves out 0, O, I and l on purpose.",
     "invalidSecret": "This is not a valid Base32 secret.",
     "invalidDomain": "Enter a domain name, like example.com.",
-    "networkFailed": "The request failed. Check your connection, or the name you asked for."
+    "networkFailed": "The request failed. Check your connection, or the name you asked for.",
+    "invalidYaml": "This is not valid YAML.",
+    "invalidToml": "This is not valid TOML.",
+    "noQrFound": "No QR code found in this image."
   },
   "tools": {
     "base64": {
@@ -709,6 +712,33 @@
       "v7Hint": "Time-ordered, so it sorts by creation. Better as a database key.",
       "nanoid": "Nano ID",
       "nanoidHint": "Short and URL-friendly."
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "Convert between YAML and JSON.",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Markdown Preview",
+      "description": "Write Markdown and see the rendered HTML side by side.",
+      "preview": "Preview"
+    },
+    "qrcode": {
+      "name": "QR Code",
+      "description": "Generate QR codes from text or decode them from an image.",
+      "generate": "Generate",
+      "read": "Read",
+      "drop": "Drop an image of a QR code here",
+      "dropHint": "or click to choose one",
+      "uploaded": "Uploaded",
+      "decoding": "Processing..."
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "Convert between TOML and JSON.",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
     }
   }
 }

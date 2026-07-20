@@ -82,7 +82,10 @@
     "invalidBase58": "Base58 deja fuera 0, O, I y l a propósito.",
     "invalidSecret": "Este no es un secreto Base32 válido.",
     "invalidDomain": "Escribe un nombre de dominio, como example.com.",
-    "networkFailed": "La petición falló. Revisa tu conexión o el nombre que consultaste."
+    "networkFailed": "La petición falló. Revisa tu conexión o el nombre que consultaste.",
+    "invalidYaml": "Este no es un YAML válido.",
+    "invalidToml": "Este no es un TOML válido.",
+    "noQrFound": "No se encontró ningún código QR en esta imagen."
   },
   "tools": {
     "base64": {
@@ -709,6 +712,33 @@
       "v7Hint": "Ordenado por tiempo, se ordena por fecha de creación. Mejor como clave de base de datos.",
       "nanoid": "Nano ID",
       "nanoidHint": "Corto y apto para URLs."
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "Convierte entre YAML y JSON.",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Vista previa de Markdown",
+      "description": "Escribe Markdown y ve el HTML renderizado lado a lado.",
+      "preview": "Vista previa"
+    },
+    "qrcode": {
+      "name": "Código QR",
+      "description": "Genera códigos QR a partir de texto o decodifícalos desde una imagen.",
+      "generate": "Generar",
+      "read": "Leer",
+      "drop": "Suelta aquí una imagen con un código QR",
+      "dropHint": "o haz clic para seleccionar una",
+      "uploaded": "Subida",
+      "decoding": "Procesando..."
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "Convierte entre TOML y JSON.",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
     }
   }
 }

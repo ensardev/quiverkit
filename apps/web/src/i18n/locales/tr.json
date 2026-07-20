@@ -82,7 +82,10 @@
     "invalidBase58": "Base58, 0, O, I ve l harflerini bilerek dışarıda bırakır.",
     "invalidSecret": "Bu geçerli bir Base32 gizli anahtarı değil.",
     "invalidDomain": "Bir alan adı yaz, example.com gibi.",
-    "networkFailed": "İstek başarısız oldu. Bağlantını ya da sorduğun adı kontrol et."
+    "networkFailed": "İstek başarısız oldu. Bağlantını ya da sorduğun adı kontrol et.",
+    "invalidYaml": "Bu geçerli bir YAML değil.",
+    "invalidToml": "Bu geçerli bir TOML değil.",
+    "noQrFound": "Bu görüntüde QR kod bulunamadı."
   },
   "tools": {
     "base64": {
@@ -709,6 +712,33 @@
       "v7Hint": "Zaman sıralı, oluşturma sırasına göre dizilir. Veritabanı anahtarı olarak daha iyi.",
       "nanoid": "Nano ID",
       "nanoidHint": "Kısa ve URL dostu."
+    },
+    "yaml": {
+      "name": "YAML ↔ JSON",
+      "description": "YAML ve JSON arasında dönüştür.",
+      "toJson": "YAML → JSON",
+      "toYaml": "JSON → YAML"
+    },
+    "markdown": {
+      "name": "Markdown Önizleme",
+      "description": "Markdown yaz ve işlenmiş HTML'i yan yana gör.",
+      "preview": "Önizleme"
+    },
+    "qrcode": {
+      "name": "QR Kod",
+      "description": "Metinden QR kod üret veya görüntüden çöz.",
+      "generate": "Üret",
+      "read": "Oku",
+      "drop": "Buraya bir QR kod görüntüsü bırak",
+      "dropHint": "veya seçmek için tıkla",
+      "uploaded": "Yüklendi",
+      "decoding": "İşleniyor..."
+    },
+    "toml": {
+      "name": "TOML ↔ JSON",
+      "description": "TOML ve JSON arasında dönüştür.",
+      "toJson": "TOML → JSON",
+      "toToml": "JSON → TOML"
     }
   }
 }

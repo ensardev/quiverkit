@@ -76,6 +76,12 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./punycode/PunycodeTool')),
   },
   {
+    id: 'qrcode',
+    category: 'encoding',
+    keywords: ['qr', 'barcode', 'generate', 'decode', 'scan', 'image'],
+    Component: lazy(() => import('./qrcode/QrCodeTool')),
+  },
+  {
     id: 'hex',
     category: 'encoding',
     keywords: ['hexadecimal', 'dump', 'bytes', 'binary', 'viewer'],
@@ -104,6 +110,12 @@ export const TOOLS: Tool[] = [
     category: 'formatting',
     keywords: ['html', 'markup', 'pretty', 'beautify', 'indent'],
     Component: lazy(() => import('./xml/XmlTool')),
+  },
+  {
+    id: 'markdown',
+    category: 'formatting',
+    keywords: ['md', 'html', 'preview', 'render', 'documentation', 'readme'],
+    Component: lazy(() => import('./markdown/MarkdownTool')),
   },
   {
     id: 'case',
@@ -182,6 +194,18 @@ export const TOOLS: Tool[] = [
     category: 'converters',
     keywords: ['bytes', 'kb', 'mb', 'gb', 'mib', 'gib', 'storage'],
     Component: lazy(() => import('./dataSize/DataSizeTool')),
+  },
+  {
+    id: 'toml',
+    category: 'converters',
+    keywords: ['config', 'cargo', 'rust', 'toml to json', 'pyproject'],
+    Component: lazy(() => import('./toml/TomlTool')),
+  },
+  {
+    id: 'yaml',
+    category: 'converters',
+    keywords: ['yml', 'config', 'yaml to json', 'openapi', 'swagger', 'ansible'],
+    Component: lazy(() => import('./yaml/YamlTool')),
   },
   {
     id: 'color',
