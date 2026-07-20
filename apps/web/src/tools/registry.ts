@@ -39,35 +39,12 @@ export interface Tool {
  * visitor who only wanted to decode a JWT would pay for all of them.
  */
 export const TOOLS: Tool[] = [
-  {
-    id: 'gzip',
-    category: 'encoding',
-    keywords: ['compress', 'brotli', 'deflate', 'zlib', 'size'],
-    Component: lazy(() => import('./gzip/GzipTool')),
-  },
+  // ── encoding ──────────────────────────────────────────────────────────
   {
     id: 'base64',
     category: 'encoding',
     keywords: ['b64', 'encode', 'decode', 'atob', 'btoa'],
     Component: lazy(() => import('./base64/Base64Tool')),
-  },
-  {
-    id: 'jwt',
-    category: 'encoding',
-    keywords: ['token', 'bearer', 'auth', 'claims', 'decode'],
-    Component: lazy(() => import('./jwt/JwtTool')),
-  },
-  {
-    id: 'url',
-    category: 'encoding',
-    keywords: ['uri', 'percent', 'escape', 'query', 'querystring'],
-    Component: lazy(() => import('./url/UrlTool')),
-  },
-  {
-    id: 'escape',
-    category: 'encoding',
-    keywords: ['quote', 'unescape', 'entities', 'sql', 'shell', 'backslash'],
-    Component: lazy(() => import('./escape/EscapeTool')),
   },
   {
     id: 'baseEncoding',
@@ -76,10 +53,40 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./baseEncoding/BaseEncodingTool')),
   },
   {
+    id: 'hex',
+    category: 'encoding',
+    keywords: ['hexadecimal', 'dump', 'bytes', 'binary', 'viewer'],
+    Component: lazy(() => import('./hex/HexTool')),
+  },
+  {
+    id: 'url',
+    category: 'encoding',
+    keywords: ['uri', 'percent', 'escape', 'query', 'querystring'],
+    Component: lazy(() => import('./url/UrlTool')),
+  },
+  {
     id: 'punycode',
     category: 'encoding',
     keywords: ['idn', 'domain', 'unicode', 'internationalised', 'xn--'],
     Component: lazy(() => import('./punycode/PunycodeTool')),
+  },
+  {
+    id: 'escape',
+    category: 'encoding',
+    keywords: ['quote', 'unescape', 'entities', 'sql', 'shell', 'backslash'],
+    Component: lazy(() => import('./escape/EscapeTool')),
+  },
+  {
+    id: 'gzip',
+    category: 'encoding',
+    keywords: ['compress', 'brotli', 'deflate', 'zlib', 'size'],
+    Component: lazy(() => import('./gzip/GzipTool')),
+  },
+  {
+    id: 'jwt',
+    category: 'encoding',
+    keywords: ['token', 'bearer', 'auth', 'claims', 'decode'],
+    Component: lazy(() => import('./jwt/JwtTool')),
   },
   {
     id: 'qrcode',
@@ -87,23 +94,12 @@ export const TOOLS: Tool[] = [
     keywords: ['qr', 'barcode', 'generate', 'decode', 'scan', 'image'],
     Component: lazy(() => import('./qrcode/QrCodeTool')),
   },
-  {
-    id: 'hex',
-    category: 'encoding',
-    keywords: ['hexadecimal', 'dump', 'bytes', 'binary', 'viewer'],
-    Component: lazy(() => import('./hex/HexTool')),
-  },
+  // ── formatting ────────────────────────────────────────────────────────
   {
     id: 'json',
     category: 'formatting',
     keywords: ['pretty', 'beautify', 'minify', 'format', 'validate'],
     Component: lazy(() => import('./json/JsonTool')),
-  },
-  {
-    id: 'graphql',
-    category: 'formatting',
-    keywords: ['query', 'mutation', 'schema', 'sdl', 'gql'],
-    Component: lazy(() => import('./graphql/GraphqlTool')),
   },
   {
     id: 'jsondiff',
@@ -116,6 +112,12 @@ export const TOOLS: Tool[] = [
     category: 'formatting',
     keywords: ['query', 'jq', 'path', 'filter', 'extract'],
     Component: lazy(() => import('./jsonpath/JsonPathTool')),
+  },
+  {
+    id: 'graphql',
+    category: 'formatting',
+    keywords: ['query', 'mutation', 'schema', 'sdl', 'gql'],
+    Component: lazy(() => import('./graphql/GraphqlTool')),
   },
   {
     id: 'sql',
@@ -135,6 +137,7 @@ export const TOOLS: Tool[] = [
     keywords: ['md', 'html', 'preview', 'render', 'documentation', 'readme'],
     Component: lazy(() => import('./markdown/MarkdownTool')),
   },
+  // ── text ──────────────────────────────────────────────────────────────
   {
     id: 'case',
     category: 'text',
@@ -154,12 +157,6 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./diff/DiffTool')),
   },
   {
-    id: 'invisible',
-    category: 'text',
-    keywords: ['zero width', 'hidden', 'whitespace', 'unicode', 'bom', 'nbsp'],
-    Component: lazy(() => import('./invisible/InvisibleTool')),
-  },
-  {
     id: 'lines',
     category: 'text',
     keywords: ['sort', 'unique', 'dedupe', 'duplicate', 'alphabetical', 'order'],
@@ -170,6 +167,12 @@ export const TOOLS: Tool[] = [
     category: 'text',
     keywords: ['count', 'characters', 'words', 'length', 'reading'],
     Component: lazy(() => import('./stats/StatsTool')),
+  },
+  {
+    id: 'invisible',
+    category: 'text',
+    keywords: ['zero width', 'hidden', 'whitespace', 'unicode', 'bom', 'nbsp'],
+    Component: lazy(() => import('./invisible/InvisibleTool')),
   },
   {
     id: 'html',
@@ -183,41 +186,12 @@ export const TOOLS: Tool[] = [
     keywords: ['rot13', 'caesar', 'atbash', 'morse', 'reverse', 'encode'],
     Component: lazy(() => import('./cipher/CipherTool')),
   },
+  // ── converters ────────────────────────────────────────────────────────
   {
     id: 'csv',
     category: 'converters',
     keywords: ['spreadsheet', 'excel', 'tsv', 'table', 'json'],
     Component: lazy(() => import('./csv/CsvTool')),
-  },
-  {
-    id: 'timezone',
-    category: 'converters',
-    keywords: ['time zone', 'utc', 'meeting', 'offset', 'world clock'],
-    Component: lazy(() => import('./timezone/TimezoneTool')),
-  },
-  {
-    id: 'dateDiff',
-    category: 'converters',
-    keywords: ['days between', 'duration', 'age', 'deadline', 'working days'],
-    Component: lazy(() => import('./dateDiff/DateDiffTool')),
-  },
-  {
-    id: 'timestamp',
-    category: 'converters',
-    keywords: ['unix', 'epoch', 'date', 'time', 'iso'],
-    Component: lazy(() => import('./timestamp/TimestampTool')),
-  },
-  {
-    id: 'numberBase',
-    category: 'converters',
-    keywords: ['binary', 'hex', 'octal', 'decimal', 'radix', 'base'],
-    Component: lazy(() => import('./numberBase/NumberBaseTool')),
-  },
-  {
-    id: 'dataSize',
-    category: 'converters',
-    keywords: ['bytes', 'kb', 'mb', 'gb', 'mib', 'gib', 'storage'],
-    Component: lazy(() => import('./dataSize/DataSizeTool')),
   },
   {
     id: 'toml',
@@ -232,16 +206,47 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./yaml/YamlTool')),
   },
   {
+    id: 'timestamp',
+    category: 'converters',
+    keywords: ['unix', 'epoch', 'date', 'time', 'iso'],
+    Component: lazy(() => import('./timestamp/TimestampTool')),
+  },
+  {
+    id: 'timezone',
+    category: 'converters',
+    keywords: ['time zone', 'utc', 'meeting', 'offset', 'world clock'],
+    Component: lazy(() => import('./timezone/TimezoneTool')),
+  },
+  {
+    id: 'dateDiff',
+    category: 'converters',
+    keywords: ['days between', 'duration', 'age', 'deadline', 'working days'],
+    Component: lazy(() => import('./dateDiff/DateDiffTool')),
+  },
+  {
+    id: 'numberBase',
+    category: 'converters',
+    keywords: ['binary', 'hex', 'octal', 'decimal', 'radix', 'base'],
+    Component: lazy(() => import('./numberBase/NumberBaseTool')),
+  },
+  {
+    id: 'dataSize',
+    category: 'converters',
+    keywords: ['bytes', 'kb', 'mb', 'gb', 'mib', 'gib', 'storage'],
+    Component: lazy(() => import('./dataSize/DataSizeTool')),
+  },
+  // ── design ────────────────────────────────────────────────────────────
+  {
     id: 'color',
     category: 'design',
     keywords: ['hex', 'rgb', 'hsl', 'oklch', 'contrast', 'wcag', 'accessibility', 'a11y'],
     Component: lazy(() => import('./color/ColorTool')),
   },
   {
-    id: 'units',
+    id: 'palette',
     category: 'design',
-    keywords: ['px', 'rem', 'em', 'pt', 'font', 'size'],
-    Component: lazy(() => import('./units/UnitsTool')),
+    keywords: ['scale', 'shades', 'tints', 'tailwind', 'harmony', 'oklch'],
+    Component: lazy(() => import('./palette/PaletteTool')),
   },
   {
     id: 'gradient',
@@ -256,16 +261,16 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./shadow/ShadowTool')),
   },
   {
+    id: 'units',
+    category: 'design',
+    keywords: ['px', 'rem', 'em', 'pt', 'font', 'size'],
+    Component: lazy(() => import('./units/UnitsTool')),
+  },
+  {
     id: 'bezier',
     category: 'design',
     keywords: ['cubic', 'easing', 'animation', 'transition', 'curve'],
     Component: lazy(() => import('./bezier/BezierTool')),
-  },
-  {
-    id: 'palette',
-    category: 'design',
-    keywords: ['scale', 'shades', 'tints', 'tailwind', 'harmony', 'oklch'],
-    Component: lazy(() => import('./palette/PaletteTool')),
   },
   {
     id: 'svg',
@@ -274,16 +279,17 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./svg/SvgTool')),
   },
   {
-    id: 'image',
-    category: 'media',
-    keywords: ['convert', 'compress', 'resize', 'webp', 'jpeg', 'png'],
-    Component: lazy(() => import('./image/ImageTool')),
-  },
-  {
     id: 'vision',
     category: 'design',
     keywords: ['colour blind', 'color blind', 'accessibility', 'a11y', 'deuteranopia'],
     Component: lazy(() => import('./vision/VisionTool')),
+  },
+  // ── media ─────────────────────────────────────────────────────────────
+  {
+    id: 'image',
+    category: 'media',
+    keywords: ['convert', 'compress', 'resize', 'webp', 'jpeg', 'png'],
+    Component: lazy(() => import('./image/ImageTool')),
   },
   {
     id: 'favicon',
@@ -297,6 +303,7 @@ export const TOOLS: Tool[] = [
     keywords: ['metadata', 'gps', 'location', 'privacy', 'photo', 'strip'],
     Component: lazy(() => import('./exif/ExifTool')),
   },
+  // ── network ───────────────────────────────────────────────────────────
   {
     id: 'cidr',
     category: 'network',
@@ -310,6 +317,7 @@ export const TOOLS: Tool[] = [
     network: true,
     Component: lazy(() => import('./dns/DnsTool')),
   },
+  // ── crypto ────────────────────────────────────────────────────────────
   {
     id: 'hash',
     category: 'crypto',
@@ -329,12 +337,6 @@ export const TOOLS: Tool[] = [
     Component: lazy(() => import('./aes/AesTool')),
   },
   {
-    id: 'totp',
-    category: 'crypto',
-    keywords: ['2fa', 'otp', 'authenticator', 'mfa', 'google authenticator'],
-    Component: lazy(() => import('./totp/TotpTool')),
-  },
-  {
     id: 'keypair',
     category: 'crypto',
     keywords: ['rsa', 'ecdsa', 'ed25519', 'pem', 'public', 'private'],
@@ -346,6 +348,13 @@ export const TOOLS: Tool[] = [
     keywords: ['x509', 'pem', 'ssl', 'tls', 'der', 'subject', 'issuer', 'fingerprint', 'san'],
     Component: lazy(() => import('./cert/CertTool')),
   },
+  {
+    id: 'totp',
+    category: 'crypto',
+    keywords: ['2fa', 'otp', 'authenticator', 'mfa', 'google authenticator'],
+    Component: lazy(() => import('./totp/TotpTool')),
+  },
+  // ── generators ────────────────────────────────────────────────────────
   {
     id: 'uuid',
     category: 'generators',
@@ -370,11 +379,30 @@ export const TOOLS: Tool[] = [
     keywords: ['fake', 'test data', 'fixture', 'sample', 'seed'],
     Component: lazy(() => import('./mock/MockTool')),
   },
+  // ── dev ───────────────────────────────────────────────────────────────
+  {
+    id: 'curl',
+    category: 'dev',
+    keywords: ['http', 'request', 'fetch', 'axios', 'python', 'go', 'convert'],
+    Component: lazy(() => import('./curl/CurlTool')),
+  },
   {
     id: 'cron',
     category: 'dev',
     keywords: ['crontab', 'schedule', 'job', 'expression', 'next run'],
     Component: lazy(() => import('./cron/CronTool')),
+  },
+  {
+    id: 'semver',
+    category: 'dev',
+    keywords: ['version', 'semantic', 'range', 'caret', 'tilde', 'npm'],
+    Component: lazy(() => import('./semver/SemverTool')),
+  },
+  {
+    id: 'chmod',
+    category: 'dev',
+    keywords: ['permissions', 'unix', 'linux', '755', '644', 'rwx'],
+    Component: lazy(() => import('./chmod/ChmodTool')),
   },
   {
     id: 'jsonTypes',
@@ -387,24 +415,6 @@ export const TOOLS: Tool[] = [
     category: 'dev',
     keywords: ['http', 'status', 'mime', 'content type', 'codes', '404'],
     Component: lazy(() => import('./reference/ReferenceTool')),
-  },
-  {
-    id: 'chmod',
-    category: 'dev',
-    keywords: ['permissions', 'unix', 'linux', '755', '644', 'rwx'],
-    Component: lazy(() => import('./chmod/ChmodTool')),
-  },
-  {
-    id: 'semver',
-    category: 'dev',
-    keywords: ['version', 'semantic', 'range', 'caret', 'tilde', 'npm'],
-    Component: lazy(() => import('./semver/SemverTool')),
-  },
-  {
-    id: 'curl',
-    category: 'dev',
-    keywords: ['http', 'request', 'fetch', 'axios', 'python', 'go', 'convert'],
-    Component: lazy(() => import('./curl/CurlTool')),
   },
 ]
 

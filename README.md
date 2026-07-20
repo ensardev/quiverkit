@@ -2,21 +2,115 @@
 
 **Developer tools that never leave your browser.**
 
-Base64, JSON, UUIDs and more — every tool runs entirely on your own machine. No
-upload, no account, no tracking. Open the network tab and check.
+Base64, JSON, JWT, certificates, ciphers, color pickers and more — 60+ tools, every
+one running entirely on your own machine. No upload, no account, no tracking. Open
+the network tab and check.
 
 Most online dev tools ask you to paste a production JWT, a customer payload or an
 internal config into someone else's server. QuiverKit exists so you never have to.
 
 ## Tools
 
+### Encoding
 | Tool | What it does |
 | --- | --- |
 | Base64 | Encode and decode, URL-safe variant, full Unicode support |
-| JSON Formatter | Format, minify, sort keys alphabetically |
-| UUID Generator | UUID v4, time-ordered UUID v7, Nano ID |
+| Base Encoding | Base32, Base58 (Bitcoin) and other RFC 4648 encodings |
+| Hex Viewer | Hex dump, binary inspection, byte-level viewer |
+| URL | Percent-encode and decode query strings and URIs |
+| Punycode | International domain name (IDN) encode and decode |
+| Escape | Unescape strings (HTML entities, SQL, shell, backslash) |
+| Gzip | Compress and decompress with gzip, brotli, deflate or zlib |
+| JWT | Decode and verify JSON Web Tokens, inspect claims |
+| QR Code | Generate and decode QR codes from text or image |
 
-More on the way.
+### Formatting
+| Tool | What it does |
+| --- | --- |
+| JSON | Format, minify, sort keys, validate |
+| JSON Diff | Compare two JSON documents structurally, key by key |
+| JSONPath | Query JSON with JSONPath expressions (like jq) |
+| GraphQL | Format and prettify GraphQL queries and SDL schemas |
+| SQL | Beautify and format SQL queries |
+| XML | Format and indent XML / HTML markup |
+| Markdown | Preview and convert Markdown to HTML |
+
+### Text
+| Tool | What it does |
+| --- | --- |
+| Case | Convert between camelCase, snake_case, kebab-case, PascalCase |
+| Regex | Build and test regular expressions with match highlights |
+| Diff | Word-level and line-level text diff comparison |
+| Lines | Sort, deduplicate, and reorder lines alphabetically |
+| Stats | Character, word, and line counts; reading-time estimates |
+| Invisible | Reveal zero-width characters, BOM, non-breaking spaces |
+| HTML | Strip HTML tags and decode entities to plain text |
+| Cipher | ROT13, Caesar, Atbash, Morse code, and other classic ciphers |
+
+### Converters
+| Tool | What it does |
+| --- | --- |
+| CSV ↔ JSON | Convert between CSV (spreadsheet) and JSON |
+| TOML ↔ JSON | Convert between TOML config files and JSON |
+| YAML ↔ JSON | Convert between YAML config files and JSON |
+| Timestamp | Unix epoch ↔ ISO 8601 date conversion |
+| Timezone | Convert times across time zones; world clock |
+| Date Diff | Calculate days between dates, durations, deadlines |
+| Number Base | Binary, octal, decimal, hexadecimal radix converter |
+| Data Size | Convert between bytes, KB, MB, GB, MiB, GiB |
+
+### Design
+| Tool | What it does |
+| --- | --- |
+| Color | Pick and convert between hex, RGB, HSL, OKLCH; WCAG contrast |
+| Palette | Generate shade and tint scales, Tailwind harmony palettes |
+| Gradient | CSS gradient builder — linear, radial, conic |
+| Shadow | Box-shadow generator with elevation presets |
+| Units | Convert between px, rem, em, pt and other CSS units |
+| Bézier | Cubic-bezier easing curve playground for animations |
+| SVG | Optimise and minify SVG, convert to data URI or JSX |
+| Colour Vision | Simulate colour blindness — deuteranopia, protanopia, tritanopia |
+
+### Media
+| Tool | What it does |
+| --- | --- |
+| Image | Convert, compress, and resize images (JPEG, PNG, WebP) |
+| Favicon | Extract and inspect favicon metadata from any site |
+| EXIF | View and strip GPS and other metadata from photos |
+
+### Network
+| Tool | What it does |
+| --- | --- |
+| CIDR | Subnet calculator — netmask, broadcast, usable IP range |
+| DNS | Look up DNS records (A, MX, TXT, NS and more) |
+
+### Crypto
+| Tool | What it does |
+| --- | --- |
+| Hash | SHA-1, SHA-256, SHA-512, MD5, HMAC digests |
+| Checksum | Verify file integrity against a known hash |
+| AES | Encrypt and decrypt with AES-GCM using a password |
+| Keypair | Generate RSA, ECDSA, and Ed25519 key pairs in PEM |
+| Certificate | Decode X.509 PEM certificates; inspect subject, issuer, SAN |
+| TOTP | Generate time-based one-time passwords for 2FA |
+
+### Generators
+| Tool | What it does |
+| --- | --- |
+| UUID | Generate UUID v4, time-ordered UUID v7, and Nano ID |
+| Password | Generate strong passwords and passphrases with entropy info |
+| Lorem Ipsum | Placeholder text — sentences, paragraphs, or word counts |
+| Mock Data | Generate fake test data with seedable randomness |
+
+### Dev
+| Tool | What it does |
+| --- | --- |
+| cURL | Convert cURL commands to Python, Go, JavaScript and more |
+| Cron | Parse and explain crontab expressions; preview next runs |
+| Semver | Validate and compare semantic version ranges |
+| Chmod | Unix permissions calculator — numeric ↔ symbolic |
+| JSON → Types | Generate TypeScript interfaces from JSON |
+| Reference | HTTP status codes, MIME types, and other lookup tables |
 
 ## Languages
 
@@ -57,4 +151,4 @@ loaded, so a visitor only downloads the tool they opened.
 
 ## License
 
-MIT
+MIT — see [LICENSE](./LICENSE).
