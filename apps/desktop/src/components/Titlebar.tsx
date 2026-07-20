@@ -1,45 +1,72 @@
-import { useState, useEffect } from 'react'
-import { getCurrentWindow } from '@tauri-apps/api/window'
-
-const win = getCurrentWindow()
+import { useCallback, useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import LanguagePicker from '@/components/LanguagePicker'
+import ThemeToggle from './ThemeToggle'
 
 export default function Titlebar() {
+  const { t } = useTranslation()
+  const win = useRef<{
+    minimize: () => void
+    toggleMaximize: () => void
+    close: () => void
+    isMaximized: () => Promise<boolean>
+    onResized: (fn: () => void) => Promise<() => void>
+  } | null>(null)
+
   const [maximized, setMaximized] = useState(false)
 
+  // Lazy-load the Tauri window API — only available inside the desktop app
   useEffect(() => {
-    let unlisten: (() => void) | undefined
-
     import('@tauri-apps/api/window')
-      .then(async () => {
-        setMaximized(await win.isMaximized())
-        const listener = await win.onResized(async () => {
-          setMaximized(await win.isMaximized())
-        })
-        unlisten = listener
+      .then(async ({ getCurrentWindow }) => {
+        const w = getCurrentWindow()
+        win.current = {
+          minimize: () => w.minimize(),
+          toggleMaximize: () => w.toggleMaximize(),
+          close: () => w.close(),
+          isMaximized: () => w.isMaximized(),
+          onResized: (fn) => w.onResized(fn),
+        }
+        setMaximized(await w.isMaximized())
+        await w.onResized(async () => setMaximized(await w.isMaximized()))
       })
       .catch(() => {
-        // Not inside Tauri (e.g. dev in browser) — titlebar still renders
+        // Browser dev mode — controls simply do nothing
       })
-
-    return () => {
-      unlisten?.()
-    }
   }, [])
+
+  const minimize = useCallback(() => win.current?.minimize(), [])
+  const toggleMaximize = useCallback(() => win.current?.toggleMaximize(), [])
+  const closeWindow = useCallback(() => win.current?.close(), [])
 
   return (
     <div
       data-tauri-drag-region
-      className="border-line bg-surface flex shrink-0 select-none items-center border-b pl-4"
-      style={{ height: 36 }}
+      className="border-line bg-surface flex shrink-0 select-none items-center gap-3 border-b px-4"
+      style={{ height: 40 }}
     >
-      <span className="text-muted text-xs font-medium tracking-wide">
-        QuiverKit
+      <Link to="/" className="flex items-baseline gap-1.5" data-tauri-drag-region="false">
+        <span className="text-sm font-semibold tracking-tight">Quiver</span>
+        <span className="text-accent text-sm font-semibold tracking-tight">Kit</span>
+      </Link>
+
+      <span className="text-muted hidden text-xs sm:inline" data-tauri-drag-region="false">
+        {t('palette.hint')}
       </span>
 
-      <div className="ml-auto flex h-full">
+      <div className="flex-1" />
+
+      <div className="flex items-center gap-0.5" data-tauri-drag-region="false">
+        <LanguagePicker />
+        <ThemeToggle />
+      </div>
+
+      {/* Window controls */}
+      <div className="-mr-3 ml-1 flex h-full" data-tauri-drag-region="false">
         <button
           type="button"
-          onClick={() => win.minimize()}
+          onClick={minimize}
           className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
           aria-label="Minimise"
         >
@@ -50,7 +77,7 @@ export default function Titlebar() {
 
         <button
           type="button"
-          onClick={() => win.toggleMaximize()}
+          onClick={toggleMaximize}
           className="text-muted hover:text-ink hover:bg-hover flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
           aria-label={maximized ? 'Restore' : 'Maximise'}
         >
@@ -68,7 +95,7 @@ export default function Titlebar() {
 
         <button
           type="button"
-          onClick={() => win.close()}
+          onClick={closeWindow}
           className="text-muted hover:bg-danger hover:text-white flex h-full w-10 cursor-pointer items-center justify-center transition-colors"
           aria-label="Close"
         >
