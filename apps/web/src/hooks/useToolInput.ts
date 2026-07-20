@@ -1,11 +1,21 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useHref, useLocation } from 'react-router-dom'
 
 /**
- * Encoded into the URL fragment rather than the query string, because a
- * fragment is never sent to a server — not in the request line, not in logs,
- * not in a referrer header. That is what makes a shareable link compatible with
- * the promise that nothing leaves your machine.
+ * Kept after the '#' rather than in the query string, because a fragment is
+ * never sent to a server — not in the request line, not in logs, not in a
+ * referrer header. That is what makes a shareable link compatible with the
+ * promise that nothing leaves your machine.
+ *
+ * Where exactly it sits depends on the router, and both apps below the '#':
+ *
+ *   BrowserRouter (web)          /jwt#v=…
+ *   HashRouter (desktop, panel)  #/jwt?v=…
+ *
+ * The desktop and extension builds route through the fragment, so writing the
+ * value there directly used to overwrite the route: the tool vanished from the
+ * URL and reloading dropped you back on the home page. Riding along as the
+ * route's own query keeps both, and stays after the '#' either way.
  */
 const PARAM = 'v'
 
@@ -29,11 +39,15 @@ function decode(value: string): string | null {
   }
 }
 
-function readFragment(): string | null {
-  const hash = window.location.hash.replace(/^#/, '')
-  if (hash === '') return null
+/**
+ * Under hash routing the router has already split the fragment for us, so the
+ * value arrives as its `search`. Otherwise the whole fragment is ours to parse.
+ */
+function readShared(hashRouting: boolean, search: string): string | null {
+  const source = hashRouting ? search : window.location.hash.replace(/^#/, '')
+  if (source === '') return null
 
-  const value = new URLSearchParams(hash).get(PARAM)
+  const value = new URLSearchParams(source).get(PARAM)
   return value === null ? null : decode(value)
 }
 
@@ -51,8 +65,12 @@ export interface ToolInput {
 export function useToolInput(initial = ''): ToolInput {
   const location = useLocation()
 
+  // Asking the router what '/' looks like is the honest way to tell the two
+  // apart: '#/' under hash routing, '/' otherwise.
+  const hashRouting = useHref('/').startsWith('#')
+
   const [value, setValue] = useState(() => {
-    const fromLink = readFragment()
+    const fromLink = readShared(hashRouting, location.search)
     if (fromLink !== null) return fromLink
 
     const handed = (location.state as { detectedInput?: unknown } | null)?.detectedInput
@@ -68,13 +86,21 @@ export function useToolInput(initial = ''): ToolInput {
 
   const share = useCallback(() => {
     const url = new URL(window.location.href)
-    url.hash = value === '' ? '' : `${PARAM}=${encode(value)}`
+    const payload = value === '' ? '' : `${PARAM}=${encode(value)}`
+
+    if (hashRouting) {
+      // The route itself lives in the fragment, so the value has to go inside
+      // it rather than replace it — otherwise the link forgets which tool.
+      url.hash = payload === '' ? location.pathname : `${location.pathname}?${payload}`
+    } else {
+      url.hash = payload
+    }
 
     // `replaceState` rather than a navigation: sharing should not add a history
     // entry the user then has to press back through.
     window.history.replaceState(null, '', url.toString())
     return url.toString()
-  }, [value])
+  }, [value, hashRouting, location.pathname])
 
   return { value, setValue, share }
 }
