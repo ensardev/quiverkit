@@ -1,0 +1,49 @@
+/*
+ * Tell Tailwind to scan the web source tree for class names.
+ * Without this, the @tailwindcss/vite plugin only sees apps/desktop/src/
+ * (which is nearly empty) and generates an empty utility stylesheet.
+ */
+@source "../../web/src/";
+
+/*
+ * Everything else — CSS variables, @theme inline, @custom-variant dark,
+ * base styles — lives in the web's index.css. We pull it in so the desktop
+ * app shares every pixel, then add the dim theme colours below.
+ */
+@import "../../web/src/index.css";
+
+/*
+ * Dim theme — warm, muted, low-contrast.
+ *
+ * Lighter than dark mode, heavier than light mode. Easy on the eyes at
+ * night without the harshness of a pure-black background. Sepia-toned
+ * greys with a brass accent.
+ */
+:root[data-theme='dim'] {
+  --surface-sunken: #1e1c1a;
+  --surface: #262422;
+  --surface-hover: #302e2b;
+  --border: #3d3a36;
+  --border-strong: #55514c;
+  --text: #e8e4df;
+  --text-muted: #9d9790;
+  --accent: #d4a853;
+  --accent-hover: #e0c078;
+  --accent-soft: #2a2418;
+  --danger: #e88383;
+  --danger-soft: #2a1518;
+}
+
+html[data-theme='dim'] {
+  color-scheme: dark;
+}
+
+/* Dim joins dark as a dark-mode context for Tailwind utilities. */
+@custom-variant dark (
+  &:where(
+    [data-theme='dark'],
+    [data-theme='dark'] *,
+    [data-theme='dim'],
+    [data-theme='dim'] *
+  )
+);
