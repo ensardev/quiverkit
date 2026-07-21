@@ -5,6 +5,7 @@ import { CHANGELOG } from '@/changelog'
 import { DownloadIcon, LinuxIcon, MonitorIcon, PuzzleIcon, WindowsIcon } from '@/components/icons'
 import { CopyButton } from '@/components/ui'
 import { DESKTOP_VERSION, DOWNLOADS, PACKAGE_MANAGERS } from '@/downloads'
+import { LINKS } from '@/links'
 
 function AlertIcon({ size = 16 }: { size?: number }) {
   return (
@@ -96,15 +97,6 @@ function FormatLink({ href, label }: { href: string; label: string }) {
   )
 }
 
-function SoonBadge() {
-  const { t } = useTranslation()
-  return (
-    <span className="border-line text-muted rounded-full border px-2 py-0.5 text-xs font-medium">
-      {t('download.soon')}
-    </span>
-  )
-}
-
 export default function Download() {
   const { t, i18n } = useTranslation()
   const formatDate = new Intl.DateTimeFormat(i18n.language, { dateStyle: 'medium' })
@@ -119,8 +111,8 @@ export default function Download() {
       </header>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
-        {/* Desktop — the builds are not published yet, so the buttons point at
-            the releases page and a note says the artefacts are on the way. */}
+        {/* Desktop — the two most common installers get buttons; the rest are
+            small links below, and every file lives on the GitHub release. */}
         <section className="border-line bg-surface flex flex-col rounded-2xl border p-6">
           <div className="text-accent mb-3">
             <MonitorIcon size={24} />
@@ -155,28 +147,29 @@ export default function Download() {
           <p className="text-muted mt-4 text-xs">v{DESKTOP_VERSION}</p>
         </section>
 
-        {/* Extension — not on any store yet, so everything here is disabled. */}
+        {/* Extension — live on the Chrome Web Store; the button installs it. */}
         <section className="border-line bg-surface flex flex-col rounded-2xl border p-6">
-          <div className="mb-3 flex items-center justify-between">
-            <span className="text-accent">
-              <PuzzleIcon size={24} />
-            </span>
-            <SoonBadge />
+          <div className="text-accent mb-3">
+            <PuzzleIcon size={24} />
           </div>
           <h2 className="text-lg font-semibold tracking-tight">{t('download.extension.name')}</h2>
           <p className="text-muted mt-1 text-sm">{t('download.extension.tagline')}</p>
 
           <div className="mt-5">
-            <button
-              type="button"
-              disabled
-              className="border-line text-muted flex w-full cursor-not-allowed items-center gap-3 rounded-xl border px-4 py-3 opacity-60"
+            <a
+              href={LINKS.extension}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-line hover:border-accent hover:bg-hover group flex items-center gap-3 rounded-xl border px-4 py-3 transition-colors"
             >
-              <PuzzleIcon />
+              <span className="text-muted group-hover:text-ink transition-colors">
+                <PuzzleIcon />
+              </span>
               <span className="flex-1 text-left text-sm font-medium">
                 {t('download.extension.store')}
               </span>
-            </button>
+              <DownloadIcon />
+            </a>
           </div>
 
           <p className="text-muted mt-4 text-xs">{t('download.extension.note')}</p>

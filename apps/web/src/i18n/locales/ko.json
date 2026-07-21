@@ -13,7 +13,8 @@
     "search": "도구 검색",
     "searchHint": "/ 키를 눌러 검색",
     "noResults": "“{{query}}”와 일치하는 항목이 없습니다",
-    "download": "다운로드"
+    "download": "다운로드",
+    "menu": "메뉴"
   },
   "download": {
     "title": "QuiverKit을 어디서나",
@@ -44,7 +45,7 @@
       "name": "브라우저 확장 프로그램",
       "tagline": "Chrome과 Edge를 위한 사이드 패널. 어떤 페이지에서든 텍스트를 선택하고 마우스 오른쪽 버튼을 눌러 알맞은 도구에서 엽니다.",
       "store": "Chrome 웹 스토어",
-      "note": "스토어 심사 대기 중 — 곧 여기에 등장합니다."
+      "note": "무료 — Chrome와 Edge에서 작동합니다."
     },
     "webNote": "브라우저가 더 편하세요? <link>도구 열기</link>."
   },

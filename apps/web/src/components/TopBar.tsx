@@ -9,13 +9,25 @@ import { LINKS } from '@/links'
  * The single full-width bar across the top. It carries the wordmark on the left
  * — the sidebar no longer owns a header of its own — and every cross-app control
  * on the right, so the top of the app reads as one strip rather than a sidebar
- * cell butting against a separate navbar.
+ * cell butting against a separate navbar. On mobile a hamburger toggles the
+ * sidebar drawer.
  */
-export default function TopBar() {
+export default function TopBar({ onMenuToggle }: { onMenuToggle: () => void }) {
   const { t } = useTranslation()
 
   return (
-    <header className="border-line bg-surface flex h-12 shrink-0 items-center gap-1 border-b pr-2 pl-4">
+    <header className="border-line bg-surface flex h-12 shrink-0 items-center gap-1 border-b pr-2 pl-3 md:pl-4">
+      <button
+        type="button"
+        onClick={onMenuToggle}
+        aria-label={t('nav.menu')}
+        className="text-muted hover:text-ink hover:bg-hover -ml-1 mr-1 flex rounded-lg p-2 transition-colors md:hidden"
+      >
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
       <NavLink to="/" className="flex items-baseline gap-1.5">
         <span className="text-lg font-semibold tracking-tight">Quiver</span>
         <span className="text-accent text-lg font-semibold tracking-tight">Kit</span>

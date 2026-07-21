@@ -13,7 +13,8 @@
     "search": "ツールを検索",
     "searchHint": "/ を押して検索",
     "noResults": "「{{query}}」に一致するものはありません",
-    "download": "ダウンロード"
+    "download": "ダウンロード",
+    "menu": "メニュー"
   },
   "download": {
     "title": "QuiverKit をどこへでも",
@@ -44,7 +45,7 @@
       "name": "ブラウザ拡張機能",
       "tagline": "Chrome と Edge 向けのサイドパネル。どのページでもテキストを選択し、右クリックして最適なツールで開けます。",
       "store": "Chrome ウェブストア",
-      "note": "ストア審査待ちです。まもなくここに登場します。"
+      "note": "無料 — Chrome と Edge で動作します。"
     },
     "webNote": "ブラウザがお好みですか？<link>ツールを開く</link>。"
   },

@@ -13,7 +13,8 @@
     "search": "Search tools",
     "searchHint": "Press / to search",
     "noResults": "Nothing matches “{{query}}”",
-    "download": "Download"
+    "download": "Download",
+    "menu": "Menu"
   },
   "download": {
     "title": "Take QuiverKit with you",
@@ -44,7 +45,7 @@
       "name": "Browser extension",
       "tagline": "A side panel for Chrome and Edge. Select text on any page, right-click, and open it in the right tool.",
       "store": "Chrome Web Store",
-      "note": "Waiting on store review — it lands here soon."
+      "note": "Free — works in Chrome and Edge."
     },
     "webNote": "Prefer the browser? <link>Open the tools</link>."
   },

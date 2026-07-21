@@ -15,11 +15,27 @@ function readStored(): ToolCategory[] | null {
   }
 }
 
-export default function Sidebar() {
+export default function Sidebar({
+  mobileOpen,
+  onClose,
+}: {
+  mobileOpen: boolean
+  onClose: () => void
+}) {
   const { t, i18n } = useTranslation()
   const { pathname } = useLocation()
   const [query, setQuery] = useState('')
   const searchInput = useRef<HTMLInputElement>(null)
+
+  // Escape closes the mobile drawer.
+  useEffect(() => {
+    if (!mobileOpen) return
+    function onKey(event: KeyboardEvent) {
+      if (event.key === 'Escape') onClose()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [mobileOpen, onClose])
 
   const activeCategory = findTool(pathname.slice(1))?.category
 
@@ -85,7 +101,17 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="border-line bg-surface flex w-64 shrink-0 flex-col border-r">
+    <>
+      {/* Backdrop — mobile only, dismisses the drawer on tap. */}
+      {mobileOpen && (
+        <div className="absolute inset-0 z-30 bg-black/50 md:hidden" onClick={onClose} aria-hidden />
+      )}
+
+      <aside
+        className={`border-line bg-surface absolute inset-y-0 left-0 z-40 flex w-72 max-w-[85vw] shrink-0 transform flex-col border-r transition-transform duration-200 md:static md:z-auto md:w-64 md:max-w-none md:translate-x-0 ${
+          mobileOpen ? 'translate-x-0' : '-translate-x-full'
+        }`}
+      >
       <div className="relative p-3">
         <input
           ref={searchInput}
@@ -143,6 +169,7 @@ export default function Sidebar() {
                       <li key={tool.id}>
                         <NavLink
                           to={`/${tool.id}`}
+                          onClick={onClose}
                           className={({ isActive }) =>
                             `flex items-center gap-2 rounded-lg py-1.5 pr-3 pl-6 text-sm transition-colors ${
                               isActive
@@ -163,6 +190,7 @@ export default function Sidebar() {
           })
         )}
       </nav>
-    </aside>
+      </aside>
+    </>
   )
 }

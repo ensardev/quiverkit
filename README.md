@@ -8,10 +8,11 @@
 [![Latest release](https://img.shields.io/github/v/release/ensardev/quiverkit?color=fbbf24&labelColor=1c1917&label=release)](https://github.com/ensardev/quiverkit/releases)
 [![Downloads](https://img.shields.io/github/downloads/ensardev/quiverkit/total?color=fbbf24&labelColor=1c1917&label=downloads)](https://github.com/ensardev/quiverkit/releases)
 [![License](https://img.shields.io/github/license/ensardev/quiverkit?color=fbbf24&labelColor=1c1917)](./LICENSE)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/hfobibbmkjgelnpdbbhgcmbollpglkcg?color=fbbf24&labelColor=1c1917&label=extension)](https://chromewebstore.google.com/detail/quiverkit/hfobibbmkjgelnpdbbhgcmbollpglkcg)
 ![Platforms](https://img.shields.io/badge/platform-Windows_%7C_Linux_%7C_Web-fbbf24?labelColor=1c1917)
 ![Languages](https://img.shields.io/badge/i18n-9_languages-fbbf24?labelColor=1c1917)
 
-**[quiverkit.dev](https://quiverkit.dev)** · **[Download](https://quiverkit.dev/download)** · **[Report an issue](https://github.com/ensardev/quiverkit/issues)**
+**[quiverkit.dev](https://quiverkit.dev)** · **[Download](https://quiverkit.dev/download)** · **[Extension](https://chromewebstore.google.com/detail/quiverkit/hfobibbmkjgelnpdbbhgcmbollpglkcg)** · **[Report an issue](https://github.com/ensardev/quiverkit/issues)**
 
 </div>
 
@@ -55,7 +56,7 @@ Or grab an installer straight from the **[download page](https://quiverkit.dev/d
 
 ### 🧩 Browser extension
 
-A side panel for Chrome and Edge — select text on any page, right-click, and open it in the right tool. **In review for the Chrome Web Store — coming soon.**
+A side panel for Chrome and Edge — select text on any page, right-click, and open it in the right tool. **[Add it from the Chrome Web Store](https://chromewebstore.google.com/detail/quiverkit/hfobibbmkjgelnpdbbhgcmbollpglkcg).**
 
 ## 🧰 Tools
 

@@ -8,5 +8,7 @@ export const LINKS = {
   website: 'https://quiverkit.dev',
   repo: 'https://github.com/ensardev/quiverkit',
   releases: 'https://github.com/ensardev/quiverkit/releases',
+  extension:
+    'https://chromewebstore.google.com/detail/quiverkit/hfobibbmkjgelnpdbbhgcmbollpglkcg',
   licence: 'https://github.com/ensardev/quiverkit/blob/main/LICENSE',
 } as const

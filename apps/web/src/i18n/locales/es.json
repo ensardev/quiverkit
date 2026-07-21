@@ -13,7 +13,8 @@
     "search": "Buscar herramientas",
     "searchHint": "Pulsa / para buscar",
     "noResults": "Nada coincide con «{{query}}»",
-    "download": "Descargar"
+    "download": "Descargar",
+    "menu": "Menú"
   },
   "download": {
     "title": "Lleva QuiverKit contigo",
@@ -44,7 +45,7 @@
       "name": "Extensión de navegador",
       "tagline": "Un panel lateral para Chrome y Edge. Selecciona texto en cualquier página, haz clic derecho y ábrelo en la herramienta adecuada.",
       "store": "Chrome Web Store",
-      "note": "En revisión de la tienda: llegará pronto."
+      "note": "Gratis — funciona en Chrome y Edge."
     },
     "webNote": "¿Prefieres el navegador? <link>Abre las herramientas</link>."
   },

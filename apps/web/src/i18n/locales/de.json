@@ -13,7 +13,8 @@
     "search": "Tools durchsuchen",
     "searchHint": "Drücke / zum Suchen",
     "noResults": "Nichts passt zu „{{query}}“",
-    "download": "Download"
+    "download": "Download",
+    "menu": "Menü"
   },
   "download": {
     "title": "Nimm QuiverKit überallhin mit",
@@ -44,7 +45,7 @@
       "name": "Browser-Erweiterung",
       "tagline": "Ein Seitenpanel für Chrome und Edge. Markiere Text auf jeder Seite, rechtsklicke und öffne ihn im passenden Tool.",
       "store": "Chrome Web Store",
-      "note": "Wartet auf die Store-Prüfung — bald hier verfügbar."
+      "note": "Kostenlos — für Chrome und Edge."
     },
     "webNote": "Lieber im Browser? <link>Tools öffnen</link>."
   },

@@ -13,7 +13,8 @@
     "search": "Araç ara",
     "searchHint": "Aramak için / tuşuna bas",
     "noResults": "“{{query}}” ile eşleşen bir şey yok",
-    "download": "İndir"
+    "download": "İndir",
+    "menu": "Menü"
   },
   "download": {
     "title": "QuiverKit'i yanında taşı",
@@ -44,7 +45,7 @@
       "name": "Tarayıcı eklentisi",
       "tagline": "Chrome ve Edge için bir yan panel. Herhangi bir sayfada metni seç, sağ tıkla ve doğru araçta aç.",
       "store": "Chrome Web Mağazası",
-      "note": "Mağaza incelemesi bekleniyor — yakında burada."
+      "note": "Ücretsiz — Chrome ve Edge'de çalışır."
     },
     "webNote": "Tarayıcıyı mı tercih edersin? <link>Araçları aç</link>."
   },
