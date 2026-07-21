@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy — QuiverKit</title>
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="description"
+      content="QuiverKit collects nothing. The web app, desktop app and browser extension all run entirely on your own machine."
+    />
+    <style>
+      :root {
+        --bg: #faf9f7;
+        --surface: #ffffff;
+        --border: #e7e5e4;
+        --ink: #1c1917;
+        --muted: #78716c;
+        --accent: #b45309;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0c0a09;
+          --surface: #1c1917;
+          --border: #292524;
+          --ink: #fafaf9;
+          --muted: #a8a29e;
+          --accent: #fbbf24;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      main {
+        max-width: 46rem;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.15rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .brand span {
+        color: var(--accent);
+      }
+      h1 {
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+        margin: 2.5rem 0 0.25rem;
+      }
+      .updated {
+        color: var(--muted);
+        font-size: 0.875rem;
+        margin: 0 0 2rem;
+      }
+      h2 {
+        font-size: 1.15rem;
+        letter-spacing: -0.01em;
+        margin: 2.25rem 0 0.5rem;
+      }
+      p {
+        color: var(--ink);
+      }
+      .lead {
+        font-size: 1.1rem;
+      }
+      ul {
+        padding-left: 1.2rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      a {
+        color: var(--accent);
+        text-underline-offset: 2px;
+      }
+      code {
+        font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+        font-size: 0.875em;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 0.35rem;
+        padding: 0.05rem 0.35rem;
+      }
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 2.5rem 0;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="brand" href="https://quiverkit.dev">Quiver<span>Kit</span></a>
+
+      <h1>Privacy</h1>
+      <p class="updated">Last updated 21 July 2026</p>
+
+      <p class="lead">
+        QuiverKit collects nothing. The web app, the desktop app and the browser extension all run
+        entirely on your own machine. There is no account, no analytics, no advertising and no
+        tracking of any kind.
+      </p>
+
+      <h2>What we collect</h2>
+      <p>
+        Nothing. We do not gather personal information, usage statistics, telemetry or any other
+        data about you. Whatever you type or paste into a tool is processed locally and is never
+        sent to us or to anyone else. You can confirm this yourself by opening your browser's
+        network tab while you use the tools.
+      </p>
+
+      <h2>The one exception</h2>
+      <p>
+        A single tool — <strong>DNS Lookup</strong> — has to contact a DNS resolver, because there
+        is no offline way to resolve a domain name. When you use it, the domain you enter is sent to
+        that resolver over DNS-over-HTTPS. The tool is clearly badged wherever it appears and it
+        names the resolver it talks to. Every other tool runs without touching the network.
+      </p>
+
+      <h2>The browser extension</h2>
+      <p>
+        The extension requests no host permissions and includes no content scripts, so it cannot
+        read the pages you visit. Its only input is the text you deliberately send it with the
+        right-click <em>“Open in QuiverKit”</em> menu. That text is held in
+        <code>chrome.storage.session</code> — in memory only — so it can be handed to the side
+        panel, and it is discarded when the browser closes. Nothing is written to disk and nothing
+        is transmitted.
+      </p>
+
+      <h2>The desktop app</h2>
+      <p>
+        The desktop app is the same offline toolset in a native window. It does not phone home, does
+        not auto-update silently, and stores only your local preferences (such as the theme and
+        interface language) on your own device.
+      </p>
+
+      <h2>Data sharing</h2>
+      <p>
+        Because we collect no data, there is nothing to sell, share or transfer to third parties,
+        and nothing that could be requested by them.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If this policy ever changes, the updated version will be posted on this page with a new
+        date. QuiverKit is open source, so every change is also visible in its public history.
+      </p>
+
+      <hr />
+
+      <footer>
+        Questions? Open an issue on
+        <a href="https://github.com/ensardev/quiverkit">GitHub</a> or reach the author at
+        <a href="https://ensar.dev">ensar.dev</a>.
+      </footer>
+    </main>
+  </body>
+</html>
