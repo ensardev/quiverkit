@@ -54,15 +54,30 @@ function PlatformButton({
   )
 }
 
-/** A copyable one-line install command for a package manager. */
-function CommandRow({ label, command }: { label: string; command: string }) {
+/** One package-manager entry: a name, its copyable install command, and a hint.
+ * Full-width inside the install card, so even the long Scoop URL wraps rather
+ * than forcing a horizontal scrollbar. */
+function CommandBlock({
+  name,
+  command,
+  hint,
+}: {
+  name: string
+  command: string
+  hint: string
+}) {
   return (
-    <div className="border-line bg-sunken rounded-lg border px-3 py-2">
-      <div className="mb-1 flex items-center justify-between">
-        <span className="text-muted text-[11px] font-medium">{label}</span>
-        <CopyButton value={command} />
+    <div>
+      <div className="border-line bg-sunken rounded-lg border px-3 py-2">
+        <div className="mb-1.5 flex items-center justify-between gap-2">
+          <span className="text-muted text-xs font-medium">{name}</span>
+          <CopyButton value={command} />
+        </div>
+        <pre className="text-ink font-mono text-xs leading-relaxed break-all whitespace-pre-wrap">
+          {command}
+        </pre>
       </div>
-      <pre className="text-ink overflow-x-auto font-mono text-xs leading-relaxed">{command}</pre>
+      <p className="text-muted mt-1.5 text-xs">{hint}</p>
     </div>
   )
 }
@@ -137,16 +152,6 @@ export default function Download() {
             <FormatLink href={DOWNLOADS.appimage} label="AppImage" />
           </div>
 
-          {/* Package managers — one-line installs. The Scoop bucket is live now;
-              winget resolves once the winget-pkgs listing is merged. */}
-          <div className="mt-4">
-            <p className="text-muted mb-2 text-xs font-medium">{t('download.desktop.pkg')}</p>
-            <div className="space-y-2">
-              <CommandRow label="winget" command={PACKAGE_MANAGERS.winget} />
-              <CommandRow label="Scoop" command={PACKAGE_MANAGERS.scoop} />
-            </div>
-          </div>
-
           <p className="text-muted mt-4 text-xs">v{DESKTOP_VERSION}</p>
         </section>
 
@@ -177,6 +182,26 @@ export default function Download() {
           <p className="text-muted mt-4 text-xs">{t('download.extension.note')}</p>
         </section>
       </div>
+
+      {/* Package managers — one full-width card under the two above, with winget
+          stacked over Scoop so each command spans the full width and the long
+          Scoop URL wraps instead of scrolling. The bucket is live; winget
+          resolves once the winget-pkgs listing is merged. */}
+      <section className="border-line bg-surface mt-5 rounded-2xl border p-6">
+        <h2 className="text-lg font-semibold tracking-tight">{t('download.desktop.pkg')}</h2>
+        <div className="mt-4 space-y-4">
+          <CommandBlock
+            name="winget"
+            command={PACKAGE_MANAGERS.winget}
+            hint={t('download.desktop.pkgWinget')}
+          />
+          <CommandBlock
+            name="Scoop"
+            command={PACKAGE_MANAGERS.scoop}
+            hint={t('download.desktop.pkgScoop')}
+          />
+        </div>
+      </section>
 
       {/* Install caveats — chiefly that the builds are unsigned, so Windows and
           Linux each need a small manual step to get past their gatekeepers. */}

@@ -36,6 +36,8 @@
       "linuxHint": ".deb paketi",
       "more": "Diğer formatlar:",
       "pkg": "Paket yöneticileri",
+      "pkgWinget": "Listeleme onaylanınca kullanılabilir.",
+      "pkgScoop": "Şimdi kullanılabilir.",
       "note": "Derlemeler ilk sürümle birlikte gelecek."
     },
     "extension": {

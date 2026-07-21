@@ -36,6 +36,8 @@
       "linuxHint": "Pacote .deb",
       "more": "Outros formatos:",
       "pkg": "Gerenciadores de pacotes",
+      "pkgWinget": "Disponível quando a listagem for aprovada.",
+      "pkgScoop": "Disponível agora.",
       "note": "As versões chegam com o primeiro lançamento."
     },
     "extension": {

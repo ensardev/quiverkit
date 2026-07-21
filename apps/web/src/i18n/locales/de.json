@@ -36,6 +36,8 @@
       "linuxHint": ".deb-Paket",
       "more": "Weitere Formate:",
       "pkg": "Paketmanager",
+      "pkgWinget": "Verfügbar, sobald der Eintrag genehmigt ist.",
+      "pkgScoop": "Ab sofort verfügbar.",
       "note": "Die Builds kommen mit dem ersten Release."
     },
     "extension": {

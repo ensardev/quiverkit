@@ -36,6 +36,8 @@
       "linuxHint": ".deb 软件包",
       "more": "其他格式：",
       "pkg": "包管理器",
+      "pkgWinget": "清单获批后即可使用。",
+      "pkgScoop": "现已可用。",
       "note": "首个版本发布时即可下载。"
     },
     "extension": {
