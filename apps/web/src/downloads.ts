@@ -18,3 +18,13 @@ export const DOWNLOADS = {
   rpm: `${base}/QuiverKit-${DESKTOP_VERSION}-1.x86_64.rpm`,
   appimage: `${base}/QuiverKit_${DESKTOP_VERSION}_amd64.AppImage`,
 } as const
+
+/**
+ * One-line installs for the Windows package managers. winget pulls from the
+ * public `winget-pkgs` repo (works once the listing is merged); Scoop uses our
+ * own bucket, which is live now.
+ */
+export const PACKAGE_MANAGERS = {
+  winget: 'winget install QuiverKit',
+  scoop: 'scoop bucket add quiverkit https://github.com/ensardev/scoop-quiverkit\nscoop install quiverkit',
+} as const

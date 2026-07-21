@@ -3,7 +3,8 @@ import { Trans, useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import { CHANGELOG } from '@/changelog'
 import { DownloadIcon, LinuxIcon, MonitorIcon, PuzzleIcon, WindowsIcon } from '@/components/icons'
-import { DESKTOP_VERSION, DOWNLOADS } from '@/downloads'
+import { CopyButton } from '@/components/ui'
+import { DESKTOP_VERSION, DOWNLOADS, PACKAGE_MANAGERS } from '@/downloads'
 
 function AlertIcon({ size = 16 }: { size?: number }) {
   return (
@@ -50,6 +51,19 @@ function PlatformButton({
       </span>
       <DownloadIcon />
     </a>
+  )
+}
+
+/** A copyable one-line install command for a package manager. */
+function CommandRow({ label, command }: { label: string; command: string }) {
+  return (
+    <div className="border-line bg-sunken rounded-lg border px-3 py-2">
+      <div className="mb-1 flex items-center justify-between">
+        <span className="text-muted text-[11px] font-medium">{label}</span>
+        <CopyButton value={command} />
+      </div>
+      <pre className="text-ink overflow-x-auto font-mono text-xs leading-relaxed">{command}</pre>
+    </div>
   )
 }
 
@@ -121,6 +135,16 @@ export default function Download() {
             <FormatLink href={DOWNLOADS.msi} label="MSI" />
             <FormatLink href={DOWNLOADS.rpm} label="RPM" />
             <FormatLink href={DOWNLOADS.appimage} label="AppImage" />
+          </div>
+
+          {/* Package managers — one-line installs. The Scoop bucket is live now;
+              winget resolves once the winget-pkgs listing is merged. */}
+          <div className="mt-4">
+            <p className="text-muted mb-2 text-xs font-medium">{t('download.desktop.pkg')}</p>
+            <div className="space-y-2">
+              <CommandRow label="winget" command={PACKAGE_MANAGERS.winget} />
+              <CommandRow label="Scoop" command={PACKAGE_MANAGERS.scoop} />
+            </div>
           </div>
 
           <p className="text-muted mt-4 text-xs">v{DESKTOP_VERSION}</p>

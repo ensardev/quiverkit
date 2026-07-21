@@ -35,6 +35,7 @@
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb package",
       "more": "Other formats:",
+      "pkg": "Package managers",
       "note": "Builds arrive with the first release."
     },
     "extension": {

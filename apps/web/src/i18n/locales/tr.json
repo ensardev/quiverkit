@@ -35,6 +35,7 @@
       "linux": "Debian · Ubuntu",
       "linuxHint": ".deb paketi",
       "more": "Diğer formatlar:",
+      "pkg": "Paket yöneticileri",
       "note": "Derlemeler ilk sürümle birlikte gelecek."
     },
     "extension": {

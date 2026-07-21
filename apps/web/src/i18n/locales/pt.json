@@ -35,6 +35,7 @@
       "linux": "Debian · Ubuntu",
       "linuxHint": "Pacote .deb",
       "more": "Outros formatos:",
+      "pkg": "Gerenciadores de pacotes",
       "note": "As versões chegam com o primeiro lançamento."
     },
     "extension": {
