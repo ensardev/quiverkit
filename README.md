@@ -2,6 +2,7 @@
 
 <img src="assets/banner.png" alt="QuiverKit — developer tools that never leave your machine" width="640">
 
+---
 <br>
 
 [![Latest release](https://img.shields.io/github/v/release/ensardev/quiverkit?color=fbbf24&labelColor=1c1917&label=release)](https://github.com/ensardev/quiverkit/releases)
