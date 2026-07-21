@@ -1,32 +1,68 @@
-# QuiverKit
+<div align="center">
 
-**Developer tools that never leave your browser.**
+<img src="assets/banner.png" alt="QuiverKit — developer tools that never leave your machine" width="640">
 
-Base64, JSON, JWT, certificates, ciphers, color pickers and more — 60+ tools running
-entirely on your own machine. No upload, no account, no tracking. Open the network
-tab and check.
+<br>
 
-One tool is the exception: **DNS lookup** has to ask a resolver, because there is no
-offline way to resolve a name. It is badged in the sidebar, on the home page and
-inside the tool itself, and it names the resolver it talks to. Everything else never
-leaves the page.
+[![Latest release](https://img.shields.io/github/v/release/ensardev/quiverkit?color=fbbf24&labelColor=1c1917&label=release)](https://github.com/ensardev/quiverkit/releases)
+[![Downloads](https://img.shields.io/github/downloads/ensardev/quiverkit/total?color=fbbf24&labelColor=1c1917&label=downloads)](https://github.com/ensardev/quiverkit/releases)
+[![License](https://img.shields.io/github/license/ensardev/quiverkit?color=fbbf24&labelColor=1c1917)](./LICENSE)
+![Platforms](https://img.shields.io/badge/platform-Windows_%7C_Linux_%7C_Web-fbbf24?labelColor=1c1917)
+![Languages](https://img.shields.io/badge/i18n-9_languages-fbbf24?labelColor=1c1917)
 
-Most online dev tools ask you to paste a production JWT, a customer payload or an
-internal config into someone else's server. QuiverKit exists so you never have to.
+**[quiverkit.dev](https://quiverkit.dev)** · **[Download](https://quiverkit.dev/download)** · **[Report an issue](https://github.com/ensardev/quiverkit/issues)**
 
-## Get it
+</div>
 
-- **Web** — [quiverkit.dev](https://quiverkit.dev), nothing to install.
-- **Desktop** — a native app for Windows and Linux on the
-  [download page](https://quiverkit.dev/download) or the
-  [releases](https://github.com/ensardev/quiverkit/releases)
-  (`.exe`/`.msi`, `.deb`/`.rpm`/AppImage). The builds are not code-signed yet, so
-  Windows may show a SmartScreen prompt — choose *More info → Run anyway*.
-- **Browser extension** — a side panel for Chrome and Edge, coming soon.
+---
 
-## Tools
+**62 developer tools — Base64, JSON, JWT, hashes, ciphers, colour tools and more — that run entirely on your own machine.** No upload, no account, no tracking. Open the network tab and check: nothing you paste ever leaves the page.
 
-### Encoding
+Most online dev tools ask you to paste a production JWT, a customer payload or an internal config into *someone else's server*. QuiverKit exists so you never have to.
+
+> The one exception is **DNS lookup** — resolving a name needs a resolver, so it contacts one. It is badged everywhere it appears and it names the server it talks to. Everything else is offline, always.
+
+## 📦 Get QuiverKit
+
+### 🌐 Web
+
+Nothing to install — just open **[quiverkit.dev](https://quiverkit.dev)**. Works offline after the first visit (it's a PWA).
+
+### 🖥️ Desktop app — Windows & Linux
+
+A native window, no browser tab to lose track of.
+
+**Windows** — via a package manager:
+
+```powershell
+winget install QuiverKit
+```
+
+```powershell
+scoop bucket add quiverkit https://github.com/ensardev/scoop-quiverkit
+scoop install quiverkit
+```
+
+Or grab an installer straight from the **[download page](https://quiverkit.dev/download)** or the **[releases](https://github.com/ensardev/quiverkit/releases)**:
+
+| Platform | Formats |
+| --- | --- |
+| Windows | `.exe` · `.msi` |
+| Linux | `.deb` · `.rpm` · `.AppImage` |
+
+> Builds aren't code-signed yet, so Windows may show a SmartScreen prompt — choose **More info → Run anyway**. On Linux, mark the AppImage executable (`chmod +x`) before the first run.
+
+### 🧩 Browser extension
+
+A side panel for Chrome and Edge — select text on any page, right-click, and open it in the right tool. **In review for the Chrome Web Store — coming soon.**
+
+## 🧰 Tools
+
+62 tools across 11 categories, each lazily loaded so you only download the one you open. Click a category to expand it.
+
+<details>
+<summary><b>🔤 Encoding</b> — Base64, Hex, JWT, QR & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | Base64 | Encode and decode, URL-safe variant, full Unicode support |
@@ -39,7 +75,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | JWT | Decode and verify JSON Web Tokens, inspect claims |
 | QR Code | Generate and decode QR codes from text or image |
 
-### Formatting
+</details>
+
+<details>
+<summary><b>📐 Formatting</b> — JSON, SQL, XML, Markdown & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | JSON | Format, minify, sort keys, validate |
@@ -50,7 +90,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | XML | Format and indent XML / HTML markup |
 | Markdown | Preview and convert Markdown to HTML |
 
-### Text
+</details>
+
+<details>
+<summary><b>📝 Text</b> — Case, Regex, Diff & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | Case | Convert between camelCase, snake_case, kebab-case, PascalCase |
@@ -62,7 +106,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | HTML | Strip HTML tags and decode entities to plain text |
 | Cipher | ROT13, Caesar, Atbash, Morse code, and other classic ciphers |
 
-### Converters
+</details>
+
+<details>
+<summary><b>🔄 Converters</b> — CSV, TOML, YAML, timestamps & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | CSV ↔ JSON | Convert between CSV (spreadsheet) and JSON |
@@ -74,7 +122,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | Number Base | Binary, octal, decimal, hexadecimal radix converter |
 | Data Size | Convert between bytes, KB, MB, GB, MiB, GiB |
 
-### Design
+</details>
+
+<details>
+<summary><b>🎨 Design</b> — Colour, Palette, Gradient & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | Color | Pick and convert between hex, RGB, HSL, OKLCH; WCAG contrast |
@@ -86,20 +138,32 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | SVG | Optimise and minify SVG, convert to data URI or JSX |
 | Colour Vision | Simulate colour blindness — deuteranopia, protanopia, tritanopia |
 
-### Media
+</details>
+
+<details>
+<summary><b>🖼️ Media</b> — Image, Favicon, EXIF</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | Image | Convert, compress, and resize images (JPEG, PNG, WebP) |
 | Favicon | Generate every icon size a site needs from one image |
 | EXIF | View and strip GPS and other metadata from photos |
 
-### Network
+</details>
+
+<details>
+<summary><b>🌐 Network</b> — CIDR, DNS</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | CIDR | Subnet calculator — netmask, broadcast, usable IP range |
-| DNS | Look up DNS records (A, MX, TXT, NS and more) — **the one tool that contacts a server** |
+| DNS | Look up DNS records (A, MX, TXT, NS…) — **the one tool that contacts a server** |
 
-### Crypto
+</details>
+
+<details>
+<summary><b>🔐 Crypto</b> — Hash, AES, Keypair, Certificate & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | Hash | SHA-1, SHA-256, SHA-384, SHA-512 and HMAC digests |
@@ -109,7 +173,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | Certificate | Decode X.509 PEM certificates; inspect subject, issuer, SAN |
 | TOTP | Generate time-based one-time passwords for 2FA |
 
-### Generators
+</details>
+
+<details>
+<summary><b>⚙️ Generators</b> — UUID, Password, Mock data & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | UUID | Generate UUID v4, time-ordered UUID v7, and Nano ID |
@@ -117,7 +185,11 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | Lorem Ipsum | Placeholder text — sentences, paragraphs, or word counts |
 | Mock Data | Generate fake test data with seedable randomness |
 
-### Dev
+</details>
+
+<details>
+<summary><b>🧑‍💻 Dev</b> — cURL, Cron, Semver & more</summary><br>
+
 | Tool | What it does |
 | --- | --- |
 | cURL | Convert cURL commands to Python, Go, JavaScript and more |
@@ -127,13 +199,24 @@ internal config into someone else's server. QuiverKit exists so you never have t
 | JSON → Types | Generate TypeScript interfaces from JSON |
 | Reference | HTTP status codes, MIME types, and other lookup tables |
 
-## Languages
+</details>
 
-English, Deutsch, Español, Português, Русский, Türkçe, 日本語, 한국어 and 中文 —
-nine languages, with the structure in place for more. Each language is a single
-JSON file and is downloaded only when selected.
+<details>
+<summary><b>🔎 Detect</b> — identify unknown strings</summary><br>
 
-## Development
+| Tool | What it does |
+| --- | --- |
+| Detect | Paste anything — it guesses the format and jumps you to the right tool |
+
+</details>
+
+## 🌍 Languages
+
+English · Deutsch · Español · Português · Русский · Türkçe · 日本語 · 한국어 · 中文
+
+Nine languages, with the structure in place for more. Each is a single JSON file, downloaded only when selected.
+
+## 🛠️ For developers
 
 ```bash
 npm install
@@ -146,37 +229,28 @@ npm run build          # web (static site)
 npm run build:desktop  # desktop installers for the current OS
 ```
 
-Requires Node 20 or newer. Desktop builds also need the
-[Rust toolchain](https://www.rust-lang.org/tools/install) and Tauri's
-[system dependencies](https://tauri.app/start/prerequisites/).
+Requires Node 20+. Desktop builds also need the [Rust toolchain](https://www.rust-lang.org/tools/install) and Tauri's [system dependencies](https://tauri.app/start/prerequisites/). The published installers are built in CI: push a `v*` tag (or run the **release** workflow by hand) and GitHub Actions builds each platform on its own runner and attaches the packages to a release.
 
-The published Windows and Linux installers are built in CI: push a `v*` tag (or
-run the **release** workflow by hand) and GitHub Actions builds each platform on
-its own runner and attaches the packages to a GitHub release.
-
-## How it is put together
+<details>
+<summary><b>How it's put together</b></summary><br>
 
 ```
 packages/core   Pure TypeScript. Every transformation lives here, with no
                 reference to React or the DOM, so the same logic backs the web,
                 desktop and extension builds alike.
 apps/web        React + Vite. Reads the tool registry and does the rendering.
-apps/desktop    The same UI wrapped in a Tauri window — a native app for
-                Windows and Linux.
+apps/desktop    The same UI wrapped in a Tauri window — Windows and Linux.
 apps/extension  A Chrome/Edge side panel that reuses the web UI.
+packaging/      winget, Scoop and Chrome Web Store manifests and listing copy.
 ```
 
 Two rules keep it that way:
 
-**Core never speaks a human language.** Tools return `Result<T>` values, and
-failures carry an i18n key such as `error.invalidBase64` rather than an English
-sentence. Whoever renders the message translates it.
+- **Core never speaks a human language.** Tools return `Result<T>` values, and failures carry an i18n key such as `error.invalidBase64` rather than an English sentence. Whoever renders the message translates it.
+- **The registry is the single source of truth.** [`apps/web/src/tools/registry.ts`](apps/web/src/tools/registry.ts) lists every tool; the sidebar, search and routes are all generated from it. Adding a tool means one entry and one lazily-loaded component.
 
-**The registry is the single source of truth.** `apps/web/src/tools/registry.ts`
-lists every tool; the sidebar, the search and the routes are all generated from
-it. Adding a tool means adding one entry and one component — each is lazily
-loaded, so a visitor only downloads the tool they opened.
+</details>
 
-## License
+## 📄 License
 
-MIT — see [LICENSE](./LICENSE).
+MIT — see [LICENSE](./LICENSE). Built by [ensar.dev](https://ensar.dev).
