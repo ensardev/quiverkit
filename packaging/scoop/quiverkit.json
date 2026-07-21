@@ -6,7 +6,7 @@
   "architecture": {
     "64bit": {
       "url": "https://github.com/ensardev/quiverkit/releases/download/v0.1.0/QuiverKit_0.1.0_x64-setup.exe#/dl.7z",
-      "hash": "4ed297c42c4d147d1957213c4c43b34d3a5ca6e992b30ab54169860808732f1d"
+      "hash": "65748f54589364f1b5cbad444d48ef022d9c90c3af2f3119512f6472f61f75ed"
     }
   },
   "bin": "QuiverKit.exe",
